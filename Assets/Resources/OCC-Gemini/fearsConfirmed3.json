@@ -1,0 +1,97 @@
+{
+    "duration": 4.8,
+    "emotion": "Fears-Confirmed",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0,
+                0.9,
+                4.8
+            ],
+            "Intensities": [
+                0,
+                60,
+                60
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0,
+                0.9,
+                4.8
+            ],
+            "Intensities": [
+                0,
+                50,
+                50
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0,
+                0.6,
+                4.8
+            ],
+            "Intensities": [
+                0,
+                80,
+                80
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0,
+                1.2,
+                4.8
+            ],
+            "Intensities": [
+                0,
+                50,
+                50
+            ]
+        },
+        {
+            "AU": 24,
+            "Times": [
+                0,
+                1.0,
+                4.8
+            ],
+            "Intensities": [
+                0,
+                60,
+                60
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0,
+                1.5,
+                4.8
+            ],
+            "Intensities": [
+                0,
+                25,
+                25
+            ]
+        },
+        {
+            "AU": 64,
+            "Times": [
+                0,
+                1.5,
+                4.8
+            ],
+            "Intensities": [
+                0,
+                35,
+                35
+            ]
+        }
+    ]
+}

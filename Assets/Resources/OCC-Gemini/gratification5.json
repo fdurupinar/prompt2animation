@@ -1,0 +1,75 @@
+{
+    "duration": 4.5,
+    "emotion": "Gratification",
+    "facial_actions": [
+        {
+            "AU": 6,
+            "Times": [
+                0,
+                1.5,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                70,
+                70
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0,
+                1.0,
+                1.8,
+                4.5
+            ],
+            "Intensities": [
+                60,
+                60,
+                0,
+                0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0,
+                1.2,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                60,
+                60
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0,
+                1.4,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                30,
+                30
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0,
+                2.5,
+                3.2,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                0,
+                15,
+                10
+            ]
+        }
+    ]
+}

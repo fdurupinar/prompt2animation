@@ -1,0 +1,60 @@
+{
+    "duration": 4.5,
+    "emotion": "Liking",
+    "facial_actions": [
+        {
+            "AU": 6,
+            "Times": [
+                0,
+                1.0,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                60,
+                60
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0,
+                0.8,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                50,
+                50
+            ]
+        },
+        {
+            "AU": 43,
+            "Times": [
+                0,
+                1.5,
+                3.5,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                90,
+                90,
+                0
+            ]
+        },
+        {
+            "AU": 55,
+            "Times": [
+                0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                10,
+                10
+            ]
+        }
+    ]
+}

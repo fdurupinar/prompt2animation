@@ -1,0 +1,18 @@
+You are a FACS expert. Generate a facial expression animation JSON file from the following description, considering Ortony, Collins, Clore (OCC) emotions.
+
+Instructions: Output a single JSON object with the following fields:
+1) “duration”: estimated animation duration in seconds
+2) “emotion”: name of the OCC emotion
+3) “facial_actions”: list of facial Action Units and AUs 51 to 64 for head and eye movement. Each AU should be a dictionary with:
+- “AU”: the AU number (e.g., 1, 12, 17, 51, etc.)
+- “Times”: list of key time points (starting at 0, ending
+at duration)
+- “Intensities”: list of values (0–100) matching Times
+Requirements:
+- Match emotional expressivity and timing to the described
+scenario.
+- Do not include any other text outside the JSON object.
+- Use valid JSON syntax with double quotes, arrays, and no
+trailing commas.
+- Ensure all lists are the same length and well-formed.
+

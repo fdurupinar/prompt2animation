@@ -1,0 +1,41 @@
+{
+    "duration": 6.3,
+    "emotion": "Admiration",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [ 0.0, 1.2, 4.9, 6.3 ],
+            "Intensities": [ 0, 44, 26, 0 ]
+        },
+        {
+            "AU": 2,
+            "Times": [ 0.0, 1.5, 4.9, 6.3 ],
+            "Intensities": [ 0, 40, 22, 0 ]
+        },
+        {
+            "AU": 5,
+            "Times": [ 0.0, 1.7, 4.9, 6.3 ],
+            "Intensities": [ 0, 52, 30, 0 ]
+        },
+        {
+            "AU": 6,
+            "Times": [ 0.0, 1.9, 4.9, 6.3 ],
+            "Intensities": [ 0, 58, 34, 0 ]
+        },
+        {
+            "AU": 12,
+            "Times": [ 0.0, 2.1, 4.9, 6.3 ],
+            "Intensities": [ 0, 70, 45, 0 ]
+        },
+        {
+            "AU": 25,
+            "Times": [ 0.0, 2.3, 4.9, 6.3 ],
+            "Intensities": [ 0, 40, 22, 0 ]
+        },
+        {
+            "AU": 54,
+            "Times": [ 0.0, 2.5, 4.9, 6.3 ],
+            "Intensities": [ 0, 30, 16, 0 ]
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "duration": 4.0,
+    "emotion": "Gratitude",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0,
+                1.2,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                55,
+                55
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0,
+                0.9,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                60,
+                60
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0,
+                0.7,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                50,
+                50
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                20,
+                20
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0,
+                2.0,
+                3.0,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                0,
+                15,
+                10
+            ]
+        }
+    ]
+}

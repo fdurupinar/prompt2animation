@@ -1,0 +1,73 @@
+{
+    "duration": 4.0,
+    "emotion": "Gloating",
+    "facial_actions": [
+        {
+            "AU": 4,
+            "Times": [
+                0,
+                0.8,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                40,
+                40
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0,
+                0.6,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                60,
+                60
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                35,
+                35
+            ]
+        },
+        {
+            "AU": 14,
+            "Times": [
+                0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                40,
+                40
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0,
+                1.5,
+                2.5,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                0,
+                10,
+                5
+            ]
+        }
+    ]
+}

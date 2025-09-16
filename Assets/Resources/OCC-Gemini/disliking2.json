@@ -1,0 +1,73 @@
+{
+    "duration": 2.5,
+    "emotion": "Disliking",
+    "facial_actions": [
+        {
+            "AU": 9,
+            "Times": [
+                0,
+                0.3,
+                2.5
+            ],
+            "Intensities": [
+                0,
+                90,
+                70
+            ]
+        },
+        {
+            "AU": 10,
+            "Times": [
+                0,
+                0.2,
+                2.5
+            ],
+            "Intensities": [
+                0,
+                100,
+                80
+            ]
+        },
+        {
+            "AU": 16,
+            "Times": [
+                0,
+                0.3,
+                2.5
+            ],
+            "Intensities": [
+                0,
+                60,
+                50
+            ]
+        },
+        {
+            "AU": 26,
+            "Times": [
+                0,
+                0.4,
+                1.0,
+                2.5
+            ],
+            "Intensities": [
+                0,
+                70,
+                70,
+                40
+            ]
+        },
+        {
+            "AU": 57,
+            "Times": [
+                0,
+                0.5,
+                2.5
+            ],
+            "Intensities": [
+                0,
+                40,
+                30
+            ]
+        }
+    ]
+}

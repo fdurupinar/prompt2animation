@@ -1,0 +1,58 @@
+{
+    "duration": 3.5,
+    "emotion": "Joy",
+    "facial_actions": [
+        {
+            "AU": 6,
+            "Times": [
+                0,
+                0.6,
+                3.5
+            ],
+            "Intensities": [
+                0,
+                90,
+                90
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0,
+                0.5,
+                3.5
+            ],
+            "Intensities": [
+                0,
+                100,
+                100
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0,
+                0.7,
+                3.5
+            ],
+            "Intensities": [
+                0,
+                80,
+                70
+            ]
+        },
+        {
+            "AU": 55,
+            "Times": [
+                0,
+                1.0,
+                3.5
+            ],
+            "Intensities": [
+                0,
+                15,
+                15
+            ]
+        }
+    ]
+}
