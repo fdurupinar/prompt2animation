@@ -1,0 +1,1 @@
+0..21 | % { python .\FACS_csv2json.py cluster$_ 20 .\cluster-aveface-$_.csv }

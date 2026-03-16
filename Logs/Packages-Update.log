@@ -1,0 +1,31 @@
+
+=== Tue Sep 16 11:44:42 2025
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ai.navigation from version 2.0.7 to 2.0.8
+  com.unity.render-pipelines.high-definition from version 17.0.4 to 17.2.0
+  com.unity.timeline from version 1.8.7 to 1.8.9
+  com.unity.visualscripting from version 1.9.6 to 1.9.7
+
+=== Fri Feb 27 13:52:02 2026
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were added:
+  com.unity.modules.adaptiveperformance@1.0.0
+  com.unity.modules.vectorgraphics@1.0.0
+The following packages were updated:
+  com.unity.ai.navigation from version 2.0.8 to 2.0.10
+  com.unity.collab-proxy from version 2.8.2 to 2.11.3
+  com.unity.editorcoroutines from version 1.0.0 to 1.0.1
+  com.unity.ide.rider from version 3.0.36 to 3.0.39
+  com.unity.ide.visualstudio from version 2.0.23 to 2.0.26
+  com.unity.nuget.newtonsoft-json from version 3.2.1 to 3.2.2
+  com.unity.recorder from version 5.1.2 to 5.1.5
+  com.unity.render-pipelines.high-definition from version 17.2.0 to 17.3.0
+  com.unity.timeline from version 1.8.9 to 1.8.10
+  com.unity.visualscripting from version 1.9.7 to 1.9.9

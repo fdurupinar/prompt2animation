@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Questionnaire MTurk</title>
+    <!-- AWS Crowd Elements for MTurk integration -->
+    <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+    <!-- jQuery for easier form validation -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        @keyframes tonext {
+            75% {
+                left: 0;
+            }
+
+            95% {
+                left: 100%;
+            }
+
+            98% {
+                left: 100%;
+            }
+
+            99% {
+                left: 0;
+            }
+        }
+
+        @keyframes tostart {
+            75% {
+                left: 0;
+            }
+
+            95% {
+                left: -300%;
+            }
+
+            98% {
+                left: -300%;
+            }
+
+            99% {
+                left: 0;
+            }
+        }
+
+        @keyframes snap {
+            96% {
+                scroll-snap-align: center;
+            }
+
+            97% {
+                scroll-snap-align: none;
+            }
+
+            99% {
+                scroll-snap-align: none;
+            }
+
+            100% {
+                scroll-snap-align: center;
+            }
+        }
+        :root {
+            --background-color: #f4f7f9;
+            --slide-background: #ffffff;
+            --primary-text-color: #2c3e50;
+            --secondary-text-color: #000000;
+            --accent-color: #3498db;
+            --border-color: #e0e6ed;
+            --shadow-color: rgba(60, 64, 67, 0.15);
+        }
+
+
+        body {
+            max-width: 100rem;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            font-family: 'Lato', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            scrollbar-color: transparent transparent;
+            scrollbar-width: 0px;
+        }
+
+            *::-webkit-scrollbar {
+                width: 0;
+            }
+
+            *::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            *::-webkit-scrollbar-thumb {
+                background: transparent;
+                border: none;
+            }
+
+        * {
+            -ms-overflow-style: none;
+            -webkit-animation-delay: 3600s;
+        }
+
+        ol, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        crowd-slider {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .carousel {
+            position: relative;
+            padding-top: 50%;
+            filter: drop-shadow(0 0 10px #0003);
+            perspective: 100px;
+        }
+
+        .carousel__viewport {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            overflow-x: scroll;
+            counter-reset: item;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+
+        .carousel__slide {
+            position: relative;
+            flex: 0 0 100%;
+            width: 100%;
+            counter-increment: item;
+            -webkit-animation: slide 3600s infinite linear;
+        }
+
+        .carousel__slide--visible {
+            display: block; /* or any style to make it visible */
+        }
+
+        .carousel__slide:nth-child(even) {
+            -webkit-animation-delay: 3600s;
+        }
+
+        .carousel__slide:nth-child(odd) {
+            -webkit-animation-delay: 3600s;
+        }
+
+
+
+        .carousel__snapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            scroll-snap-align: center;
+        }
+
+        .carousel:hover .carousel__snapper,
+        .carousel:focus-within .carousel__snapper {
+            animation-name: none;
+        }
+
+        .carousel__navigation {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+        }
+
+        .carousel__navigation-list,
+        .carousel__navigation-item {
+            display: inline-block;
+        }
+
+        .carousel__navigation-button {
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #333;
+            background-clip: content-box;
+            border: 0.25rem solid transparent;
+            border-radius: 50%;
+            font-size: 0;
+            transition: transform 0.1s;
+        }
+
+        .carousel::before,
+        .carousel::after,
+        .carousel__prev,
+        .carousel__next {
+            position: absolute;
+            top: 0;
+            margin-top: 20%;            
+            width: 3rem;
+            height: 3rem;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            font-size: 0;
+            outline: 0;
+        }
+
+        .carousel::before,
+        .carousel__prev {
+            left: 0rem;
+            /* display: none; */
+        }
+
+        .carousel::after,
+        .carousel__next {
+            right: 0rem;
+        }
+
+        .carousel::before,
+        .carousel::after {
+            content: '';
+            z-index: 1;
+            background-color: #333;
+            background-size: 2rem 2rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: #fff;
+            font-size: 2.5rem;
+            line-height: 4rem;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .carousel::before {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+        }
+
+        .carousel::after {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+        }
+
+        /* Slide Content Layout */
+        .outer-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 1.5rem;
+            height: 100%;
+        }
+
+        .vertical-separator {
+            border-left: solid 1px #D5DBDB;
+            margin: 0 1rem;
+        }
+
+        .left-container, .right-container {
+            flex: 1;
+            padding: 0 1rem;
+        }
+
+        .left-container {
+            max-width: 50%;
+        }
+
+        .right-container {
+            max-height: 800px;
+            overflow-y: auto;
+        }        
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .center {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* container for all option-tiles */
+        .options-grid {
+            display: flex;
+            flex-direction: column; /* Stack options vertically */
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+            margin-right: 1rem;
+        }
+
+            .options-grid input[type="radio"] {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .options-grid label {
+                display: block;
+                cursor: pointer;
+                padding: 0.75rem 1rem;
+                border: 2px solid var(--border-color);
+                border-radius: 8px;
+                text-align: left;
+                transition: all 0.2s ease;
+                user-select: none;
+                color: var(--secondary-text-color);
+            }
+
+                .options-grid label:hover {
+                    border-color: var(--accent-color);
+                    background-color: #f4f7f9;
+                }
+
+            .options-grid input[type="radio"]:checked + label {
+                background-color: var(--accent-color);
+                border-color: var(--accent-color);
+                color: #fff;
+                font-weight: bold;
+    
+       
+    </style>
+</head>
+<body>
+    <crowd-form answer-format="flatten-objects">
+        <h3>Instructions</h3>
+        <div>
+            <ol style="list-style-type: decimal; margin-left: 20px;">
+                <li><b style="background-color: #fcec03;"> Please watch the video carefully, read the prompt and all the three options.</b> The video will loop automatically. </li>
+                <li> Choose the one that best explains why the character might be feeling the way they do in the video.</li>                 
+                <li> You must answer every question before submitting the HIT. </li>
+                <li> Some questions are included to check your attention. These must be answered correctly for your HIT to be approved. </li>
+                </ol>
+        </div>
+        <div id="errorBox"></div>
+        <section class="carousel" aria-label="survey" data-interval="false">
+            <ol id="carouselViewport" class="carousel__viewport">
+            </ol>
+        </section>
+    </crowd-form>
+
+    <script>
+
+
+
+
+        function demographicSlide() {
+            return `
+                    <li id="carousel__slide0" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <div class="outer-container">
+                            <span class="left-container">
+                                <h3>Demographic survey</h3>
+                                <p>Please complete demographics questions before you start the task.</p>
+                                <p>You can find the consent form in the following link:</p>
+                                <p><a href="https://www.cs.umb.edu/~fundad/occ/ConsentForm.pdf" target="_blank">Consent form</a></p>
+                            </span>
+                            <span class="vertical-separator"></span>
+                            <span class="right-container">
+                                <div>
+                                    <p><strong>1. What is your age?</strong></p>
+                                    <input type="range" value="35" name="age" min="18" max="100" id="age" oninput="this.nextElementSibling.value = this.value">
+                                    <output>35</output>
+                                </div>
+                                <div class="options-grid"> 
+                                    <p><strong>2. What is your gender?</strong></p>
+                                    <input type="radio" id="Female" name="gender" value="Female">
+                                    <label for="Female">Female</label>
+                                    <input type="radio" id="Male" name="gender" value="Male">
+                                    <label for="Male">Male</label>
+                                    <input type="radio" id="Other" name="gender" value="Other">
+                                    <label for="Other">Other</label>
+                                    <input type="radio" id="Prefer not to say_1" name="gender" value="Prefer not to say">
+                                    <label for="Prefer not to say_1">Prefer not to say</label>
+                                </div>                             
+                                <div class="options-grid">
+                                    <p><strong>4. What is your race?</strong></p>
+                                    <input type="radio" id="American Indian or Alaska Native" name="race" value="American Indian or Alaska Native">
+                                    <label for="American Indian or Alaska Native">American Indian or Alaska Native</label>
+                                    <input type="radio" id="Asian" name="race" value="Asian">
+                                    <label for="Asian">Asian</label>
+                                    <input type="radio" id="Black or African American" name="race" value="Black or African American">
+                                    <label for="Black or African American">Black or African American</label>
+                                    <input type="radio" id="Native Hawaiian or Other Pacific Islander" name="race" value="Native Hawaiian or Other Pacific Islander">
+                                    <label for="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</label>
+                                    <input type="radio" id="White" name="race" value="White">
+                                    <label for="White">White</label>
+                                    <input type="radio" id="Latin" name="race" value="Latin">
+                                    <label for="Latin">Latino/Latina/Latinx</label>
+                                    <input type="radio" id="Prefer not to say_3" name="race" value="Prefer not to say">
+                                    <label for="Prefer not to say_3">Prefer not to say</label>
+                                </div>
+                            </span>
+                        </div>
+                        <a href="#carousel__slide1" class="carousel__next"></a>
+                    </div>
+                </li>
+            `;
+        }
+
+
+        function attentionQuestionSlide(slideId, promptInd) {
+            var attentionArr = [{
+                "id": "firefighter",
+                "question": "This is an attention check question. To show you are reading carefully, please ignore the video and the other options, and select the option below that describes a firefighter.",
+                "options": [
+                    "An apple is a type of fruit.",
+                    "A firefighter bravely enters a burning building to save the character's trapped pet.",
+                    "Unauthorized cars will be towed from this parking spot."
+                ]
+            },
+                {
+                    "id": "library",
+                    "question": "This is a quality check question. To continue, please read the options below and select the one that mentions a library.",
+                    "options": [
+                        "The ocean is made of saltwater.",                        
+                        "The character reads a letter informing them that their beloved local library is closing permanently.",
+                        "Trees are a vital source of oxygen."
+                    ]
+                },
+                {
+                    "id": "this option",
+                    "question": "For this question, please ignore the video and simply select the option that says 'select this option' in the list.",
+                    "options": [
+                        "The character sees a puppy in a shop window and their face lights up.",
+                        "Select this option.",
+                        "After a turbulent flight, the character feels the plane's wheels touch down safely.",                        
+                    ]
+                },
+                {
+                    "id": "workplace",
+                    "question": "Which of the following scenarios describes something happening at a workplace?",
+                    "options": [
+                        "Spiders are arachnids with eight legs",
+                        "An employee who feared layoffs were coming in their workplace is called into an unscheduled meeting with HR.",
+                        "A standard week has seven days.",                        
+                    ]
+                },
+                {
+                    "id": "paying",
+                    "question": "Based on the video, why is the character feeling this way? Please select the most likely reason below.",
+                    "options": [
+                        "A cherished personal item accidentally falls and shatters.",                        
+                        "For this question, please select this option to show you are paying attention.",
+                        "After a long journey, the character finally reunites with a beloved family member."
+                    ]
+                }
+
+
+            ];
+
+            var qInd = Math.floor(Math.random() * attentionArr.length);
+
+            var attention = attentionArr[qInd];
+
+            var allOptions = attention["options"]
+                .sort(() => 0.5 - Math.random()); 
+                
+
+
+            const optionsGrid =
+                '<div class="options-grid">'
+                + allOptions.map(function (opt, ind) {
+                    var radioId = attention["id"];
+                    var val = "false" + ind;
+                    if (opt.includes(attention["id"]))
+                        val = "correct";
+
+
+                    return ''
+                        + '<div>'
+                        + '<input'
+                        + ' type="radio"'
+                        + ' id="' + radioId + ind + '"'
+                        + ' name="' + radioId + '"'
+                        + ' value="' + val + '"'
+                        + ' required'
+                        + '/>'
+                        + '<label for="' + radioId + ind + '">'
+                        + opt
+                        + '</label>'
+                        + '</div>';
+                }).join('')
+                + '</div>';
+
+            // The full slide HTML
+            var link = "https://www.cs.umb.edu/~fundad/occ/" + "gloating" + promptInd + ".mp4";
+
+            var question_id = "<p>Question " + slideId + " of " + (endInd - startInd + 1) + " </p> ";
+            var prev_slide = '<a href="#carousel__slide' + (slideId - 1) + '" class="carousel__prev">Prev</a>';
+            var next_slide = '<a href="#carousel__slide' + (slideId + 1) + '" class="carousel__next">Next</a>';
+            var carousel_id = '<li id="carousel__slide' + slideId + '" tabindex="0" class="carousel__slide">';
+
+            // put it all together
+            return carousel_id
+                + '<div class="carousel__snapper">'
+                + '<div class="outer-container">'
+
+                + '<div class="left-container">'                
+                + '<video class="carousel-video" width="100%" height="auto" controls loop muted playsinline>'
+                + '<source src="' + link + '" type="video/mp4">'
+
+                + 'Your browser does not support the video tag.'
+                + '</video>'
+                + '</div>'
+
+                + '<div class="vertical-separator"></div>'
+
+                + '<div class="right-container">'
+                + question_id
+                + '<p><strong> '+ attention["question"] + '</strong></p>'
+                + optionsGrid
+                + '</div>'
+
+                + '</div>'
+
+                + '<div class="navigation">'
+                + prev_slide
+                + next_slide
+                + '</div>'
+
+                + '</div>'
+                + '</li>';
+        }
+      
+        function emotionQuestionSlide(slideId, emotion, promptInd) {
+            // Get other emotions to use as distractors
+            
+            const distractors = promptDict
+                .filter(e => e.name !== emotion.name) // Exclude the correct emotion
+                .sort(() => 0.5 - Math.random())       // Shuffle the remaining
+                .slice(0, 2);                          // Take the first 3
+
+
+            //Always choose promptInd for emotion category = query and select a random prompt for others
+
+            // Create the full list of options for this slide (correct answer + 4 distractors)
+            const allOptions = [emotion, ...distractors].sort(() => 0.5 - Math.random()); // Shuffle them again
+
+                        
+            const optionsGrid =
+                '<div class="options-grid">'
+                + allOptions.map(function (opt) {
+                    var radioId = emotion.name + promptInd + " " +  opt.name; //emotion.prompts[promptInd];
+                    var prompt;
+                    if (opt.name == emotion.name)
+                        prompt = opt.prompts[promptInd-1];
+                    else
+                        prompt = opt.prompts[Math.floor(Math.random() * 5)];
+                    
+                    return ''
+                        + '<div>'
+                        + '<input'
+                        + ' type="radio"'
+                        + ' id="' + radioId + '"'
+                        + ' name="' + emotion.name + promptInd + '"'
+                        + ' value="' + radioId + '"'
+                        + ' required'
+                        + '/>'
+                        + '<label for="' + radioId + '">'
+                        + prompt
+                        + '</label>'
+                        + '</div>';
+                }).join('')
+                + '</div>';
+
+            // The full slide HTML
+            var link = "https://www.cs.umb.edu/~fundad/occ/" + emotion.name + promptInd + ".mp4";
+
+            var question_id = "<p>Question " + slideId + " of " + (endInd - startInd + 1) +" </p> ";
+            var prev_slide = '<a href="#carousel__slide' + (slideId - 1) + '" class="carousel__prev">Prev</a>';
+            var next_slide = '<a href="#carousel__slide' + (slideId + 1) + '" class="carousel__next">Next</a>';
+            var carousel_id = '<li id="carousel__slide' + slideId + '" tabindex="0" class="carousel__slide">';
+
+            // put it all together
+            return carousel_id
+                + '<div class="carousel__snapper">'
+                + '<div class="outer-container">'
+
+                + '<div class="left-container">'
+                + '<video class="carousel-video" width="100%" height="auto" controls loop muted playsinline>'
+                
+                + '<source src="' + link + '" type="video/mp4">'
+                + 'Your browser does not support the video tag.'
+                + '</video>'
+                + '</div>'
+
+                + '<div class="vertical-separator"></div>'
+
+                + '<div class="right-container">'
+                + question_id
+                + '<p><strong> Based on the video, why is the character feeling this way? Please select the most likely reason below.</strong></p>'
+                + optionsGrid
+                + '</div>'
+
+                + '</div>'
+
+                + '<div class="navigation">'
+                + prev_slide
+                + next_slide
+                + '</div>'
+
+                + '</div>'
+                + '</li>';
+        }
+        function lastSlide(id) {
+            
+            return '<li id="carousel__slide' + id + '" tabindex="0" class="carousel__slide">' +
+                '<div class="carousel__snapper" style="display:flex; align-items:center; justify-content:center; text-align:center;">' +
+                '<div>' +
+                '<h3>Thank you!</h3>' +
+                '<p>Please make sure that you have completed all the questions and click the "Submit HIT" button below to finish.</p>' +
+                '</div>' +
+                '<a href="#carousel__slide' + (id - 1) + '" class="carousel__prev"></a>' +
+                '</div>' +
+                '</li>';
+        
+        }
+
+        
+
+        
+        
+
+            $(document).ready(function () {
+            promptDict = [
+                {
+                    "name": "gratitude",
+                    "prompts": [
+                        "During a heavy downpour, a complete stranger stops and offers the character their umbrella.",
+                        "After a heavy snowstorm, the character sees that their neighbor has already cleared their entire driveway for them as a surprise.",
+                        "A mentor's crucial advice helps the character succeed on a major project.",
+                        "The character's car breaks down, and another driver stops to help them change the tire.",
+                        "A firefighter bravely enters a burning building to save the character's trapped pet."
+                    ]
+                },
+                {
+                    "name": "pity",
+                    "prompts": [
+                        "The character sees their elderly neighbor, who lives alone, sadly looking at an old photograph.",
+                        "While commuting, the character notices a stray dog, skinny and limping, shivering in the cold rain.",
+                        "The character watches a young, talented athlete get injured during a competition, realizing their dream is likely over.",
+                        "At a cafe, the character overhears a person at the next table get broken up with over the phone.",
+                        "The character is in the audience at a school play and watches a small child on stage freeze, forget their lines, and look out at the audience in panic."
+                    ]
+                },
+                {
+                    "name": "disappointment",
+                    "prompts": [
+                        "The character has been eagerly waiting for a job offer, only to open the mail and find a standard rejection letter.",
+                        "It’s the end of the character’s birthday, and they realize their best friend, who they were hoping to hear from all day, has completely forgotten.",
+                        "The character arrives at a concert they were looking forward to, only to see a sign that it's sold out.",
+                        "After a long week, the character sits down to watch the season finale of their favorite show, but the streaming service is down.",
+                        "Someone who was hoping for a marriage proposal on their anniversary gets a nice but ordinary gift instead."
+                    ]
+                },
+                {
+                    "name": "fearsConfirmed",
+                    "prompts": [
+                        "After worrying about the results of a medical test, the character's name is called by a doctor with a somber look.",
+                        "The character, who was afraid their secret would be revealed, sees it has just become the top story on social media.",
+                        "An employee who feared layoffs were coming is just called into an unscheduled meeting with HR.",
+                        "The character, worried that the strange noise was a burglar, sees the door swing open.",
+                        "A gardener who feared a late frost would kill their plants wakes up to see the garden blackened and withered."
+                    ]
+                },
+                {
+                    "name": "shame",
+                    "prompts": [
+                        "The character realizes they have just sent a private, embarrassing text about a friend to that friend by mistake.",
+                        "During a dinner party, the character tells an exaggerated story to impress the other guests, only to have their partner, who knows the truth, gently but clearly correct them in front of everyone.",
+                        "The character forgets their lines in the middle of a play.",
+                        "The character trips and spills a drink all over a stranger at a formal event.",
+                        "After boasting about their skills, the character fails spectacularly at the task."
+                    ]
+                },
+                {
+                    "name": "reproach",
+                    "prompts": [
+                        "The character witnesses a person being rude and dismissive to a service worker who is clearly trying their best.",
+                        "The character overhears a coworker maliciously spreading a false and hurtful rumor about another member of their team.",
+                        "The character sees someone littering in a beautiful, pristine park.",
+                        "The character watches as someone takes credit for another person's hard work in a meeting.",
+                        "The character learns their neighbor has been neglecting their pet."
+                    ]
+                },
+                {
+                    "name": "anger",
+                    "prompts": [
+                        "The character discovers that a coworker has been stealing their ideas and presenting them as their own.",
+                        "The character discovers their car has been towed from a legal parking spot.",
+                        "A character's flight is cancelled due to a pilot's strike, ruining their vacation plans.",
+                        "The character's landlord unfairly keeps their security deposit after they move out.",
+                        "A software bug deletes hours of the character's unsaved work."
+                    ]
+                },
+                {
+                    "name": "hope",
+                    "prompts": [
+                        "The character is watching the final seconds of a basketball game; their team is down by one point but has the final shot.",
+                        "An author, who has just submitted their first manuscript to a publisher, sees an email from that publisher in their inbox and pauses for a moment, hand hovering over the mouse, before opening it.",
+                        "At a large charity raffle, the character holds their ticket as the announcer reads the winning number. After the first four digits match the character's ticket perfectly, he announcer pauses dramatically before revealing the final digit.",
+                        "The character enters their lottery numbers into the website, waiting for the results to load.",
+                        "The character is at a beautiful outdoor wedding reception. They glance towards the horizon and notice dark clouds gathering, hoping the threatening rain holds off long enough for the celebration to finish."
+                    ]
+                },
+                {
+                    "name": "pride",
+                    "prompts": [
+                        "The character steps back to admire the complex painting they have just put the final brushstroke on.",
+                        "After weeks of training, the character successfully runs their first marathon.",
+                        "The character delivers a well-received presentation to senior leadership.",
+                        "After months of struggling with a difficult piano piece, the character plays it flawlessly from beginning to end for the first time, hitting the final note with triumphant satisfaction.",
+                        "Hours after finding a lost wallet and going to great lengths to return it to its grateful owner, the character sits and reflects on their choice, feeling a quiet, profound sense of their own integrity."
+                    ]
+                },
+                {
+                    "name": "joy",
+                    "prompts": [
+                        "On a busy day, the character walks into their favorite bustling coffee shop and finds their perfect, quiet corner table is unexpectedly empty and waiting for them.",
+                        "After a long journey, the character finally reunites with a beloved family member.",
+                        "On the first day of a beach vacation, after a long, hot journey, the character kicks off their shoes and runs into the cool ocean surf, letting out a spontaneous laugh of pure relief and happiness.",
+                        "The character is working from home when their beloved, normally sleepy old dog suddenly gets a burst of energy and starts playfully chasing its tail.",
+                        "After a long, gray winter, the character steps outside and feels the first genuinely warm, sunny spring air on their skin, and sees the first buds on the trees."
+                    ]
+                },
+                {
+                    "name": "remorse",
+                    "prompts": [
+                        "The character’s careless gossip has just caused a painful breakup between two of their closest friends.",
+                        "In a moment of anger, the character says something deeply hurtful to a loved one and immediately regrets it.",
+                        "The character realizes they have made a critical error in a report that has already been sent to the entire company.",
+                        "After forgetting a friend's birthday, the character learns their friend was very hurt.",
+                        "The character accidentally breaks a cherished family heirloom while being careless."
+                    ]
+                },
+                {
+                    "name": "fear",
+                    "prompts": [
+                        "While home alone at night, the character hears the floorboards creaking slowly upstairs.",
+                        "The character is a passenger in a car when it suddenly starts to skid on an icy road.",
+                        "While swimming at the beach, the character sees a dark fin moving in the water nearby.",
+                        "The character receives a text from a loved one that just says \"We need to talk.\"",
+                        "While walking past a store window late at night, the character sees one of the mannequins slowly turn its head to look directly at them."
+                    ]
+                },
+                {
+                    "name": "gloating",
+                    "prompts": [
+                        "The character sees that the driver who just cut them off in traffic has been pulled over by a police officer.",
+                        "The character learns that an arrogant rival who bragged constantly has just failed their exam spectacularly.",
+                        "A political candidate watches their opponent, who ran a nasty campaign, give a concession speech.",
+                        "The character sees a person who was rude to them earlier trip over their own feet.",
+                        "The character discovers that a company known for its bad practices has just had a major financial setback."
+                    ]
+                },
+                {
+                    "name": "happyfor",
+                    "prompts": [
+                        "The character's best friend, who has been struggling, calls to announce they just got their dream job.",
+                        "The character cheers as their sibling crosses the finish line of a race.",
+                        "The character feels a swell of joy as their mentee wins a major award.",
+                        "A parent sees their child, who has struggled all year with math, proudly show them a report card with an 'A' in the subject.",
+                        "A senior manager watches their nervous junior colleague, whom they mentored, flawlessly deliver their first major presentation to the board."
+                    ]
+                },
+                {
+                    "name": "gratification",
+                    "prompts": [
+                        "A gardener sees the first flower bloom on a plant they have been carefully nurturing.",
+                        "The character receives an unexpected and significant promotion at work.",
+                        "The character watches their partner open a gift they knew they would love.",
+                        "After hours of frustrating work trying to repair a broken computer, the character tries one last fix, and the machine suddenly chimes to life, booting up perfectly.",
+                        "An amateur baker, holding their breath after attempting a notoriously difficult soufflé recipe for the first time, opens the oven to see it has risen perfectly."
+                    ]
+                },
+                {
+                    "name": "disliking",
+                    "prompts": [
+                        "The character opens the refrigerator and recoils from the overwhelming smell of spoiled food.",
+                        "The character takes a sip of milk, only to realize from the sour taste that it has gone bad.",
+                        "The character hears the sound of nails scratching on a chalkboard.",
+                        "While window shopping, the character's eyes land on a mannequin wearing a gaudy, mismatched, and brightly-colored outfit that they find utterly hideous..",
+                        "The character touches a surface that is unexpectedly slimy."
+                    ]
+                },
+                {
+                    "name": "resentment",
+                    "prompts": [
+                        "The character, after years of dedicated work, learns that the new, high-paying senior director position has been given to the boss's famously incompetent son.",
+                        "The character learns that a lazy coworker, who constantly takes credit for other people's work, has just been given the promotion the character was working towards.",
+                        "While waiting in line to buy a coffee, the character watches an obnoxiously loud and rude person buy a single lottery ticket and win $500",
+                        "The character, an honest athlete, sees their biggest rival—who is widely suspected of using performance-enhancing drugs—being awarded the gold medal.",
+                        "The character discovers that a former classmate who bullied them throughout high school has just been featured in a magazine article celebrating their 'effortless success'."
+                    ]
+                },
+                {
+                    "name": "liking",
+                    "prompts": [
+                        "The character takes the first bite of a dessert that looks and tastes absolutely heavenly.",
+                        "After a long day, the character steps out onto a balcony and is captivated by the beautiful, vibrant colors of the sunset over the ocean.",
+                        "The character listens to a piece of music that they find incredibly beautiful and moving.",
+                        "The character sees a puppy in a shop window and their face lights up.",
+                        "The character puts on a new sweater and loves how soft and comfortable it feels."
+                    ]
+                },
+                {
+                    "name": "admiration",
+                    "prompts": [
+                        "The character watches their friend, who has severe stage fright, deliver a powerful and confident speech.",
+                        "The character is in the audience as a musician flawlessly performs a stunningly difficult piece of music.",
+                        "The character sees a firefighter bravely enter a burning building to save someone.",
+                        "The character listens as a colleague elegantly and calmly handles a very difficult client.",
+                        "The character observes a master craftsperson at work, noting their incredible skill and precision."
+                    ]
+                },
+                {
+                    "name": "satisfaction",
+                    "prompts": [
+                        "After hoping their team would win, the character watches as the final shot goes in at the buzzer.",
+                        "A student who hoped to get an A on a difficult exam sees their grade has been posted, and it's an A+.",
+                        "The character, who was hoping to catch a rare bird on camera, finally gets the perfect shot after hours of waiting.",
+                        "A nervous chef watches a food critic take a bite of their signature dish and then smile with approval.",
+                        "The character's carefully constructed code compiles and runs perfectly on the first try."
+                    ]
+                },
+                {
+                    "name": "distress",
+                    "prompts": [
+                        "The character reads a letter informing them that their beloved local library is closing permanently.",
+                        "The character is watching the evening news and sees a report about a devastating natural disaster in another part of the world.",
+                        "On the last evening of a perfect vacation, the character watches the final sunset, feeling a wave of sadness that this wonderful time is over and they must return to their normal routine tomorrow.",
+                        "A cherished personal item accidentally falls and shatters.",
+                        "The character learns that a close friend is moving far away."
+                    ]
+                },
+                {
+                    "name": "relief",
+                    "prompts": [
+                        "The character, who was terrified of a public speaking engagement, has just been told that the event is cancelled.",
+                        "After frantically searching, the character finds their misplaced wallet in their other jacket pocket.",
+                        "A character who was worried about a strange noise from their car is told by the mechanic it was just a loose cap.",
+                        "After a turbulent flight, the character feels the wheels of the plane touch down safely on the runway.",
+                        "A character who feared they had offended a friend receives a cheerful text from them, business as usual."
+                    ]
+                }
+            ]
+
+
+
+
+
+
+
+
+                startInd = 0;//${ startInd };
+            endInd = 7;//${ endInd };
+                promptInd = 1;//${promptInd};
+
+            hitPrompts = promptDict.slice(startInd, endInd);
+
+
+            console.log(hitPrompts);
+
+            const carouselViewport = document.getElementById('carouselViewport');
+            let slidesHTML = '';
+
+
+            slidesHTML += demographicSlide();
+               
+
+            var attentionInd = Math.floor(Math.random() * hitPrompts.length);
+            // Add a slide for each emotion category in the HIT
+            var slideId = 1   // Start from slide 1
+            hitPrompts.forEach((emotion, ind) => {
+                if (ind == attentionInd) {
+                    slidesHTML += attentionQuestionSlide(slideId, promptInd);
+                    slideId += 1;
+                }
+
+                slidesHTML += emotionQuestionSlide(slideId, emotion, promptInd);
+                slideId += 1;
+                
+            });
+
+          
+            //Thank you slide            
+            slidesHTML += lastSlide(slideId);
+
+            // Inject the generated HTML into the DOM
+            carouselViewport.innerHTML = slidesHTML;
+
+            // --- NEW: AUTOPLAY VIDEO LOGIC ---
+            const slides = document.querySelectorAll('.carousel__slide');
+
+            const observerOptions = {
+                root: carouselViewport, // The scroll container
+                rootMargin: '0px',
+                threshold: 0.8 // Trigger when 80% of the slide is visible
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    const video = entry.target.querySelector('.carousel-video');
+                    if (!video) return; // Skip if there's no video in the slide
+
+                    if (entry.isIntersecting) {
+                        // Slide has come into view
+                        // Set a timeout to play the video after 1 second
+                        video.playTimeout = setTimeout(() => {
+                            const playPromise = video.play();
+                            if (playPromise !== undefined) {
+                                playPromise.catch(error => {
+                                    console.error("Autoplay was prevented:", error);
+                                });
+                            }
+                        }, 800); // 0.8-seconds delay
+                    } else {
+                        // Slide has gone out of view
+                        // Clear any pending play command
+                        clearTimeout(video.playTimeout);
+                        video.pause();
+                        video.currentTime = 0; // Reset video to the beginning
+                    }
+                });
+            };
+
+            const carouselObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+            slides.forEach(slide => {
+                carouselObserver.observe(slide);
+            });
+            // --- END OF NEW LOGIC ---
+
+
+            // --- FORM VALIDATION ON SUBMIT -
+            document.querySelector('crowd-form').onsubmit = function (e) {
+                const errorBox = document.getElementById('errorBox');
+                errorBox.innerHTML = ''; // Clear previous errors
+                let allAnswered = true;
+
+                // Check demographic questions
+                if (!$("input[name='gender']:checked").val() || !$("input[name='race']:checked").val()) {
+                    allAnswered = false;
+                }
+
+
+                // Check if one radio is selected for each emotion category
+                for (const emotion of hitPrompts) {
+                    if (!$("input[name=" + emotion.name + promptInd +"]:checked").val()) {
+                        allAnswered = false;
+                        break;
+                    }
+                }
+
+                if (!allAnswered) {
+                    e.preventDefault(); // Prevent submission
+                    errorBox.innerHTML = '<crowd-alert type="error" dismissible>You must provide an answer for each slide including the demographic questions. Please check your answers and re-submit.</crowd-alert>';
+                    errorBox.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+        });</script>
+</body>
+</html>

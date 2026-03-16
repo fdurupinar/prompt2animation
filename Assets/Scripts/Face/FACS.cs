@@ -88,7 +88,7 @@ public class FACS : MonoBehaviour
     private SkinnedMeshRenderer _meshRendererTongue;
     public int ShapeKeyCntBody, ShapeKeyCntTongue;
 
-    //public TMP_InputField SpeechBubble;
+    
 
     public Text SpeechBubble;
 
@@ -99,11 +99,11 @@ public class FACS : MonoBehaviour
     public string Speech{
         set {
             _speech = value;
-            
+            SpeechBubble.text = _speech;
 
         }
-        get {
-            return _speech;
+        get {        
+            return SpeechBubble.text;
         }
     }
     private string _utterance;
@@ -222,6 +222,8 @@ public class FACS : MonoBehaviour
 
         _eyesRotInit[0] = _eyesRot[0] = Eyes[0].localRotation;
         _eyesRotInit[1] = _eyesRot[1] = Eyes[1].localRotation;
+        
+        _audioSource = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start() {
@@ -835,6 +837,7 @@ public class FACS : MonoBehaviour
 
     void Speak(string voice, int rate,  string text) {
         
+            text = "Wow, what a beautiful painting.";
         string cmdArgs = string.Format(" -v {0} -r {1} \"{2}\"", voice, rate, text.Replace("\"", ","));
         UnityEngine.Debug.Log(cmdArgs);
 
@@ -879,6 +882,9 @@ public class FACS : MonoBehaviour
 
         if(VisemesOn)
             AnimateAllVisemes();
+            
+        if(IsSpeechEnabled)
+            Speak(Voice, Wpm, Speech);
 
     }
 
@@ -890,7 +896,6 @@ public class FACS : MonoBehaviour
         
         (AUList, VisemeList, Utterance, Speech, _personality, Duration) = Parsers.ParseJson(response);
 
-        
         
         //UnityEngine.Debug.Log("response received");
         PlayAnimation();

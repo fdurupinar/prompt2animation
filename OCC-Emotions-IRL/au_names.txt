@@ -1,0 +1,47 @@
+1. Inner Brow Raiser
+2. Outer Brow Raiser
+4. Brow Lowerer
+5. Upper Lid Raiser
+6. Cheek Raiser
+7. Eyelid Tightener
+9. Nose Wrinkler
+10. Uppoer Lip Raiser
+11. Furrow Deeper
+12. Lip Corner Puller
+13. Sharp Lip Puller
+14. Dimpler
+15. Lip Corner Depressor
+16. Lower Lip Depressor
+17. Chin Raiser
+18. Lip Pucker
+20. Lip Stretcher
+22. Lip Funneler
+24. Lip Pressor
+25. Lip Parting
+26. Jaw Open
+27. Jaw Lowering
+28. Lip Sucks
+29. Jaw Thrust
+30. Jaw Sideways
+31. Jaw Clencher
+32. Bite
+33. Blow
+34. Puff
+35. Suck
+36. Bulge
+37. Lip Wipe
+38. Nostril Dilator
+43. Close eyes
+45. Blink
+51. Head Left
+52. Head Right
+53. Head Up
+54. Head Down
+55. Head Tilt Left
+56. Head Tilt Right
+57. Head Front
+58. Head Back
+61. Eyes Left
+62. Eyes Right
+63. Eyes Up
+64. Eyes Down

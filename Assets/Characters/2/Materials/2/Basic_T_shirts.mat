@@ -211,7 +211,7 @@ Material:
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0.1452514
     - _NormalMapSpace: 0
-    - _NormalScale: 1
+    - _NormalScale: 0.33
     - _ObjectSpaceUVMapping: 0
     - _ObjectSpaceUVMappingEmissive: 0
     - _OpaqueCullMode: 2

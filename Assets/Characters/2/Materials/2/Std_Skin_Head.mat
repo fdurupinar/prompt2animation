@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Std_Skin_Head
-  m_Shader: {fileID: -6465566751694194690, guid: b95ae4633e90900488df70fccd9bce6f,
+  m_Shader: {fileID: -6465566751694194690, guid: e4b1192022fa52046868c000971f662c,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -18,8 +18,8 @@ Material:
   - _DISABLE_SSR_TRANSPARENT
   - _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
   - _MATERIAL_FEATURE_TRANSMISSION
+  m_InvalidKeywords:
   - _TESSELLATION_PHONG
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -180,7 +180,7 @@ Material:
     m_Floats:
     - BOOLEAN_IS_HEAD: 1
     - BOOLEAN_USE_WRINKLE: 1
-    - _AOStrength: 0.555
+    - _AOStrength: 0.565
     - _AScatterScale: 1
     - _ASmoothnessMod: 0.574
     - _AddPrecomputedVelocity: 0
@@ -218,14 +218,14 @@ Material:
     - _LipsCavityAO: 2.5
     - _MaterialID: 0
     - _MaterialTypeMask: 1
-    - _MicroNormalStrength: 0.684
-    - _MicroNormalTiling: 23.6
+    - _MicroNormalStrength: 0.24
+    - _MicroNormalTiling: 5
     - _MicroSmoothnessMod: -0.2
     - _MouthCavityAO: 2.5
     - _NeckScatterScale: 1
     - _NeckSmoothnessMod: 0
     - _NormalBlendStrength: 0.065
-    - _NormalStrength: 1.153
+    - _NormalStrength: 0.062
     - _NostrilCavityAO: 2.5
     - _OpaqueCullMode: 2
     - _PerPixelSorting: 0
@@ -237,11 +237,11 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 1
-    - _Smoothness2: 0.25
-    - _SmoothnessMax: 0.467
-    - _SmoothnessMin: 0.172
-    - _SmoothnessMix: 0.314
-    - _SmoothnessPower: 0.855
+    - _Smoothness2: 0.247
+    - _SmoothnessMax: 0.146
+    - _SmoothnessMin: 0.331
+    - _SmoothnessMix: 0.282
+    - _SmoothnessPower: 1.016
     - _SpecularMaskMax_1: 0.6
     - _SpecularMaskMin_1: 0.4
     - _SpecularMaskPower_1: 1
@@ -256,7 +256,7 @@ Material:
     - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 15
     - _StencilWriteMaskMV: 41
-    - _SubsurfaceScale: 0.574
+    - _SubsurfaceScale: 0.626
     - _SupportDecals: 1
     - _SurfaceType: 0
     - _TessellationBackFaceCullEpsilon: -0.425
