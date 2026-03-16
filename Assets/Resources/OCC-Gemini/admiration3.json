@@ -1,0 +1,97 @@
+{
+    "duration": 5.5,
+    "emotion": "Admiration",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0,
+                1.0,
+                5.5
+            ],
+            "Intensities": [
+                0,
+                60,
+                60
+            ]
+        },
+        {
+            "AU": 2,
+            "Times": [
+                0,
+                1.0,
+                5.5
+            ],
+            "Intensities": [
+                0,
+                50,
+                50
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0,
+                1.2,
+                5.5
+            ],
+            "Intensities": [
+                0,
+                30,
+                30
+            ]
+        },
+        {
+            "AU": 5,
+            "Times": [
+                0,
+                0.8,
+                5.5
+            ],
+            "Intensities": [
+                0,
+                70,
+                70
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0,
+                1.2,
+                5.5
+            ],
+            "Intensities": [
+                0,
+                50,
+                50
+            ]
+        },
+        {
+            "AU": 26,
+            "Times": [
+                0,
+                0.9,
+                5.5
+            ],
+            "Intensities": [
+                0,
+                40,
+                40
+            ]
+        },
+        {
+            "AU": 58,
+            "Times": [
+                0,
+                1.5,
+                5.5
+            ],
+            "Intensities": [
+                0,
+                20,
+                20
+            ]
+        }
+    ]
+}

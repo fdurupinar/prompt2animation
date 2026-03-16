@@ -1,0 +1,84 @@
+{
+    "duration": 20,
+    "emotion": "Coping-NoControl",
+    "facial_actions": [
+        {
+            "AU": 4,
+            "Times": [
+                0,
+                2.0,
+                20
+            ],
+            "Intensities": [
+                0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0,
+                2.0,
+                20
+            ],
+            "Intensities": [
+                0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0,
+                2.0,
+                20
+            ],
+            "Intensities": [
+                0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 26,
+            "Times": [
+                0,
+                2.0,
+                20
+            ],
+            "Intensities": [
+                0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 41,
+            "Times": [
+                0,
+                2.0,
+                20
+            ],
+            "Intensities": [
+                0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 43,
+            "Times": [
+                0,
+                2.0,
+                20
+            ],
+            "Intensities": [
+                0,
+                80.0,
+                80.0
+            ]
+        }
+    ]
+}

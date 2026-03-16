@@ -1,0 +1,71 @@
+{
+    "duration": 4.5,
+    "emotion": "Hope",
+    "facial_actions": [
+        {
+            "AU": 5,
+            "Times": [
+                0,
+                1.5,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                25,
+                25
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                35,
+                35
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0,
+                2.2,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                15,
+                15
+            ]
+        },
+        {
+            "AU": 53,
+            "Times": [
+                0,
+                1.8,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                20,
+                20
+            ]
+        },
+        {
+            "AU": 63,
+            "Times": [
+                0,
+                1.8,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                30,
+                30
+            ]
+        }
+    ]
+}

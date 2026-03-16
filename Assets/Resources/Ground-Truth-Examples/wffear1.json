@@ -1,0 +1,193 @@
+{
+    "duration": 2.0,
+    "emotion": "fear",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                40.800000000000004
+            ]
+        },
+        {
+            "AU": 2,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                41.6
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                21.400000000000002
+            ]
+        },
+        {
+            "AU": 5,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                43.0
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                0.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                0.0
+            ]
+        },
+        {
+            "AU": 9,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                0.0
+            ]
+        },
+        {
+            "AU": 10,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                0.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                0.0
+            ]
+        },
+        {
+            "AU": 14,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                0.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                17.8
+            ]
+        },
+        {
+            "AU": 17,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                0.0
+            ]
+        },
+        {
+            "AU": 20,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                34.8
+            ]
+        },
+        {
+            "AU": 23,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                0.0
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                26.0
+            ]
+        },
+        {
+            "AU": 26,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                16.799999999999997
+            ]
+        },
+        {
+            "AU": 45,
+            "Times": [
+                0,
+                2.0
+            ],
+            "Intensities": [
+                0,
+                0.0
+            ]
+        }
+    ]
+}

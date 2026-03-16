@@ -1,0 +1,84 @@
+{
+    "duration": 4.5,
+    "emotion": "Disappointment",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0,
+                1.2,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                60,
+                60
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0,
+                1.2,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                50,
+                50
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0,
+                1.5,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                70,
+                70
+            ]
+        },
+        {
+            "AU": 17,
+            "Times": [
+                0,
+                1.8,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                30,
+                30
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                40,
+                40
+            ]
+        },
+        {
+            "AU": 64,
+            "Times": [
+                0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0,
+                50,
+                50
+            ]
+        }
+    ]
+}

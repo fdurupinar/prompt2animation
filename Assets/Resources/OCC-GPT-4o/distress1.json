@@ -1,0 +1,36 @@
+{
+    "duration": 6.3,
+    "emotion": "Distress",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [ 0.0, 1.2, 4.8, 6.3 ],
+            "Intensities": [ 0, 36, 22, 0 ]
+        },
+        {
+            "AU": 4,
+            "Times": [ 0.0, 1.4, 4.8, 6.3 ],
+            "Intensities": [ 0, 62, 38, 0 ]
+        },
+        {
+            "AU": 15,
+            "Times": [ 0.0, 1.6, 4.8, 6.3 ],
+            "Intensities": [ 0, 48, 28, 0 ]
+        },
+        {
+            "AU": 17,
+            "Times": [ 0.0, 1.8, 4.8, 6.3 ],
+            "Intensities": [ 0, 42, 24, 0 ]
+        },
+        {
+            "AU": 23,
+            "Times": [ 0.0, 2.0, 4.8, 6.3 ],
+            "Intensities": [ 0, 30, 16, 0 ]
+        },
+        {
+            "AU": 54,
+            "Times": [ 0.0, 2.2, 4.8, 6.3 ],
+            "Intensities": [ 0, 26, 14, 0 ]
+        }
+    ]
+}

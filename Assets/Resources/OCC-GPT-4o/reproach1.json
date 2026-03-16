@@ -1,0 +1,36 @@
+{
+    "duration": 5.3,
+    "emotion": "Reproach",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [ 0.0, 1.2, 4.0, 5.3 ],
+            "Intensities": [ 0, 40, 25, 0 ]
+        },
+        {
+            "AU": 4,
+            "Times": [ 0.0, 1.8, 4.0, 5.3 ],
+            "Intensities": [ 0, 55, 35, 0 ]
+        },
+        {
+            "AU": 7,
+            "Times": [ 0.0, 2.2, 4.0, 5.3 ],
+            "Intensities": [ 0, 45, 30, 0 ]
+        },
+        {
+            "AU": 9,
+            "Times": [ 0.0, 2.5, 4.0, 5.3 ],
+            "Intensities": [ 0, 40, 20, 0 ]
+        },
+        {
+            "AU": 23,
+            "Times": [ 0.0, 2.8, 4.0, 5.3 ],
+            "Intensities": [ 0, 35, 20, 0 ]
+        },
+        {
+            "AU": 64,
+            "Times": [ 0.0, 2.0, 4.0, 5.3 ],
+            "Intensities": [ 0, 30, 15, 0 ]
+        }
+    ]
+}

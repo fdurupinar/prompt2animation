@@ -1,0 +1,71 @@
+{
+    "duration": 4.0,
+    "emotion": "Resentment",
+    "facial_actions": [
+        {
+            "AU": 4,
+            "Times": [
+                0,
+                0.5,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                90,
+                90
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0,
+                0.5,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                85,
+                85
+            ]
+        },
+        {
+            "AU": 14,
+            "Times": [
+                0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                40,
+                40
+            ]
+        },
+        {
+            "AU": 23,
+            "Times": [
+                0,
+                0.8,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                70,
+                70
+            ]
+        },
+        {
+            "AU": 58,
+            "Times": [
+                0,
+                1.5,
+                4.0
+            ],
+            "Intensities": [
+                0,
+                20,
+                20
+            ]
+        }
+    ]
+}

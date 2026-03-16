@@ -1,0 +1,84 @@
+{
+    "duration": 3.2,
+    "emotion": "Liking",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0,
+                0.3,
+                3.2
+            ],
+            "Intensities": [
+                0,
+                40,
+                30
+            ]
+        },
+        {
+            "AU": 2,
+            "Times": [
+                0,
+                0.3,
+                3.2
+            ],
+            "Intensities": [
+                0,
+                40,
+                30
+            ]
+        },
+        {
+            "AU": 5,
+            "Times": [
+                0,
+                0.2,
+                3.2
+            ],
+            "Intensities": [
+                0,
+                30,
+                20
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0,
+                0.4,
+                3.2
+            ],
+            "Intensities": [
+                0,
+                80,
+                70
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0,
+                0.3,
+                3.2
+            ],
+            "Intensities": [
+                0,
+                90,
+                80
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0,
+                0.4,
+                3.2
+            ],
+            "Intensities": [
+                0,
+                60,
+                50
+            ]
+        }
+    ]
+}

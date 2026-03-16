@@ -1,0 +1,84 @@
+{
+    "duration": 3.8,
+    "emotion": "Happy-for",
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0,
+                1.2,
+                3.8
+            ],
+            "Intensities": [
+                0,
+                50,
+                50
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0,
+                0.8,
+                3.8
+            ],
+            "Intensities": [
+                0,
+                90,
+                85
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0,
+                1.0,
+                3.8
+            ],
+            "Intensities": [
+                0,
+                40,
+                40
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0,
+                0.6,
+                3.8
+            ],
+            "Intensities": [
+                0,
+                100,
+                90
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0,
+                0.7,
+                3.8
+            ],
+            "Intensities": [
+                0,
+                70,
+                60
+            ]
+        },
+        {
+            "AU": 53,
+            "Times": [
+                0,
+                1.5,
+                3.8
+            ],
+            "Intensities": [
+                0,
+                15,
+                15
+            ]
+        }
+    ]
+}
