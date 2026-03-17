@@ -1,0 +1,42 @@
+{
+  "duration": 6.0,
+  "emotion": "Happy-For",
+  "utterance": "I am just so incredibly happy for them. No one in this room worked harder or deserved this more.",
+  "facial_actions": [
+    {
+      "AU": 6,
+      "Times": [0, 0.8, 6.0],
+      "Intensities": [0, 85, 85]
+    },
+    {
+      "AU": 12,
+      "Times": [0, 0.6, 6.0],
+      "Intensities": [0, 95, 95]
+    },
+    {
+      "AU": 5,
+      "Times": [0, 0.8, 6.0],
+      "Intensities": [0, 30, 30]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.5, 1.2, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.0],
+      "Intensities": [0, 60, 20, 70, 15, 65, 10, 50, 10, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.5, 1.2, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.0],
+      "Intensities": [0, 40, 10, 50, 10, 45, 5, 35, 5, 0]
+    },
+    {
+      "AU": 51,
+      "Times": [0, 1.2, 6.0],
+      "Intensities": [0, 20, 20]
+    },
+    {
+      "AU": 61,
+      "Times": [0, 1.2, 6.0],
+      "Intensities": [0, 30, 30]
+    }
+  ]
+}

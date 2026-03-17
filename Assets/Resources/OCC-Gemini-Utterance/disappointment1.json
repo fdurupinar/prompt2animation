@@ -1,0 +1,42 @@
+{
+  "duration": 6.2,
+  "emotion": "Disappointment",
+  "utterance": "I really thought this was it. I did everything I was supposed to, and it still wasn't enough.",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [0, 0.8, 6.2],
+      "Intensities": [0, 65, 65]
+    },
+    {
+      "AU": 15,
+      "Times": [0, 1.2, 6.2],
+      "Intensities": [0, 55, 55]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.6, 1.5, 2.5, 3.5, 4.5, 5.5, 6.2],
+      "Intensities": [0, 30, 5, 35, 10, 25, 5, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.6, 1.5, 2.5, 3.5, 4.5, 5.5, 6.2],
+      "Intensities": [0, 20, 0, 25, 5, 15, 0, 0]
+    },
+    {
+      "AU": 43,
+      "Times": [0, 1.0, 2.5, 6.2],
+      "Intensities": [0, 80, 0, 0]
+    },
+    {
+      "AU": 54,
+      "Times": [0, 1.8, 6.2],
+      "Intensities": [0, 45, 45]
+    },
+    {
+      "AU": 64,
+      "Times": [0, 1.5, 6.2],
+      "Intensities": [0, 60, 60]
+    }
+  ]
+}

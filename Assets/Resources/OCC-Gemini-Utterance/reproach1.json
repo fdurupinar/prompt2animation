@@ -1,0 +1,42 @@
+{
+  "duration": 6.5,
+  "emotion": "Reproach",
+  "utterance": "I see you decided that cleaning up after yourself was optional again. This is exactly why the team finds it so difficult to work with you.",
+  "facial_actions": [
+    {
+      "AU": 4,
+      "Times": [0, 0.8, 6.5],
+      "Intensities": [0, 75, 75]
+    },
+    {
+      "AU": 7,
+      "Times": [0, 0.8, 6.5],
+      "Intensities": [0, 60, 60]
+    },
+    {
+      "AU": 10,
+      "Times": [0, 1.2, 6.5],
+      "Intensities": [0, 55, 55]
+    },
+    {
+      "AU": 14,
+      "Times": [0, 1.2, 6.5],
+      "Intensities": [0, 65, 65]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.4, 1.0, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.5],
+      "Intensities": [0, 45, 5, 55, 10, 50, 5, 40, 5, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.4, 1.0, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.5],
+      "Intensities": [0, 30, 0, 40, 5, 35, 0, 25, 0, 0]
+    },
+    {
+      "AU": 58,
+      "Times": [0, 1.0, 6.5],
+      "Intensities": [0, 25, 25]
+    }
+  ]
+}

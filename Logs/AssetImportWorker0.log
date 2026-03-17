@@ -1992,3 +1992,11 @@ Memory consumption went from 253.6 MB to 251.3 MB.
 Total: 118.893250 ms (FindLiveObjects: 12.732833 ms CreateObjectMapping: 2.410750 ms MarkObjects: 86.893000 ms  DeleteObjects: 16.855291 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 1402.485275 seconds.
+  path: Assets/out.wav
+  artifactKey: Guid(5d8793f307b85482e83c7db97571475a)
+Start importing Assets/out.wav using Guid(5d8793f307b85482e83c7db97571475a) (AudioImporter) -> (artifact id: '8de7dfc3199338e061b97121d1af2664') in 0.195797667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+

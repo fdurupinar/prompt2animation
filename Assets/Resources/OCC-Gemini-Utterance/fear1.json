@@ -1,0 +1,52 @@
+{
+  "duration": 6.5,
+  "emotion": "Fear",
+  "utterance": "Please don't be a bear. I have no way to defend myself, please just let it be the wind.",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [0, 0.8, 6.5],
+      "Intensities": [0, 80, 80]
+    },
+    {
+      "AU": 2,
+      "Times": [0, 0.8, 6.5],
+      "Intensities": [0, 60, 60]
+    },
+    {
+      "AU": 4,
+      "Times": [0, 1.0, 6.5],
+      "Intensities": [0, 70, 70]
+    },
+    {
+      "AU": 5,
+      "Times": [0, 0.5, 6.5],
+      "Intensities": [0, 90, 90]
+    },
+    {
+      "AU": 20,
+      "Times": [0, 1.2, 6.5],
+      "Intensities": [0, 60, 60]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.5, 1.2, 2.0, 2.8, 3.5, 4.3, 5.0, 5.8, 6.5],
+      "Intensities": [0, 30, 5, 35, 10, 30, 5, 25, 5, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.5, 1.2, 2.0, 2.8, 3.5, 4.3, 5.0, 5.8, 6.5],
+      "Intensities": [0, 20, 0, 25, 5, 20, 0, 15, 0, 0]
+    },
+    {
+      "AU": 54,
+      "Times": [0, 1.5, 6.5],
+      "Intensities": [0, 25, 25]
+    },
+    {
+      "AU": 57,
+      "Times": [0, 1.5, 6.5],
+      "Intensities": [0, 30, 30]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "duration": 6.2,
+  "emotion": "Anger",
+  "utterance": "I can't believe you had the nerve to do that. That was my research, my data, and you just stole it like it was nothing.",
+  "facial_actions": [
+    {
+      "AU": 4,
+      "Times": [0, 0.6, 6.2],
+      "Intensities": [0, 100, 100]
+    },
+    {
+      "AU": 7,
+      "Times": [0, 0.6, 6.2],
+      "Intensities": [0, 85, 85]
+    },
+    {
+      "AU": 10,
+      "Times": [0, 1.2, 6.2],
+      "Intensities": [0, 50, 50]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.4, 1.0, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.2],
+      "Intensities": [0, 40, 5, 50, 10, 45, 5, 35, 5, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.4, 1.0, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.2],
+      "Intensities": [0, 25, 0, 35, 5, 30, 0, 20, 0, 0]
+    },
+    {
+      "AU": 38,
+      "Times": [0, 1.0, 6.2],
+      "Intensities": [0, 60, 60]
+    },
+    {
+      "AU": 58,
+      "Times": [0, 1.0, 6.2],
+      "Intensities": [0, 35, 35]
+    }
+  ]
+}

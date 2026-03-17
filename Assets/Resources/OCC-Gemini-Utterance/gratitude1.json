@@ -1,0 +1,47 @@
+{
+  "duration": 6.8,
+  "emotion": "Gratitude",
+  "utterance": "I don't even know how to thank you. You have no idea how much stress this takes off my family. That was such a incredibly kind thing to do.",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [0, 0.8, 6.8],
+      "Intensities": [0, 40, 40]
+    },
+    {
+      "AU": 2,
+      "Times": [0, 0.8, 6.8],
+      "Intensities": [0, 30, 30]
+    },
+    {
+      "AU": 6,
+      "Times": [0, 1.0, 6.8],
+      "Intensities": [0, 75, 75]
+    },
+    {
+      "AU": 12,
+      "Times": [0, 0.6, 6.8],
+      "Intensities": [0, 85, 85]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.5, 1.2, 2.0, 2.8, 3.5, 4.3, 5.0, 5.8, 6.8],
+      "Intensities": [0, 55, 15, 65, 10, 50, 15, 45, 10, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.5, 1.2, 2.0, 2.8, 3.5, 4.3, 5.0, 5.8, 6.8],
+      "Intensities": [0, 35, 5, 45, 10, 35, 5, 25, 5, 0]
+    },
+    {
+      "AU": 51,
+      "Times": [0, 1.2, 6.8],
+      "Intensities": [0, 25, 25]
+    },
+    {
+      "AU": 58,
+      "Times": [0, 1.0, 6.8],
+      "Intensities": [0, 30, 30]
+    }
+  ]
+}

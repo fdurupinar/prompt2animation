@@ -1,0 +1,47 @@
+{
+  "duration": 6.0,
+  "emotion": "Shame",
+  "utterance": "I’m so sorry. I didn't think I could do it on my own, and I've completely let you down and embarrassed myself.",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [0, 0.8, 6.0],
+      "Intensities": [0, 60, 60]
+    },
+    {
+      "AU": 4,
+      "Times": [0, 1.0, 6.0],
+      "Intensities": [0, 50, 50]
+    },
+    {
+      "AU": 15,
+      "Times": [0, 1.2, 6.0],
+      "Intensities": [0, 65, 65]
+    },
+    {
+      "AU": 24,
+      "Times": [0, 1.0, 6.0],
+      "Intensities": [0, 40, 40]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.6, 1.2, 2.0, 2.8, 3.5, 4.3, 5.0, 5.8, 6.0],
+      "Intensities": [0, 30, 5, 35, 10, 30, 5, 25, 5, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.6, 1.2, 2.0, 2.8, 3.5, 4.3, 5.0, 5.8, 6.0],
+      "Intensities": [0, 20, 0, 25, 5, 20, 0, 15, 0, 0]
+    },
+    {
+      "AU": 54,
+      "Times": [0, 1.5, 6.0],
+      "Intensities": [0, 45, 45]
+    },
+    {
+      "AU": 64,
+      "Times": [0, 1.0, 6.0],
+      "Intensities": [0, 80, 80]
+    }
+  ]
+}

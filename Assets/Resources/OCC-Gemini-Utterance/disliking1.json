@@ -1,0 +1,42 @@
+{
+  "duration": 6.2,
+  "emotion": "Disliking",
+  "utterance": "I honestly cannot stand being in the same room as that person. Everything about the way they carry themselves is just fundamentally grating.",
+  "facial_actions": [
+    {
+      "AU": 4,
+      "Times": [0, 0.8, 6.2],
+      "Intensities": [0, 65, 65]
+    },
+    {
+      "AU": 9,
+      "Times": [0, 1.2, 6.2],
+      "Intensities": [0, 40, 40]
+    },
+    {
+      "AU": 10,
+      "Times": [0, 1.0, 6.2],
+      "Intensities": [0, 50, 50]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.5, 1.0, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.2],
+      "Intensities": [0, 40, 5, 45, 10, 35, 5, 30, 5, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.5, 1.0, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.2],
+      "Intensities": [0, 25, 0, 30, 5, 25, 0, 15, 0, 0]
+    },
+    {
+      "AU": 52,
+      "Times": [0, 1.2, 6.2],
+      "Intensities": [0, 35, 35]
+    },
+    {
+      "AU": 62,
+      "Times": [0, 1.0, 6.2],
+      "Intensities": [0, 45, 45]
+    }
+  ]
+}

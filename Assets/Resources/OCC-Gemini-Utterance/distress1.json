@@ -1,0 +1,42 @@
+{
+  "duration": 6.0,
+  "emotion": "Distress",
+  "utterance": "I just can't catch a break today. That was the only thing I was looking forward to, and now I have nothing.",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [0, 0.8, 6.0],
+      "Intensities": [0, 70, 70]
+    },
+    {
+      "AU": 15,
+      "Times": [0, 1.2, 6.0],
+      "Intensities": [0, 60, 60]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.8, 1.5, 2.3, 3.1, 4.0, 4.8, 5.5, 6.0],
+      "Intensities": [0, 30, 5, 35, 10, 30, 5, 20, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.8, 1.5, 2.3, 3.1, 4.0, 4.8, 5.5, 6.0],
+      "Intensities": [0, 20, 0, 25, 5, 20, 0, 15, 0]
+    },
+    {
+      "AU": 41,
+      "Times": [0, 1.0, 6.0],
+      "Intensities": [0, 40, 40]
+    },
+    {
+      "AU": 54,
+      "Times": [0, 1.5, 6.0],
+      "Intensities": [0, 35, 35]
+    },
+    {
+      "AU": 64,
+      "Times": [0, 1.2, 6.0],
+      "Intensities": [0, 50, 50]
+    }
+  ]
+}
