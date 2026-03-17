@@ -10,7 +10,7 @@ public static class Parsers {
 
     [Serializable]
     public class FacialData {
-        public string text;
+        public string utterance;
         public string speech;
         public Personality personality;        
         public List<ActionUnit> facial_actions;
@@ -131,14 +131,14 @@ public static class Parsers {
 
     
 
-        return (data.facial_actions, data.visemes, data.text, data.speech, data.personality, data.duration);
+        return (data.facial_actions, data.visemes, data.utterance, data.speech, data.personality, data.duration);
     }
 
     public static (List<ActionUnit>, float) ParseAU(string json) {
 
         FacialData data = JsonConvert.DeserializeObject<FacialData>(json);
 
-        Debug.Log($"Utterance: {data.text}");
+        Debug.Log($"Utterance: {data.utterance}");
         foreach(var au in data.facial_actions) {
             Debug.Log($"AU {au.AU} | Times: [{string.Join(", ", au.Times)}] | Intensities: [{string.Join(", ", au.Intensities)}]");
         }

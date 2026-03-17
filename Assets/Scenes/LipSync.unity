@@ -6843,8 +6843,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c561aac3df8843dda314762ad4a2b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scenario: {fileID: 4900000, guid: ad50e9ba4dc014798920dda1e1a12bed, type: 3}
-  sourceFolder: {fileID: 102900000, guid: 06c985e324c214cb89d974b3e6933f59, type: 3}
+  Scenario: {fileID: 4900000, guid: 0b5ee9fea446e4459ae5c5b30476876f, type: 3}
+  sourceFolder: {fileID: 102900000, guid: 5d8a416b80684429185fa5b7dd95b7da, type: 3}
   videoResolution: {x: 1920, y: 1080}
   outputFolder: Recordings
   recordingDuration: 10

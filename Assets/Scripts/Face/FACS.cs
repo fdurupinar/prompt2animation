@@ -840,7 +840,7 @@ public class FACS : MonoBehaviour
 
     void Speak(string voice, int rate,  string text) {
         
-            text = "Wow, what a beautiful painting.";
+            // text = "Wow, what a beautiful painting.";
         // string cmdArgs = string.Format(" -v {0} -r {1} \"{2}\"", voice, rate, text.Replace("\"", ","));
         // UnityEngine.Debug.Log(cmdArgs);
 
@@ -963,6 +963,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         _startTimeViseme = Time.time;
 
 
+        
         if(IsSpeechEnabled)
             Speak(Voice, Wpm, Speech);
 
@@ -996,7 +997,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
             AnimateAllVisemes();
             
         if(IsSpeechEnabled)
-            Speak(Voice, Wpm, Speech);
+            Speak(Voice, Wpm, Utterance);
 
     }
 
