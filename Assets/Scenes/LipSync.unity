@@ -904,8 +904,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.42611325, g: 0.121395506, b: 0.8301887, a: 1}
-    m_PressedColor: {r: 0.15775219, g: 0, b: 0.44313726, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.1778221, g: 0.16153437, b: 0.20754719, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 2.24
@@ -17195,7 +17195,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Wow, what a beautiful painting!
+  m_Text: 
 --- !u!222 &2017439046
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21352,6 +21352,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6563780394486763742, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 543450652274150222}
+    - targetCorrespondingSourceObject: {fileID: 6563780394486763742, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 543450652274150221}
     - targetCorrespondingSourceObject: {fileID: 6563780394486763742, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
@@ -21365,10 +21369,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 543450652274150223}
-    - targetCorrespondingSourceObject: {fileID: 6563780394486763742, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 543450652274150222}
     - targetCorrespondingSourceObject: {fileID: 6563780394486763742, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
       insertIndex: -1

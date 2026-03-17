@@ -11,7 +11,7 @@ public class ChatNetClient: MonoBehaviour
 {
 
    //OpenAI models
-    string chatCompletionModel = "gpt-4";
+    // string chatCompletionModel = "gpt-4";
     string completionModel = "gpt-3.5-turbo-instruct";
    
     public float temperature = 2.0F;

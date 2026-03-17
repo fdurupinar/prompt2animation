@@ -1,11 +1,14 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using System;
+using System.IO;
 using System.Linq;
 using System.Diagnostics;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
+using CrazyMinnow.SALSA;
 
 [Serializable]
 public class ActionUnit{
@@ -838,14 +841,123 @@ public class FACS : MonoBehaviour
     void Speak(string voice, int rate,  string text) {
         
             text = "Wow, what a beautiful painting.";
-        string cmdArgs = string.Format(" -v {0} -r {1} \"{2}\"", voice, rate, text.Replace("\"", ","));
-        UnityEngine.Debug.Log(cmdArgs);
+        // string cmdArgs = string.Format(" -v {0} -r {1} \"{2}\"", voice, rate, text.Replace("\"", ","));
+        // UnityEngine.Debug.Log(cmdArgs);
 
-        Process speechProcess = Process.Start("/usr/bin/say", cmdArgs);
-        _audioSource.Play();
+    // string filePath = Path.Combine(Application.dataPath, "out.wav");
+    // UnityEngine.Debug.Log(filePath);
+    //     string cmdArgs = $"-o \"{filePath}\" --data-format=LEF32@44100 \"{text}\"";
 
+                
+
+        
+
+    //     Process speechProcess = Process.Start("/usr/bin/say", cmdArgs );
+        
+    
+        // _audioSource.generator = "out.wav";
+        
+        // _audioSource.Play();
+
+
+    StartCoroutine(GenerateAndPlaySpeech(text));
 }
+private IEnumerator GenerateAndPlaySpeech(string text)
+    {
+        // Define a temporary path to save the generated audio file
+        // string fileName = "temp_speech.wav";
+        // string filePath = Path.Combine(Application.temporaryCachePath, fileName);
 
+        // UnityEngine.Debug.Log(filePath);
+        // // string filePath = "Assets/Crazy Minnow Studio/Examples/Audio/Promo-male.mp3";
+
+        // // Configure the macOS 'say' command process
+        // Process process = new Process();
+        // process.StartInfo.FileName = "say";
+        
+        // // Escape quotes in the text to prevent command line injection/errors
+        string safeText = text.Replace("\"", "\\\"");
+
+        // // -o outputs to a file. 
+        // // --data-format=LEF32@44100 forces a 32-bit float WAV file at 44.1kHz, which Unity reads flawlessly.
+        // process.StartInfo.Arguments = $"-o \"{filePath}\" --data-format=LEF32@44100 \"{safeText}\"";
+        // process.StartInfo.UseShellExecute = false;
+        // process.StartInfo.CreateNoWindow = true;
+
+        // // Start the synthesis
+        // process.Start();
+
+        string filePath = Path.Combine(Application.dataPath, "out.wav");
+    
+    
+    if (File.Exists(filePath))
+        File.Delete(filePath);
+
+    
+
+        
+
+    string cmdArgs = $"-o \"{filePath}\" --data-format=LEF32@44100 \"{safeText}\"";
+
+    Process process = Process.Start("/usr/bin/say", cmdArgs);
+
+    if (process == null)
+    {
+        UnityEngine.Debug.LogError("Failed to start /usr/bin/say");
+        yield break;
+    }
+
+    while (!process.HasExited)
+        yield return null;
+
+    if (!File.Exists(filePath))
+    {
+        UnityEngine.Debug.LogError("say finished, but no audio file was created: " + filePath);
+        yield break;
+    }
+
+    var info = new FileInfo(filePath);
+    if (info.Length == 0)
+    {
+        UnityEngine.Debug.LogError("Audio file was created but is empty: " + filePath);
+        yield break;
+    }
+
+    string uri = "file://" + filePath;
+
+
+        // Wait for the OS to finish writing the audio file
+        while (!process.HasExited)
+        {
+            yield return null;
+        }
+
+        // Load the generated file into Unity
+        
+       using UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(uri, AudioType.WAV);
+    yield return www.SendWebRequest();
+
+    if (www.result != UnityWebRequest.Result.Success)
+    {
+        UnityEngine.Debug.LogError("Error loading synthesized speech: " + www.error);
+        yield break;
+    }
+
+    AudioClip clip = DownloadHandlerAudioClip.GetContent(www);
+
+    if (clip == null)
+    {
+        UnityEngine.Debug.LogError("Loaded clip is null.");
+        yield break;
+    }
+
+    
+    
+    GetComponent<Salsa>().audioSrc.clip = clip;
+    GetComponent<Salsa>().audioSrc.Play();
+    
+    
+    }
     void AnimateAllVisemes() {
         
         _startTimeViseme = Time.time;
