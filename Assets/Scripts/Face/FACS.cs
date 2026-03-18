@@ -993,11 +993,13 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         if (AUsOn)
             AnimateAllAUs();
 
-        if(VisemesOn)
-            AnimateAllVisemes();
+        // if(VisemesOn)
+        //     AnimateAllVisemes();
             
         if(IsSpeechEnabled)
-            Speak(Voice, Wpm, Utterance);
+        // GetComponent<Salsa>().useExternalAnalysis = true;
+        GetComponent<Salsa>().audioSrc.Play();
+        //     Speak(Voice, Wpm, Utterance);
 
     }
 
