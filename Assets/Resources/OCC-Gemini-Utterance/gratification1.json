@@ -1,42 +1,47 @@
 {
-  "duration": 6.5,
-  "emotion": "Gloating",
-  "utterance": "Well, well. It looks like cutting corners finally caught up with you. Couldn't have happened to a more deserving person.",
+  "duration": 5.8,
+  "emotion": "Gratification",
+  "utterance": "I actually did it. Every 5 AM run and every meal prepped—I finally earned this.",
   "facial_actions": [
     {
       "AU": 6,
-      "Times": [0, 0.8, 6.5],
-      "Intensities": [0, 60, 60]
+      "Times": [0, 1.0, 5.8],
+      "Intensities": [0, 65, 65]
     },
     {
       "AU": 7,
-      "Times": [0, 0.8, 6.5],
-      "Intensities": [0, 70, 70]
+      "Times": [0, 0.8, 5.8],
+      "Intensities": [0, 50, 50]
     },
     {
       "AU": 12,
-      "Times": [0, 0.6, 6.5],
-      "Intensities": [0, 80, 80]
+      "Times": [0, 0.8, 5.8],
+      "Intensities": [0, 60, 60]
     },
     {
-      "AU": 14,
-      "Times": [0, 1.0, 6.5],
-      "Intensities": [0, 75, 75]
+      "AU": 24,
+      "Times": [0, 1.0, 5.8],
+      "Intensities": [0, 30, 30]
     },
     {
       "AU": 25,
-      "Times": [0, 0.5, 1.2, 2.0, 2.8, 3.5, 4.3, 5.0, 5.8, 6.5],
-      "Intensities": [0, 45, 15, 55, 10, 50, 5, 35, 5, 0]
+      "Times": [0, 0.4, 1.0, 1.8, 2.6, 3.4, 4.2, 5.0, 5.8],
+      "Intensities": [0, 50, 15, 60, 10, 55, 15, 40, 0]
     },
     {
       "AU": 26,
-      "Times": [0, 0.5, 1.2, 2.0, 2.8, 3.5, 4.3, 5.0, 5.8, 6.5],
-      "Intensities": [0, 30, 5, 35, 10, 30, 5, 20, 0, 0]
+      "Times": [0, 0.4, 1.0, 1.8, 2.6, 3.4, 4.2, 5.0, 5.8],
+      "Intensities": [0, 35, 5, 45, 10, 40, 5, 30, 0]
     },
     {
       "AU": 53,
-      "Times": [0, 1.2, 6.5],
-      "Intensities": [0, 30, 30]
+      "Times": [0, 0.5, 1.2, 1.8],
+      "Intensities": [0, 20, 0, 0]
+    },
+    {
+      "AU": 54,
+      "Times": [0, 0.8, 1.5, 2.1],
+      "Intensities": [0, 25, 0, 0]
     }
   ]
 }

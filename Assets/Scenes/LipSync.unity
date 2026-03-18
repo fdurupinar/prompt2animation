@@ -6861,7 +6861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OCCController
   Scenarios:
-  - {fileID: 4900000, guid: ad50e9ba4dc014798920dda1e1a12bed, type: 3}
+  - {fileID: 4900000, guid: 0b5ee9fea446e4459ae5c5b30476876f, type: 3}
   heatmapAnalyzer: {fileID: 543450652274150221}
   Agents:
   - {fileID: 1296814085}
@@ -18594,7 +18594,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
