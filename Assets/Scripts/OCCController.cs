@@ -43,6 +43,11 @@ public class OCCController : MonoBehaviour {
         Scenarios[agentIndex] = scenario;
         _facs[agentIndex].GetAUsAndDuration(Scenarios[agentIndex].text);
 
+        if(AnimationDuration<_facs[agentIndex].Duration)
+        {
+            AnimationDuration = _facs[agentIndex].Duration;
+        }
+
         if (heatmapAnalyzer != null)            
             heatmapAnalyzer.DisableHeatmap();
 

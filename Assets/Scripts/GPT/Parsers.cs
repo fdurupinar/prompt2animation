@@ -13,8 +13,7 @@ public static class Parsers {
         public string utterance;
         public string speech;
         public Personality personality;        
-        public List<ActionUnit> facial_actions;
-        public List<Viseme> visemes;
+        public List<ActionUnit> facial_actions;        
         public float duration;
     }
 
@@ -73,65 +72,14 @@ public static class Parsers {
 
 
 
-    public static Dictionary<string, int> VisemeDict = new Dictionary<string, int> {
-   {"EE", 0},
-    {"ER", 1},
-    {"IH", 2},
-    {"AH", 3},
-    {"OH", 4},
-    {"W_OO", 5},
-    {"S_Z", 6},
-    {"CH_J", 7},
-    {"F_V", 8},
-    {"TH", 9},
-    {"T_L_D_N", 10},
-    {"B_M_P", 11},
-    {"K_G_H_NG", 12},
-    {"AE", 13},
-    {"R", 14},
-};
 
-    public static (List<ActionUnit>, List<Viseme>, string, string, Personality, float) ParseJson(string json) {
+    public static (List<ActionUnit>, string, string, Personality, float) ParseJson(string json) {
 
         FacialData data = JsonConvert.DeserializeObject<FacialData>(json);
 
         
-        //foreach(var au in data.facial_actions) {
-            
-        //    Debug.Log($"AU {au.AU} | Times: [{string.Join(", ", au.Times)}] | Intensities: [{string.Join(", ", au.Intensities)}]");
-        //}
 
-
-
-        //update viseme times
-
-        if(data.visemes!=null) {
-            for(int i = 0; i < data.visemes.Count; i++) {
-
-                data.visemes[i].viseme = data.visemes[i].viseme.ToUpper();
-                float[] updatedIntensities = new float[2];
-
-                if(i == 0) {
-                    updatedIntensities[0] = 0;
-                    updatedIntensities[1] = 100;
-                }
-                else if(i == data.visemes.Count - 1) {
-                    updatedIntensities[0] = 50;
-                    updatedIntensities[1] = 0;
-                }
-                else {
-                    updatedIntensities[0] = 50;
-                    updatedIntensities[1] = 100;
-                }
-                data.visemes[i].Intensities[0] = updatedIntensities[0];
-                data.visemes[i].Intensities[1] = updatedIntensities[1];
-            }
-        }
-
-
-    
-
-        return (data.facial_actions, data.visemes, data.utterance, data.speech, data.personality, data.duration);
+        return (data.facial_actions,  data.utterance, data.speech, data.personality, data.duration);
     }
 
     public static (List<ActionUnit>, float) ParseAU(string json) {

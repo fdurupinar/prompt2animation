@@ -8,7 +8,6 @@ using System.Linq;
 using System.Diagnostics;
 using UnityEngine.UI;
 using UnityEngine.Networking;
-using CrazyMinnow.SALSA;
 
 [Serializable]
 public class ActionUnit{
@@ -19,14 +18,7 @@ public class ActionUnit{
     public int currInd { get; set; }    
     public string Semantics { get; set; }
 }
-[Serializable]
-public class Viseme {
-    public string viseme { get; set; }
-    public string Semantics { get; set; }
-    public List<float> Times { get; set; }
-    public List<float> Intensities { get; set; }
-    public int currInd { get; set; }
-}
+
 public class ShapeKey {    
     public int Ind { get; set; }    
     public float MaxValue { get; set; } ///This is specific to the model's shape keys
@@ -159,7 +151,7 @@ public class FACS : MonoBehaviour
 
 
     public List<ShapeKey>[] AUShapeKeys; //at each AU index, related blendshape keys are stored
-    public List<ShapeKey>[] VisemeShapeKeys; //at each viseme index, related blendshape keys are stored
+    
 
    
 
@@ -169,10 +161,7 @@ public class FACS : MonoBehaviour
 
 
     public List<ActionUnit> AUList;
-    public List<Viseme> VisemeList;
-
-    public Viseme CurrentViseme { get; set; }
-
+    
 
     public string Voice = "Alex";
     public int Wpm = 175;
@@ -208,9 +197,9 @@ public class FACS : MonoBehaviour
     }
     AudioSource _audioSource;
 
-    public TMP_Text UtteranceTMP;
+    public TMP_InputField UtteranceTMP;
 
-
+    float [] _visemeWeight = new float[15];
     //Dictionary<string, int> _shapeKeyDictTongue = new Dictionary<string, int>();
     
 
@@ -232,7 +221,7 @@ public class FACS : MonoBehaviour
     void Start() {
 
         AUShapeKeys = new List<ShapeKey>[66];
-        VisemeShapeKeys = new List<ShapeKey>[15];
+        
 
           //_client = GetComponent<ChatNetClient>();
 
@@ -247,9 +236,7 @@ public class FACS : MonoBehaviour
 
 
         
-        InitVisemes();
-
-
+        
         ShapeKeyVals = new float[ShapeKeyCntBody+ShapeKeyCntTongue];
         ShapeKeyTargets = new float[ShapeKeyCntBody + ShapeKeyCntTongue];
 
@@ -258,7 +245,7 @@ public class FACS : MonoBehaviour
         AUList = new List<ActionUnit>();
 
         
-        VisemeList = new List<Viseme>();
+
 
         _personality = new Personality();
 
@@ -273,37 +260,13 @@ public class FACS : MonoBehaviour
         //PlayAnimation();
 
 
-        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource = gameObject.GetComponent<AudioSource>();
         
         
     
     }
 
-    //Ee Er IH Ah Oh W_OO S_Z Ch_J F_V TH T_L_D_N B_M_P K_G_H_NG AE R
-    void InitVisemes() {
-
-        for(int i = 0; i < VisemeShapeKeys.Length; i++)
-            VisemeShapeKeys[i] = new List<ShapeKey>();
-
-        VisemeShapeKeys[(int)VisemeEnum.EE].Add(new ShapeKey { Ind = _shapeKeyDict["EE"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.ER].Add(new ShapeKey { Ind = _shapeKeyDict["ER"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.IH].Add(new ShapeKey { Ind = _shapeKeyDict["IH"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.AH].Add(new ShapeKey { Ind = _shapeKeyDict["AH"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.OH].Add(new ShapeKey { Ind = _shapeKeyDict["OH"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.W_OO].Add(new ShapeKey { Ind = _shapeKeyDict["W_OO"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.S_Z].Add(new ShapeKey { Ind = _shapeKeyDict["S_Z"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.CH_J].Add(new ShapeKey { Ind = _shapeKeyDict["CH_J"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.F_V].Add(new ShapeKey { Ind = _shapeKeyDict["F_V"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.TH].Add(new ShapeKey { Ind = _shapeKeyDict["TH"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.T_L_D_N].Add(new ShapeKey { Ind = _shapeKeyDict["T_L_D_N"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.B_M_P].Add(new ShapeKey { Ind = _shapeKeyDict["B_M_P"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.K_G_H_NG].Add(new ShapeKey { Ind = _shapeKeyDict["K_G_H_NG"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.AE].Add(new ShapeKey { Ind = _shapeKeyDict["AE"], MaxValue = 100f });
-        VisemeShapeKeys[(int)VisemeEnum.R].Add(new ShapeKey { Ind = _shapeKeyDict["R"], MaxValue = 100f });
-
-
-    }
-
+    
     
     void InitShapeKeysAndAUs() {
 
@@ -580,7 +543,6 @@ public class FACS : MonoBehaviour
             float percent = CatmullRom(v0, v1, v2, v3, t);
             float wPct = percent / 100f;
 
-       
             foreach(ShapeKey sk in AUShapeKeys[au.AU]) {
 
                 // Blend-shape
@@ -709,70 +671,11 @@ public class FACS : MonoBehaviour
     }
 
 
-
-    //Animate all the shape keys  related to viseme for the given period
-    IEnumerator AnimateAllVisemeShapeKeys(Viseme v) {
-
+    void GetCurrentNormalizedVisemeWeights()
+    {
+            for(int i = 0; i < VisemeDict.Count(); i++)
+                _visemeWeight[i]  = _meshRendererBody.GetBlendShapeWeight(i) / 100f;
         
-        float duration = v.Times[v.currInd + 1] - v.Times[v.currInd]; //duration is the same for all keys related to au
-
-        
-        float timeElapsed = 0f;
-
-        
-
-        //Wait until the viseme's turn for animation comes
-        float deltaTime = Time.time - _startTimeViseme;
-        while(deltaTime < v.Times[v.currInd]) {
-            deltaTime = Time.time - _startTimeViseme;
-            yield return null;
-        }
-
-
-        while(timeElapsed < duration) {
-            CurrentViseme = v;
-
-            float t = timeElapsed / duration;
-
-            foreach(ShapeKey sk in VisemeShapeKeys[VisemeDict[v.viseme]]) {
-                ResetShapeKey(sk.Ind);
-
-                float startValue = sk.MaxValue * v.Intensities[v.currInd] / 100f;
-                ShapeKeyTargets[sk.Ind] = sk.MaxValue * v.Intensities[v.currInd + 1] / 100f;
-
-                ShapeKeyVals[sk.Ind] = Mathf.Lerp(startValue, ShapeKeyTargets[sk.Ind], t);
-                
-                if(sk.Ind == _shapeKeyDict["IH"]) {
-                    Quaternion startJaw = _jawRotInit;
-                    Quaternion targetJaw = _jawRotInit * Quaternion.Euler(0, 0, -ShapeKeyTargets[sk.Ind]*0.1f);                    
-                    _jawRot = Quaternion.Slerp(startJaw, targetJaw, t);
-                    
-                }
-
-
-                if(sk.Ind < ShapeKeyCntBody) 
-                    _meshRendererBody.SetBlendShapeWeight(sk.Ind, ShapeKeyVals[sk.Ind]);
-                else if(sk.Ind < ShapeKeyCntBody+ShapeKeyCntTongue)
-                    _meshRendererTongue.SetBlendShapeWeight(sk.Ind-ShapeKeyCntBody, ShapeKeyVals[sk.Ind]);
-
-                
-                timeElapsed += Time.deltaTime;
-
-                
-                yield return null;
-
-            }
-        }
-
-
-        //We should assign values for 1
-        //To reset the keys if t cannot make it to 1 because of deltaTime being bigger than viseme duration
-        foreach (ShapeKey sk in VisemeShapeKeys[VisemeDict[v.viseme]]) {
-            ResetShapeKey(sk.Ind);
-            _jawRot = _jawRotInit;
-        }
-
-
     }
 
 
@@ -784,10 +687,105 @@ public class FACS : MonoBehaviour
         Eyes[0].localRotation = _eyesRot[0];
         Eyes[1].localRotation = _eyesRot[1];
 
+        GetCurrentNormalizedVisemeWeights();
 
+        // Jaw positions
+        float jawOpen = Mathf.Max(_visemeWeight[(int)VisemeEnum.AE],_visemeWeight[(int)VisemeEnum.AH], _visemeWeight[(int)VisemeEnum.OH]*0.8f,
+         _visemeWeight[(int)VisemeEnum.W_OO]*0.6f, _visemeWeight[(int)VisemeEnum.TH]*0.2f, 
+          _visemeWeight[(int)VisemeEnum.IH]*0.2f, _visemeWeight[(int)VisemeEnum.EE]*0.2f, 
+           _visemeWeight[(int)VisemeEnum.K_G_H_NG]*0.2f,  _visemeWeight[(int)VisemeEnum.R]*0.2f );
+
+        
+        if(jawOpen > 0.05){ //it means visemes are working, so they take over other blendshapes
+            // Get jaw rotation from the blendshape weight
+            float jawAngleInc = Mathf.Lerp(0, 10, jawOpen);
+
+            _jawRot  = _jawRotInit * Quaternion.Euler(0, 0, -jawAngleInc);
+        }
+
+        if(_visemeWeight[(int)VisemeEnum.F_V]> 0.05f|| _visemeWeight[(int)VisemeEnum.B_M_P]> 0.05f || _visemeWeight[(int)VisemeEnum.CH_J]> 0.05f || _visemeWeight[(int)VisemeEnum.S_Z]> 0.05f)
+            _jawRot  = _jawRotInit; //don't open the jaw
+
+
+
+        FixConfoundingKeys();
         
     }
 
+    void FixConfoundingKeys()
+    {
+        
+        float wBMP = _visemeWeight[(int)VisemeEnum.B_M_P];
+        float wEE = _visemeWeight[(int)VisemeEnum.EE];
+        float wAH  = _visemeWeight[(int)VisemeEnum.AH];
+        float wAE  = _visemeWeight[(int)VisemeEnum.AE];
+        float wOO  = _visemeWeight[(int)VisemeEnum.W_OO];
+        float wOH  = _visemeWeight[(int)VisemeEnum.OH];
+        float wFV  = _visemeWeight[(int)VisemeEnum.F_V];
+        float wKG  = _visemeWeight[(int)VisemeEnum.K_G_H_NG];
+        float wSZ  = _visemeWeight[(int)VisemeEnum.S_Z];
+        float wCHJ = _visemeWeight[(int)VisemeEnum.CH_J];
+        float wTLD = _visemeWeight[(int)VisemeEnum.T_L_D_N];
+        float wTH  = _visemeWeight[(int)VisemeEnum.TH];
+
+        
+        if (wBMP > 0.05f) {
+            string[] confounders = { 
+                "MOUTH_SHRUG_UPPER",                
+                "MOUTH_FUNNEL_UP_L", "MOUTH_FUNNEL_UP_R",
+                "MOUTH_FUNNEL_DOWN_L", "MOUTH_FUNNEL_DOWN_R",
+                "MOUTH_DOWN_LOWER_L", "MOUTH_DOWN_LOWER_R",
+                "MOUTH_FROWN_L", "MOUTH_FROWN_R"          
+            };
+            UnityEngine.Debug.Log(wBMP);
+            ApplySuppression(confounders, 0f);//1f - wBMP);
+        }
+
+        
+        
+        if (wEE > 0.05f) {
+            string[] confounders = { 
+                "MOUTH_SHRUG_LOWER",                                
+            };
+            
+            ApplySuppression(confounders, 1f - wEE);
+        }
+
+        float maxWide = Mathf.Max(wAH, wAE);
+        if (maxWide > 0.05f) {
+                string[] aeConfounders = { 
+                    "MOUTH_PUCKER_UP_L", "MOUTH_PUCKER_UP_R", // AU18
+                    "MOUTH_FUNNEL_UP_L", "MOUTH_FUNNEL_UP_R",  // AU22
+                    "MOUTH_TIGHTEN_L", "MOUTH_TIGHTEN_R"
+                };
+                ApplySuppression(aeConfounders, 1f - maxWide);
+        }
+        
+        
+      
+        // --- GROUP D: F_V (Lip Tuck) ---
+        // Suppresses Upper and Lower Shrugs so the lower lip can tuck under teeth
+        if (wFV > 0.05f) {
+            string[] confounders = { 
+                "MOUTH_FUNNEL_DOWN_L", "MOUTH_FUNNEL_DOWN_R",
+                "MOUTH_SHRUG_LOWER",                                 
+                "MOUTH_DOWN_LOWER_L", "MOUTH_DOWN_LOWER_R"
+            };
+            ApplySuppression(confounders, 1f - wFV);
+        }
+
+
+    }
+
+    private void ApplySuppression(string[] shapeNames, float factor) {
+    foreach (string name in shapeNames) {
+        if (_shapeKeyDict.ContainsKey(name)) {
+            int index = _shapeKeyDict[name];
+            float currentVal = _meshRendererBody.GetBlendShapeWeight(index);
+            _meshRendererBody.SetBlendShapeWeight(index, currentVal * factor);
+        }
+    }
+}
 
     IEnumerator AnimateAU(ActionUnit au) {
 
@@ -812,24 +810,7 @@ public class FACS : MonoBehaviour
        
     }
 
-    IEnumerator AnimateViseme(Viseme v) {
-
-        v.currInd = 0;
-
-        while(v.currInd < v.Times.Count() - 1) {
-
-            
-            yield return StartCoroutine(AnimateAllVisemeShapeKeys(v));
-            
-
-
-            v.currInd += 1;
-
-        
-
-    }
-
-    }
+    
     void AnimateAllAUs() {
         
         _startTimeAU = Time.time;
@@ -838,30 +819,7 @@ public class FACS : MonoBehaviour
             StartCoroutine(AnimateAU(au));
     }
 
-    void Speak(string voice, int rate,  string text) {
-        
-            // text = "Wow, what a beautiful painting.";
-        // string cmdArgs = string.Format(" -v {0} -r {1} \"{2}\"", voice, rate, text.Replace("\"", ","));
-        // UnityEngine.Debug.Log(cmdArgs);
-
-    // string filePath = Path.Combine(Application.dataPath, "out.wav");
-    // UnityEngine.Debug.Log(filePath);
-    //     string cmdArgs = $"-o \"{filePath}\" --data-format=LEF32@44100 \"{text}\"";
-
-                
-
-        
-
-    //     Process speechProcess = Process.Start("/usr/bin/say", cmdArgs );
-        
     
-        // _audioSource.generator = "out.wav";
-        
-        // _audioSource.Play();
-
-
-    StartCoroutine(GenerateAndPlaySpeech(text));
-}
 private IEnumerator GenerateAndPlaySpeech(string text)
     {
         // Define a temporary path to save the generated audio file
@@ -953,28 +911,11 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     
     
-    GetComponent<Salsa>().audioSrc.clip = clip;
-    GetComponent<Salsa>().audioSrc.Play();
-    
+        GetComponent<OVRLipSyncContextBase>().audioSource.clip = clip;
+        GetComponent<OVRLipSyncContextBase>().audioSource.Play();
     
     }
-    void AnimateAllVisemes() {
-        
-        _startTimeViseme = Time.time;
-
-
-        
-        if(IsSpeechEnabled)
-            Speak(Voice, Wpm, Speech);
-
-
-        foreach(Viseme v in VisemeList) {
-            
-            StartCoroutine(AnimateViseme(v));
-        }
-
-    }
-
+    
     public void ResetShapeKeys() {
         for(int i = 0; i < ShapeKeyCntBody + ShapeKeyCntTongue; i++) { 
             ResetShapeKey(i);
@@ -997,10 +938,8 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         //     AnimateAllVisemes();
             
         if(IsSpeechEnabled)
-        // GetComponent<Salsa>().useExternalAnalysis = true;
-        GetComponent<Salsa>().audioSrc.Play();
-        //     Speak(Voice, Wpm, Utterance);
-
+        GetComponent<OVRLipSyncContextBase>().audioSource.Play();
+        
     }
 
 
@@ -1009,8 +948,8 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         IsWaitingResponse = false;
 
         
-        (AUList, VisemeList, Utterance, Speech, _personality, Duration) = Parsers.ParseJson(response);
-
+        (AUList,  Utterance, Speech, _personality, Duration) = Parsers.ParseJson(response);
+        
         
         //UnityEngine.Debug.Log("response received");
         PlayAnimation();
@@ -1042,16 +981,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         return auStr;
     }
 
-    public string VisemeListToString() {
-        string vStr = "Viseme\tTimes\tIntensities\n";
-        foreach(Viseme v in VisemeList) {
-            vStr += $"{v.viseme}\t{v.Semantics}\t[{string.Join(", ", v.Times)}]\t[{string.Join(", ", v.Intensities)}]\n";
-
-
-        }
-        return vStr;
-    }
-
+    
     
 
 }

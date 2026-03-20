@@ -15,6 +15,7 @@ using System;
 [CustomEditor(typeof(BatchRecorder))]
 public class BatchRecorderEditor : Editor {
 
+    private Unity.EditorCoroutines.Editor.EditorCoroutine currentBatchCoroutine;
     // A static flag to indicate that we should start recording as soon as we enter Play Mode.
     private static bool startRecordingOnPlay = false;
     //static BatchRecorderEditor() {
@@ -26,8 +27,9 @@ public class BatchRecorderEditor : Editor {
         DrawDefaultInspector();
 
         BatchRecorder recorderComponent = (BatchRecorder)target;
-
-        
+        bool isRunning = currentBatchCoroutine != null;
+        // Disable the start buttons if already running
+        GUI.enabled = !isRunning;
 
         // Add a horizontal space for visual separation
         
@@ -43,48 +45,38 @@ public class BatchRecorderEditor : Editor {
         
 
 
-        if(GUILayout.Button("Record All Scenarios in Source Folder", buttonStyle)) {
-            
-            if(Application.isPlaying) {
-
-                Unity.EditorCoroutines.Editor.EditorCoroutineUtility.StartCoroutine(RunBatchProcess(recorderComponent), this);
-                
-            }
-            else {
-                Debug.Log("Application needs to be running first");
-                return;
-            }
-
+       if(GUILayout.Button("Record All Scenarios", buttonStyle)) {
+        if(Application.isPlaying) {
+            currentBatchCoroutine = Unity.EditorCoroutines.Editor.EditorCoroutineUtility.StartCoroutine(RunBatchProcess(recorderComponent), this);
         }
-
-        EditorGUILayout.Space();
-        EditorGUILayout.Space();
-
+    }
 
         if(GUILayout.Button("Record Single Scenario", buttonStyle)) {
-            
             if(Application.isPlaying) {
-                
-                StartRunProcessCoroutine(recorderComponent);
-
+                currentBatchCoroutine = Unity.EditorCoroutines.Editor.EditorCoroutineUtility.StartCoroutine(RunProcess(recorderComponent), this);
             }
-            else {
-                Debug.Log("Application needs to be running first");
-                return;
-                //startRecordingOnPlay = true;
+        }
 
+        // Re-enable GUI to allow the Cancel button to work
+        GUI.enabled = true;
 
-                // EditorApplication.EnterPlaymode();
-
-
+        if (isRunning) {
+            GUI.backgroundColor = Color.red;
+            if (GUILayout.Button("STOP / CANCEL RECORDING", buttonStyle)) {
+                StopActiveProcess();
             }
-
-
-
+            GUI.backgroundColor = Color.white;
         }
 
     }
-
+private void StopActiveProcess() {
+    if (currentBatchCoroutine != null) {
+        Unity.EditorCoroutines.Editor.EditorCoroutineUtility.StopCoroutine(currentBatchCoroutine);
+        currentBatchCoroutine = null;
+        EditorUtility.ClearProgressBar();
+        Debug.LogWarning("Batch recording was forcibly stopped by user.");
+    }
+}
 
 
     public void StartRunProcessCoroutine(BatchRecorder recorderComponent) {

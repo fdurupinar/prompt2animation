@@ -49,8 +49,7 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/BuildPipeline/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Crazy Minnow Studio/Examples/Scripts/SalsaTextSync_ExampleBasicGUI.cs" />
-    <Compile Include="Assets/Crazy Minnow Studio/Examples/Scripts/SALSA_Template_CustomAudioAnalysisPlugin.cs" />
+    <Compile Include="Assets/RealTimeVisemeDebugger.cs" />
     <Compile Include="Assets/Scripts/CameraControl3dsMaxStyle.cs" />
     <Compile Include="Assets/Scripts/Face/FACS_Visualizer_2D.cs" />
     <Compile Include="Assets/Scripts/NetClient/Participant.cs" />
@@ -59,17 +58,11 @@
     <Compile Include="Assets/Scripts/Face/FACS.cs" />
     <Compile Include="Assets/Scripts/NetClient/LogNetClient.cs" />
     <Compile Include="Assets/Scripts/OCCController.cs" />
-    <Compile Include="Assets/Crazy Minnow Studio/Addons/SalsaTextSync/SalsaTextSync.cs" />
-    <Compile Include="Assets/Crazy Minnow Studio/Examples/Scripts/SALSA_Template_SalsaVisemeTriggerEventSubscriber.cs" />
     <Compile Include="Assets/Scripts/GPT/Parsers.cs" />
     <Compile Include="Assets/Scripts/NetClient/ChatNetClient.cs" />
     <Compile Include="Assets/Scripts/ProceduralHeatmapAnalyzer.cs" />
-    <Compile Include="Assets/Crazy Minnow Studio/Examples/Scripts/SALSA_Template_AudioFilterProcessor.cs" />
     <Compile Include="Assets/Scripts/BatchRecorder.cs" />
-    <Compile Include="Assets/Crazy Minnow Studio/Examples/Scripts/SalsaTextSync_ExampleTextSyncTester.cs" />
-    <Compile Include="Assets/Crazy Minnow Studio/Examples/Scripts/SALSA_Template_EventControllerSubscriber.cs" />
     <Compile Include="Assets/Scripts/NetClient/TestNetClient.cs" />
-    <Compile Include="Assets/Crazy Minnow Studio/Examples/Scripts/SALSA_Template_SalsaEventSubscriber.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -94,7 +87,6 @@
     <None Include="Assets/Characters/2/2_ImportInfo.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
-    <None Include="Assets/Crazy Minnow Studio/Addons/SalsaTextSync/ReadMe.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
@@ -634,10 +626,6 @@
     </Reference>
     <Reference Include="UnityEditor.XRModule">
       <HintPath>/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/Scripting/Managed/UnityEngine/UnityEditor.XRModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SALSA-LipSync">
-      <HintPath>Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/SALSA-LipSync.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
@@ -1366,8 +1354,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj" />
+    <ProjectReference Include="Oculus.LipSync.csproj" />
     <ProjectReference Include="soupday.cc3_unity_tools.project_runtime.csproj" />
+    <ProjectReference Include="Oculus.LipSync.Editor.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

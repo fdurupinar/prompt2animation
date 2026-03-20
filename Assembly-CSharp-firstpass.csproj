@@ -49,19 +49,10 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/BuildPipeline/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickConfiguration.cs" />
     <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickCC4_GameReadyBuild.cs" />
-    <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickBase.cs" />
-    <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickExpression.cs" />
     <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickCCEyes.cs" />
-    <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickComponent.cs" />
-    <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickBoxHeadEyes.cs" />
     <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickCC3.cs" />
-    <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickBoxHead.cs" />
     <Compile Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/OneClickRuntimes/OneClickCC4.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/SALSA-LipSync.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -594,10 +585,6 @@
     </Reference>
     <Reference Include="UnityEditor.XRModule">
       <HintPath>/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/Scripting/Managed/UnityEngine/UnityEditor.XRModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SALSA-LipSync">
-      <HintPath>Assets/Plugins/Crazy Minnow Studio/SALSA LipSync/Plugins/SALSA-LipSync.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
@@ -1326,7 +1313,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Oculus.LipSync.csproj" />
     <ProjectReference Include="soupday.cc3_unity_tools.project_runtime.csproj" />
+    <ProjectReference Include="Oculus.LipSync.Editor.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>
