@@ -2,14 +2,14 @@ Unity Editor version:    6000.3.10f1 (e35f0c77bd8e)
 Branch:                  6000.3/staging
 Build type:              Release
 Batch mode:              YES
-macOS version:           Version 26.3.1 (a) (Build 25D771280a)
+macOS version:           Version 26.3.1 (Build 25D2128)
 Darwin version:          25.3.0
-Architecture:            x86_64
+Architecture:            arm64
 Running under Rosetta:   NO
-Available memory:        131072 MB
-Date:                    2026-03-20T19:01:36Z
+Available memory:        32768 MB
+Date:                    2026-03-25T17:25:38Z
 [Licensing::Module] Trying to connect to existing licensing client channel...
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-fundadurupinarbabur" at "2026-03-20T19:01:36.292479Z"
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-fundadurupinarbabur" at "2026-03-25T17:25:38.776326Z"
 
 COMMAND LINE ARGUMENTS:
 /Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/MacOS/Unity
@@ -23,11 +23,11 @@ AssetImportWorker1
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-50452
+51157
 -licensingIpc
 LicenseClient-fundadurupinarbabur
 -job-worker-count
-9
+4
 -background-job-worker-count
 8
 -gc-helper-count
@@ -44,11 +44,6 @@ Successfully changed project path to: /Users/fundadurupinarbabur/Documents/Resea
     "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
     "memorysetup-temp-allocator-size-audio-worker=65536"
     "memorysetup-temp-allocator-size-cloud-worker=32768"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
     "memorysetup-bucket-allocator-block-size=33554432"
@@ -69,14 +64,19 @@ Successfully changed project path to: /Users/fundadurupinarbabur/Documents/Resea
     "memorysetup-job-temp-allocator-block-size=2097152"
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [140704596462592]  Target information:
+Player connection [8333848832]  Target information:
 
-Player connection [140704596462592]  * "[IP] 192.168.1.169 [Port] 0 [Flags] 2 [Guid] 3971684270 [EditorId] 3971684270 [Version] 1048832 [Id] OSXEditor(0,iMac) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+Player connection [8333848832]  * "[IP] 172.18.20.234 [Port] 0 [Flags] 2 [Guid] 246710473 [EditorId] 246710473 [Version] 1048832 [Id] OSXEditor(0,Fundas-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
 
-Player connection [140704596462592] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [140704596462592] Host joined alternative multi-casting on [225.0.0.222:34997]...
-JobSystem: Creating JobQueue using job-worker-count value 9
+Player connection [8333848832] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8333848832] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 4
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -87,74 +87,74 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 16.90 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 4.15 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.3.10f1 (e35f0c77bd8e)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/fundadurupinarbabur/Documents/Research/code/prompt2animation/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
-iMac preferred device: AMD Radeon Pro 5500 XT (high power)
+ preferred device: Apple M4 (high power)
 Metal devices available: 1
-0: AMD Radeon Pro 5500 XT (high power)
-Using device AMD Radeon Pro 5500 XT (high power)
-Initializing Metal device caps: AMD Radeon Pro 5500 XT
+0: Apple M4 (high power)
+Using device Apple M4 (high power)
+Initializing Metal device caps: Apple M4
 Mac GPU Family: 2
-Apple GPU Family: 0
+Apple GPU Family: 9
 MSL Version: 3.0
 Has Float MSAA: 1
 Has Float Filtering: 1
 ReadWrite Texture Tier: 2
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              0a1ae85382724ebebdfd88d4afe92c34
+  Correlation Id:          70a4e7599bc9aed627fd95c3f4706b1e
+  External correlation Id: 3656121496583670191
+  Machine Id:              7T25LniAv8nnaufYhVam5+ddHOU=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-fundadurupinarbabur" (connect: 0.00s, validation: 0.00s, handshake: 0.34s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-fundadurupinarbabur-notifications" at "2026-03-25T17:25:39.118322Z"
+[Licensing::Module] Licensing Background thread has ended after 0.34s
 Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/Scripting/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/Scripting/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/Scripting/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56294
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56388
 Begin MonoManager ReloadAssembly
-[Licensing::Client] Handshaking with LicensingClient:
-  Version:                 1.17.4+4293ba1
-  Session Id:              e2158bf63d5f4494a069d9df49374b9a
-  Correlation Id:          d0d83f47eaf5b5d35ce9092a41b9f705
-  External correlation Id: 1896060257575093196
-  Machine Id:              FhiZ/IIbgKkI4RQHBCHsn+1KAqY=
-[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-fundadurupinarbabur" (connect: 0.00s, validation: 0.00s, handshake: 0.60s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-fundadurupinarbabur-notifications" at "2026-03-20T19:01:36.894395Z"
-[Licensing::Module] Licensing Background thread has ended after 0.60s
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.000462 seconds.
-- Loaded All Assemblies, in  0.406 seconds
+Registered in 0.000256 seconds.
+- Loaded All Assemblies, in  0.193 seconds
 Native extension for OSXStandalone target not found
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.442 seconds
-Domain Reload Profiling: 848ms
-	BeginReloadAssembly (101ms)
+- Finished resetting the current domain, in  0.231 seconds
+Domain Reload Profiling: 424ms
+	BeginReloadAssembly (44ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (49ms)
-	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (45ms)
-	LoadAllAssembliesAndSetupDomain (196ms)
-		LoadAssemblies (100ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (98ms)
+		LoadAssemblies (44ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (193ms)
-			TypeCache.Refresh (191ms)
-				TypeCache.ScanAssembly (176ms)
+		AnalyzeDomain (96ms)
+			TypeCache.Refresh (95ms)
+				TypeCache.ScanAssembly (84ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (442ms)
+	FinalizeReload (231ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (390ms)
+		SetupLoadedEditorAssemblies (201ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (44ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (96ms)
-			ProcessInitializeOnLoadAttributes (169ms)
-			ProcessInitializeOnLoadMethodAttributes (77ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (49ms)
+			ProcessInitializeOnLoadAttributes (83ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -166,115 +166,1717 @@ Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
 [Licensing::Client] Successfully resolved entitlement details
 [Licensing::Module] License group:
+  Id: F4-F2M6-BR3P-YSAH-R4AD-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
   Id: 2474338172105-UnityPersXXXX
   Product: Unity Personal
   Type: Assigned
   Expiration: Unlimited
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  0.837 seconds
-Refreshing native plugins compatible for Editor in 1.95 ms, found 6 plugins.
+- Loaded All Assemblies, in  0.416 seconds
+Refreshing native plugins compatible for Editor in 0.61 ms, found 4 plugins.
 Native extension for OSXStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-Refreshing native plugins compatible for Editor in 1.63 ms, found 6 plugins.
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.091 seconds
-Domain Reload Profiling: 1928ms
-	BeginReloadAssembly (155ms)
+- Finished resetting the current domain, in  0.557 seconds
+Domain Reload Profiling: 973ms
+	BeginReloadAssembly (70ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (4ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (45ms)
-	RebuildCommonClasses (45ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (37ms)
-	LoadAllAssembliesAndSetupDomain (585ms)
-		LoadAssemblies (320ms)
+		CreateAndSetChildDomain (16ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (300ms)
+		LoadAssemblies (164ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (327ms)
-			TypeCache.Refresh (239ms)
-				TypeCache.ScanAssembly (222ms)
-			BuildScriptInfoCaches (70ms)
-			ResolveRequiredComponents (13ms)
-	FinalizeReload (1092ms)
+		AnalyzeDomain (163ms)
+			TypeCache.Refresh (120ms)
+				TypeCache.ScanAssembly (107ms)
+			BuildScriptInfoCaches (35ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (557ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (933ms)
+		SetupLoadedEditorAssemblies (472ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (142ms)
-			ProcessInitializeOnLoadAttributes (491ms)
-			ProcessInitializeOnLoadMethodAttributes (293ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (102ms)
+			ProcessInitializeOnLoadAttributes (192ms)
+			ProcessInitializeOnLoadMethodAttributes (174ms)
 			AfterProcessingInitializeOnLoad (1ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (3ms)
+		AwakeInstancesAfterBackupRestoration (2ms)
 Launching external process: /Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Helpers/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.07 seconds
-Refreshing native plugins compatible for Editor in 1.62 ms, found 6 plugins.
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.64 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7035 unused Assets / (4.7 MB). Loaded Objects now: 8144.
-Memory consumption went from 237.1 MB to 232.4 MB.
-Total: 9.138061 ms (FindLiveObjects: 0.619845 ms CreateObjectMapping: 1.102015 ms MarkObjects: 5.455770 ms  DeleteObjects: 1.959731 ms)
+Unloading 7006 unused Assets / (3.9 MB). Loaded Objects now: 8104.
+Memory consumption went from 227.7 MB to 223.9 MB.
+Total: 6.496750 ms (FindLiveObjects: 0.925958 ms CreateObjectMapping: 0.243667 ms MarkObjects: 4.319125 ms  DeleteObjects: 1.007500 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 2.57 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7154 unused Assets / (3.8 MB). Loaded Objects now: 8271.
+Memory consumption went from 225.6 MB to 221.8 MB.
+Total: 10.976583 ms (FindLiveObjects: 0.605667 ms CreateObjectMapping: 0.123375 ms MarkObjects: 9.274417 ms  DeleteObjects: 0.973000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 96087.682604 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/ThirdParty/Unity/Armature_Arms_AlbedoTransparency.png
+  artifactKey: Guid(60e0c8f5771619140a559c0e64a838c2)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/ThirdParty/Unity/Armature_Arms_AlbedoTransparency.png using Guid(60e0c8f5771619140a559c0e64a838c2) (TextureImporter) -> (artifact id: 'a5cfc88cd2cb0186e57d3cb470978de4') in 0.062571125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Lightmaps/ReflectionProbe-0.exr
+  artifactKey: Guid(d1add47faa4d1ad42b6671da3c93a64f)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Lightmaps/ReflectionProbe-0.exr using Guid(d1add47faa4d1ad42b6671da3c93a64f) (TextureImporter)Starting cubemap convolution for '' (size 128)
+...took 0.097 seconds
+ -> (artifact id: '0d2c408e81a89b346b8ca377cd7d0292') in 0.283427333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Editor/Native/Poses/Icons/Walking.png
+  artifactKey: Guid(1b5c13562ae81b44bb4d8560a6a15f2c)
+Start importing Packages/com.meta.xr.sdk.movement/Editor/Native/Poses/Icons/Walking.png using Guid(1b5c13562ae81b44bb4d8560a6a15f2c) (TextureImporter) -> (artifact id: 'b665fc195f6ac77d5111fedf36918307') in 0.006547 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Editor/Native/UI/Play.png
+  artifactKey: Guid(d7b41f38528e0c64d89a9bc56dd8f3e8)
+Start importing Packages/com.meta.xr.sdk.movement/Editor/Native/UI/Play.png using Guid(d7b41f38528e0c64d89a9bc56dd8f3e8) (TextureImporter) -> (artifact id: 'eba44d4a851e05a6951282bb2c43f142') in 0.008254208 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000072 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Editor/Native/UI/Open.png
+  artifactKey: Guid(5a4f7e42a1e72a9439530608e892cfae)
+Start importing Packages/com.meta.xr.sdk.movement/Editor/Native/UI/Open.png using Guid(5a4f7e42a1e72a9439530608e892cfae) (TextureImporter) -> (artifact id: 'bb70f6faf7f6632d6a475f3a81856bd8') in 0.003179708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000076 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Editor/Native/Poses/Icons/Jumping.png
+  artifactKey: Guid(1297427bcd0839b4f86318fc93d9125d)
+Start importing Packages/com.meta.xr.sdk.movement/Editor/Native/Poses/Icons/Jumping.png using Guid(1297427bcd0839b4f86318fc93d9125d) (TextureImporter) -> (artifact id: '7068913f832bc874be7fddb21a06f31d') in 0.0067895 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Editor/Native/Poses/Icons/Boxing.png
+  artifactKey: Guid(e578a97a46827ce4891187f7a7a50e95)
+Start importing Packages/com.meta.xr.sdk.movement/Editor/Native/Poses/Icons/Boxing.png using Guid(e578a97a46827ce4891187f7a7a50e95) (TextureImporter) -> (artifact id: '2247fbe86e7daa7bfd2e0b2b45676a07') in 0.0068145 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Textures/Environment/15m_tiled_BaseColor.png
+  artifactKey: Guid(df032a495be038741b91f137b31d0b88)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Textures/Environment/15m_tiled_BaseColor.png using Guid(df032a495be038741b91f137b31d0b88) (TextureImporter) -> (artifact id: '1380c6ab9e66dec5554b84ac67a6c1cf') in 0.146268041 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_face_v7.png
+  artifactKey: Guid(0a4f4dfd1f23f9a449b34e95449940db)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_face_v7.png using Guid(0a4f4dfd1f23f9a449b34e95449940db) (TextureImporter) -> (artifact id: 'a9609a6f02016d30a64c2f117d428c94') in 0.003597416 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_bt_fitness.png
+  artifactKey: Guid(e655c2f75c6c6d84e87375e9a6689ca5)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_bt_fitness.png using Guid(e655c2f75c6c6d84e87375e9a6689ca5) (TextureImporter) -> (artifact id: '177f4e3a9ec64b8c34c704ad4e03fbd4') in 0.004151625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/ThirdParty/Unity/Armature_Legs_AlbedoTransparency.png
+  artifactKey: Guid(08368b1af65db1e4a8a4ba50e5a15b77)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/ThirdParty/Unity/Armature_Legs_AlbedoTransparency.png using Guid(08368b1af65db1e4a8a4ba50e5a15b77) (TextureImporter) -> (artifact id: 'cebfacb8638e962cb34f2185d35ea631') in 0.036678083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_upper_body.png
+  artifactKey: Guid(b41beecbbc0c6974c844010f15140b9b)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_upper_body.png using Guid(b41beecbbc0c6974c844010f15140b9b) (TextureImporter) -> (artifact id: '337d0ad49993ee8e3fd82da48c333e8f') in 0.00383475 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_run.png
+  artifactKey: Guid(291846d97c00ed941b195b7a6fb25f10)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_run.png using Guid(291846d97c00ed941b195b7a6fb25f10) (TextureImporter) -> (artifact id: 'ae27efbf1b2e2e829ab2e94025787981') in 0.005473375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Textures/Environment/Grid_sm_Normal.png
+  artifactKey: Guid(afbac3780e85a8b41ab5da06d52008eb)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Textures/Environment/Grid_sm_Normal.png using Guid(afbac3780e85a8b41ab5da06d52008eb) (TextureImporter) -> (artifact id: '39d0c5fed18ae576d486304f29580b9e') in 0.012357542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Editor/Native/Poses/Icons/Sitting.png
+  artifactKey: Guid(c9c7c9dc6e7255c4fb9b1b73c540450b)
+Start importing Packages/com.meta.xr.sdk.movement/Editor/Native/Poses/Icons/Sitting.png using Guid(c9c7c9dc6e7255c4fb9b1b73c540450b) (TextureImporter) -> (artifact id: '7cee07b953a887ec29644ea340880948') in 0.008443958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Editor/Native/UI/Pause.png
+  artifactKey: Guid(1553eec5dc932f741947fc45ec8f32e6)
+Start importing Packages/com.meta.xr.sdk.movement/Editor/Native/UI/Pause.png using Guid(1553eec5dc932f741947fc45ec8f32e6) (TextureImporter) -> (artifact id: 'e2c06aa296dbbc38d2063a1f3af8ff40') in 0.003098334 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_tony.png
+  artifactKey: Guid(56b2bb0602d5b984a8e2892aea6cf172)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_tony.png using Guid(56b2bb0602d5b984a8e2892aea6cf172) (TextureImporter)FREEIMAGE MSG : Unsupported image type: WebPCould not create asset from Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_tony.png: File could not be read
+ -> (artifact id: 'd7d44b260651dcc039ef388fc0d0d004') in 0.308444792 seconds
+  ERROR: Import of 'Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_tony.png' had errors: Could not create asset from Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_tony.png: File could not be read
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Editor/Native/UI/SkipBackward.png
+  artifactKey: Guid(e13942dd2c05f9b46b0cc4bfddc59285)
+Start importing Packages/com.meta.xr.sdk.movement/Editor/Native/UI/SkipBackward.png using Guid(e13942dd2c05f9b46b0cc4bfddc59285) (TextureImporter) -> (artifact id: '467e1e29455d23596bc1523de5f0e9e5') in 0.0031075 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_hip_pinning.png
+  artifactKey: Guid(943c4261fd83cfe429ab5d17c2481841)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Textures/UI/icon_hip_pinning.png using Guid(943c4261fd83cfe429ab5d17c2481841) (TextureImporter) -> (artifact id: 'a90fb644d4557229c03d5e27f5288ec0') in 0.006982709 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Textures/Environment/Grid_lg_Normal.png
+  artifactKey: Guid(013e335da2b35b242805034b64211fc1)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Textures/Environment/Grid_lg_Normal.png using Guid(013e335da2b35b242805034b64211fc1) (TextureImporter) -> (artifact id: 'c5c32722167a98b1b2df264b660f19b1') in 0.010603875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.223711 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Audio/Movement_BasicPoke_ButtonPress.wav
+  artifactKey: Guid(e8df970625f22804ebccd2e94631be3f)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Audio/Movement_BasicPoke_ButtonPress.wav using Guid(e8df970625f22804ebccd2e94631be3f) (AudioImporter) -> (artifact id: 'a870adaf8b5397e44cf17a52d66910c6') in 0.232232167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Packages/com.meta.xr.sdk.movement/Shared/Audio/Click1.wav
+  artifactKey: Guid(5315674b4d9e1f646845fbf512be85c9)
+Start importing Packages/com.meta.xr.sdk.movement/Shared/Audio/Click1.wav using Guid(5315674b4d9e1f646845fbf512be85c9) (AudioImporter) -> (artifact id: 'ac3177346395f62c36ab73146530c137') in 0.017571209 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-F2M6-BR3P-YSAH-R4AD-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 2474338172105-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Thread 0x171bd3000 may have been prematurely finalized
+ADTM: Control thread waiting for realtime thread timed out, have to lock...
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  0.832 seconds
-Refreshing native plugins compatible for Editor in 1.74 ms, found 6 plugins.
+- Loaded All Assemblies, in  1.440 seconds
+'Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlocksWindow.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlocksWindowDetailsExtension.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlocksWindowCollectionsPageExtension.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 0.88 ms, found 7 plugins.
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
 Native extension for OSXStandalone target not found
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-Refreshing native plugins compatible for Editor in 1.69 ms, found 6 plugins.
+25/03 14:10:01.459 {DEBUG}   [AnalyticsLifeTime] Pre initialization finished.
+25/03 14:10:01.459 {DEBUG}   [AnalyticsLifeTime] Post-migration initialization finished.
+sh: adb: command not found
+Build target directory for AndroidPlayer does not exist!
+Canceling DisplayDialog: Android SDK not Found Android SDK not found. Please ensure that the path is set correctly in (Edit -> Preferences -> External Tools) or that the Untiy Android module is installed correctly.
+This should not be called when not controlled by a human.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEditor.EditorDialog:DisplayAlertDialogNative (string,UnityEditor.DialogIconType,string,string)
+UnityEditor.EditorDialog:DisplayAlertDialog (string,string,string,UnityEditor.DialogIconType) (at /Users/bokken/build/output/unity/unity/Editor/Mono/EditorDialog.cs:246)
+UnityEditor.EditorUtility:DisplayDialog (string,string,string) (at /Users/bokken/build/output/unity/unity/Editor/Mono/EditorUtility.cs:202)
+OVRConfig:GetAndroidSDKPathLocation (bool) (at ./Library/PackageCache/com.meta.xr.sdk.core@f8b4cfb2789f/Editor/OVRConfig.cs:104)
+UnityADBToolSingleton:.cctor () (at ./Library/PackageCache/com.meta.xr.sdk.core@f8b4cfb2789f/Editor/UnityADBToolSingleton.cs:27)
+OVRProjectSetupDeviceTasks:.cctor () (at ./Library/PackageCache/com.meta.xr.sdk.core@f8b4cfb2789f/Editor/OVRProjectSetup/Tasks/Implementations/OVRProjectSetupDeviceTasks.cs:42)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/build/output/unity/unity/Editor/Mono/EditorAssemblies.cs:124)
+
+[/Users/bokken/build/output/unity/unity/Editor/Mono/EditorDialog.cs line 246]
+
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.901 seconds
-Domain Reload Profiling: 1736ms
-	BeginReloadAssembly (227ms)
+- Finished resetting the current domain, in  0.592 seconds
+Domain Reload Profiling: 2034ms
+	BeginReloadAssembly (1137ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (90ms)
-	RebuildCommonClasses (46ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (24ms)
-	LoadAllAssembliesAndSetupDomain (523ms)
-		LoadAssemblies (340ms)
+		CreateAndSetChildDomain (1057ms)
+	RebuildCommonClasses (18ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (10ms)
+	LoadAllAssembliesAndSetupDomain (269ms)
+		LoadAssemblies (176ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (245ms)
-			TypeCache.Refresh (8ms)
-				TypeCache.ScanAssembly (0ms)
-			BuildScriptInfoCaches (219ms)
-			ResolveRequiredComponents (13ms)
-	FinalizeReload (901ms)
+		AnalyzeDomain (126ms)
+			TypeCache.Refresh (24ms)
+				TypeCache.ScanAssembly (14ms)
+			BuildScriptInfoCaches (93ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (592ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (665ms)
+		SetupLoadedEditorAssemblies (469ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (139ms)
-			ProcessInitializeOnLoadAttributes (438ms)
-			ProcessInitializeOnLoadMethodAttributes (82ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (102ms)
+			ProcessInitializeOnLoadAttributes (325ms)
+			ProcessInitializeOnLoadMethodAttributes (39ms)
 			AfterProcessingInitializeOnLoad (1ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (14ms)
-Refreshing native plugins compatible for Editor in 1.67 ms, found 6 plugins.
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 1.25 ms, found 7 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7033 unused Assets / (5.0 MB). Loaded Objects now: 8171.
-Memory consumption went from 253.5 MB to 248.4 MB.
-Total: 10.708791 ms (FindLiveObjects: 0.664291 ms CreateObjectMapping: 1.368148 ms MarkObjects: 6.091259 ms  DeleteObjects: 2.584048 ms)
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 8017 unused Assets / (3.0 MB). Loaded Objects now: 9128.
+Memory consumption went from 260.2 MB to 257.2 MB.
+Total: 9.045875 ms (FindLiveObjects: 0.382167 ms CreateObjectMapping: 0.159416 ms MarkObjects: 6.939000 ms  DeleteObjects: 1.565083 ms)
 
 Prepare: number of updated asset objects reloaded= 0
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 148.574540 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AlertViewHUD/Textures/bg.png
+  artifactKey: Guid(00b41c8fdc9c1654dbcf3d01f003f6bc)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AlertViewHUD/Textures/bg.png using Guid(00b41c8fdc9c1654dbcf3d01f003f6bc) (TextureImporter) -> (artifact id: '5d993efdcc88b11415fa84ddcfe44d00') in 0.01152875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Guide/Icons/ovr_success.png
+  artifactKey: Guid(21a57199b5da27a4895b1085aa84cc13)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Guide/Icons/ovr_success.png using Guid(21a57199b5da27a4895b1085aa84cc13) (TextureImporter) -> (artifact id: '70b643f5321d4b4f92fea220ce995eb9') in 0.001204958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/HandTracking/Textures/bb_thumb_handtracking.jpg
+  artifactKey: Guid(ac048d3b15e843e4ab5b54c6392bedb7)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/HandTracking/Textures/bb_thumb_handtracking.jpg using Guid(ac048d3b15e843e4ab5b54c6392bedb7) (TextureImporter) -> (artifact id: 'fb05993d56f78be571bdc44eb122cafe') in 0.003395083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/SpatialAnchorCore/Textures/bb_thumb_spatialanchorcore.jpg
+  artifactKey: Guid(df5b9490c9e8d0546b277a9ce0813d1c)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/SpatialAnchorCore/Textures/bb_thumb_spatialanchorcore.jpg using Guid(df5b9490c9e8d0546b277a9ce0813d1c) (TextureImporter) -> (artifact id: 'a635e059d31a8ae72ee26e1b1a518168') in 0.002439 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_tutorial_01.png
+  artifactKey: Guid(3e3be453c67ef874e89c6edd7fc0ebf1)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_tutorial_01.png using Guid(3e3be453c67ef874e89c6edd7fc0ebf1) (TextureImporter) -> (artifact id: '2c17c25af96665a7f12b1091922ba77c') in 0.002856584 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Textures/Spinner/Spinner_07.png
+  artifactKey: Guid(1fec20c90dd8b054eb040325522dbe5d)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Textures/Spinner/Spinner_07.png using Guid(1fec20c90dd8b054eb040325522dbe5d) (TextureImporter) -> (artifact id: 'aaeb6c136858c150da411bf6dcafc8f7') in 0.001242042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Textures/mqdh_icon.png
+  artifactKey: Guid(c4ad52725d16842dd8385d0264dda36c)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Textures/mqdh_icon.png using Guid(c4ad52725d16842dd8385d0264dda36c) (TextureImporter) -> (artifact id: '5d51cb90aeec6d5ac505644136a5e9bb') in 0.003826917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPlus/MetaQuestTouchPlus_Left_BaseColor_AO_AlphaRoughness.png
+  artifactKey: Guid(6418748e9d0ad7644ae0f0586c655804)
+Start importing Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPlus/MetaQuestTouchPlus_Left_BaseColor_AO_AlphaRoughness.png using Guid(6418748e9d0ad7644ae0f0586c655804) (TextureImporter) -> (artifact id: 'bf4eb5c3e96da9412d57031988c238ab') in 0.071352541 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Guide/Textures/ovr_banner.png
+  artifactKey: Guid(a44c8dce179e3e845b90d7676518497b)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Guide/Textures/ovr_banner.png using Guid(a44c8dce179e3e845b90d7676518497b) (TextureImporter) -> (artifact id: 'e83fc99c87163959ff6f0f994de28192') in 0.003099834 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_bb_icon_back.png
+  artifactKey: Guid(fff83ae4821057b4f86aeb3433707b7e)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_bb_icon_back.png using Guid(fff83ae4821057b4f86aeb3433707b7e) (TextureImporter) -> (artifact id: '1d0b514ab3f73f5caf3a064d6ba67de2') in 0.001349833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPlus/MetaQuestTouchPlus_Normals.png
+  artifactKey: Guid(ce67415a9a94bca45a6db7ec544cbd1b)
+Start importing Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPlus/MetaQuestTouchPlus_Normals.png using Guid(ce67415a9a94bca45a6db7ec544cbd1b) (TextureImporter) -> (artifact id: 'a5cf092e6c2f59e9b2d834618625e214') in 0.058526125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/SpeechToText/Textures/bb_thumb_ai_stt.png
+  artifactKey: Guid(1778cdaced7699146aed6d0554cfa950)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/SpeechToText/Textures/bb_thumb_ai_stt.png using Guid(1778cdaced7699146aed6d0554cfa950) (TextureImporter) -> (artifact id: '28da20a61a156c34d91a5821e551d9d2') in 0.029075958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Guide/Icons/ovr_info.png
+  artifactKey: Guid(4577a126956f8d348ad58f1fb4b8e269)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Guide/Icons/ovr_info.png using Guid(4577a126956f8d348ad58f1fb4b8e269) (TextureImporter) -> (artifact id: 'ebdb24dbd0e116afdc6830d254f1e043') in 0.001009791 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPro/controller_r_lo_BaseColor.png
+  artifactKey: Guid(9f1871411a4175a49a72069635000987)
+Start importing Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPro/controller_r_lo_BaseColor.png using Guid(9f1871411a4175a49a72069635000987) (TextureImporter) -> (artifact id: 'fb703e558c4a1754be6cce0cade796c1') in 0.219088584 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/caret_right_icon.png
+  artifactKey: Guid(01b2fa7e15d7fcd47aecaaf527aa76cb)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/caret_right_icon.png using Guid(01b2fa7e15d7fcd47aecaaf527aa76cb) (TextureImporter) -> (artifact id: 'ec079822672dde280818f4c686914685') in 0.001656791 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_prototype.png
+  artifactKey: Guid(010f0b37c67ed9d4f9ae695e8950a8cc)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_prototype.png using Guid(010f0b37c67ed9d4f9ae695e8950a8cc) (TextureImporter) -> (artifact id: 'e0effcd24e5279b2828562da21dc532e') in 0.000934 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/VirtualKeyboard/Textures/bb_thumb_virtualkeyboard.jpg
+  artifactKey: Guid(d5377891cf6386b4a9337b2fb62b1e80)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/VirtualKeyboard/Textures/bb_thumb_virtualkeyboard.jpg using Guid(d5377891cf6386b4a9337b2fb62b1e80) (TextureImporter) -> (artifact id: '076b0148089bf598ade962cc6b6133ae') in 0.002369 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Textures/Spinner/Spinner_05.png
+  artifactKey: Guid(7b58143045997824194077c9744573fa)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Textures/Spinner/Spinner_05.png using Guid(7b58143045997824194077c9744573fa) (TextureImporter) -> (artifact id: '730032a486f810177c50ff1c1e33e6d3') in 0.001076375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/color_ramp_timer.tga
+  artifactKey: Guid(8929c8bc5148a624b8c9d6df0ee6f0ca)
+Start importing Packages/com.meta.xr.sdk.core/Textures/color_ramp_timer.tga using Guid(8929c8bc5148a624b8c9d6df0ee6f0ca) (TextureImporter) -> (artifact id: '780749e2ca37926bf73b5df5d4aed1d2') in 0.000941833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_friendsmatchmaking.jpg
+  artifactKey: Guid(7fa8dd9e5f4c1f848880d8210f584895)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_friendsmatchmaking.jpg using Guid(7fa8dd9e5f4c1f848880d8210f584895) (TextureImporter) -> (artifact id: '626db6fbea77a3a6cb1137e94ca9a649') in 0.002346917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/OculusTouchForRift/touchController_controlmap.tga
+  artifactKey: Guid(8469e5158ec88094497effdf524ee900)
+Start importing Packages/com.meta.xr.sdk.core/Textures/OculusTouchForRift/touchController_controlmap.tga using Guid(8469e5158ec88094497effdf524ee900) (TextureImporter) -> (artifact id: 'eeeb14d7c839d9c8c210fa24efacb360') in 0.002287833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Guide/Icons/ovr_status.png
+  artifactKey: Guid(d1d92cd76e5a329419b906ed470af327)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Guide/Icons/ovr_status.png using Guid(d1d92cd76e5a329419b906ed470af327) (TextureImporter) -> (artifact id: '4e63d89de9da8c25e9c1e3826d062aa4') in 0.00078475 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_01.png
+  artifactKey: Guid(0df6b5d007f0c064a862ce0a7393196a)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_01.png using Guid(0df6b5d007f0c064a862ce0a7393196a) (TextureImporter) -> (artifact id: 'e929eaf62dd4d753cc00f428909f1ee4') in 0.002932041 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/inspectors_icon.png
+  artifactKey: Guid(ade6b3a17ed0a4746817d8cf80732a9a)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/inspectors_icon.png using Guid(ade6b3a17ed0a4746817d8cf80732a9a) (TextureImporter) -> (artifact id: '9ea8e4ef4e6625763dcf9ea812de2336') in 0.001539917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Thumbnails/bb_thumb_internal.jpg
+  artifactKey: Guid(90ad9cc1b602b4e469c9c261b6323292)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Thumbnails/bb_thumb_internal.jpg using Guid(90ad9cc1b602b4e469c9c261b6323292) (TextureImporter) -> (artifact id: 'e976d4db465a4b406acfb6b58c1fb503') in 0.002077333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Guide/Textures/ovr_develop.jpg
+  artifactKey: Guid(8f934e9ff91c52e45a218eb361e0753d)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Guide/Textures/ovr_develop.jpg using Guid(8f934e9ff91c52e45a218eb361e0753d) (TextureImporter) -> (artifact id: '6dce9d78f92f8f626201d12e99b2e48f') in 0.007431916 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/voice_icon.png
+  artifactKey: Guid(413d218f7d10b3843bd46489036110f7)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/voice_icon.png using Guid(413d218f7d10b3843bd46489036110f7) (TextureImporter) -> (artifact id: '546933cd065e492035c7c27df1ef2bc6') in 0.0013045 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/Movement/CharacterRetargeter/Textures/bb_thumb_characterretargeter.png
+  artifactKey: Guid(f2603281291aa4b47bdcb06bc9dbf3fe)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/Movement/CharacterRetargeter/Textures/bb_thumb_characterretargeter.png using Guid(f2603281291aa4b47bdcb06bc9dbf3fe) (TextureImporter) -> (artifact id: '70ecfe2b02b2abff54a93c3bcef7cccb') in 0.011507834 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/ImmersiveDebugger/Icons/ovr_icon_idf.png
+  artifactKey: Guid(ae02a93846efad14a80656e6cc227135)
+Start importing Packages/com.meta.xr.sdk.core/Editor/ImmersiveDebugger/Icons/ovr_icon_idf.png using Guid(ae02a93846efad14a80656e6cc227135) (TextureImporter) -> (artifact id: 'b7cfdbee675c9426f89dbd2985b7c063') in 0.000918583 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_networkedusername.jpg
+  artifactKey: Guid(db24c53695d934b4c8d3b67e240cc7cd)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_networkedusername.jpg using Guid(db24c53695d934b4c8d3b67e240cc7cd) (TextureImporter) -> (artifact id: 'a3d357db81fa203c7fa5b36bb42eb517') in 0.005231667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_03.png
+  artifactKey: Guid(c91f1eb70a4bdfb4490ddb0b55d7870d)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_03.png using Guid(c91f1eb70a4bdfb4490ddb0b55d7870d) (TextureImporter) -> (artifact id: 'd9442f4c54c40d23a9c6c4419ff19faf') in 0.004212083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/LLM/Textures/bb_thumb_llm.png
+  artifactKey: Guid(8e3a7d812db44d94588f4941b987d9eb)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/LLM/Textures/bb_thumb_llm.png using Guid(8e3a7d812db44d94588f4941b987d9eb) (TextureImporter) -> (artifact id: '8d4377d76e8bcae8a0ed00b62c33eb1c') in 0.029014042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/VoiceBlocks/Textures/bb_thumb_texttospeech.jpg
+  artifactKey: Guid(e19dd181df67c81468e76d169719c758)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/VoiceBlocks/Textures/bb_thumb_texttospeech.jpg using Guid(e19dd181df67c81468e76d169719c758) (TextureImporter) -> (artifact id: '2505126a9e4321d732acfe260334ed6c') in 0.009517792 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/windowgui.png
+  artifactKey: Guid(a26663690a6580440963aa46e582c35b)
+Start importing Packages/com.meta.xr.sdk.core/Textures/windowgui.png using Guid(a26663690a6580440963aa46e582c35b) (TextureImporter) -> (artifact id: 'f0ae550bb60aae2f645b6b465f7cf4aa') in 0.005947917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_cog.png
+  artifactKey: Guid(a98e835fb7d77694b9e11d6e74e318b5)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_cog.png using Guid(a98e835fb7d77694b9e11d6e74e318b5) (TextureImporter) -> (artifact id: '692839291f94175727ff6af7ebf97e12') in 0.000843375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_colocation.jpg
+  artifactKey: Guid(421b2265eddeb4589b88151439da716f)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_colocation.jpg using Guid(421b2265eddeb4589b88151439da716f) (TextureImporter) -> (artifact id: 'ebb186ec2f320a91c723aff8ebcf55b3') in 0.004328917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_sidebar.png
+  artifactKey: Guid(1624d1475dba39d46a5a33694887514a)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_sidebar.png using Guid(1624d1475dba39d46a5a33694887514a) (TextureImporter) -> (artifact id: '6d394b0983eec19c85948a908c8be001') in 0.001591833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/VoiceBlocks/Textures/bb_thumb_dictation.jpg
+  artifactKey: Guid(e1faf0485fad56242bca4a2d15c5d60a)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/VoiceBlocks/Textures/bb_thumb_dictation.jpg using Guid(e1faf0485fad56242bca4a2d15c5d60a) (TextureImporter) -> (artifact id: '0bf895db0aa450d499f3af30cc365d2b') in 0.009130875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_monitor.png
+  artifactKey: Guid(63cd68e5c0d2313478120493df466a68)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_monitor.png using Guid(63cd68e5c0d2313478120493df466a68) (TextureImporter) -> (artifact id: 'a39363095650b58cfea9958e83081ff1') in 0.000945583 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/OVRProjectSetup/Icons/ovr_icon_upst.png
+  artifactKey: Guid(daccb634c40170b40a52151fdcb6ea99)
+Start importing Packages/com.meta.xr.sdk.core/Editor/OVRProjectSetup/Icons/ovr_icon_upst.png using Guid(daccb634c40170b40a52151fdcb6ea99) (TextureImporter) -> (artifact id: 'f2f9d759eabca57952aecb98c5ec1f25') in 0.001267542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_07.png
+  artifactKey: Guid(a743f349118878d45b7b78c71abb2aa2)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_07.png using Guid(a743f349118878d45b7b78c71abb2aa2) (TextureImporter) -> (artifact id: '683920a2927a8ee798a3660d7c3fa446') in 0.003213125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_bg_border_radius8.png
+  artifactKey: Guid(7652df035ad6dea4382f9dffbb76ffa0)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_bg_border_radius8.png using Guid(7652df035ad6dea4382f9dffbb76ffa0) (TextureImporter) -> (artifact id: '824e683679a2d4f91bd255591959bed5') in 0.000844375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/pointer.png
+  artifactKey: Guid(0b7b31db21cbfe2438ffa6619a73f25d)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/pointer.png using Guid(0b7b31db21cbfe2438ffa6619a73f25d) (TextureImporter) -> (artifact id: '9d20c298b6b3ef8a70aa3512d08587ce') in 0.001629125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/compress_icon.png
+  artifactKey: Guid(c7a98ee624e845e43bfd4912414de2b5)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/compress_icon.png using Guid(c7a98ee624e845e43bfd4912414de2b5) (TextureImporter) -> (artifact id: 'f263ba9fd5c19312b18a9700b96f453a') in 0.001612167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/icon_background.png
+  artifactKey: Guid(d7208c116513cfb42be02397e2c5167e)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/icon_background.png using Guid(d7208c116513cfb42be02397e2c5167e) (TextureImporter) -> (artifact id: 'f89b7cca7b7ad2e9d98412b9dd8b6e66') in 0.001410375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/TextToSpeech/Textures/bb_thumb_ai_tts.png
+  artifactKey: Guid(0790af3af816dea428a26f393b90977c)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/TextToSpeech/Textures/bb_thumb_ai_tts.png using Guid(0790af3af816dea428a26f393b90977c) (TextureImporter) -> (artifact id: 'f41e808ba4cba2444dde6ff137d4a442') in 0.029261167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_update.png
+  artifactKey: Guid(09f628bcc055d6c419da907668a0f083)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_update.png using Guid(09f628bcc055d6c419da907668a0f083) (TextureImporter) -> (artifact id: 'dbf76970f8e09fc0ee6b30fefa12c955') in 0.0008915 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/rotate_icon.png
+  artifactKey: Guid(aa07d14bb6bb11245965a5a57219d12d)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/rotate_icon.png using Guid(aa07d14bb6bb11245965a5a57219d12d) (TextureImporter) -> (artifact id: '97c5fa60f4f8454eedf8261b5dc4e97f') in 0.001635458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_hmd.png
+  artifactKey: Guid(5cf4fc0475468f348b67c4c32ffbf3e1)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_hmd.png using Guid(5cf4fc0475468f348b67c4c32ffbf3e1) (TextureImporter) -> (artifact id: 'fb7a730d0ffc8f832a283d14a8140813') in 0.000898167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_04.png
+  artifactKey: Guid(ac201414ee3ef3a4183f8b5f6d9e9694)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_04.png using Guid(ac201414ee3ef3a4183f8b5f6d9e9694) (TextureImporter) -> (artifact id: 'bf63141c67d03b5364c3b2851e7ce606') in 0.003261666 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Guide/Textures/ovr_xr_sim.png
+  artifactKey: Guid(0788e03d34feec24da0f901e70993201)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Guide/Textures/ovr_xr_sim.png using Guid(0788e03d34feec24da0f901e70993201) (TextureImporter) -> (artifact id: 'a0e3becd27139988f015749c7dd55569') in 0.003895125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/MetaWand/Icons/metawand_mini.png
+  artifactKey: Guid(c49f41f33cb52d04f9ffb35852245927)
+Start importing Packages/com.meta.xr.sdk.core/Editor/MetaWand/Icons/metawand_mini.png using Guid(c49f41f33cb52d04f9ffb35852245927) (TextureImporter) -> (artifact id: '0c260845035a083a48695ced6a6fb512') in 0.001635334 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_utilities.png
+  artifactKey: Guid(606c9f0621fda674cb8bce50d9f0a9dd)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_utilities.png using Guid(606c9f0621fda674cb8bce50d9f0a9dd) (TextureImporter) -> (artifact id: 'c69b8c67869e6e18f17cf112a8bbb4fa') in 0.0012015 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Guide/Icons/ovr_learn_icon.png
+  artifactKey: Guid(1be123b581a648348bfb1a1fcf6c733d)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Guide/Icons/ovr_learn_icon.png using Guid(1be123b581a648348bfb1a1fcf6c733d) (TextureImporter) -> (artifact id: '47a7e947f76afb021a018143b79fb447') in 0.001140334 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/hierarchy_icon.png
+  artifactKey: Guid(9683f1d72d28108459e918388eab8449)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/hierarchy_icon.png using Guid(9683f1d72d28108459e918388eab8449) (TextureImporter) -> (artifact id: '05a0610d57915c5bd9077c84ba75d7c7') in 0.001614125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPro/controller_l_lo_BaseColor.png
+  artifactKey: Guid(d9ad590bd590c2d47b7034bbfc26813b)
+Start importing Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPro/controller_l_lo_BaseColor.png using Guid(d9ad590bd590c2d47b7034bbfc26813b) (TextureImporter) -> (artifact id: '11f88934a8ab31d931421764fa476fc2') in 0.22049625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/microgestures_bar_background.png
+  artifactKey: Guid(078fde569b9ba7146ab80cbad7ca35ac)
+Start importing Packages/com.meta.xr.sdk.core/Textures/microgestures_bar_background.png using Guid(078fde569b9ba7146ab80cbad7ca35ac) (TextureImporter) -> (artifact id: 'd699815993d83b09098b37eb378e6eac') in 0.00233325 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/passthrough_icon.png
+  artifactKey: Guid(a99cf20fef8c0b04fb88fd0036d20f0a)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/passthrough_icon.png using Guid(a99cf20fef8c0b04fb88fd0036d20f0a) (TextureImporter) -> (artifact id: '978a92175cb59f52b5a87eca87188ffa') in 0.001171584 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/gaze_cursor_timer.tga
+  artifactKey: Guid(79a33e7a7166c6142ad50f46a9a23d3e)
+Start importing Packages/com.meta.xr.sdk.core/Textures/gaze_cursor_timer.tga using Guid(79a33e7a7166c6142ad50f46a9a23d3e) (TextureImporter) -> (artifact id: 'd48a5d0dfd5f953916914f4756952250') in 0.000925167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/Icons/OculusIcon.png
+  artifactKey: Guid(ee6b6c047f060074596445bbb9ebbfe7)
+Start importing Packages/com.meta.xr.sdk.core/Textures/Icons/OculusIcon.png using Guid(ee6b6c047f060074596445bbb9ebbfe7) (TextureImporter) -> (artifact id: '48b7d2eedbc5bdab621da9c34a87245e') in 0.001090041 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_02.png
+  artifactKey: Guid(c3dddeff90af1e84497f7197f61cc5f4)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Animations/bb_outline_02.png using Guid(c3dddeff90af1e84497f7197f61cc5f4) (TextureImporter) -> (artifact id: '709871d39db8e3896e362303c4076cd8') in 0.003585416 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/SharedSpatialAnchorCore/Textures/bb_thumb_ssa.jpg
+  artifactKey: Guid(2a52470dda46ac64788ce268d26170e2)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/SharedSpatialAnchorCore/Textures/bb_thumb_ssa.jpg using Guid(2a52470dda46ac64788ce268d26170e2) (TextureImporter) -> (artifact id: '4748a4994831818376529a945d8f4125') in 0.003174125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_instructions.png
+  artifactKey: Guid(0c946f30221860b43a5f049f33c28dc5)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_instructions.png using Guid(0c946f30221860b43a5f049f33c28dc5) (TextureImporter) -> (artifact id: '8b3dae05e0dcf682817cbdc242253f35') in 0.0008985 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/handle.png
+  artifactKey: Guid(ce8f78b2b9292484e97f36ad9568fc4f)
+Start importing Packages/com.meta.xr.sdk.core/Textures/handle.png using Guid(ce8f78b2b9292484e97f36ad9568fc4f) (TextureImporter) -> (artifact id: 'b2dc9d098b276233c57e635955c10bfc') in 0.00099825 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/plus.png
+  artifactKey: Guid(2b76468f0dfcaad43ab9eb5ffa35179a)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/plus.png using Guid(2b76468f0dfcaad43ab9eb5ffa35179a) (TextureImporter) -> (artifact id: '1af8d0cc03152b80bff12a4feea5fcab') in 0.001064958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/PassthroughCameraVisualizer/Textures/bb_thumb_pca_visualizer.png
+  artifactKey: Guid(5910d1cecce5f3f4a99b72631827a115)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/PassthroughCameraVisualizer/Textures/bb_thumb_pca_visualizer.png using Guid(5910d1cecce5f3f4a99b72631827a115) (TextureImporter) -> (artifact id: '63230ca1f5f65433357f28f95ca86717') in 0.031387375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/OVRProjectSetup/Icons/ovr_icon_category_success.png
+  artifactKey: Guid(0be6bd91c3ed459429f7e023ab85d7ee)
+Start importing Packages/com.meta.xr.sdk.core/Editor/OVRProjectSetup/Icons/ovr_icon_category_success.png using Guid(0be6bd91c3ed459429f7e023ab85d7ee) (TextureImporter) -> (artifact id: 'e9047c0da4b48c0ce71566cd43732525') in 0.000981083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/ObjectDetection/textures/bb_thumb_object _detection.png
+  artifactKey: Guid(b6ca6d636988e1b429bfbd7c703402dc)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/ObjectDetection/textures/bb_thumb_object _detection.png using Guid(b6ca6d636988e1b429bfbd7c703402dc) (TextureImporter) -> (artifact id: 'ab9a5c6cce8d920ee7494c32a84958e6') in 0.031850125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/movement_icon.png
+  artifactKey: Guid(745d5c8836981e74bace4046c8fc848f)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/movement_icon.png using Guid(745d5c8836981e74bace4046c8fc848f) (TextureImporter) -> (artifact id: '226a5d89b7b986848e6efc0b5965548f') in 0.001197042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_localmatchmaking.jpg
+  artifactKey: Guid(37ace9aacc61a4405a43bb89992f2baf)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_localmatchmaking.jpg using Guid(37ace9aacc61a4405a43bb89992f2baf) (TextureImporter) -> (artifact id: '6d9c18e8622a0913362fe6ade58e0c48') in 0.004334417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/SurfaceProjectedPassthrough/Textures/bb_thumb_projectedpassthrough.jpg
+  artifactKey: Guid(aed137c3d795a864d81b421c25ec504e)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/SurfaceProjectedPassthrough/Textures/bb_thumb_projectedpassthrough.jpg using Guid(aed137c3d795a864d81b421c25ec504e) (TextureImporter) -> (artifact id: '0baad540b6492c0bc038b7d70ede0fa4') in 0.002340792 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Textures/Spinner/Spinner_04.png
+  artifactKey: Guid(d78df55e6450fbf4ab78ab09056aedb7)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Textures/Spinner/Spinner_04.png using Guid(d78df55e6450fbf4ab78ab09056aedb7) (TextureImporter) -> (artifact id: 'e01401590b95d1c06392c910c3b86ce2') in 0.001102958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_reload.png
+  artifactKey: Guid(65837d3c48f3d694ba5eae35bb5241c8)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_reload.png using Guid(65837d3c48f3d694ba5eae35bb5241c8) (TextureImporter) -> (artifact id: '9115b60bdef3c89ae9d63ce8a5027571') in 0.000945375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/OVRProjectSetup/Icons/ovr_icon_category_error.png
+  artifactKey: Guid(23ed0d2bfc90b1d4f97cf416f2cd23a8)
+Start importing Packages/com.meta.xr.sdk.core/Editor/OVRProjectSetup/Icons/ovr_icon_category_error.png using Guid(23ed0d2bfc90b1d4f97cf416f2cd23a8) (TextureImporter) -> (artifact id: '4857c4108dc31ee933ff76315ab32f1a') in 0.000856542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mruk_icon.png
+  artifactKey: Guid(7f2f1630804cf8f4f95b8fd34f9db045)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mruk_icon.png using Guid(7f2f1630804cf8f4f95b8fd34f9db045) (TextureImporter) -> (artifact id: '295c6a4c2ac285bb5c162abac3592bc2') in 0.001239333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/ImmersiveDebugger/Icons/ovr_icon_inspect.png
+  artifactKey: Guid(56f26e1a664e09549971c9c656fa86e8)
+Start importing Packages/com.meta.xr.sdk.core/Editor/ImmersiveDebugger/Icons/ovr_icon_inspect.png using Guid(56f26e1a664e09549971c9c656fa86e8) (TextureImporter) -> (artifact id: 'c38873d6658e58d94809adb44ee0102f') in 0.000904625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPlus/MetaQuestTouchPlus_Right_BaseColor_AO_AlphaRoughness.png
+  artifactKey: Guid(3eea87b91f85d324797846a5c54875b0)
+Start importing Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPlus/MetaQuestTouchPlus_Right_BaseColor_AO_AlphaRoughness.png using Guid(3eea87b91f85d324797846a5c54875b0) (TextureImporter) -> (artifact id: '60d4f4f870526991c70a2d0a7654469b') in 0.070648875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_check.png
+  artifactKey: Guid(9ee58db2dffa27c4790b253e57e8f89e)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_check.png using Guid(9ee58db2dffa27c4790b253e57e8f89e) (TextureImporter) -> (artifact id: 'cf02d496d53b6e3eda498d640f3a336d') in 0.000968167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/ObjectDetection/textures/BoundingBoxTexture.png
+  artifactKey: Guid(100f62424d2aa0745a86ff1166bb4aa5)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AIBlocks/ObjectDetection/textures/BoundingBoxTexture.png using Guid(100f62424d2aa0745a86ff1166bb4aa5) (TextureImporter) -> (artifact id: 'd0710bfa3dd4258e8146a594e84d0593') in 0.008770041 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/GazeRing.png
+  artifactKey: Guid(82026cb669304dc4897d2c11d3753141)
+Start importing Packages/com.meta.xr.sdk.core/Textures/GazeRing.png using Guid(82026cb669304dc4897d2c11d3753141) (TextureImporter) -> (artifact id: '65c60cf7a347e9db1c06c1be660f8cd4') in 0.00225375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_link.png
+  artifactKey: Guid(8bb100d6094986c49b2408ec32a18777)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_link.png using Guid(8bb100d6094986c49b2408ec32a18777) (TextureImporter) -> (artifact id: '11b44ec66050b544b48ee41fa78fb0ab') in 0.000850375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/avatar_icon.png
+  artifactKey: Guid(01542b80808da8d4892c7cc6f4c4eabd)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/avatar_icon.png using Guid(01542b80808da8d4892c7cc6f4c4eabd) (TextureImporter) -> (artifact id: '879ebb1bced6aad040a75feca566df86') in 0.0011395 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AlertViewHUD/Textures/icon_warning.png
+  artifactKey: Guid(83c3317d33aa04347ae25b09873e5392)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/AlertViewHUD/Textures/icon_warning.png using Guid(83c3317d33aa04347ae25b09873e5392) (TextureImporter) -> (artifact id: 'a54e752d0a80ff447966ec8f51c762f6') in 0.00111325 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/caret_down_icon.png
+  artifactKey: Guid(040cec7a13fa36c47bc7f06246a841b7)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/caret_down_icon.png using Guid(040cec7a13fa36c47bc7f06246a841b7) (TextureImporter) -> (artifact id: 'e88223a655c5b7e0731c61bbd1fa7ff6') in 0.001553291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/shift_icon.png
+  artifactKey: Guid(f61a8ec5c53caa842ac01acee8fba8b3)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/shift_icon.png using Guid(f61a8ec5c53caa842ac01acee8fba8b3) (TextureImporter) -> (artifact id: 'b036204eef7173fdf2b4e0956448830d') in 0.001685917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/MetaWand/Icons/metawand.png
+  artifactKey: Guid(b53ae218b6843ad4d9b0f81f7a37a483)
+Start importing Packages/com.meta.xr.sdk.core/Editor/MetaWand/Icons/metawand.png using Guid(b53ae218b6843ad4d9b0f81f7a37a483) (TextureImporter) -> (artifact id: '328d684b30b63c6c7c4e1ebb38af5b59') in 0.001616333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_addblock.png
+  artifactKey: Guid(8de3361e4c791f94d85338238347dd7a)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_addblock.png using Guid(8de3361e4c791f94d85338238347dd7a) (TextureImporter) -> (artifact id: '2d4007cc6f295e5d246100d497164428') in 0.001057625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/warning_icon.png
+  artifactKey: Guid(25f195953a5441849b801692dcdeba97)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/warning_icon.png using Guid(25f195953a5441849b801692dcdeba97) (TextureImporter) -> (artifact id: '03eb02ba373d6bf20107b4e264c13800') in 0.002101917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/aio_icon.png
+  artifactKey: Guid(4403bd37b20e7574890fef4a0ce5099d)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/aio_icon.png using Guid(4403bd37b20e7574890fef4a0ce5099d) (TextureImporter) -> (artifact id: 'ae3f563118390ca56db4e91d24aab7ac') in 0.001613708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_meta.png
+  artifactKey: Guid(5c5053a74ef44e64ea5fbd7ed46bac90)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_meta.png using Guid(5c5053a74ef44e64ea5fbd7ed46bac90) (TextureImporter) -> (artifact id: 'e795a9c9acc911e186b2e38d66ad8cf9') in 0.000962334 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/bb_icon_collection.png
+  artifactKey: Guid(dbf752eb6f6b28f43afd8f7d24f635da)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/bb_icon_collection.png using Guid(dbf752eb6f6b28f43afd8f7d24f635da) (TextureImporter) -> (artifact id: 'a1c9115413b0f44249b66d905d8b4efe') in 0.003462375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Utils/ToolingSupport/RuntimeOptimizer/Icons/ovr_icon_runtimeoptimizer.png
+  artifactKey: Guid(0239283f86936284db234bfd04d0884d)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Utils/ToolingSupport/RuntimeOptimizer/Icons/ovr_icon_runtimeoptimizer.png using Guid(0239283f86936284db234bfd04d0884d) (TextureImporter) -> (artifact id: 'c68f2ab44d7e519bb940ce17857efe2e') in 0.001756625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Thumbnails/Collections/default.png
+  artifactKey: Guid(b664332af86314444b66edcee8edcbab)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Thumbnails/Collections/default.png using Guid(b664332af86314444b66edcee8edcbab) (TextureImporter) -> (artifact id: '6f2b32620855d16cd955027c0c7dd4a5') in 0.002091833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_checkbox.png
+  artifactKey: Guid(59e24492e87738f4bbf78f638abe7666)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_checkbox.png using Guid(59e24492e87738f4bbf78f638abe7666) (TextureImporter) -> (artifact id: 'ddf3765b533ec6b58b35f3f78cf80832') in 0.001035167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPro/controller_l_lo_Normal.png
+  artifactKey: Guid(2771258a413ee134ab18726bc0362e4d)
+Start importing Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPro/controller_l_lo_Normal.png using Guid(2771258a413ee134ab18726bc0362e4d) (TextureImporter) -> (artifact id: 'eb67ca9e00ea85cc16d2b5af2b826b74') in 0.282422792 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Textures/Spinner/Spinner_02.png
+  artifactKey: Guid(7ba9824414cdad84e9512b2acbefc8c9)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Textures/Spinner/Spinner_02.png using Guid(7ba9824414cdad84e9512b2acbefc8c9) (TextureImporter) -> (artifact id: 'ea19df10c3ef259e417a10ada06ebaf8') in 0.001196708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/MetaWand/Icons/cube_filled_mini.png
+  artifactKey: Guid(ea6f46e3396d5834fbe6a03135601860)
+Start importing Packages/com.meta.xr.sdk.core/Editor/MetaWand/Icons/cube_filled_mini.png using Guid(ea6f46e3396d5834fbe6a03135601860) (TextureImporter) -> (artifact id: '73448de01067b2087462737554ada679') in 0.001339083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPlus/MetaQuestTouchPlus_Metallic.png
+  artifactKey: Guid(8cd27a8f4c15ae84bbdb2381fd964a49)
+Start importing Packages/com.meta.xr.sdk.core/Textures/MetaQuestTouchPlus/MetaQuestTouchPlus_Metallic.png using Guid(8cd27a8f4c15ae84bbdb2381fd964a49) (TextureImporter) -> (artifact id: '5367924c4da26ec4dd5b76c6314d25f4') in 0.035782209 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/bin_icon.png
+  artifactKey: Guid(1765075aab1561e4ba556833a673e04e)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/bin_icon.png using Guid(1765075aab1561e4ba556833a673e04e) (TextureImporter) -> (artifact id: '904a07456658a983cd76ad57d7c75340') in 0.001712333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_debug.png
+  artifactKey: Guid(0b8379dd3ae32f641890e80597408d28)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_icon_debug.png using Guid(0b8379dd3ae32f641890e80597408d28) (TextureImporter) -> (artifact id: '910fa74beb45572da8c132ec053b3a3d') in 0.001115583 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/mruk_icon.png
+  artifactKey: Guid(bcf6f9a3e8a9fdc4581a0255f94bfd44)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/mruk_icon.png using Guid(bcf6f9a3e8a9fdc4581a0255f94bfd44) (TextureImporter) -> (artifact id: '7191bd938859a16684b48efd9a46d97e') in 0.001555 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/MetaWand/Textures/mal_banner.png
+  artifactKey: Guid(f29c5619c2f814a4caaf9c8da06af8cc)
+Start importing Packages/com.meta.xr.sdk.core/Editor/MetaWand/Textures/mal_banner.png using Guid(f29c5619c2f814a4caaf9c8da06af8cc) (TextureImporter) -> (artifact id: '03a86000039027f3e02f17a9ca61b87d') in 0.021356042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/ImmersiveDebugger/Icons/ovr_icon_inspect_raw.png
+  artifactKey: Guid(619d122462e69de49a4a53d04f051f2f)
+Start importing Packages/com.meta.xr.sdk.core/Editor/ImmersiveDebugger/Icons/ovr_icon_inspect_raw.png using Guid(619d122462e69de49a4a53d04f051f2f) (TextureImporter) -> (artifact id: 'e1760b834d5e37c36a05b5bfba0e1f98') in 0.001100208 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/copy.png
+  artifactKey: Guid(e77af740b94a6c14e983954aeb7d100f)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/copy.png using Guid(e77af740b94a6c14e983954aeb7d100f) (TextureImporter) -> (artifact id: '86877807fcda9779240f062216241782') in 0.002194667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_bug.png
+  artifactKey: Guid(66ebdb1a1469f66469249a72d7082b35)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_bug.png using Guid(66ebdb1a1469f66469249a72d7082b35) (TextureImporter) -> (artifact id: '35d126f830c0820c1f73deed85d8250c') in 0.001008459 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_meta_raw.png
+  artifactKey: Guid(ff800b29666cb50429da1dedf4fcc08a)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/ovr_icon_meta_raw.png using Guid(ff800b29666cb50429da1dedf4fcc08a) (TextureImporter) -> (artifact id: 'd2ae442ccadc8a9d725eb22665e10e82') in 0.001031291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_bg_radius4.png
+  artifactKey: Guid(d30dd905e94d4ea47aa7c7103eea4af9)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_bg_radius4.png using Guid(d30dd905e94d4ea47aa7c7103eea4af9) (TextureImporter) -> (artifact id: '188ba0de5ea4e7f7b7e83c8b5148a1dc') in 0.000848 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/toggle_off.png
+  artifactKey: Guid(f304d76740531394b8e88c127a34e922)
+Start importing Packages/com.meta.xr.sdk.core/Scripts/ImmersiveDebugger/UserInterface/Resources/Textures/toggle_off.png using Guid(f304d76740531394b8e88c127a34e922) (TextureImporter) -> (artifact id: '4b90f932bb265612acb4a9a433368e7d') in 0.001823458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/haptics_icon.png
+  artifactKey: Guid(6a374eed1fcb445408bd08d346110222)
+Start importing Packages/com.meta.xr.sdk.core/Editor/Icons/sdk_Icons/mono/haptics_icon.png using Guid(6a374eed1fcb445408bd08d346110222) (TextureImporter) -> (artifact id: 'aeedc5d1ce46617bd1d82570f3b6d2a0') in 0.001395625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_networkedavatarentity.jpg
+  artifactKey: Guid(dc3e5b4641485485d905bd218bac77aa)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_networkedavatarentity.jpg using Guid(dc3e5b4641485485d905bd218bac77aa) (TextureImporter) -> (artifact id: '269d4e524c5aec47f7cec51bc163a8c7') in 0.004262708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_networkedgrabbableobject.jpg
+  artifactKey: Guid(1d14abf370e5143499c5282b269fdc5d)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/MultiplayerBlocks/Shared/Textures/bb_thumb_networkedgrabbableobject.jpg using Guid(1d14abf370e5143499c5282b269fdc5d) (TextureImporter) -> (artifact id: '45a2989c27ce25e9919bac6793bd7457') in 0.004324166 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_bb_icon_details.png
+  artifactKey: Guid(6d336a75d265b7c47b4a562881069f4c)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/Icons/ovr_bb_icon_details.png using Guid(6d336a75d265b7c47b4a562881069f4c) (TextureImporter) -> (artifact id: '1a97a46f332af33358d62b50d0994a89') in 0.000853584 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.075725 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPlus/MetaQuestTouchPlus_Left.fbx
+  artifactKey: Guid(2b1aaafc31655024394d83dc00911c1c)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPlus/MetaQuestTouchPlus_Left.fbx using Guid(2b1aaafc31655024394d83dc00911c1c) (FBXImporter)Keyframe reduction: Ratio: 8.518518%;
+ -> (artifact id: 'c0eccbb0a605ea2b40cd4b31d3a09237') in 0.054292708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/HandTracking/OculusHand_R.fbx
+  artifactKey: Guid(88e2e1bfe11ec6c438b0ade27eaeded1)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/HandTracking/OculusHand_R.fbx using Guid(88e2e1bfe11ec6c438b0ade27eaeded1) (FBXImporter) -> (artifact id: '4073662cfe7c0a346f40ec2ea968ffbe') in 0.054991041 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/OculusTouchForRift/right_touch_controller_model_skel.fbx
+  artifactKey: Guid(c3798d66af7bbe54bbfe22a3b302300b)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/OculusTouchForRift/right_touch_controller_model_skel.fbx using Guid(c3798d66af7bbe54bbfe22a3b302300b) (FBXImporter)Keyframe reduction: Ratio: 9.899093%;
+ -> (artifact id: 'eade46c74f9e7a47ba8b3942f7b6497f') in 0.102116791 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/OculusTouchForQuestAndRiftS/OculusTouchForQuestAndRiftS_Right.fbx
+  artifactKey: Guid(37ba10a26a648144fa2390c8adfb2c8a)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/OculusTouchForQuestAndRiftS/OculusTouchForQuestAndRiftS_Right.fbx using Guid(37ba10a26a648144fa2390c8adfb2c8a) (FBXImporter)Keyframe reduction: Ratio: 7.885132%;
+ -> (artifact id: '00fd0c1656a16c5e566348b0d54f66b3') in 0.054153208 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/SampleSpatialAnchorController/Meshs/AnchorModel.fbx
+  artifactKey: Guid(7d83cba011175b348a00dd821fe8cddd)
+Start importing Packages/com.meta.xr.sdk.core/Editor/BuildingBlocks/BlockData/SampleSpatialAnchorController/Meshs/AnchorModel.fbx using Guid(7d83cba011175b348a00dd821fe8cddd) (FBXImporter) -> (artifact id: 'ea6c605276e86825734ac5fa8258186c') in 0.012522666 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/Ray.obj
+  artifactKey: Guid(35c8616edc7d6984994bda4256b5be36)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/Ray.obj using Guid(35c8616edc7d6984994bda4256b5be36) (FBXImporter) -> (artifact id: '7d84cc3be903671592e385b2ab03a59a') in 0.006360208 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/HandTracking/OculusHand_L.fbx
+  artifactKey: Guid(442d5b4503ed83c4897ef44659446587)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/HandTracking/OculusHand_L.fbx using Guid(442d5b4503ed83c4897ef44659446587) (FBXImporter) -> (artifact id: '3c487685ad09bdcaa86b0f9fa41c309b') in 0.018400041 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/OculusTouchForRift/Materials/pasted_touchPBS_MAT.fbx
+  artifactKey: Guid(528296ec8cb7e9e4b836b8aa1197aa98)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/OculusTouchForRift/Materials/pasted_touchPBS_MAT.fbx using Guid(528296ec8cb7e9e4b836b8aa1197aa98) (FBXImporter) -> (artifact id: '5bb24d524f87debc3e95a82e0a598fb7') in 0.019248458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPlus/MetaQuestTouchPlus_Right.fbx
+  artifactKey: Guid(deed68a7fd2e9234899298cf80fae7ad)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPlus/MetaQuestTouchPlus_Right.fbx using Guid(deed68a7fd2e9234899298cf80fae7ad) (FBXImporter)Keyframe reduction: Ratio: 8.518518%;
+ -> (artifact id: 'caaeb70f21d5774235ebd3d5f7af9665') in 0.047953667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPlus/Materials/MetaQuestTouchPlusLeft_Material.fbx
+  artifactKey: Guid(2ea89d6e4d9c45940908e3f337989a9a)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPlus/Materials/MetaQuestTouchPlusLeft_Material.fbx using Guid(2ea89d6e4d9c45940908e3f337989a9a) (FBXImporter) -> (artifact id: '8dac386558b8acc5aaf40900bbe4fb28') in 0.020230667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPro/MetaQuestTouchPro_Right.fbx
+  artifactKey: Guid(c933168a9a0f1e04bb793786b96e2f4b)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPro/MetaQuestTouchPro_Right.fbx using Guid(c933168a9a0f1e04bb793786b96e2f4b) (FBXImporter)Keyframe reduction: Ratio: 9.537778%;
+ -> (artifact id: '19d5d4640a6bdf06fd3252dfb15fc387') in 0.706288417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPro/Materials/MetaQuestProRight_Material.fbx
+  artifactKey: Guid(6fce4d906dba56f4bb507682dbb5b81d)
+Start importing Packages/com.meta.xr.sdk.core/Meshes/MetaQuestTouchPro/Materials/MetaQuestProRight_Material.fbx using Guid(6fce4d906dba56f4bb507682dbb5b81d) (FBXImporter) -> (artifact id: '476c1644b64331b4c6de330f24b1ae95') in 0.0182335 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.02 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7163 unused Assets / (5.7 MB). Loaded Objects now: 8305.
+Memory consumption went from 250.0 MB to 244.2 MB.
+Total: 6.783125 ms (FindLiveObjects: 0.327166 ms CreateObjectMapping: 0.130875 ms MarkObjects: 4.732834 ms  DeleteObjects: 1.591916 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-F2M6-BR3P-YSAH-R4AD-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 2474338172105-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[OVRPlugin][INFO] UnityPluginLoad called
+
+Thread 0x16fb0f000 may have been prematurely finalized
+ADTM: Control thread waiting for realtime thread timed out, have to lock...
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.479 seconds
+Refreshing native plugins compatible for Editor in 0.66 ms, found 4 plugins.
+Native extension for OSXStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.399 seconds
+Domain Reload Profiling: 1882ms
+	BeginReloadAssembly (1140ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1058ms)
+	RebuildCommonClasses (19ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (11ms)
+	LoadAllAssembliesAndSetupDomain (305ms)
+		LoadAssemblies (212ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (130ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (111ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (399ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (300ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (108ms)
+			ProcessInitializeOnLoadAttributes (152ms)
+			ProcessInitializeOnLoadMethodAttributes (36ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.66 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7004 unused Assets / (3.4 MB). Loaded Objects now: 8141.
+Memory consumption went from 254.9 MB to 251.5 MB.
+Total: 5.103167 ms (FindLiveObjects: 0.299208 ms CreateObjectMapping: 0.154583 ms MarkObjects: 3.741042 ms  DeleteObjects: 0.908125 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x16fb0f000 may have been prematurely finalized
+ADTM: Control thread waiting for realtime thread timed out, have to lock...
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.375 seconds
+Refreshing native plugins compatible for Editor in 0.77 ms, found 4 plugins.
+Native extension for OSXStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.385 seconds
+Domain Reload Profiling: 1764ms
+	BeginReloadAssembly (1121ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1049ms)
+	RebuildCommonClasses (20ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (11ms)
+	LoadAllAssembliesAndSetupDomain (220ms)
+		LoadAssemblies (140ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (108ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (94ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (385ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (288ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (103ms)
+			ProcessInitializeOnLoadAttributes (146ms)
+			ProcessInitializeOnLoadMethodAttributes (35ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.79 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6971 unused Assets / (3.5 MB). Loaded Objects now: 8111.
+Memory consumption went from 254.4 MB to 250.9 MB.
+Total: 5.114625 ms (FindLiveObjects: 0.331000 ms CreateObjectMapping: 0.129834 ms MarkObjects: 3.702125 ms  DeleteObjects: 0.951542 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-F2M6-BR3P-YSAH-R4AD-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 2474338172105-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Thread 0x16fb0f000 may have been prematurely finalized
+ADTM: Control thread waiting for realtime thread timed out, have to lock...
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.468 seconds
+Refreshing native plugins compatible for Editor in 0.91 ms, found 4 plugins.
+Native extension for OSXStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.631 seconds
+Domain Reload Profiling: 2105ms
+	BeginReloadAssembly (1119ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1045ms)
+	RebuildCommonClasses (27ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (15ms)
+	LoadAllAssembliesAndSetupDomain (304ms)
+		LoadAssemblies (180ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (151ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (131ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (631ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (483ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (191ms)
+			ProcessInitializeOnLoadAttributes (235ms)
+			ProcessInitializeOnLoadMethodAttributes (52ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 0.92 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6971 unused Assets / (3.3 MB). Loaded Objects now: 8114.
+Memory consumption went from 254.5 MB to 251.2 MB.
+Total: 8.021833 ms (FindLiveObjects: 0.649500 ms CreateObjectMapping: 0.628708 ms MarkObjects: 5.179500 ms  DeleteObjects: 1.563250 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x16fb0f000 may have been prematurely finalized
+ADTM: Control thread waiting for realtime thread timed out, have to lock...
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.375 seconds
+Refreshing native plugins compatible for Editor in 0.52 ms, found 4 plugins.
+Native extension for OSXStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.373 seconds
+Domain Reload Profiling: 1750ms
+	BeginReloadAssembly (1121ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1049ms)
+	RebuildCommonClasses (18ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (10ms)
+	LoadAllAssembliesAndSetupDomain (221ms)
+		LoadAssemblies (146ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (104ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (90ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (373ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (282ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (102ms)
+			ProcessInitializeOnLoadAttributes (142ms)
+			ProcessInitializeOnLoadMethodAttributes (34ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7019 unused Assets / (4.1 MB). Loaded Objects now: 8164.
+Memory consumption went from 254.8 MB to 250.7 MB.
+Total: 5.102333 ms (FindLiveObjects: 0.325291 ms CreateObjectMapping: 0.119334 ms MarkObjects: 3.644291 ms  DeleteObjects: 1.013250 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 268.596295 seconds.
+  path: Packages/com.hecomi.ulipsync/Editor/Resources/uLipSync-Icon.png
+  artifactKey: Guid(e683fd49b7e1a47f1a1681b1b9880c90)
+Start importing Packages/com.hecomi.ulipsync/Editor/Resources/uLipSync-Icon.png using Guid(e683fd49b7e1a47f1a1681b1b9880c90) (TextureImporter) -> (artifact id: '0abefbb66b301c2725e4d1b66239f2a1') in 0.005944333 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+

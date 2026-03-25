@@ -154,6 +154,7 @@ public class FACS : MonoBehaviour
     
 
    
+   
 
     [SerializeField]
     private float _startTimeAU;
@@ -206,6 +207,33 @@ public class FACS : MonoBehaviour
 
 
     public bool IsWaitingResponse = false;
+    
+    
+    //RHUBARB
+    [Header("Rhubarb Integration")]
+    public TextAsset rhubarbJsonFile; // If using JSON
+    [TextArea(5, 10)]
+    public string rawRhubarbData;    // If pasting the text list directly
+
+    private struct RhubarbFrame {
+        public float time;
+        public VisemeEnum viseme;
+    }
+    private List<RhubarbFrame> _rhubarbFrames = new List<RhubarbFrame>();
+    public float VisemeSmoothSpeed = 20f; // Higher is faster/snappier, lower is smoother/lazier
+
+    // Map Rhubarb letters to your existing VisemeEnum
+    private Dictionary<string, VisemeEnum> _rhubarbToViseme = new Dictionary<string, VisemeEnum> {
+        {"A", VisemeEnum.B_M_P},
+        {"B", VisemeEnum.T_L_D_N},
+        {"C", VisemeEnum.EE},
+        {"D", VisemeEnum.AH},
+        {"E", VisemeEnum.W_OO},
+        {"F", VisemeEnum.F_V},
+        {"G", VisemeEnum.TH},
+        {"H", VisemeEnum.T_L_D_N},
+        {"X", VisemeEnum.EE} // Default/Silence
+    };
 
     private void Awake() {
         _jawRotInit = _jawRot = Jaw.localRotation;
@@ -698,6 +726,7 @@ public class FACS : MonoBehaviour
         Eyes[0].localRotation = _eyesRot[0];
         Eyes[1].localRotation = _eyesRot[1];
 
+        return;
         GetCurrentNormalizedVisemeWeights();
 
         // Jaw positions
@@ -954,8 +983,8 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     
     
-        GetComponent<OVRLipSyncContextBase>().audioSource.clip = clip;
-        GetComponent<OVRLipSyncContextBase>().audioSource.Play();
+        // GetComponent<OVRLipSyncContextBase>().audioSource.clip = clip;
+        // GetComponent<OVRLipSyncContextBase>().audioSource.Play();
     
     }
     
@@ -981,9 +1010,16 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         //     AnimateAllVisemes();
             
         if(IsSpeechEnabled)
-        GetComponent<OVRLipSyncContextBase>().audioSource.Play();
+        {
+            _audioSource.Play();
+            StartCoroutine(PlayRhubarbSequence()); // Use our new Universal player
+        }
+        // GetComponent<OVRLipSyncContextBase>().audioSource.Play();
         
+     
     }
+    
+    
 
 
     public void AUResponseCb(string response) {
@@ -1025,6 +1061,69 @@ private IEnumerator GenerateAndPlaySpeech(string text)
     }
 
     
+    void ParseRhubarbText() {
+        _rhubarbFrames.Clear();
+        string[] lines = rawRhubarbData.Split('\n');
+        foreach (string line in lines) {
+        UnityEngine.Debug.Log(line);
+            string[] parts = line.Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length >= 2 && float.TryParse(parts[0], out float t)) {
+                if (_rhubarbToViseme.TryGetValue(parts[1], out VisemeEnum v)) {
+                
+                    _rhubarbFrames.Add(new RhubarbFrame { time = t, viseme = v });
+                }
+            }
+        }
+    }
+
+  IEnumerator PlayRhubarbSequence() {
+    if (_rhubarbFrames.Count == 0) ParseRhubarbText();
     
+    int frameIndex = 0;
+    while (_audioSource.isPlaying) {
+        float currentTime = _audioSource.time;
+        
+        // Find current frame based on audio time
+        while (frameIndex < _rhubarbFrames.Count - 1 && currentTime >= _rhubarbFrames[frameIndex + 1].time) {
+            frameIndex++;
+        }
+
+        int activeVisemeInd = (int)_rhubarbFrames[frameIndex].viseme;
+
+        // Smoothly transition ALL viseme weights
+        for (int i = 0; i < _visemeWeight.Length; i++) {
+            float target = (i == activeVisemeInd) ? 1.0f : 0.0f;
+            
+            // MoveTowards provides a consistent linear transition (better for speech "snaps")
+            // Use Mathf.Lerp if you want a more "organic/lazy" feel
+            _visemeWeight[i] = Mathf.MoveTowards(_visemeWeight[i], target, Time.deltaTime * VisemeSmoothSpeed);
+        }
+
+        // Apply these smoothed weights to the Actual Blendshapes
+        ApplyVisemeWeightsToMesh();
+
+        yield return null;
+    }
+
+    // Return to neutral smoothly when audio stops
+    float transitionReset = 0;
+    while (transitionReset < 1.0f) {
+        transitionReset += Time.deltaTime * VisemeSmoothSpeed;
+        for (int i = 0; i < _visemeWeight.Length; i++) {
+            _visemeWeight[i] = Mathf.MoveTowards(_visemeWeight[i], 0, Time.deltaTime * VisemeSmoothSpeed);
+        }
+        ApplyVisemeWeightsToMesh();
+        yield return null;
+    }
+}
+
+    void ApplyVisemeWeightsToMesh() {
+        // Maps your VisemeEnum to the actual CC4 indices in _shapeKeyDict
+        foreach (var pair in VisemeDict) {
+            if (_shapeKeyDict.TryGetValue(pair.Key, out int meshIndex)) {
+                _meshRendererBody.SetBlendShapeWeight(meshIndex, _visemeWeight[pair.Value] * 100f);
+            }
+        }
+    }    
 
 }
