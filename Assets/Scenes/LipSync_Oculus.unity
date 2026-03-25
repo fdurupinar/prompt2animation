@@ -7411,7 +7411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c561aac3df8843dda314762ad4a2b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scenario: {fileID: 4900000, guid: ad50e9ba4dc014798920dda1e1a12bed, type: 3}
+  Scenario: {fileID: 4900000, guid: da295c1e5e9134e5ea932696ba715e53, type: 3}
   sourceFolder: {fileID: 102900000, guid: 06c985e324c214cb89d974b3e6933f59, type: 3}
   videoResolution: {x: 1920, y: 1080}
   outputFolder: Recordings
@@ -7429,7 +7429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OCCController
   Scenarios:
-  - {fileID: 4900000, guid: c7141e7b7f83140309fba601d6605c4c, type: 3}
+  - {fileID: 4900000, guid: 458d27978d41e4f4b9089ad1ddbec394, type: 3}
   heatmapAnalyzer: {fileID: 543450652274150221}
   Agents:
   - {fileID: 1296814085}

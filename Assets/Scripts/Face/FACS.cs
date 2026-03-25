@@ -188,6 +188,7 @@ public class FACS : MonoBehaviour
     //ChatNetClient _client;
 
     Dictionary<string, int> _shapeKeyDict = new Dictionary<string, int>();
+    
 
     public AudioClip SpeechClip {
         
@@ -546,8 +547,17 @@ public class FACS : MonoBehaviour
             foreach(ShapeKey sk in AUShapeKeys[au.AU]) {
 
                 // Blend-shape
-                float blendW = sk.MaxValue * wPct;
-                _meshRendererBody.SetBlendShapeWeight(sk.Ind, blendW);
+                float blendW = sk.MaxValue * wPct; 
+
+                //We should consider the current weight of the shape key as it may be updated by the viseme animation
+                float currentVal = _meshRendererBody.GetBlendShapeWeight(sk.Ind);
+
+                float newVal = 0.5f*(currentVal + blendW); //take the max to avoid overwriting with lower values from AU animation
+
+                _meshRendererBody.SetBlendShapeWeight(sk.Ind, newVal);
+
+                // _meshRendererBody.SetBlendShapeWeight(sk.Ind, blendW);
+
 
                 //Rotation
 
@@ -679,8 +689,9 @@ public class FACS : MonoBehaviour
     }
 
 
-    public void LateUpdate() {
-    //Jaw and head must be updated here
+    public void LateUpdate()
+    {
+        //Jaw and head must be updated here
         Jaw.localRotation = _jawRot;
         Head.localRotation = _headRot;
         Neck.localRotation = _neckRot;
@@ -690,28 +701,31 @@ public class FACS : MonoBehaviour
         GetCurrentNormalizedVisemeWeights();
 
         // Jaw positions
-        float jawOpen = Mathf.Max(_visemeWeight[(int)VisemeEnum.AE],_visemeWeight[(int)VisemeEnum.AH], _visemeWeight[(int)VisemeEnum.OH]*0.8f,
-         _visemeWeight[(int)VisemeEnum.W_OO]*0.6f, _visemeWeight[(int)VisemeEnum.TH]*0.2f, 
-          _visemeWeight[(int)VisemeEnum.IH]*0.2f, _visemeWeight[(int)VisemeEnum.EE]*0.2f, 
-           _visemeWeight[(int)VisemeEnum.K_G_H_NG]*0.2f,  _visemeWeight[(int)VisemeEnum.R]*0.2f );
+        float jawOpen = Mathf.Max(_visemeWeight[(int)VisemeEnum.AE], _visemeWeight[(int)VisemeEnum.AH], _visemeWeight[(int)VisemeEnum.OH] * 0.8f,
+         _visemeWeight[(int)VisemeEnum.W_OO] * 0.6f, _visemeWeight[(int)VisemeEnum.TH] * 0.2f,
+          _visemeWeight[(int)VisemeEnum.IH] * 0.2f, _visemeWeight[(int)VisemeEnum.EE] * 0.2f,
+           _visemeWeight[(int)VisemeEnum.K_G_H_NG] * 0.2f, _visemeWeight[(int)VisemeEnum.R] * 0.2f);
 
-        
-        if(jawOpen > 0.05){ //it means visemes are working, so they take over other blendshapes
+
+        if (jawOpen > 0.05)
+        { //it means visemes are working, so they take over other blendshapes
             // Get jaw rotation from the blendshape weight
             float jawAngleInc = Mathf.Lerp(0, 10, jawOpen);
 
-            _jawRot  = _jawRotInit * Quaternion.Euler(0, 0, -jawAngleInc);
+            _jawRot = _jawRotInit * Quaternion.Euler(0, 0, -jawAngleInc);
         }
 
-        if(_visemeWeight[(int)VisemeEnum.F_V]> 0.05f|| _visemeWeight[(int)VisemeEnum.B_M_P]> 0.05f || _visemeWeight[(int)VisemeEnum.CH_J]> 0.05f || _visemeWeight[(int)VisemeEnum.S_Z]> 0.05f)
-            _jawRot  = _jawRotInit; //don't open the jaw
+        if (_visemeWeight[(int)VisemeEnum.F_V] > 0.05f || _visemeWeight[(int)VisemeEnum.B_M_P] > 0.05f || _visemeWeight[(int)VisemeEnum.CH_J] > 0.05f || _visemeWeight[(int)VisemeEnum.S_Z] > 0.05f)
+            _jawRot = _jawRotInit; //don't open the jaw
 
 
 
         FixConfoundingKeys();
-        
-    }
 
+    }
+    
+    
+    
     void FixConfoundingKeys()
     {
         
@@ -726,9 +740,10 @@ public class FACS : MonoBehaviour
         float wSZ  = _visemeWeight[(int)VisemeEnum.S_Z];
         float wCHJ = _visemeWeight[(int)VisemeEnum.CH_J];
         float wTLD = _visemeWeight[(int)VisemeEnum.T_L_D_N];
-        float wTH  = _visemeWeight[(int)VisemeEnum.TH];
+        float wTH = _visemeWeight[(int)VisemeEnum.TH];
 
         
+    
         if (wBMP > 0.05f) {
             string[] confounders = { 
                 "MOUTH_SHRUG_UPPER",                
@@ -737,11 +752,11 @@ public class FACS : MonoBehaviour
                 "MOUTH_DOWN_LOWER_L", "MOUTH_DOWN_LOWER_R",
                 "MOUTH_FROWN_L", "MOUTH_FROWN_R"          
             };
-            UnityEngine.Debug.Log(wBMP);
+
+
             ApplySuppression(confounders, 0f);//1f - wBMP);
         }
 
-        
         
         if (wEE > 0.05f) {
             string[] confounders = { 
@@ -774,18 +789,47 @@ public class FACS : MonoBehaviour
             ApplySuppression(confounders, 1f - wFV);
         }
 
+        // --- GROUP E: Fricatives (S_Z, F_V) ---
+        // Suppress puckering (AU18) to preserve fricative articulation
+        float maxFricative = Mathf.Max(wFV, wSZ);
+        if (maxFricative > 0.05f) {
+            string[] fricativeConfounders = {
+                "MOUTH_PUCKER_UP_L", "MOUTH_PUCKER_UP_R"  // AU18 pucker conflicts with fricatives
+            };
+            ApplySuppression(fricativeConfounders, 1f - maxFricative);
+        }
 
-    }
+        // --- GROUP F: EE (Smile Vowel) ---
+        // Suppress mouth stretch (AU20) to prevent double-widening
+        if (wEE > 0.05f) {
+            string[] eeConfounders = {
+                "MOUTH_STRETCH_L", "MOUTH_STRETCH_R"  // AU20 stretch conflicts with EE vowel
+            };
+            ApplySuppression(eeConfounders, 1f - wEE);
+        }
+
+        // --- GROUP G: Wide Vowels (AH, AE) ---
+        // Suppress smile (AU12) to maintain vowel intelligibility
+        if (maxWide > 0.05f) {
+            string[] smileConfounders = {
+                "MOUTH_SMILE_L", "MOUTH_SMILE_R"  // AU12 smile reduces wide vowel intelligibility
+            };
+            ApplySuppression(smileConfounders, 1f - maxWide); //smile can be reduced but not completely eliminated for wide vowels, as it also contributes to expressiveness
+        }
+}
 
     private void ApplySuppression(string[] shapeNames, float factor) {
-    foreach (string name in shapeNames) {
-        if (_shapeKeyDict.ContainsKey(name)) {
-            int index = _shapeKeyDict[name];
-            float currentVal = _meshRendererBody.GetBlendShapeWeight(index);
-            _meshRendererBody.SetBlendShapeWeight(index, currentVal * factor);
+        foreach (string name in shapeNames) {
+            if (_shapeKeyDict.ContainsKey(name)) {
+                int index = _shapeKeyDict[name];
+                float currentVal = _meshRendererBody.GetBlendShapeWeight(index);
+                _meshRendererBody.SetBlendShapeWeight(index, currentVal * factor);
+            }
+    
         }
     }
-}
+
+
 
     IEnumerator AnimateAU(ActionUnit au) {
 
@@ -803,8 +847,7 @@ public class FACS : MonoBehaviour
             {
 
                 _isTalking = false;
-            }
-                
+            }                
 
         }
        

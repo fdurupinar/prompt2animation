@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Reallusion/CCiC Unity Tools/Editor/WrinkleManagerEditor.cs" />
+    <Compile Include="Assets/Editor/CC4SkinnedMeshRendererEditor.cs" />
     <Compile Include="Assets/Editor/CC4LipSyncEditor.cs" />
     <Compile Include="Assets/Editor/BatchRecorderEditor.cs" />
   </ItemGroup>
