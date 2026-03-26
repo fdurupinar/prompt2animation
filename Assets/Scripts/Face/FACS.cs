@@ -207,10 +207,11 @@ public class FACS : MonoBehaviour
 
 
     public bool IsWaitingResponse = false;
-    
-    
+
+
     //RHUBARB
     [Header("Rhubarb Integration")]
+    
     public TextAsset rhubarbJsonFile; // If using JSON
     [TextArea(5, 10)]
     public string rawRhubarbData;    // If pasting the text list directly
@@ -225,12 +226,12 @@ public class FACS : MonoBehaviour
     // Map Rhubarb letters to your existing VisemeEnum
     private Dictionary<string, VisemeEnum> _rhubarbToViseme = new Dictionary<string, VisemeEnum> {
         {"A", VisemeEnum.B_M_P},
-        {"B", VisemeEnum.T_L_D_N},
-        {"C", VisemeEnum.EE},
+        {"B", VisemeEnum.T_L_D_N},        
+        {"C", VisemeEnum.AE},
         {"D", VisemeEnum.AH},
-        {"E", VisemeEnum.W_OO},
-        {"F", VisemeEnum.F_V},
-        {"G", VisemeEnum.TH},
+        {"E", VisemeEnum.ER},
+        {"F", VisemeEnum.OH},
+        {"G", VisemeEnum.F_V},        
         {"H", VisemeEnum.T_L_D_N},
         {"X", VisemeEnum.EE} // Default/Silence
     };
@@ -726,7 +727,7 @@ public class FACS : MonoBehaviour
         Eyes[0].localRotation = _eyesRot[0];
         Eyes[1].localRotation = _eyesRot[1];
 
-        return;
+        
         GetCurrentNormalizedVisemeWeights();
 
         // Jaw positions
@@ -748,6 +749,7 @@ public class FACS : MonoBehaviour
             _jawRot = _jawRotInit; //don't open the jaw
 
 
+        
 
         FixConfoundingKeys();
 
@@ -795,7 +797,7 @@ public class FACS : MonoBehaviour
             ApplySuppression(confounders, 1f - wEE);
         }
 
-        float maxWide = Mathf.Max(wAH, wAE);
+        float maxWide = Mathf.Max(wAH, wAE, wOO, wOH);
         if (maxWide > 0.05f) {
                 string[] aeConfounders = { 
                     "MOUTH_PUCKER_UP_L", "MOUTH_PUCKER_UP_R", // AU18
@@ -1046,10 +1048,6 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     }
 
-
-   
-        
-    
     public string AUListToString() {
         string auStr = "AU\tSemantics\tTimes\tIntensities\n";
         foreach(ActionUnit au in AUList) {
@@ -1077,45 +1075,46 @@ private IEnumerator GenerateAndPlaySpeech(string text)
     }
 
   IEnumerator PlayRhubarbSequence() {
-    if (_rhubarbFrames.Count == 0) ParseRhubarbText();
-    
-    int frameIndex = 0;
-    while (_audioSource.isPlaying) {
-        float currentTime = _audioSource.time;
+        if (_rhubarbFrames.Count == 0) 
+            ParseRhubarbText();
         
-        // Find current frame based on audio time
-        while (frameIndex < _rhubarbFrames.Count - 1 && currentTime >= _rhubarbFrames[frameIndex + 1].time) {
-            frameIndex++;
-        }
-
-        int activeVisemeInd = (int)_rhubarbFrames[frameIndex].viseme;
-
-        // Smoothly transition ALL viseme weights
-        for (int i = 0; i < _visemeWeight.Length; i++) {
-            float target = (i == activeVisemeInd) ? 1.0f : 0.0f;
+        int frameIndex = 0;
+        while (_audioSource.isPlaying) {
+            float currentTime = _audioSource.time;
             
-            // MoveTowards provides a consistent linear transition (better for speech "snaps")
-            // Use Mathf.Lerp if you want a more "organic/lazy" feel
-            _visemeWeight[i] = Mathf.MoveTowards(_visemeWeight[i], target, Time.deltaTime * VisemeSmoothSpeed);
+            // Find current frame based on audio time
+            while (frameIndex < _rhubarbFrames.Count - 1 && currentTime >= _rhubarbFrames[frameIndex + 1].time) {
+                frameIndex++;
+            }
+
+            int activeVisemeInd = (int)_rhubarbFrames[frameIndex].viseme;
+
+            // Smoothly transition ALL viseme weights
+            for (int i = 0; i < _visemeWeight.Length; i++) {
+                float target = (i == activeVisemeInd) ? 1.0f : 0.0f;
+                
+                // MoveTowards provides a consistent linear transition (better for speech "snaps")
+                // Use Mathf.Lerp if you want a more "organic/lazy" feel
+                _visemeWeight[i] = Mathf.MoveTowards(_visemeWeight[i], target, Time.deltaTime * VisemeSmoothSpeed);
+            }
+
+            // Apply these smoothed weights to the Actual Blendshapes
+            ApplyVisemeWeightsToMesh();
+
+            yield return null;
         }
 
-        // Apply these smoothed weights to the Actual Blendshapes
-        ApplyVisemeWeightsToMesh();
-
-        yield return null;
-    }
-
-    // Return to neutral smoothly when audio stops
-    float transitionReset = 0;
-    while (transitionReset < 1.0f) {
-        transitionReset += Time.deltaTime * VisemeSmoothSpeed;
-        for (int i = 0; i < _visemeWeight.Length; i++) {
-            _visemeWeight[i] = Mathf.MoveTowards(_visemeWeight[i], 0, Time.deltaTime * VisemeSmoothSpeed);
+        // Return to neutral smoothly when audio stops
+        float transitionReset = 0;
+        while (transitionReset < 1.0f) {
+            transitionReset += Time.deltaTime * VisemeSmoothSpeed;
+            for (int i = 0; i < _visemeWeight.Length; i++) {
+                _visemeWeight[i] = Mathf.MoveTowards(_visemeWeight[i], 0, Time.deltaTime * VisemeSmoothSpeed);
+            }
+            ApplyVisemeWeightsToMesh();
+            yield return null;
         }
-        ApplyVisemeWeightsToMesh();
-        yield return null;
     }
-}
 
     void ApplyVisemeWeightsToMesh() {
         // Maps your VisemeEnum to the actual CC4 indices in _shapeKeyDict
