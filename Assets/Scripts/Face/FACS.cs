@@ -527,7 +527,7 @@ public class FACS : MonoBehaviour
         }
         else if (visemeInd == (int)VisemeEnum.W_OO || visemeInd == (int)VisemeEnum.OH)
         {
-            int[] conflictingAUs = { 18, 22, 23 };
+            int[] conflictingAUs = { 18, 22, 23, 12 };
 
             if (conflictingAUs.Contains(auInd))
                 return wt;
@@ -567,57 +567,38 @@ public class FACS : MonoBehaviour
 
     void UpdateAUIntensitiesBySpeech()
     {
-        for (int i = 0; i < AUList.Count; i++)
+        foreach (ActionUnit au in AUList)
         {
-            ActionUnit au = AUList[i];
-
-            // Ensure we don't go out of bounds
-            for(au.currInd=0; au.currInd < au.Intensities.Count; au.currInd++)
+            // We iterate through segments: [i] to [i+1]
+            for (int i = 0; i < au.Times.Count - 1; i++)
             {
-                float currentTime = au.Times[au.currInd];
+                float auStart = au.Times[i];
+                float auEnd = au.Times[i + 1];
+                float maxSuppression = 0f;
 
-                // 1. Find the viseme active at this specific AU's time
-                List<VisemeEnum> activeVisemes = GetVisemesAtTime(currentTime);
+                // Find all visemes that overlap with this AU interval
+                for (int v = 0; v < _visemeFrames.Count; v++)
+                {
+                    float vStart = _visemeFrames[v].time;
+                    // If it's the last frame, assume it lasts indefinitely or to a set duration
+                    float vEnd = (v < _visemeFrames.Count - 1) ? _visemeFrames[v + 1].time : float.MaxValue;
 
-                // 2. Get the suppression for that specific viseme
-                float factor = 0f;
-                foreach(VisemeEnum activeViseme in activeVisemes) {
-                                    
-                    factor = Mathf.Max(factor, GetSuppression(au.AU, (int)activeViseme));
+                    // Check for interval overlap
+                    if (Mathf.Max(auStart, vStart) < Mathf.Min(auEnd, vEnd))
+                    {
+                        float factor = GetSuppression(au.AU, (int)_visemeFrames[v].viseme);
+                        
+                        // If multiple visemes overlap one AU segment, 
+                        // we usually take the strongest suppression
+                        if (factor > maxSuppression) maxSuppression = factor;
+                    }
                 }
-                
-                // 3. Apply suppression to the INITIAL value, store in the ACTIVE list
-                // This prevents permanent data loss
-                au.Intensities[au.currInd] = au.InitialIntensities[au.currInd] * (1 - factor);
 
-                Debug.Log($"AU {au.AU} at time {currentTime:F2}s: Active Viseme = {activeVisemes.Count}, Suppression Factor = {factor:F2}, Original Intensity = {au.InitialIntensities[au.currInd]:F2}, Suppressed Intensity = {au.Intensities[au.currInd]:F2}");
-                
-                
-                // 4. Update the global suppression factor for the class (optional)
-                au.suppressionFactor = factor;
-                
+                // Apply suppression to the segment start point
+                au.Intensities[i] = au.InitialIntensities[i] * (1 - maxSuppression);
             }
         }
 }
-
-    // Efficiently find the visemes active at a specific time
-    private List<VisemeEnum> GetVisemesAtTime(float time)
-    {
-        List<VisemeEnum> activeVisemes = new List<VisemeEnum>();
-        
-
-        // Standard search: find the frame where 'time' is between frame i and i+1
-        for (int i = 0; i < _visemeFrames.Count - 1; i++)
-        {
-            if (time >= _visemeFrames[i].time && time < _visemeFrames[i+1].time)
-            {
-                activeVisemes.Add(_visemeFrames[i].viseme);
-            }
-        }
-        
-        // If time is past the last frame, return the last viseme
-        return activeVisemes;
-    }
 
     IEnumerator AnimateAllAUShapeKeys(ActionUnit au) {
         int i = au.currInd;
