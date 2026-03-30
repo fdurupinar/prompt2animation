@@ -11,8 +11,7 @@ public static class Parsers {
     [Serializable]
     public class FacialData {
         public string utterance;
-        public string speech;
-        public Personality personality;        
+
         public List<ActionUnit> facial_actions;        
         public float duration;
     }
@@ -73,13 +72,13 @@ public static class Parsers {
 
 
 
-    public static (List<ActionUnit>, string, string, Personality, float) ParseJson(string json) {
+    public static (List<ActionUnit>, string,  float) ParseJson(string json) {
 
         FacialData data = JsonConvert.DeserializeObject<FacialData>(json);
 
         
 
-        return (data.facial_actions,  data.utterance, data.speech, data.personality, data.duration);
+        return (data.facial_actions,  data.utterance,  data.duration);
     }
 
     public static (List<ActionUnit>, float) ParseAU(string json) {

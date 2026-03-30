@@ -1,13 +1,14 @@
-using UnityEngine;
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using System;
 using System.IO;
 using System.Linq;
-using System.Diagnostics;
+
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine;
 
 [Serializable]
 public class ActionUnit{
@@ -15,7 +16,8 @@ public class ActionUnit{
     public int AU { get; set; }    
     public List<float> Times { get; set; }
     public List<float> Intensities { get; set; }
-    public int currInd { get; set; }    
+    public int currInd { get; set; }
+    public float suppressionFactor; //if 0 no suppression, if 1 fully suppressed at the currInd
     public string Semantics { get; set; }
 }
 
@@ -23,16 +25,6 @@ public class ShapeKey {
     public int Ind { get; set; }    
     public float MaxValue { get; set; } ///This is specific to the model's shape keys
 }
-
-[Serializable]
-public struct Personality {
-    public float openness;
-    public float conscientiousness;
-    public float extroversion;
-    public float agreeableness;
-    public float neuroticism;
-}
-
 
 
 
@@ -158,7 +150,7 @@ public class FACS : MonoBehaviour
 
     [SerializeField]
     private float _startTimeAU;
-    private float _startTimeViseme;
+    
 
 
     public List<ActionUnit> AUList;
@@ -169,24 +161,10 @@ public class FACS : MonoBehaviour
 
     public float Duration;
 
-    Personality _personality;
-
-    public bool VisemesOn = true;
     public bool AUsOn = true;
-    public ActionUnit currentAU = null;
 
+    public int ActiveVisemeInd;
 
-    [SerializeField]
-    bool _isTalking = false;
-    public bool IsTalking
-    {        
-        get
-        {
-            return _isTalking;
-        }
-    }
-
-    //ChatNetClient _client;
 
     Dictionary<string, int> _shapeKeyDict = new Dictionary<string, int>();
     
@@ -210,32 +188,19 @@ public class FACS : MonoBehaviour
 
 
     //RHUBARB
-    [Header("Rhubarb Integration")]
-    
-    public TextAsset rhubarbJsonFile; // If using JSON
+    [Header("Visemes")]
+    public TextAsset visemeJsonFile; // If using JSON
     [TextArea(5, 10)]
-    public string rawRhubarbData;    // If pasting the text list directly
+    public string rawVisemeData;    // If pasting the text list directly
 
-    private struct RhubarbFrame {
+    private struct VisemeFrame {
         public float time;
         public VisemeEnum viseme;
     }
-    private List<RhubarbFrame> _rhubarbFrames = new List<RhubarbFrame>();
+    private List<VisemeFrame> _visemeFrames = new List<VisemeFrame>();
     public float VisemeSmoothSpeed = 20f; // Higher is faster/snappier, lower is smoother/lazier
 
-    // Map Rhubarb letters to your existing VisemeEnum
-    private Dictionary<string, VisemeEnum> _rhubarbToViseme = new Dictionary<string, VisemeEnum> {
-        {"A", VisemeEnum.B_M_P},
-        {"B", VisemeEnum.T_L_D_N},        
-        {"C", VisemeEnum.AE},
-        {"D", VisemeEnum.AH},
-        {"E", VisemeEnum.ER},
-        {"F", VisemeEnum.OH},
-        {"G", VisemeEnum.F_V},        
-        {"H", VisemeEnum.T_L_D_N},
-        {"X", VisemeEnum.EE} // Default/Silence
-    };
-
+    
     private void Awake() {
         _jawRotInit = _jawRot = Jaw.localRotation;
         _headRotInit = _headRot = Head.localRotation;       
@@ -252,10 +217,6 @@ public class FACS : MonoBehaviour
 
         AUShapeKeys = new List<ShapeKey>[66];
         
-
-          //_client = GetComponent<ChatNetClient>();
-
-        //_client.Prompt(prompt, TestResponseCb);
 
         _meshRendererBody = transform.Find("CC_Base_Body").GetComponent<SkinnedMeshRenderer>();
         _meshRendererTongue = transform.Find("CC_Base_Tongue").GetComponent<SkinnedMeshRenderer>();
@@ -276,21 +237,10 @@ public class FACS : MonoBehaviour
 
         
 
-
-        _personality = new Personality();
-
-        //foreach(ActionUnit au in AUList) {
-
-        //    //Debug.Log($"AU: {au.AU}");
-        //    Debug.Log($"AU: {au.AU} Times: {string.Join(", ", au.Times)} Intensities: {string.Join(", ", au.Intensities)}");
-        //    //Debug.Log($"Intensities: {string.Join(", ", au.Intensities)}");
-        //    Debug.Log("------");
-        //}
-
-        //PlayAnimation();
-
-
         _audioSource = gameObject.GetComponent<AudioSource>();
+
+
+        ParseVisemeText();
         
         
     
@@ -547,7 +497,72 @@ public class FACS : MonoBehaviour
         );
     }
 
-    
+    float GetSuppression(int auInd, int visemeInd)
+    {
+        //Check how much the a viseme should suppress the an AU
+        float wt = _visemeWeight[visemeInd];
+
+        if (visemeInd == (int)VisemeEnum.B_M_P)
+        {
+            int[] conflictingAUs = { 9, 10, 15, 16, 22 };
+            if (conflictingAUs.Contains(auInd))
+                return 1f;
+
+        }
+        else if (visemeInd == (int)VisemeEnum.EE)
+        {
+            int[] conflictingAUs = { 27 };
+            if (conflictingAUs.Contains(auInd))
+                return 1f;
+
+            if (new int[] { 20, 21 }.Contains(auInd))
+                return wt;
+
+        }
+
+        else if (visemeInd == (int)VisemeEnum.AH || visemeInd == (int)VisemeEnum.AE )
+        {
+            int[] conflictingAUs = { 18, 22, 23 };
+
+            if (conflictingAUs.Contains(auInd))
+                return wt;
+
+
+        }
+        else if (visemeInd == (int)VisemeEnum.W_OO || visemeInd == (int)VisemeEnum.OH)
+        {
+            int[] conflictingAUs = { 18, 22, 23, 12 };
+
+            if (conflictingAUs.Contains(auInd))
+                return wt;
+        }
+
+        else if (visemeInd == (int)VisemeEnum.F_V || visemeInd == (int)VisemeEnum.S_Z)
+        {
+            int[] conflictingAUs = { 18 };
+
+            if (conflictingAUs.Contains(auInd))
+                return wt;
+        }
+        else if (visemeInd == (int)VisemeEnum.F_V)
+        {
+            int[] conflictingAUs = { 16, 17, 18 };
+
+            if (conflictingAUs.Contains(auInd))
+                return wt;
+        }
+
+        else if (visemeInd == (int)VisemeEnum.S_Z)
+        {
+            int[] conflictingAUs = { 18 };
+
+            if (conflictingAUs.Contains(auInd))
+                return wt;
+        }
+        
+        return 0f;
+    }
+
     IEnumerator AnimateAllAUShapeKeys(ActionUnit au) {
         int i = au.currInd;
         int last = au.Intensities.Count - 1;
@@ -556,6 +571,14 @@ public class FACS : MonoBehaviour
         float v0 = au.Intensities[i0], v1 = au.Intensities[i1],
               v2 = au.Intensities[i2], v3 = au.Intensities[i3];
 
+
+
+        
+        //    v1 = v1 * (1 - au.suppressionFactor);
+
+        
+
+
         // wait until this AU’s start time
         yield return new WaitUntil(() => Time.time - _startTimeAU >= au.Times[i1]);
 
@@ -563,29 +586,37 @@ public class FACS : MonoBehaviour
         float timeElapsed = 0f;
         float eyeCoef = 0.2f;
         
+        
 
 
         while(timeElapsed < duration) {
-            
-            timeElapsed += Time.deltaTime;
+            float suppressionFactor = GetSuppression(au.AU, ActiveVisemeInd);
 
+            v1 = v1 * (1 - suppressionFactor);
+            if(suppressionFactor > 0)
+                Debug.Log(suppressionFactor);
+          
+
+            timeElapsed += Time.deltaTime;
+            
+            //Check if current AU needs to be suppressed
+            
+    
             float t = Mathf.Clamp01(timeElapsed / duration);
             float percent = CatmullRom(v0, v1, v2, v3, t);
             float wPct = percent / 100f;
 
-            foreach(ShapeKey sk in AUShapeKeys[au.AU]) {
+            
+            foreach (ShapeKey sk in AUShapeKeys[au.AU])
+            {
+
 
                 // Blend-shape
-                float blendW = sk.MaxValue * wPct; 
+                float blendW = sk.MaxValue * wPct;
 
-                //We should consider the current weight of the shape key as it may be updated by the viseme animation
-                float currentVal = _meshRendererBody.GetBlendShapeWeight(sk.Ind);
 
-                float newVal = 0.5f*(currentVal + blendW); //take the max to avoid overwriting with lower values from AU animation
 
-                _meshRendererBody.SetBlendShapeWeight(sk.Ind, newVal);
-
-                // _meshRendererBody.SetBlendShapeWeight(sk.Ind, blendW);
+                _meshRendererBody.SetBlendShapeWeight(sk.Ind, blendW);
 
 
                 //Rotation
@@ -598,61 +629,77 @@ public class FACS : MonoBehaviour
                 ShapeKeyTargets[sk.Ind] = sk.MaxValue * au.Intensities[au.currInd + 1] / 100f;
 
 
-                if(sk.Ind == _shapeKeyDict["Jaw_Open".ToUpper()]) {
+                if (sk.Ind == _shapeKeyDict["Jaw_Open".ToUpper()])
+                {
 
                     Quaternion startJaw = _jawRotInit;
                     Quaternion targetJaw = _jawRotInit * Quaternion.Euler(0, 0, -ShapeKeyTargets[sk.Ind] * 0.1f);
 
 
+                    if (ActiveVisemeInd == (int)VisemeEnum.F_V || ActiveVisemeInd == (int)VisemeEnum.B_M_P || ActiveVisemeInd == (int)VisemeEnum.CH_J || ActiveVisemeInd == (int)VisemeEnum.S_Z)
+                        targetJaw = _jawRotInit; // no update
+                    
                     _jawRot = Quaternion.Slerp(startJaw, targetJaw, blendW);
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Head_Tilt_R".ToUpper()]) {
+                else if (sk.Ind == _shapeKeyDict["Head_Tilt_R".ToUpper()])
+                {
                     _headTiltRight = blendW;
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Head_Tilt_L".ToUpper()]) {
+                else if (sk.Ind == _shapeKeyDict["Head_Tilt_L".ToUpper()])
+                {
                     _headTiltLeft = blendW;
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Head_Turn_L".ToUpper()]) {
+                else if (sk.Ind == _shapeKeyDict["Head_Turn_L".ToUpper()])
+                {
                     _headTurnLeft = blendW;
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Head_Turn_R".ToUpper()]) {
+                else if (sk.Ind == _shapeKeyDict["Head_Turn_R".ToUpper()])
+                {
                     _headTurnRight = blendW;
                 }
-               
-                else if(sk.Ind == _shapeKeyDict["Head_Turn_Down".ToUpper()]) {
+
+                else if (sk.Ind == _shapeKeyDict["Head_Turn_Down".ToUpper()])
+                {
                     _headTurnDown = blendW;
                 }
-               
-                else if(sk.Ind == _shapeKeyDict["Head_Turn_Up".ToUpper()]) {
+
+                else if (sk.Ind == _shapeKeyDict["Head_Turn_Up".ToUpper()])
+                {
                     _headTurnUp = blendW;
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Head_Forward".ToUpper()]) {
+                else if (sk.Ind == _shapeKeyDict["Head_Forward".ToUpper()])
+                {
                     _headForward = blendW;
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Head_Backward".ToUpper()]) {
+                else if (sk.Ind == _shapeKeyDict["Head_Backward".ToUpper()])
+                {
                     _headBackward = blendW;
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Eye_L_Look_L".ToUpper()] || sk.Ind == _shapeKeyDict["Eye_R_Look_L".ToUpper()]) {
-                    _eyeLookLeft =  blendW;
+                else if (sk.Ind == _shapeKeyDict["Eye_L_Look_L".ToUpper()] || sk.Ind == _shapeKeyDict["Eye_R_Look_L".ToUpper()])
+                {
+                    _eyeLookLeft = blendW;
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Eye_L_Look_R".ToUpper()] || sk.Ind == _shapeKeyDict["Eye_R_Look_R".ToUpper()]) {
-                    _eyeLookRight =blendW;                    
+                else if (sk.Ind == _shapeKeyDict["Eye_L_Look_R".ToUpper()] || sk.Ind == _shapeKeyDict["Eye_R_Look_R".ToUpper()])
+                {
+                    _eyeLookRight = blendW;
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Eye_L_Look_Up".ToUpper()] || sk.Ind == _shapeKeyDict["Eye_R_Look_Up".ToUpper()]) {
-                    _eyeLookUp =  blendW;                   
+                else if (sk.Ind == _shapeKeyDict["Eye_L_Look_Up".ToUpper()] || sk.Ind == _shapeKeyDict["Eye_R_Look_Up".ToUpper()])
+                {
+                    _eyeLookUp = blendW;
                 }
 
-                else if(sk.Ind == _shapeKeyDict["Eye_L_Look_Down".ToUpper()] || sk.Ind == _shapeKeyDict["Eye_R_Look_Down".ToUpper()]) {
-                    _eyeLookDown =  blendW;                   
+                else if (sk.Ind == _shapeKeyDict["Eye_L_Look_Down".ToUpper()] || sk.Ind == _shapeKeyDict["Eye_R_Look_Down".ToUpper()])
+                {
+                    _eyeLookDown = blendW;
                 }
 
             }
@@ -667,15 +714,14 @@ public class FACS : MonoBehaviour
             
             Quaternion qRoll = Quaternion.AngleAxis(tiltAmount, Head.forward);  
             Quaternion qYaw = Quaternion.AngleAxis(turnAmount, Head.up);       
-            Quaternion qPitch = Quaternion.AngleAxis(nodAmount, Head.right);   
-
+            Quaternion qPitch = Quaternion.AngleAxis(nodAmount, Head.right);
             
             Quaternion targetRot = qYaw * qPitch * qRoll * _headRotInit;
 
 
-
-            _headRot = targetRot; //Quaternion.Slerp(_headRot, targetRot, t);
-
+            //TODO: why was this open?
+            //_headRot = targetRot; //Quaternion.Slerp(_headRot, targetRot, t);
+            _headRot = Quaternion.Slerp(_headRot, targetRot, t);
 
             /////// EYES ////////////////
             
@@ -745,122 +791,15 @@ public class FACS : MonoBehaviour
             _jawRot = _jawRotInit * Quaternion.Euler(0, 0, -jawAngleInc);
         }
 
-        if (_visemeWeight[(int)VisemeEnum.F_V] > 0.05f || _visemeWeight[(int)VisemeEnum.B_M_P] > 0.05f || _visemeWeight[(int)VisemeEnum.CH_J] > 0.05f || _visemeWeight[(int)VisemeEnum.S_Z] > 0.05f)
-            _jawRot = _jawRotInit; //don't open the jaw
+      //  if (_visemeWeight[(int)VisemeEnum.F_V] > 0.05f || _visemeWeight[(int)VisemeEnum.B_M_P] > 0.05f || _visemeWeight[(int)VisemeEnum.CH_J] > 0.05f || _visemeWeight[(int)VisemeEnum.S_Z] > 0.05f)
+        //    _jawRot = _jawRotInit; //don't open the jaw
 
 
-        
-
-        FixConfoundingKeys();
-
-    }
-    
-    
-    
-    void FixConfoundingKeys()
-    {
-        
-        float wBMP = _visemeWeight[(int)VisemeEnum.B_M_P];
-        float wEE = _visemeWeight[(int)VisemeEnum.EE];
-        float wAH  = _visemeWeight[(int)VisemeEnum.AH];
-        float wAE  = _visemeWeight[(int)VisemeEnum.AE];
-        float wOO  = _visemeWeight[(int)VisemeEnum.W_OO];
-        float wOH  = _visemeWeight[(int)VisemeEnum.OH];
-        float wFV  = _visemeWeight[(int)VisemeEnum.F_V];
-        float wKG  = _visemeWeight[(int)VisemeEnum.K_G_H_NG];
-        float wSZ  = _visemeWeight[(int)VisemeEnum.S_Z];
-        float wCHJ = _visemeWeight[(int)VisemeEnum.CH_J];
-        float wTLD = _visemeWeight[(int)VisemeEnum.T_L_D_N];
-        float wTH = _visemeWeight[(int)VisemeEnum.TH];
-
-        
-    
-        if (wBMP > 0.05f) {
-            string[] confounders = { 
-                "MOUTH_SHRUG_UPPER",                
-                "MOUTH_FUNNEL_UP_L", "MOUTH_FUNNEL_UP_R",
-                "MOUTH_FUNNEL_DOWN_L", "MOUTH_FUNNEL_DOWN_R",
-                "MOUTH_DOWN_LOWER_L", "MOUTH_DOWN_LOWER_R",
-                "MOUTH_FROWN_L", "MOUTH_FROWN_R"          
-            };
-
-
-            ApplySuppression(confounders, 0f);//1f - wBMP);
-        }
-
-        
-        if (wEE > 0.05f) {
-            string[] confounders = { 
-                "MOUTH_SHRUG_LOWER",                                
-            };
-            
-            ApplySuppression(confounders, 1f - wEE);
-        }
-
-        float maxWide = Mathf.Max(wAH, wAE, wOO, wOH);
-        if (maxWide > 0.05f) {
-                string[] aeConfounders = { 
-                    "MOUTH_PUCKER_UP_L", "MOUTH_PUCKER_UP_R", // AU18
-                    "MOUTH_FUNNEL_UP_L", "MOUTH_FUNNEL_UP_R",  // AU22
-                    "MOUTH_TIGHTEN_L", "MOUTH_TIGHTEN_R"
-                };
-                ApplySuppression(aeConfounders, 1f - maxWide);
-        }
-        
-        
-      
-        // --- GROUP D: F_V (Lip Tuck) ---
-        // Suppresses Upper and Lower Shrugs so the lower lip can tuck under teeth
-        if (wFV > 0.05f) {
-            string[] confounders = { 
-                "MOUTH_FUNNEL_DOWN_L", "MOUTH_FUNNEL_DOWN_R",
-                "MOUTH_SHRUG_LOWER",                                 
-                "MOUTH_DOWN_LOWER_L", "MOUTH_DOWN_LOWER_R"
-            };
-            ApplySuppression(confounders, 1f - wFV);
-        }
-
-        // --- GROUP E: Fricatives (S_Z, F_V) ---
-        // Suppress puckering (AU18) to preserve fricative articulation
-        float maxFricative = Mathf.Max(wFV, wSZ);
-        if (maxFricative > 0.05f) {
-            string[] fricativeConfounders = {
-                "MOUTH_PUCKER_UP_L", "MOUTH_PUCKER_UP_R"  // AU18 pucker conflicts with fricatives
-            };
-            ApplySuppression(fricativeConfounders, 1f - maxFricative);
-        }
-
-        // --- GROUP F: EE (Smile Vowel) ---
-        // Suppress mouth stretch (AU20) to prevent double-widening
-        if (wEE > 0.05f) {
-            string[] eeConfounders = {
-                "MOUTH_STRETCH_L", "MOUTH_STRETCH_R"  // AU20 stretch conflicts with EE vowel
-            };
-            ApplySuppression(eeConfounders, 1f - wEE);
-        }
-
-        // --- GROUP G: Wide Vowels (AH, AE) ---
-        // Suppress smile (AU12) to maintain vowel intelligibility
-        if (maxWide > 0.05f) {
-            string[] smileConfounders = {
-                "MOUTH_SMILE_L", "MOUTH_SMILE_R"  // AU12 smile reduces wide vowel intelligibility
-            };
-            ApplySuppression(smileConfounders, 1f - maxWide); //smile can be reduced but not completely eliminated for wide vowels, as it also contributes to expressiveness
-        }
-}
-
-    private void ApplySuppression(string[] shapeNames, float factor) {
-        foreach (string name in shapeNames) {
-            if (_shapeKeyDict.ContainsKey(name)) {
-                int index = _shapeKeyDict[name];
-                float currentVal = _meshRendererBody.GetBlendShapeWeight(index);
-                _meshRendererBody.SetBlendShapeWeight(index, currentVal * factor);
-            }
-    
-        }
     }
 
 
+
+   
 
     IEnumerator AnimateAU(ActionUnit au) {
 
@@ -874,11 +813,7 @@ public class FACS : MonoBehaviour
             
             au.currInd += 1;
 
-            if (au.currInd >= au.Times.Count() - 1)
-            {
-
-                _isTalking = false;
-            }                
+                            
 
         }
        
@@ -927,11 +862,9 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     
 
-        
-
     string cmdArgs = $"-o \"{filePath}\" --data-format=LEF32@44100 \"{safeText}\"";
 
-    Process process = Process.Start("/usr/bin/say", cmdArgs);
+    System.Diagnostics.Process process = System.Diagnostics.Process.Start("/usr/bin/say", cmdArgs);
 
     if (process == null)
     {
@@ -944,14 +877,14 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     if (!File.Exists(filePath))
     {
-        UnityEngine.Debug.LogError("say finished, but no audio file was created: " + filePath);
+        Debug.LogError("say finished, but no audio file was created: " + filePath);
         yield break;
     }
 
     var info = new FileInfo(filePath);
     if (info.Length == 0)
     {
-        UnityEngine.Debug.LogError("Audio file was created but is empty: " + filePath);
+        Debug.LogError("Audio file was created but is empty: " + filePath);
         yield break;
     }
 
@@ -971,7 +904,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     if (www.result != UnityWebRequest.Result.Success)
     {
-        UnityEngine.Debug.LogError("Error loading synthesized speech: " + www.error);
+        Debug.LogError("Error loading synthesized speech: " + www.error);
         yield break;
     }
 
@@ -979,7 +912,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     if (clip == null)
     {
-        UnityEngine.Debug.LogError("Loaded clip is null.");
+        Debug.LogError("Loaded clip is null.");
         yield break;
     }
 
@@ -1004,19 +937,21 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         ResetShapeKeys();
         StopAllCoroutines();
 
-        _isTalking = true;
+
+        
+
+        if (IsSpeechEnabled)
+        {
+            _audioSource.Play();
+            StartCoroutine(PlayVisemeSequence()); // Starts in the same frame as animating AUs
+        }
+        
         if (AUsOn)
             AnimateAllAUs();
 
-        // if(VisemesOn)
-        //     AnimateAllVisemes();
             
-        if(IsSpeechEnabled)
-        {
-            _audioSource.Play();
-            StartCoroutine(PlayRhubarbSequence()); // Use our new Universal player
-        }
-        // GetComponent<OVRLipSyncContextBase>().audioSource.Play();
+        
+        // GetComponent<OVRLipSyncContextBase>().audioSource.Play() ;
         
      
     }
@@ -1029,7 +964,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         IsWaitingResponse = false;
 
         
-        (AUList,  Utterance, Speech, _personality, Duration) = Parsers.ParseJson(response);
+        (AUList,  Utterance,  Duration) = Parsers.ParseJson(response);
         
         
         //UnityEngine.Debug.Log("response received");
@@ -1043,7 +978,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         (AUList, Duration) = Parsers.ParseAU(response);
 
 
-        UnityEngine.Debug.Log(Duration);
+        Debug.Log(Duration);
         
 
     }
@@ -1058,40 +993,38 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         return auStr;
     }
 
-    
-    void ParseRhubarbText() {
-        _rhubarbFrames.Clear();
-        string[] lines = rawRhubarbData.Split('\n');
+
+    void ParseVisemeText() {
+        _visemeFrames.Clear();
+        string[] lines = rawVisemeData.Split('\n');
         foreach (string line in lines) {
-        UnityEngine.Debug.Log(line);
             string[] parts = line.Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length >= 2 && float.TryParse(parts[0], out float t)) {
-                if (_rhubarbToViseme.TryGetValue(parts[1], out VisemeEnum v)) {
+            if (parts.Length >= 2 && float.TryParse(parts[0], out float t) && Enum.TryParse(parts[1], true, out VisemeEnum v)) {
+                _visemeFrames.Add(new VisemeFrame { time = t, viseme = v });
                 
-                    _rhubarbFrames.Add(new RhubarbFrame { time = t, viseme = v });
-                }
             }
         }
     }
 
-  IEnumerator PlayRhubarbSequence() {
-        if (_rhubarbFrames.Count == 0) 
-            ParseRhubarbText();
+
+    IEnumerator PlayVisemeSequence() {
+        if (_visemeFrames.Count == 0) 
+            ParseVisemeText();
         
         int frameIndex = 0;
         while (_audioSource.isPlaying) {
             float currentTime = _audioSource.time;
             
             // Find current frame based on audio time
-            while (frameIndex < _rhubarbFrames.Count - 1 && currentTime >= _rhubarbFrames[frameIndex + 1].time) {
+            while (frameIndex < _visemeFrames.Count - 1 && currentTime >= _visemeFrames[frameIndex + 1].time) {
                 frameIndex++;
             }
 
-            int activeVisemeInd = (int)_rhubarbFrames[frameIndex].viseme;
+            ActiveVisemeInd = (int)_visemeFrames[frameIndex].viseme;
 
             // Smoothly transition ALL viseme weights
             for (int i = 0; i < _visemeWeight.Length; i++) {
-                float target = (i == activeVisemeInd) ? 1.0f : 0.0f;
+                float target = (i == ActiveVisemeInd) ? 1.0f : 0.0f;
                 
                 // MoveTowards provides a consistent linear transition (better for speech "snaps")
                 // Use Mathf.Lerp if you want a more "organic/lazy" feel
@@ -1100,6 +1033,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
             // Apply these smoothed weights to the Actual Blendshapes
             ApplyVisemeWeightsToMesh();
+
 
             yield return null;
         }

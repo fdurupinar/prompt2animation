@@ -30,7 +30,7 @@ public class OCCController : MonoBehaviour {
             }
         }
 
-        _facs[0].VisemesOn = false;
+        
 
 
         if (heatmapAnalyzer != null)            

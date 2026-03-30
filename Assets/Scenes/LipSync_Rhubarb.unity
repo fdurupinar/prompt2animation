@@ -7137,7 +7137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c561aac3df8843dda314762ad4a2b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scenario: {fileID: 4900000, guid: da295c1e5e9134e5ea932696ba715e53, type: 3}
+  Scenario: {fileID: 4900000, guid: ad50e9ba4dc014798920dda1e1a12bed, type: 3}
   sourceFolder: {fileID: 102900000, guid: 06c985e324c214cb89d974b3e6933f59, type: 3}
   videoResolution: {x: 1920, y: 1080}
   outputFolder: Recordings
@@ -7155,7 +7155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OCCController
   Scenarios:
-  - {fileID: 4900000, guid: 458d27978d41e4f4b9089ad1ddbec394, type: 3}
+  - {fileID: 4900000, guid: c7141e7b7f83140309fba601d6605c4c, type: 3}
   heatmapAnalyzer: {fileID: 543450652274150221}
   Agents:
   - {fileID: 1296814085}
@@ -19955,8 +19955,13 @@ PrefabInstance:
       objectReference: {fileID: 1164030442}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
+      propertyPath: rawVisemeData
+      value: "0.000\tsil\n0.100\t\tTH\n0.180\t\tAH\n0.300\tK_G_H_NG\n0.350\tW_OO\n0.400\tIH\n0.480\tK_G_H_NG\n0.500\tB_M_P\n0.550\tR\n0.700\tAH\n0.800\tW_OO\n0.850\tT_L_D_N\n1.000\tF_V\n1.100\tOH\n1.200\tK_G_H_NG\n1.280\tS_Z\n1.400\tCH_J\n1.480\tAH\n1.550\t\tB_M_P\n1.650\t\tS_Z\n1.800\tOH\n1.880\tW_OO\n1.950\tF_V\n2.050\tER\n2.200\tTH\n2.280\tAH\n2.400\tT_L_D_N\n2.500\tAE\n2.600\tS_Z\n2.700\tEE\n2.850\tT_L_D_N\n2.950\tOH\n3.100\t\tK_G_H_NG\n3.300\tsil"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
       propertyPath: rawRhubarbData
-      value: "0.00\tX\n0.03\tB\n0.39\tX\n0.45\tA\n0.53\tB\n0.58\tC\n0.63\tE\n0.70\tC\n0.77\tG\n0.91\tD\n0.98\tC\n1.05\tB\n1.19\tC\n1.33\tE\n1.40\tC\n1.47\tB\n1.68\tF\n1.75\tG\n1.82\tB\n1.89\tC\n1.96\tH\n2.03\tC\n2.10\tB\n2.31\tE\n2.59\tC\n2.73\tX\n2.79\tX"
+      value: "0.000\tsil\n0.100\t\tTH\n0.180\t\tAH\n0.300\tK_G_H_NG\n0.350\tW_OO\n0.400\tIH\n0.480\tK_G_H_NG\n0.600\tB_M_P\n0.650\tR\n0.700\tAH\n0.800\tW_OO\n0.850\tT_L_D_N\n1.000\tF_V\n1.100\tOH\n1.200\tK_G_H_NG\n1.280\tS_Z\n1.400\tCH_J\n1.480\tAH\n1.550\t\tB_M_P\n1.650\t\tS_Z\n1.800\tOH\n1.880\tW_OO\n1.950\tF_V\n2.050\tER\n2.200\tTH\n2.280\tAH\n2.400\tT_L_D_N\n2.500\tAE\n2.600\tS_Z\n2.700\tEE\n2.850\tT_L_D_N\n2.950\tOH\n3.100\t\tK_G_H_NG\n3.300\tsil"
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
