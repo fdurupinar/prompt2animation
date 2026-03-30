@@ -19956,7 +19956,7 @@ PrefabInstance:
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
       propertyPath: rawVisemeData
-      value: "0.000\tsil\n0.100\t\tTH\n0.180\t\tAH\n0.300\tK_G_H_NG\n0.350\tW_OO\n0.400\tIH\n0.480\tK_G_H_NG\n0.500\tB_M_P\n0.550\tR\n0.700\tAH\n0.800\tW_OO\n0.850\tT_L_D_N\n1.000\tF_V\n1.100\tOH\n1.200\tK_G_H_NG\n1.280\tS_Z\n1.400\tCH_J\n1.480\tAH\n1.550\t\tB_M_P\n1.650\t\tS_Z\n1.800\tOH\n1.880\tW_OO\n1.950\tF_V\n2.050\tER\n2.200\tTH\n2.280\tAH\n2.400\tT_L_D_N\n2.500\tAE\n2.600\tS_Z\n2.700\tEE\n2.850\tT_L_D_N\n2.950\tOH\n3.100\t\tK_G_H_NG\n3.300\tsil"
+      value: "0.000\tsil\n0.080\tTH\n0.140\tAH\n0.240\tK_G_H_NG\n0.320\tW_OO\n0.380\tIH\n0.440\tK_G_H_NG\n0.540\tB_M_P\n0.600\tR\n0.660\tAH\n0.720\tW_OO\n0.800\tT_L_D_N\n0.900\tF_V\n0.980\tOH\n1.080\tK_G_H_NG\n1.160\tS_Z\n1.260\tCH_J\n1.340\tAH\n1.420\tB_M_P\n1.520\tS_Z\n1.620\tOH\n1.700\tW_OO\n1.780\tF_V\n1.880\tER\n1.980\tTH\n2.060\tAH\n2.160\tT_L_D_N\n2.240\tAE\n2.340\tS_Z\n2.440\tEE\n2.540\tT_L_D_N\n2.620\tOH\n2.720\tK_G_H_NG\n2.790\tsil"
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
@@ -19973,6 +19973,11 @@ PrefabInstance:
       propertyPath: rhubarbJsonFile
       value: 
       objectReference: {fileID: 4900000, guid: 21b5b5c361c7b4dcb8f71716a6a93f93, type: 3}
+    - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
+      propertyPath: VisemeSmoothSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
       propertyPath: _meshRendererBody

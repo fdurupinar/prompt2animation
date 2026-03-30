@@ -16,6 +16,7 @@ public class ActionUnit{
     public int AU { get; set; }    
     public List<float> Times { get; set; }
     public List<float> Intensities { get; set; }
+    public List<float> InitialIntensities { get; set; }
     public int currInd { get; set; }
     public float suppressionFactor; //if 0 no suppression, if 1 fully suppressed at the currInd
     public string Semantics { get; set; }
@@ -221,29 +222,24 @@ public class FACS : MonoBehaviour
         _meshRendererBody = transform.Find("CC_Base_Body").GetComponent<SkinnedMeshRenderer>();
         _meshRendererTongue = transform.Find("CC_Base_Tongue").GetComponent<SkinnedMeshRenderer>();
 
-       
-
+    
         InitShapeKeysAndAUs();
-
-
-        
+    
         
         ShapeKeyVals = new float[ShapeKeyCntBody+ShapeKeyCntTongue];
         ShapeKeyTargets = new float[ShapeKeyCntBody + ShapeKeyCntTongue];
 
 
-
         AUList = new List<ActionUnit>();
 
         
-
         _audioSource = gameObject.GetComponent<AudioSource>();
 
 
         ParseVisemeText();
         
         
-    
+        
     }
 
     
@@ -531,7 +527,7 @@ public class FACS : MonoBehaviour
         }
         else if (visemeInd == (int)VisemeEnum.W_OO || visemeInd == (int)VisemeEnum.OH)
         {
-            int[] conflictingAUs = { 18, 22, 23, 12 };
+            int[] conflictingAUs = { 18, 22, 23 };
 
             if (conflictingAUs.Contains(auInd))
                 return wt;
@@ -560,23 +556,77 @@ public class FACS : MonoBehaviour
                 return wt;
         }
         
+        
+        if(auInd == 12){ //Smilesuppressed in all cases
+            // Debug.Log(VisemeDict.FirstOrDefault(x => x.Value == visemeInd).Key + " " +wt);
+            return 0.5f; //TODO
+        }
+    
         return 0f;
+    }
+
+    void UpdateAUIntensitiesBySpeech()
+    {
+        for (int i = 0; i < AUList.Count; i++)
+        {
+            ActionUnit au = AUList[i];
+
+            // Ensure we don't go out of bounds
+            for(au.currInd=0; au.currInd < au.Intensities.Count; au.currInd++)
+            {
+                float currentTime = au.Times[au.currInd];
+
+                // 1. Find the viseme active at this specific AU's time
+                List<VisemeEnum> activeVisemes = GetVisemesAtTime(currentTime);
+
+                // 2. Get the suppression for that specific viseme
+                float factor = 0f;
+                foreach(VisemeEnum activeViseme in activeVisemes) {
+                                    
+                    factor = Mathf.Max(factor, GetSuppression(au.AU, (int)activeViseme));
+                }
+                
+                // 3. Apply suppression to the INITIAL value, store in the ACTIVE list
+                // This prevents permanent data loss
+                au.Intensities[au.currInd] = au.InitialIntensities[au.currInd] * (1 - factor);
+
+                Debug.Log($"AU {au.AU} at time {currentTime:F2}s: Active Viseme = {activeVisemes.Count}, Suppression Factor = {factor:F2}, Original Intensity = {au.InitialIntensities[au.currInd]:F2}, Suppressed Intensity = {au.Intensities[au.currInd]:F2}");
+                
+                
+                // 4. Update the global suppression factor for the class (optional)
+                au.suppressionFactor = factor;
+                
+            }
+        }
+}
+
+    // Efficiently find the visemes active at a specific time
+    private List<VisemeEnum> GetVisemesAtTime(float time)
+    {
+        List<VisemeEnum> activeVisemes = new List<VisemeEnum>();
+        
+
+        // Standard search: find the frame where 'time' is between frame i and i+1
+        for (int i = 0; i < _visemeFrames.Count - 1; i++)
+        {
+            if (time >= _visemeFrames[i].time && time < _visemeFrames[i+1].time)
+            {
+                activeVisemes.Add(_visemeFrames[i].viseme);
+            }
+        }
+        
+        // If time is past the last frame, return the last viseme
+        return activeVisemes;
     }
 
     IEnumerator AnimateAllAUShapeKeys(ActionUnit au) {
         int i = au.currInd;
         int last = au.Intensities.Count - 1;
         int i0 = Mathf.Max(i - 1, 0), i1 = i, i2 = Mathf.Min(i + 1, last), i3 = Mathf.Min(i + 2, last);
-
+        
+        
         float v0 = au.Intensities[i0], v1 = au.Intensities[i1],
               v2 = au.Intensities[i2], v3 = au.Intensities[i3];
-
-
-
-        
-        //    v1 = v1 * (1 - au.suppressionFactor);
-
-        
 
 
         // wait until this AU’s start time
@@ -586,17 +636,14 @@ public class FACS : MonoBehaviour
         float timeElapsed = 0f;
         float eyeCoef = 0.2f;
         
-        
-
-
+        //Should update AU intensities
+            
+         
         while(timeElapsed < duration) {
+        
             float suppressionFactor = GetSuppression(au.AU, ActiveVisemeInd);
 
-            v1 = v1 * (1 - suppressionFactor);
-            if(suppressionFactor > 0)
-                Debug.Log(suppressionFactor);
-          
-
+            
             timeElapsed += Time.deltaTime;
             
             //Check if current AU needs to be suppressed
@@ -606,6 +653,9 @@ public class FACS : MonoBehaviour
             float percent = CatmullRom(v0, v1, v2, v3, t);
             float wPct = percent / 100f;
 
+        
+            if(au.AU==12)
+                Debug.Log(VisemeDict.FirstOrDefault(x => x.Value == ActiveVisemeInd).Key + " " +au.AU + " " + v0 + " " +v1 + " " +v2 + " " +v3  +  " " + percent);    
             
             foreach (ShapeKey sk in AUShapeKeys[au.AU])
             {
@@ -747,7 +797,8 @@ public class FACS : MonoBehaviour
         
         
         // final snap to exact v2
-        float finalPct = v2 / 100f;
+        
+        float finalPct = au.Intensities[i2] / 100f;
         foreach(ShapeKey sk in AUShapeKeys[au.AU]) {
             _meshRendererBody.SetBlendShapeWeight(sk.Ind, sk.MaxValue * finalPct);
         }
@@ -786,7 +837,7 @@ public class FACS : MonoBehaviour
         if (jawOpen > 0.05)
         { //it means visemes are working, so they take over other blendshapes
             // Get jaw rotation from the blendshape weight
-            float jawAngleInc = Mathf.Lerp(0, 10, jawOpen);
+            float jawAngleInc = Mathf.Lerp(0, 7, jawOpen);
 
             _jawRot = _jawRotInit * Quaternion.Euler(0, 0, -jawAngleInc);
         }
@@ -799,8 +850,6 @@ public class FACS : MonoBehaviour
 
 
 
-   
-
     IEnumerator AnimateAU(ActionUnit au) {
 
         au.currInd = 0;
@@ -809,11 +858,8 @@ public class FACS : MonoBehaviour
         while(au.currInd < au.Times.Count() - 1) {
             
             yield return StartCoroutine(AnimateAllAUShapeKeys(au));
-
             
             au.currInd += 1;
-
-                            
 
         }
        
@@ -923,6 +969,15 @@ private IEnumerator GenerateAndPlaySpeech(string text)
     
     }
     
+    public void ResetAUIntensities()
+    {
+       foreach (ActionUnit au in AUList){
+            if (au.Intensities != null) {        
+                au.InitialIntensities = new List<float>(au.Intensities);
+            }
+        }
+    }
+    
     public void ResetShapeKeys() {
         for(int i = 0; i < ShapeKeyCntBody + ShapeKeyCntTongue; i++) { 
             ResetShapeKey(i);
@@ -935,6 +990,8 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
         //Call these once for aus + visemes - they have mutually exclusive shape keys
         ResetShapeKeys();
+        ResetAUIntensities();
+        
         StopAllCoroutines();
 
 
@@ -942,6 +999,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
         if (IsSpeechEnabled)
         {
+            UpdateAUIntensitiesBySpeech();
             _audioSource.Play();
             StartCoroutine(PlayVisemeSequence()); // Starts in the same frame as animating AUs
         }
@@ -977,8 +1035,8 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         
         (AUList, Duration) = Parsers.ParseAU(response);
 
+        
 
-        Debug.Log(Duration);
         
 
     }

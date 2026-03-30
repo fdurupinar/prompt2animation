@@ -95,7 +95,7 @@ private void StopActiveProcess() {
 
 
 
-            yield return null;
+            // yield return null; //causes a skip
 
             // --- 3. Configure and Start Recorder ---
             RecorderControllerSettings controllerSettings = ScriptableObject.CreateInstance<RecorderControllerSettings>();
