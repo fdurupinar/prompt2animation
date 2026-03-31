@@ -635,8 +635,8 @@ public class FACS : MonoBehaviour
             float wPct = percent / 100f;
 
         
-            if(au.AU==12)
-                Debug.Log(VisemeDict.FirstOrDefault(x => x.Value == ActiveVisemeInd).Key + " " +au.AU + " " + v0 + " " +v1 + " " +v2 + " " +v3  +  " " + percent);    
+            //if(au.AU==12)
+              //  Debug.Log(VisemeDict.FirstOrDefault(x => x.Value == ActiveVisemeInd).Key + " " +au.AU + " " + v0 + " " +v1 + " " +v2 + " " +v3  +  " " + percent);    
             
             foreach (ShapeKey sk in AUShapeKeys[au.AU])
             {

@@ -112,7 +112,8 @@ private void StopActiveProcess() {
             Debug.Log($"Starting recording for '{fileName}'. Duration: {durationInSeconds:F2} seconds.");
             recorderController.PrepareRecording();
             recorderController.StartRecording();
-
+            GameObject.Find("PlayAU").SetActive(false);
+            
             
             // We just need to wait for the specified duration. The procedural animation should
             // be running in the background based on the new TextAsset.
@@ -120,6 +121,7 @@ private void StopActiveProcess() {
 
             // Ensure the recorder has fully stopped and saved the file
             while(recorderController.IsRecording()) {
+            GameObject.Find("PlayAU").SetActive(false);
                 yield return null;
             }
 
@@ -128,6 +130,7 @@ private void StopActiveProcess() {
             // Clean up the recorder controller to free up memory
             recorderController.StopRecording();
 
+            GameObject.Find("PlayAU").SetActive(true);
          
         
             EditorUtility.ClearProgressBar();        
