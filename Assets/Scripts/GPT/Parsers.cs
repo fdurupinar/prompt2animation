@@ -2,8 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Text.RegularExpressions;
+[Serializable]
+public class VisemeFrame
+{
+    [JsonProperty("time")]
+    public float time { get; set; }
 
+    [JsonProperty("viseme")]
+    [JsonConverter(typeof(StringEnumConverter))]
+    public VisemeEnum viseme { get; set; }
+}
+    
 public static class Parsers {
 
     
@@ -16,7 +27,7 @@ public static class Parsers {
         public float duration;
     }
 
-
+   
 
     public static Dictionary<int, string> AUSemanticsDict =  new Dictionary<int, string> {
       { 1, "Inner Brow Raiser" },
@@ -96,7 +107,20 @@ public static class Parsers {
 
 
     
+    public static List<VisemeFrame> ParseVisemes(string visemeJson) {
+    
 
+        try {
+            // Deserializes the entire array directly into your list
+            return JsonConvert.DeserializeObject<List<VisemeFrame>>(visemeJson);
+        }
+        catch (JsonException e) {
+            // Handle malformed JSON here
+            Debug.LogError($"Failed to parse viseme JSON: {e.Message}");
+            return null;
+                
+        }
+    }
 
   
 

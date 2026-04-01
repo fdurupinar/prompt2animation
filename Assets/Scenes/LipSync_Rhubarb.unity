@@ -19956,7 +19956,27 @@ PrefabInstance:
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
       propertyPath: rawVisemeData
-      value: "0.000\tsil\n0.080\tTH\n0.140\tAH\n0.240\tK_G_H_NG\n0.320\tW_OO\n0.380\tIH\n0.440\tK_G_H_NG\n0.540\tB_M_P\n0.600\tR\n0.660\tAH\n0.720\tW_OO\n0.800\tT_L_D_N\n0.900\tF_V\n0.980\tOH\n1.080\tK_G_H_NG\n1.160\tS_Z\n1.260\tCH_J\n1.340\tAH\n1.420\tB_M_P\n1.520\tS_Z\n1.620\tOH\n1.700\tW_OO\n1.780\tF_V\n1.880\tER\n1.980\tTH\n2.060\tAH\n2.160\tT_L_D_N\n2.240\tAE\n2.340\tS_Z\n2.440\tEE\n2.540\tT_L_D_N\n2.620\tOH\n2.720\tK_G_H_NG\n2.790\tsil"
+      value: "[\n  { \"time\": 0.000, \"viseme\": \"sil\" },\n  { \"time\": 0.080,
+        \"viseme\": \"TH\" },\n  { \"time\": 0.140, \"viseme\": \"AH\" },\n  { \"time\":
+        0.240, \"viseme\": \"K_G_H_NG\" },\n  { \"time\": 0.320, \"viseme\": \"W_OO\"
+        },\n  { \"time\": 0.380, \"viseme\": \"IH\" },\n  { \"time\": 0.440, \"viseme\":
+        \"K_G_H_NG\" },\n  { \"time\": 0.540, \"viseme\": \"B_M_P\" },\n  { \"time\":
+        0.600, \"viseme\": \"R\" },\n  { \"time\": 0.660, \"viseme\": \"AH\" },\n 
+        { \"time\": 0.720, \"viseme\": \"W_OO\" },\n  { \"time\": 0.800, \"viseme\":
+        \"T_L_D_N\" },\n  { \"time\": 0.900, \"viseme\": \"F_V\" },\n  { \"time\":
+        0.980, \"viseme\": \"OH\" },\n  { \"time\": 1.080, \"viseme\": \"K_G_H_NG\"
+        },\n  { \"time\": 1.160, \"viseme\": \"S_Z\" },\n  { \"time\": 1.260, \"viseme\":
+        \"CH_J\" },\n  { \"time\": 1.340, \"viseme\": \"AH\" },\n  { \"time\": 1.420,
+        \"viseme\": \"B_M_P\" },\n  { \"time\": 1.520, \"viseme\": \"S_Z\" },\n 
+        { \"time\": 1.620, \"viseme\": \"OH\" },\n  { \"time\": 1.700, \"viseme\":
+        \"W_OO\" },\n  { \"time\": 1.780, \"viseme\": \"F_V\" },\n  { \"time\": 1.880,
+        \"viseme\": \"ER\" },\n  { \"time\": 1.980, \"viseme\": \"TH\" },\n  { \"time\":
+        2.060, \"viseme\": \"AH\" },\n  { \"time\": 2.160, \"viseme\": \"T_L_D_N\"
+        },\n  { \"time\": 2.240, \"viseme\": \"AE\" },\n  { \"time\": 2.340, \"viseme\":
+        \"S_Z\" },\n  { \"time\": 2.440, \"viseme\": \"EE\" },\n  { \"time\": 2.540,
+        \"viseme\": \"T_L_D_N\" },\n  { \"time\": 2.620, \"viseme\": \"OH\" },\n 
+        { \"time\": 2.720, \"viseme\": \"K_G_H_NG\" },\n  { \"time\": 2.790, \"viseme\":
+        \"sil\" }\n]"
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}

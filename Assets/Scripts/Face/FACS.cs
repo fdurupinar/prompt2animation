@@ -30,7 +30,8 @@ public class ShapeKey {
 
 
 //Ee Er IH Ah Oh W_OO S_Z Ch_J F_V TH T_L_D_N B_M_P K_G_H_NG AE R
-public enum VisemeEnum {
+public enum VisemeEnum
+{
     EE,
     ER,
     IH,
@@ -45,7 +46,8 @@ public enum VisemeEnum {
     B_M_P,
     K_G_H_NG,
     AE,
-    R
+    R,
+    sil
 };
 
 
@@ -53,6 +55,7 @@ public enum VisemeEnum {
 public class FACS : MonoBehaviour
 {
     public static Dictionary<string, int> VisemeDict = new Dictionary<string, int> {
+    {"sil", -1},
     {"EE", 0},
     {"ER", 1},
     {"IH", 2},
@@ -67,7 +70,8 @@ public class FACS : MonoBehaviour
     {"B_M_P", 11},
     {"K_G_H_NG", 12},
     {"AE", 13},
-    {"R", 14},    
+    {"R", 14},
+    
 };
 
     public bool IsSpeechEnabled = false;
@@ -180,7 +184,7 @@ public class FACS : MonoBehaviour
 
     public TMP_InputField UtteranceTMP;
 
-    float [] _visemeWeight = new float[15];
+    float [] _visemeWeight = new float[16];
     //Dictionary<string, int> _shapeKeyDictTongue = new Dictionary<string, int>();
     
 
@@ -194,10 +198,12 @@ public class FACS : MonoBehaviour
     [TextArea(5, 10)]
     public string rawVisemeData;    // If pasting the text list directly
 
-    private struct VisemeFrame {
-        public float time;
-        public VisemeEnum viseme;
-    }
+
+    // private struct VisemeFrame
+    // {
+    //     public float time;
+    //     public VisemeEnum viseme;
+    // }
     private List<VisemeFrame> _visemeFrames = new List<VisemeFrame>();
     public float VisemeSmoothSpeed = 20f; // Higher is faster/snappier, lower is smoother/lazier
 
@@ -236,8 +242,8 @@ public class FACS : MonoBehaviour
         _audioSource = gameObject.GetComponent<AudioSource>();
 
 
-        ParseVisemeText();
-        
+        //ParseVisemeText();
+        _visemeFrames = Parsers.ParseVisemes(rawVisemeData);
         
         
     }
@@ -495,6 +501,7 @@ public class FACS : MonoBehaviour
 
     float GetSuppression(int auInd, int visemeInd)
     {
+        if (visemeInd == -1) return 0;
         //Check how much the a viseme should suppress the an AU
         float wt = _visemeWeight[visemeInd];
 
@@ -790,7 +797,7 @@ public class FACS : MonoBehaviour
 
     void GetCurrentNormalizedVisemeWeights()
     {
-            for(int i = 0; i < VisemeDict.Count(); i++)
+            for(int i = 0; i < VisemeDict.Count()-1; i++) //this also includes sil
                 _visemeWeight[i]  = _meshRendererBody.GetBlendShapeWeight(i) / 100f;
         
     }
@@ -1033,22 +1040,23 @@ private IEnumerator GenerateAndPlaySpeech(string text)
     }
 
 
-    void ParseVisemeText() {
-        _visemeFrames.Clear();
-        string[] lines = rawVisemeData.Split('\n');
-        foreach (string line in lines) {
-            string[] parts = line.Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length >= 2 && float.TryParse(parts[0], out float t) && Enum.TryParse(parts[1], true, out VisemeEnum v)) {
-                _visemeFrames.Add(new VisemeFrame { time = t, viseme = v });
+    // void ParseVisemeText() {
+    //     _visemeFrames.Clear();
+    //     string[] lines = rawVisemeData.Split('\n');
+    //     foreach (string line in lines) {
+    //         string[] parts = line.Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+    //         if (parts.Length >= 2 && float.TryParse(parts[0], out float t) && Enum.TryParse(parts[1], true, out VisemeEnum v)) {
+    //             _visemeFrames.Add(new VisemeFrame { time = t, viseme = v });
                 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 
 
     IEnumerator PlayVisemeSequence() {
-        if (_visemeFrames.Count == 0) 
-            ParseVisemeText();
+        if (_visemeFrames.Count == 0)
+            Parsers.ParseVisemes(rawVisemeData);
+            //ParseVisemeText();
         
         int frameIndex = 0;
         while (_audioSource.isPlaying) {
@@ -1093,7 +1101,8 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         // Maps your VisemeEnum to the actual CC4 indices in _shapeKeyDict
         foreach (var pair in VisemeDict) {
             if (_shapeKeyDict.TryGetValue(pair.Key, out int meshIndex)) {
-                _meshRendererBody.SetBlendShapeWeight(meshIndex, _visemeWeight[pair.Value] * 100f);
+                if(pair.Value>=0)
+                    _meshRendererBody.SetBlendShapeWeight(meshIndex, _visemeWeight[pair.Value] * 100f);
             }
         }
     }    
