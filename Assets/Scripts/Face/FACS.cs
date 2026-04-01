@@ -9,6 +9,7 @@ using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine;
+using UnityEditor.Search;
 
 [Serializable]
 public class ActionUnit{
@@ -30,50 +31,68 @@ public class ShapeKey {
 
 
 //Ee Er IH Ah Oh W_OO S_Z Ch_J F_V TH T_L_D_N B_M_P K_G_H_NG AE R
-public enum VisemeEnum
-{
-    EE,
-    ER,
-    IH,
-    AH,
-    OH,
-    W_OO,
-    S_Z,
-    CH_J,
-    F_V,
-    TH,
-    T_L_D_N,
-    B_M_P,
-    K_G_H_NG,
-    AE,
-    R,
-    sil
-};
+// public enum VisemeEnum
+// {
+//     EE,
+//     ER,
+//     IH,
+//     AH,
+//     OH,
+//     W_OO,
+//     S_Z,
+//     CH_J,
+//     F_V,
+//     TH,
+//     T_L_D_N,
+//     B_M_P,
+//     K_G_H_NG,
+//     AE,
+//     R,
+//     sil
+// };
 
 
 
 public class FACS : MonoBehaviour
 {
-    public static Dictionary<string, int> VisemeDict = new Dictionary<string, int> {
-    {"sil", -1},
-    {"EE", 0},
-    {"ER", 1},
-    {"IH", 2},
-    {"AH", 3},
-    {"OH", 4},
-    {"W_OO", 5},
-    {"S_Z", 6},
-    {"CH_J", 7},
-    {"F_V", 8},
-    {"TH", 9},
-    {"T_L_D_N", 10},
-    {"B_M_P", 11},
-    {"K_G_H_NG", 12},
-    {"AE", 13},
-    {"R", 14},
+//     public static Dictionary<string, int> VisemeDict = new Dictionary<string, int> {
+//     {"sil", -1},
+//     {"EE", 0},
+//     {"ER", 1},
+//     {"IH", 2},
+//     {"AH", 3},
+//     {"OH", 4},
+//     {"W_OO", 5},
+//     {"S_Z", 6},
+//     {"CH_J", 7},
+//     {"F_V", 8},
+//     {"TH", 9},
+//     {"T_L_D_N", 10},
+//     {"B_M_P", 11},
+//     {"K_G_H_NG", 12},
+//     {"AE", 13},
+//     {"R", 14},
     
-};
-
+// };
+    public static Dictionary<int, string> VisemeDict = new Dictionary<int, string> {
+    {-1, "sil"},
+    {0, "EE"},
+    {1, "ER"},
+    {2, "IH"},
+    {3, "AH"},
+    {4, "OH"},
+    {5, "W_OO"},
+    {6, "S_Z"},
+    {7, "CH_J"},
+    {8, "F_V"},
+    {9, "TH"},
+    {10, "T_L_D_N"},
+    {11, "B_M_P"},
+    {12, "K_G_H_NG"},
+    {13, "AE"},
+    {14, "R"}};
+    //Visemeinds directly correspond to the keys in the visemeDict. 
+    
     public bool IsSpeechEnabled = false;
     public int TestAUInd = 0;
     public SkinnedMeshRenderer _meshRendererBody;
@@ -168,7 +187,7 @@ public class FACS : MonoBehaviour
 
     public bool AUsOn = true;
 
-    public int ActiveVisemeInd;
+    public string ActiveVisemeName;
 
 
     Dictionary<string, int> _shapeKeyDict = new Dictionary<string, int>();
@@ -184,7 +203,7 @@ public class FACS : MonoBehaviour
 
     public TMP_InputField UtteranceTMP;
 
-    float [] _visemeWeight = new float[16];
+    float [] _visemeWeight = new float[15];
     //Dictionary<string, int> _shapeKeyDictTongue = new Dictionary<string, int>();
     
 
@@ -499,20 +518,24 @@ public class FACS : MonoBehaviour
         );
     }
 
-    float GetSuppression(int auInd, int visemeInd)
+    float GetSuppression(int auInd, string visemeName)
     {
-        if (visemeInd == -1) return 0;
+        
+        if(visemeName.ToUpper().Equals("SIL"))
+            return 0f; 
         //Check how much the a viseme should suppress the an AU
+        int visemeInd = VisemeDict.FirstOrDefault(x => x.Value == visemeName).Key;
         float wt = _visemeWeight[visemeInd];
-
-        if (visemeInd == (int)VisemeEnum.B_M_P)
+        
+        if(visemeName.Equals("B_M_P"))
         {
             int[] conflictingAUs = { 9, 10, 15, 16, 22 };
-            if (conflictingAUs.Contains(auInd))
+            if (conflictingAUs.Contains(auInd)){
                 return 1f;
+            }
 
         }
-        else if (visemeInd == (int)VisemeEnum.EE)
+        else if (visemeName.Equals("EE"))
         {
             int[] conflictingAUs = { 27 };
             if (conflictingAUs.Contains(auInd))
@@ -523,7 +546,7 @@ public class FACS : MonoBehaviour
 
         }
 
-        else if (visemeInd == (int)VisemeEnum.AH || visemeInd == (int)VisemeEnum.AE )
+        else if (visemeName.Equals("AH") || visemeName.Equals("AE"))
         {
             int[] conflictingAUs = { 18, 22, 23 };
 
@@ -532,7 +555,7 @@ public class FACS : MonoBehaviour
 
 
         }
-        else if (visemeInd == (int)VisemeEnum.W_OO || visemeInd == (int)VisemeEnum.OH)
+        else if (visemeName.Equals("W_OO") || visemeName.Equals("OH"))
         {
             int[] conflictingAUs = { 18, 22, 23, 12 };
 
@@ -540,14 +563,14 @@ public class FACS : MonoBehaviour
                 return wt;
         }
 
-        else if (visemeInd == (int)VisemeEnum.F_V || visemeInd == (int)VisemeEnum.S_Z)
+        else if (visemeName.Equals("F_V") || visemeName.Equals("S_Z"))
         {
             int[] conflictingAUs = { 18 };
 
             if (conflictingAUs.Contains(auInd))
                 return wt;
         }
-        else if (visemeInd == (int)VisemeEnum.F_V)
+        else if (visemeName.Equals("F_V"))
         {
             int[] conflictingAUs = { 16, 17, 18 };
 
@@ -555,7 +578,7 @@ public class FACS : MonoBehaviour
                 return wt;
         }
 
-        else if (visemeInd == (int)VisemeEnum.S_Z)
+        else if (visemeName.Equals("S_Z"))
         {
             int[] conflictingAUs = { 18 };
 
@@ -593,7 +616,11 @@ public class FACS : MonoBehaviour
                     // Check for interval overlap
                     if (Mathf.Max(auStart, vStart) < Mathf.Min(auEnd, vEnd))
                     {
-                        float factor = GetSuppression(au.AU, (int)_visemeFrames[v].viseme);
+                    
+                    
+                    
+                    
+                        float factor = GetSuppression(au.AU, _visemeFrames[v].viseme);
                         
                         // If multiple visemes overlap one AU segment, 
                         // we usually take the strongest suppression
@@ -629,7 +656,7 @@ public class FACS : MonoBehaviour
          
         while(timeElapsed < duration) {
         
-            float suppressionFactor = GetSuppression(au.AU, ActiveVisemeInd);
+            float suppressionFactor = GetSuppression(au.AU, ActiveVisemeName);
 
             
             timeElapsed += Time.deltaTime;
@@ -674,7 +701,8 @@ public class FACS : MonoBehaviour
                     Quaternion targetJaw = _jawRotInit * Quaternion.Euler(0, 0, -ShapeKeyTargets[sk.Ind] * 0.1f);
 
 
-                    if (ActiveVisemeInd == (int)VisemeEnum.F_V || ActiveVisemeInd == (int)VisemeEnum.B_M_P || ActiveVisemeInd == (int)VisemeEnum.CH_J || ActiveVisemeInd == (int)VisemeEnum.S_Z)
+                    
+                    if (ActiveVisemeName.Equals("FV") || ActiveVisemeName.Equals("B_M_P") || ActiveVisemeName.Equals("CH_J") || ActiveVisemeName.Equals("S_Z"))
                         targetJaw = _jawRotInit; // no update
                     
                     _jawRot = Quaternion.Slerp(startJaw, targetJaw, blendW);
@@ -797,7 +825,7 @@ public class FACS : MonoBehaviour
 
     void GetCurrentNormalizedVisemeWeights()
     {
-            for(int i = 0; i < VisemeDict.Count()-1; i++) //this also includes sil
+            for(int i = 0; i < _visemeWeight.Length; i++) //this also includes sil
                 _visemeWeight[i]  = _meshRendererBody.GetBlendShapeWeight(i) / 100f;
         
     }
@@ -812,14 +840,23 @@ public class FACS : MonoBehaviour
         Eyes[0].localRotation = _eyesRot[0];
         Eyes[1].localRotation = _eyesRot[1];
 
-        
+        int aeInd = VisemeDict.FirstOrDefault(x => x.Value == "AE").Key;
+        int ahInd = VisemeDict.FirstOrDefault(x => x.Value == "AH").Key;
+        int ohInd = VisemeDict.FirstOrDefault(x => x.Value == "OH").Key;
+        int wOOInd = VisemeDict.FirstOrDefault(x => x.Value == "W_OO").Key;
+        int thInd = VisemeDict.FirstOrDefault(x => x.Value == "TH").Key;
+        int ihInd = VisemeDict.FirstOrDefault(x => x.Value == "IH").Key;
+        int eeInd = VisemeDict.FirstOrDefault(x => x.Value == "EE").Key;
+        int kghngInd = VisemeDict.FirstOrDefault(x => x.Value == "K_G_H_NG").Key;
+        int rInd = VisemeDict.FirstOrDefault(x => x.Value == "R").Key;  
         GetCurrentNormalizedVisemeWeights();
-
+        
+        //TODO
         // Jaw positions
-        float jawOpen = Mathf.Max(_visemeWeight[(int)VisemeEnum.AE], _visemeWeight[(int)VisemeEnum.AH], _visemeWeight[(int)VisemeEnum.OH] * 0.8f,
-         _visemeWeight[(int)VisemeEnum.W_OO] * 0.6f, _visemeWeight[(int)VisemeEnum.TH] * 0.2f,
-          _visemeWeight[(int)VisemeEnum.IH] * 0.2f, _visemeWeight[(int)VisemeEnum.EE] * 0.2f,
-           _visemeWeight[(int)VisemeEnum.K_G_H_NG] * 0.2f, _visemeWeight[(int)VisemeEnum.R] * 0.2f);
+        float jawOpen = Mathf.Max(_visemeWeight[aeInd], _visemeWeight[ahInd], _visemeWeight[ohInd] * 0.8f,
+         _visemeWeight[wOOInd] * 0.6f, _visemeWeight[thInd] * 0.2f,
+          _visemeWeight[ihInd] * 0.2f, _visemeWeight[eeInd] * 0.2f,
+           _visemeWeight[kghngInd] * 0.2f, _visemeWeight[rInd] * 0.2f);
 
 
         if (jawOpen > 0.05)
@@ -1067,19 +1104,21 @@ private IEnumerator GenerateAndPlaySpeech(string text)
                 frameIndex++;
             }
 
-            ActiveVisemeInd = (int)_visemeFrames[frameIndex].viseme;
-
+            ActiveVisemeName = _visemeFrames[frameIndex].viseme.ToUpper();
+            int activeVisemeInd = VisemeDict.FirstOrDefault(x => x.Value == ActiveVisemeName).Key;
             // Smoothly transition ALL viseme weights
             for (int i = 0; i < _visemeWeight.Length; i++) {
-                float target = (i == ActiveVisemeInd) ? 1.0f : 0.0f;
+                float target = (i == activeVisemeInd) ? 1.0f : 0.0f;
                 
                 // MoveTowards provides a consistent linear transition (better for speech "snaps")
                 // Use Mathf.Lerp if you want a more "organic/lazy" feel
                 _visemeWeight[i] = Mathf.MoveTowards(_visemeWeight[i], target, Time.deltaTime * VisemeSmoothSpeed);
+                
+                _meshRendererBody.SetBlendShapeWeight(i, _visemeWeight[i] * 100f);
             }
 
             // Apply these smoothed weights to the Actual Blendshapes
-            ApplyVisemeWeightsToMesh();
+            // ApplyVisemeWeightsToMesh();
 
 
             yield return null;
@@ -1091,20 +1130,23 @@ private IEnumerator GenerateAndPlaySpeech(string text)
             transitionReset += Time.deltaTime * VisemeSmoothSpeed;
             for (int i = 0; i < _visemeWeight.Length; i++) {
                 _visemeWeight[i] = Mathf.MoveTowards(_visemeWeight[i], 0, Time.deltaTime * VisemeSmoothSpeed);
+                _meshRendererBody.SetBlendShapeWeight(i, _visemeWeight[i] * 100f);
             }
-            ApplyVisemeWeightsToMesh();
+            
+            
+            // ApplyVisemeWeightsToMesh();
             yield return null;
         }
     }
 
-    void ApplyVisemeWeightsToMesh() {
-        // Maps your VisemeEnum to the actual CC4 indices in _shapeKeyDict
-        foreach (var pair in VisemeDict) {
-            if (_shapeKeyDict.TryGetValue(pair.Key, out int meshIndex)) {
-                if(pair.Value>=0)
-                    _meshRendererBody.SetBlendShapeWeight(meshIndex, _visemeWeight[pair.Value] * 100f);
-            }
-        }
-    }    
+    // void ApplyVisemeWeightsToMesh() {
+    //     // Maps your VisemeEnum to the actual CC4 indices in _shapeKeyDict
+    //     foreach (var pair in VisemeDict) {
+    //         if (_shapeKeyDict[pair.Key].TryGetValue(pair.Key, out int meshIndex)) {
+    //             if(pair.Value>=0)
+    //                 _meshRendererBody.SetBlendShapeWeight(meshIndex, _visemeWeight[pair.Value] * 100f);
+    //         }
+    //     }
+    // }    
 
 }

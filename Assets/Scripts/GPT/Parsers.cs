@@ -10,9 +10,8 @@ public class VisemeFrame
     [JsonProperty("time")]
     public float time { get; set; }
 
-    [JsonProperty("viseme")]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public VisemeEnum viseme { get; set; }
+    [JsonProperty("viseme")]    
+    public string viseme { get; set; }
 }
     
 public static class Parsers {
