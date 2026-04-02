@@ -335,7 +335,7 @@ public class FACS : MonoBehaviour
 
         AUShapeKeys[9].Add(new ShapeKey { Ind = _shapeKeyDict["Nose_Sneer_R".ToUpper()], MaxValue = 100f});
         AUShapeKeys[9].Add(new ShapeKey { Ind = _shapeKeyDict["Nose_Sneer_L".ToUpper()], MaxValue = 100f });
-        AUShapeKeys[9].Add(new ShapeKey { Ind = _shapeKeyDict["Mouth_Shrug_Upper".ToUpper()], MaxValue = 60f});
+        // AUShapeKeys[9].Add(new ShapeKey { Ind = _shapeKeyDict["Mouth_Shrug_Upper".ToUpper()], MaxValue = 60f});
 
         AUShapeKeys[10].Add(new ShapeKey { Ind = _shapeKeyDict["Mouth_Shrug_Upper".ToUpper()], MaxValue = 100f});
         
@@ -363,7 +363,8 @@ public class FACS : MonoBehaviour
 
 
 
-        AUShapeKeys[17].Add(new ShapeKey { Ind = _shapeKeyDict["Mouth_Shrug_Lower".ToUpper().ToUpper()], MaxValue = 100f});
+        // AUShapeKeys[17].Add(new ShapeKey { Ind = _shapeKeyDict["Mouth_Shrug_Lower".ToUpper().ToUpper()], MaxValue = 100f});
+        AUShapeKeys[17].Add(new ShapeKey { Ind = _shapeKeyDict["Mouth_Chin_Up".ToUpper().ToUpper()], MaxValue = 100f});
 
 
 
@@ -529,7 +530,7 @@ public class FACS : MonoBehaviour
         
         if(visemeName.Equals("B_M_P"))
         {
-            int[] conflictingAUs = { 9, 10, 15, 16, 22 };
+            int[] conflictingAUs = {  10,  16, 22, 25 ,26, 27 }; //9 was here
             if (conflictingAUs.Contains(auInd)){
                 return 1f;
             }
@@ -563,16 +564,10 @@ public class FACS : MonoBehaviour
                 return wt;
         }
 
-        else if (visemeName.Equals("F_V") || visemeName.Equals("S_Z"))
-        {
-            int[] conflictingAUs = { 18 };
-
-            if (conflictingAUs.Contains(auInd))
-                return wt;
-        }
+        
         else if (visemeName.Equals("F_V"))
         {
-            int[] conflictingAUs = { 16, 17, 18 };
+            int[] conflictingAUs = { 16,  18, 22, 24, 26, 27, 28 }; //23 should not be in this list
 
             if (conflictingAUs.Contains(auInd))
                 return wt;
