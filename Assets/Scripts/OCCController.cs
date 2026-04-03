@@ -61,6 +61,7 @@ public class OCCController : MonoBehaviour {
         
             string response = Scenarios[i].text;
 
+            Agents[i].GetComponent<FACS>().EmotionName = Scenarios[i].name;
             Agents[i].GetComponent<FACS>().ResetShapeKeys();
 
 

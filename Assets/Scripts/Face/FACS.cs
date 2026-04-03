@@ -19,7 +19,7 @@ public class ActionUnit{
     public List<float> Intensities { get; set; }
     public List<float> InitialIntensities { get; set; }
     public int currInd { get; set; }
-    public float suppressionFactor; //if 0 no suppression, if 1 fully suppressed at the currInd
+    
     public string Semantics { get; set; }
 }
 
@@ -169,7 +169,7 @@ public class FACS : MonoBehaviour
     public List<ShapeKey>[] AUShapeKeys; //at each AU index, related blendshape keys are stored
     
 
-   
+   public string EmotionName; //currentemotion name
    
 
     [SerializeField]
@@ -519,77 +519,167 @@ public class FACS : MonoBehaviour
         );
     }
 
-    float GetSuppression(int auInd, string visemeName)
-    {
+    // float GetSuppression(int auInd, string visemeName)
+    // {
         
-        if(visemeName.ToUpper().Equals("SIL"))
+    //     if(visemeName.ToUpper().Equals("SIL"))
+    //         return 0f; 
+    //     //Check how much the a viseme should suppress the an AU
+    //     int visemeInd = VisemeDict.FirstOrDefault(x => x.Value == visemeName).Key;
+    //     float wt = _visemeWeight[visemeInd];
+        
+    //     if(visemeName.Equals("B_M_P"))
+    //     {
+    //         int[] conflictingAUs = {  10,  16, 22, 25 ,26, 27 }; //9 was here
+    //         if (conflictingAUs.Contains(auInd)){
+    //             return 1f;
+    //         }
+
+    //     }
+    //     else if (visemeName.Equals("EE"))
+    //     {
+    //         int[] conflictingAUs = { 27 };
+    //         if (conflictingAUs.Contains(auInd))
+    //             return 1f;
+
+    //         if (new int[] { 20, 21 }.Contains(auInd))
+    //             return wt;
+
+    //     }
+
+    //     else if (visemeName.Equals("AH") || visemeName.Equals("AE"))
+    //     {
+    //         int[] conflictingAUs = { 18, 22, 23 };
+
+    //         if (conflictingAUs.Contains(auInd))
+    //             return wt;
+
+
+    //     }
+    //     else if (visemeName.Equals("W_OO") || visemeName.Equals("OH"))
+    //     {
+    //         int[] conflictingAUs = { 18, 22, 23, 12 };
+
+    //         if (conflictingAUs.Contains(auInd))
+    //             return wt;
+    //     }
+
+        
+    //     else if (visemeName.Equals("F_V"))
+    //     {
+    //         int[] conflictingAUs = { 16,  18, 22, 24, 26, 27, 28 }; //23 should not be in this list
+
+    //         if (conflictingAUs.Contains(auInd))
+    //             return wt;
+    //     }
+
+    //     else if (visemeName.Equals("S_Z"))
+    //     {
+    //         int[] conflictingAUs = { 18 };
+
+    //         if (conflictingAUs.Contains(auInd))
+    //             return wt;
+    //     }
+        
+        
+    //     if(auInd == 12){ //Smilesuppressed in all cases
+    //         // Debug.Log(VisemeDict.FirstOrDefault(x => x.Value == visemeInd).Key + " " +wt);
+    //         return 0.5f; //TODO
+    //     }
+    
+    //     return 0f;
+    // }
+float GetSuppression(int auInd, string visemeName)
+    {
+        visemeName = visemeName.ToUpper();
+        if(visemeName.Equals("SIL"))
             return 0f; 
-        //Check how much the a viseme should suppress the an AU
+            
+        //Check how much a viseme should suppress an AU
         int visemeInd = VisemeDict.FirstOrDefault(x => x.Value == visemeName).Key;
         float wt = _visemeWeight[visemeInd];
         
-        if(visemeName.Equals("B_M_P"))
+        int[] conflictingAUs = new int[0];
+
+        switch (visemeName)
         {
-            int[] conflictingAUs = {  10,  16, 22, 25 ,26, 27 }; //9 was here
-            if (conflictingAUs.Contains(auInd)){
-                return 1f;
-            }
-
-        }
-        else if (visemeName.Equals("EE"))
-        {
-            int[] conflictingAUs = { 27 };
-            if (conflictingAUs.Contains(auInd))
-                return 1f;
-
-            if (new int[] { 20, 21 }.Contains(auInd))
-                return wt;
-
-        }
-
-        else if (visemeName.Equals("AH") || visemeName.Equals("AE"))
-        {
-            int[] conflictingAUs = { 18, 22, 23 };
-
-            if (conflictingAUs.Contains(auInd))
-                return wt;
-
-
-        }
-        else if (visemeName.Equals("W_OO") || visemeName.Equals("OH"))
-        {
-            int[] conflictingAUs = { 18, 22, 23, 12 };
-
-            if (conflictingAUs.Contains(auInd))
-                return wt;
-        }
-
+            case "B_M_P":
+                conflictingAUs = new int[] { 10, 16, 18, 20, 22, 25, 26, 27, 28 };
+                if (conflictingAUs.Contains(auInd)) return 1f; // Hard suppression for bilabials
+                break;
+                
+            case "F_V":
+                conflictingAUs = new int[] { 16, 18, 22, 24, 26, 27, 28 };
+                break;
+                
+            case "TH":
+                conflictingAUs = new int[] { 18, 22, 23, 24, 26, 27, 28 };
+                break;
+                
+            case "S_Z":
+                conflictingAUs = new int[] { 18, 22, 24, 26, 27, 28 };
+                break;
+                
+            case "R":
+                conflictingAUs = new int[] { 12, 20, 23, 24, 26, 27, 28 };
+                break;
+                
+            case "AH":
+                conflictingAUs = new int[] { 17, 18, 22, 23, 24, 28 };
+                break;
+                
+            case "AE":
+                conflictingAUs = new int[] { 17, 18, 22, 24, 28 };
+                break;
+            case "EE":
+                conflictingAUs = new int[] { 18, 22, 23, 24, 26, 27, 28 };
+                break;
+                
+            case "IH":
+                conflictingAUs = new int[] { 18, 22, 24, 26, 27, 28 };
+                break;
+                
+            case "OH":
+                conflictingAUs = new int[] { 10, 12, 15, 20, 23, 24, 26, 27, 28 };
+                break;
+                
+            case "W_OO":
+                conflictingAUs = new int[] { 10, 12, 15, 16, 20, 23, 24, 26, 27, 28 };
+                break;
+                
+            case "CH_J":
+                conflictingAUs = new int[] { 12, 15, 20, 23, 24, 26, 27, 28 };
+                break;
+                
         
-        else if (visemeName.Equals("F_V"))
-        {
-            int[] conflictingAUs = { 16,  18, 22, 24, 26, 27, 28 }; //23 should not be in this list
 
-            if (conflictingAUs.Contains(auInd))
-                return wt;
+            case "K_G_H_NG":
+                conflictingAUs = new int[] { 18, 22, 24, 28 };
+                break;
+
+            case "T_L_D_N":
+                conflictingAUs = new int[] { 18, 22, 24, 26, 27, 28 };
+                break;
+
+            case "ER":
+                conflictingAUs = new int[] { 12, 20, 23, 24, 26, 27, 28 };
+                break;
         }
 
-        else if (visemeName.Equals("S_Z"))
+        if (conflictingAUs.Contains(auInd))
         {
-            int[] conflictingAUs = { 18 };
-
-            if (conflictingAUs.Contains(auInd))
-                return wt;
+            return wt;
         }
         
-        
-        if(auInd == 12){ //Smilesuppressed in all cases
-            // Debug.Log(VisemeDict.FirstOrDefault(x => x.Value == visemeInd).Key + " " +wt);
+        // Smile is partially suppressed in all non-conflicting cases
+        if(auInd == 12)
+        { 
+            // Debug.Log(VisemeDict.FirstOrDefault(x => x.Value == visemeName).Key + " " +wt);
             return 0.5f; //TODO
         }
     
         return 0f;
     }
-
     void UpdateAUIntensitiesBySpeech()
     {
         foreach (ActionUnit au in AUList)
@@ -1006,6 +1096,22 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         }
 
     }
+    
+    void WriteAUIntensities(string filePath)
+{
+    using (StreamWriter writer = new StreamWriter(filePath))
+    {
+        writer.WriteLine("AU,Time,Intensity");
+        foreach (ActionUnit au in AUList)
+        {
+            for (int i = 0; i < au.Intensities.Count; i++)
+            {
+                writer.WriteLine($"{au.AU},{au.Times[i]},{au.Intensities[i]}");
+            }
+        }
+    }
+}
+
     public void PlayAnimation() {
 
         //Call these once for aus + visemes - they have mutually exclusive shape keys
@@ -1020,6 +1126,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         if (IsSpeechEnabled)
         {
             UpdateAUIntensitiesBySpeech();
+            WriteAUIntensities(Path.Combine(Application.dataPath, EmotionName));
             _audioSource.Play();
             StartCoroutine(PlayVisemeSequence()); // Starts in the same frame as animating AUs
         }

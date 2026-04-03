@@ -20090,6 +20090,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[68]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
       propertyPath: 'm_BlendShapeWeights.Array.data[69]'
       value: 0
       objectReference: {fileID: 0}
@@ -20250,12 +20255,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[107]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[108]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
       propertyPath: 'm_BlendShapeWeights.Array.data[110]'
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[113]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
       propertyPath: 'm_BlendShapeWeights.Array.data[117]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[119]'
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
@@ -20296,6 +20321,11 @@ PrefabInstance:
     - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
       propertyPath: 'm_BlendShapeWeights.Array.data[128]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[129]'
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7547295079024528196, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
