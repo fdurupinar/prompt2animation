@@ -1097,21 +1097,6 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     }
     
-    void WriteAUIntensities(string filePath)
-{
-    using (StreamWriter writer = new StreamWriter(filePath))
-    {
-        writer.WriteLine("AU,Time,Intensity");
-        foreach (ActionUnit au in AUList)
-        {
-            for (int i = 0; i < au.Intensities.Count; i++)
-            {
-                writer.WriteLine($"{au.AU},{au.Times[i]},{au.Intensities[i]}");
-            }
-        }
-    }
-}
-
     public void PlayAnimation() {
 
         //Call these once for aus + visemes - they have mutually exclusive shape keys
@@ -1126,7 +1111,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         if (IsSpeechEnabled)
         {
             UpdateAUIntensitiesBySpeech();
-            WriteAUIntensities(Path.Combine(Application.dataPath, EmotionName));
+            Parsers.WriteAUs(Path.Combine(Application.dataPath,"Resources/Speech/" + EmotionName), AUList);
             _audioSource.Play();
             StartCoroutine(PlayVisemeSequence()); // Starts in the same frame as animating AUs
         }

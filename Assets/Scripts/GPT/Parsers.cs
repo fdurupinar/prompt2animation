@@ -104,7 +104,14 @@ public static class Parsers {
         return (data.facial_actions, data.duration);
     }
 
+    public static void WriteAUs(string path, List<ActionUnit> aus) {
+        FacialData data = new FacialData {
+            facial_actions = aus
+        };
 
+        string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+        System.IO.File.WriteAllText(path + ".json", json);
+    }
     
     public static List<VisemeFrame> ParseVisemes(string visemeJson) {
     
