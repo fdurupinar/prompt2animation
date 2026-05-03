@@ -1,0 +1,52 @@
+{
+  "duration": 6.0,
+  "emotion": "Sycophancy (with Contempt Leak)",
+  "utterance": "You are not the problem. The problem is others who don't see your value.",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [0, 0.5, 6.0],
+      "Intensities": [0, 80, 80]
+    },
+    {
+      "AU": 2,
+      "Times": [0, 0.5, 6.0],
+      "Intensities": [0, 70, 70]
+    },
+    {
+      "AU": 4,
+      "Times": [1.4, 1.6, 4.1, 4.3],
+      "Intensities": [40, 0, 50, 0]
+    },
+    {
+      "AU": 10,
+      "Times": [1.5, 1.8, 4.2, 4.5],
+      "Intensities": [60, 0, 70, 0]
+    },
+    {
+      "AU": 12,
+      "Times": [0, 0.8, 6.0],
+      "Intensities": [0, 75, 75]
+    },
+    {
+      "AU": 14,
+      "Times": [0, 1.2, 6.0],
+      "Intensities": [0, 60, 60]
+    },
+    {
+      "AU": 25,
+      "Times": [0, 0.4, 1.0, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.0],
+      "Intensities": [0, 45, 10, 55, 15, 50, 5, 35, 5, 0]
+    },
+    {
+      "AU": 26,
+      "Times": [0, 0.4, 1.0, 1.8, 2.5, 3.2, 4.0, 4.8, 5.5, 6.0],
+      "Intensities": [0, 25, 0, 30, 5, 25, 0, 20, 0, 0]
+    },
+    {
+      "AU": 58,
+      "Times": [0, 1.0, 6.0],
+      "Intensities": [0, 35, 35]
+    }
+  ]
+}

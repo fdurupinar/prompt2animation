@@ -19,7 +19,7 @@ def read_aus(topfolder):
     i = 0
     for path,folders,files in os.walk(topfolder):
         for file in files:
-            if ".json" in file:
+            if ".json" in file and ".meta" not in file:
                 jsonname = f"{topfolder}/{file}"
                 names.append(file[:-5])
                 with open(jsonname, 'r', encoding='utf-8') as f:

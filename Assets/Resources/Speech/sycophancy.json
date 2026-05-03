@@ -1,0 +1,234 @@
+{
+  "utterance": null,
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [
+        0.0,
+        0.5,
+        6.0
+      ],
+      "Intensities": [
+        0.0,
+        80.0,
+        80.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        80.0,
+        80.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 2,
+      "Times": [
+        0.0,
+        0.5,
+        6.0
+      ],
+      "Intensities": [
+        0.0,
+        70.0,
+        70.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        70.0,
+        70.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 4,
+      "Times": [
+        1.4,
+        1.6,
+        4.1,
+        4.3
+      ],
+      "Intensities": [
+        40.0,
+        0.0,
+        50.0,
+        0.0
+      ],
+      "InitialIntensities": [
+        40.0,
+        0.0,
+        50.0,
+        0.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 10,
+      "Times": [
+        1.5,
+        1.8,
+        4.2,
+        4.5
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        70.0,
+        0.0
+      ],
+      "InitialIntensities": [
+        60.0,
+        0.0,
+        70.0,
+        0.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 12,
+      "Times": [
+        0.0,
+        0.8,
+        6.0
+      ],
+      "Intensities": [
+        0.0,
+        37.5,
+        75.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        75.0,
+        75.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 14,
+      "Times": [
+        0.0,
+        1.2,
+        6.0
+      ],
+      "Intensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 25,
+      "Times": [
+        0.0,
+        0.4,
+        1.0,
+        1.8,
+        2.5,
+        3.2,
+        4.0,
+        4.8,
+        5.5,
+        6.0
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        0.0,
+        55.0,
+        15.0,
+        50.0,
+        5.0,
+        35.0,
+        5.0,
+        0.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        45.0,
+        10.0,
+        55.0,
+        15.0,
+        50.0,
+        5.0,
+        35.0,
+        5.0,
+        0.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 26,
+      "Times": [
+        0.0,
+        0.4,
+        1.0,
+        1.8,
+        2.5,
+        3.2,
+        4.0,
+        4.8,
+        5.5,
+        6.0
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        0.0,
+        30.0,
+        5.0,
+        25.0,
+        0.0,
+        20.0,
+        0.0,
+        0.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        25.0,
+        0.0,
+        30.0,
+        5.0,
+        25.0,
+        0.0,
+        20.0,
+        0.0,
+        0.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 58,
+      "Times": [
+        0.0,
+        1.0,
+        6.0
+      ],
+      "Intensities": [
+        0.0,
+        35.0,
+        35.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        35.0,
+        35.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    }
+  ],
+  "duration": 0.0
+}
