@@ -320,8 +320,12 @@
                 border-color: var(--accent-color);
                 color: #fff;
                 font-weight: bold;
-    
-       
+
+        /* Hide volume/mute button from video controls */
+        video::-webkit-media-controls-mute-button,
+        video::-webkit-media-controls-volume-slider {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -487,7 +491,7 @@
                 + '</div>';
 
             // The full slide HTML
-            var link = "https://www.cs.umb.edu/~fundad/occ/" + "gloating" + promptInd + ".mp4";
+            var link = "https://www.cs.umb.edu/~fundad/occSpeech/" + "gloating" + promptInd + ".mp4";
 
             var question_id = "<p>Question " + slideId + " of " + (endInd - startInd + 1) + " </p> ";
             var prev_slide = '<a href="#carousel__slide' + (slideId - 1) + '" class="carousel__prev">Prev</a>';
@@ -500,7 +504,7 @@
                 + '<div class="outer-container">'
 
                 + '<div class="left-container">'                
-                + '<video class="carousel-video" width="100%" height="auto" controls loop muted playsinline>'
+                + '<video class="carousel-video" width="100%" height="auto" loop muted playsinline>'
                 + '<source src="' + link + '" type="video/mp4">'
 
                 + 'Your browser does not support the video tag.'
@@ -568,7 +572,7 @@
                 + '</div>';
 
             // The full slide HTML
-            var link = "https://www.cs.umb.edu/~fundad/occ/" + emotion.name + promptInd + ".mp4";
+            var link = "https://www.cs.umb.edu/~fundad/occSpeech/" + emotion.name + promptInd + ".mp4";
 
             var question_id = "<p>Question " + slideId + " of " + (endInd - startInd + 1) +" </p> ";
             var prev_slide = '<a href="#carousel__slide' + (slideId - 1) + '" class="carousel__prev">Prev</a>';
@@ -581,8 +585,8 @@
                 + '<div class="outer-container">'
 
                 + '<div class="left-container">'
-                + '<video class="carousel-video" width="100%" height="auto" controls loop muted playsinline>'
-                
+                + '<video class="carousel-video" width="100%" height="auto" loop muted playsinline>'
+
                 + '<source src="' + link + '" type="video/mp4">'
                 + 'Your browser does not support the video tag.'
                 + '</video>'
@@ -856,9 +860,13 @@
 
 
 
-                startInd = 0;//${ startInd };
-            endInd = 7;//${ endInd };
-                promptInd = 1;//${promptInd};
+            //     startInd = 0;//${ startInd };
+            // endInd = 7;//${ endInd };
+            //     promptInd = 1;//${promptInd};
+
+                startInd = ${ startInd };
+            endInd = ${ endInd };
+                promptInd = ${promptInd};
 
             hitPrompts = promptDict.slice(startInd, endInd);
 
