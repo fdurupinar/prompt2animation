@@ -7155,7 +7155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OCCController
   Scenarios:
-  - {fileID: 4900000, guid: 818be8b6597ba47a1a3a2725652307e5, type: 3}
+  - {fileID: 4900000, guid: 4c3c216abb6ac445d8673adfdcf272b6, type: 3}
   heatmapAnalyzer: {fileID: 543450652274150221}
   Agents:
   - {fileID: 1296814085}
@@ -18153,11 +18153,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 172844551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 0}
-  m_SizeDelta: {x: 940, y: 100}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 1000, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2017439045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18171,7 +18171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18180,12 +18180,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -19679,7 +19679,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 9bfe5a419de3e4e5fb23f9c6cfae911e, type: 3}
+  m_Resource: {fileID: 8300000, guid: eb07333c2584a4d1e80f19e9fe2a9eb0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -19960,240 +19960,210 @@ PrefabInstance:
 
         {"time": 0.000, "viseme": "sil"},
 
-        {"time": 0.050,
+        {"time": 0.100,
         "viseme": "AH"},
 
-        {"time": 0.150, "viseme": "EE"},
+        {"time": 0.200, "viseme": "F_V"},
 
         {"time":
-        0.250, "viseme": "AH"},
+        0.300, "viseme": "CH_J"},
 
-        {"time": 0.350, "viseme": "T_L_D_N"},
+        {"time": 0.400, "viseme": "AE"},
 
         {"time":
-        0.450, "viseme": "S_Z"},
+        0.500, "viseme": "K_G_H_NG"},
 
         {"time": 0.550, "viseme": "T_L_D_N"},
 
         {"time":
-        0.650, "viseme": "EE"},
+        0.650, "viseme": "TH"},
 
-        {"time": 0.750, "viseme": "K_G_H_NG"},
-
-        {"time":
-        0.850, "viseme": "AE"},
-
-        {"time": 0.950, "viseme": "T_L_D_N"},
+        {"time": 0.750, "viseme": "AH"},
 
         {"time":
-        1.050, "viseme": "AH"},
+        0.850, "viseme": "K_G_H_NG"},
 
-        {"time": 1.150, "viseme": "T_L_D_N"},
+        {"time": 0.950, "viseme": "AE"},
 
         {"time":
-        1.250, "viseme": "S_Z"},
+        1.050, "viseme": "T_L_D_N"},
+
+        {"time": 1.150, "viseme": "K_G_H_NG"},
+
+        {"time":
+        1.250, "viseme": "W_OO"},
 
         {"time": 1.350, "viseme": "T_L_D_N"},
 
         {"time":
         1.450, "viseme": "AE"},
 
-        {"time": 1.550, "viseme": "T_L_D_N"},
+        {"time": 1.550, "viseme": "CH_J"},
 
         {"time":
-        1.650, "viseme": "B_M_P"},
+        1.650, "viseme": "AH"},
 
-        {"time": 1.750, "viseme": "EE"},
-
-        {"time":
-        1.850, "viseme": "IH"},
-
-        {"time": 1.950, "viseme": "K_G_H_NG"},
+        {"time": 1.750, "viseme": "T_L_D_N"},
 
         {"time":
-        2.050, "viseme": "IH"},
+        1.850, "viseme": "S_Z"},
+
+        {"time": 1.950, "viseme": "AE"},
+
+        {"time":
+        2.050, "viseme": "T_L_D_N"},
 
         {"time": 2.150, "viseme": "T_L_D_N"},
 
         {"time":
-        2.250, "viseme": "TH"},
+        2.250, "viseme": "AH"},
 
-        {"time": 2.350, "viseme": "AH"},
-
-        {"time":
-        2.450, "viseme": "S_Z"},
-
-        {"time": 2.550, "viseme": "AE"},
+        {"time": 2.350, "viseme": "B_M_P"},
 
         {"time":
-        2.650, "viseme": "B_M_P"},
+        2.450, "viseme": "K_G_H_NG"},
 
-        {"time": 2.750, "viseme": "R"},
-
-        {"time":
-        2.850, "viseme": "W_OO"},
-
-        {"time": 2.950, "viseme": "B_M_P"},
+        {"time": 2.550, "viseme": "W_OO"},
 
         {"time":
-        3.050, "viseme": "AE"},
+        2.650, "viseme": "AH"},
 
-        {"time": 3.150, "viseme": "S_Z"},
-
-        {"time":
-        3.250, "viseme": "TH"},
-
-        {"time": 3.350, "viseme": "AE"},
+        {"time": 2.750, "viseme": "T_L_D_N"},
 
         {"time":
-        3.450, "viseme": "T_L_D_N"},
+        2.850, "viseme": "CH_J"},
 
-        {"time": 3.550, "viseme": "B_M_P"},
-
-        {"time":
-        3.650, "viseme": "ER"},
-
-        {"time": 3.750, "viseme": "S_Z"},
+        {"time": 2.950, "viseme": "W_OO"},
 
         {"time":
-        3.850, "viseme": "AH"},
+        3.050, "viseme": "ER"},
 
-        {"time": 3.950, "viseme": "T_L_D_N"},
-
-        {"time":
-        4.050, "viseme": "sil"},
-
-        {"time": 4.300, "viseme": "AE"},
+        {"time": 3.150, "viseme": "TH"},
 
         {"time":
-        4.400, "viseme": "F_V"},
+        3.250, "viseme": "IH"},
 
-        {"time": 4.500, "viseme": "R"},
-
-        {"time":
-        4.600, "viseme": "EE"},
-
-        {"time": 4.700, "viseme": "TH"},
+        {"time": 3.350, "viseme": "S_Z"},
 
         {"time":
-        4.800, "viseme": "IH"},
+        3.450, "viseme": "IH"},
 
-        {"time": 4.900, "viseme": "K_G_H_NG"},
-
-        {"time":
-        5.000, "viseme": "AH"},
-
-        {"time": 5.100, "viseme": "B_M_P"},
+        {"time": 3.550, "viseme": "S_Z"},
 
         {"time":
-        5.200, "viseme": "AH"},
+        3.650, "viseme": "TH"},
 
-        {"time": 5.300, "viseme": "W_OO"},
-
-        {"time":
-        5.400, "viseme": "T_L_D_N"},
-
-        {"time": 5.500, "viseme": "TH"},
+        {"time": 3.750, "viseme": "AH"},
 
         {"time":
-        5.600, "viseme": "AH"},
+        3.850, "viseme": "K_G_H_NG"},
 
-        {"time": 5.700, "viseme": "W_OO"},
-
-        {"time":
-        5.800, "viseme": "AE"},
-
-        {"time": 5.900, "viseme": "TH"},
+        {"time": 3.950, "viseme": "OH"},
 
         {"time":
-        6.000, "viseme": "AE"},
+        4.050, "viseme": "R"},
 
-        {"time": 6.100, "viseme": "K_G_H_NG"},
-
-        {"time":
-        6.200, "viseme": "AE"},
-
-        {"time": 6.300, "viseme": "R"},
+        {"time": 4.150, "viseme": "R"},
 
         {"time":
-        6.400, "viseme": "EE"},
+        4.250, "viseme": "AE"},
 
-        {"time": 6.500, "viseme": "TH"},
-
-        {"time":
-        6.600, "viseme": "AE"},
-
-        {"time": 6.700, "viseme": "B_M_P"},
+        {"time": 4.350, "viseme": "K_G_H_NG"},
 
         {"time":
-        6.800, "viseme": "S_Z"},
+        4.450, "viseme": "T_L_D_N"},
 
-        {"time": 6.900, "viseme": "AE"},
-
-        {"time":
-        7.000, "viseme": "T_L_D_N"},
-
-        {"time": 7.100, "viseme": "F_V"},
+        {"time": 4.550, "viseme": "AH"},
 
         {"time":
-        7.200, "viseme": "S_Z"},
+        4.650, "viseme": "B_M_P"},
 
-        {"time": 7.300, "viseme": "IH"},
-
-        {"time":
-        7.400, "viseme": "S_Z"},
-
-        {"time": 7.500, "viseme": "CH_J"},
+        {"time": 4.750, "viseme": "R"},
 
         {"time":
-        7.600, "viseme": "AH"},
+        4.850, "viseme": "OH"},
 
-        {"time": 7.700, "viseme": "S_Z"},
-
-        {"time":
-        7.800, "viseme": "T_L_D_N"},
-
-        {"time": 7.900, "viseme": "F_V"},
+        {"time": 4.950, "viseme": "CH_J"},
 
         {"time":
-        8.000, "viseme": "AH"},
+        5.050, "viseme": "sil"},
 
-        {"time": 8.100, "viseme": "T_L_D_N"},
-
-        {"time":
-        8.200, "viseme": "T_L_D_N"},
-
-        {"time": 8.300, "viseme": "AH"},
+        {"time": 5.200, "viseme": "T_L_D_N"},
 
         {"time":
-        8.400, "viseme": "B_M_P"},
+        5.300, "viseme": "AE"},
 
-        {"time": 8.500, "viseme": "AE"},
-
-        {"time":
-        8.600, "viseme": "T_L_D_N"},
-
-        {"time": 8.700, "viseme": "T_L_D_N"},
+        {"time": 5.400, "viseme": "T_L_D_N"},
 
         {"time":
-        8.800, "viseme": "EE"},
+        5.500, "viseme": "S_Z"},
 
-        {"time": 8.900, "viseme": "K_G_H_NG"},
-
-        {"time":
-        9.000, "viseme": "R"},
-
-        {"time": 9.100, "viseme": "AE"},
+        {"time": 5.600, "viseme": "B_M_P"},
 
         {"time":
-        9.200, "viseme": "T_L_D_N"},
+        5.700, "viseme": "W_OO"},
 
-        {"time": 9.300, "viseme": "IH"},
+        {"time": 5.800, "viseme": "F_V"},
 
         {"time":
-        9.400, "viseme": "K_G_H_NG"},
+        5.900, "viseme": "OH"},
 
-        {"time": 9.500, "viseme": "sil"}
+        {"time": 6.000, "viseme": "T_L_D_N"},
+
+        {"time":
+        6.100, "viseme": "T_L_D_N"},
+
+        {"time": 6.200, "viseme": "W_OO"},
+
+        {"time":
+        6.300, "viseme": "TH"},
+
+        {"time": 6.400, "viseme": "AH"},
+
+        {"time":
+        6.500, "viseme": "T_L_D_N"},
+
+        {"time": 6.600, "viseme": "AE"},
+
+        {"time":
+        6.700, "viseme": "K_G_H_NG"},
+
+        {"time": 6.800, "viseme": "S_Z"},
+
+        {"time":
+        6.900, "viseme": "T_L_D_N"},
+
+        {"time": 7.000, "viseme": "S_Z"},
+
+        {"time":
+        7.100, "viseme": "AE"},
+
+        {"time": 7.200, "viseme": "K_G_H_NG"},
+
+        {"time":
+        7.300, "viseme": "CH_J"},
+
+        {"time": 7.400, "viseme": "AH"},
+
+        {"time":
+        7.500, "viseme": "T_L_D_N"},
+
+        {"time": 7.600, "viseme": "T_L_D_N"},
+
+        {"time":
+        7.700, "viseme": "AH"},
+
+        {"time": 7.800, "viseme": "K_G_H_NG"},
+
+        {"time":
+        7.900, "viseme": "AE"},
+
+        {"time": 8.000, "viseme": "TH"},
+
+        {"time":
+        8.100, "viseme": "ER"},
+
+        {"time": 8.200, "viseme": "sil"}
 
         ]'
       objectReference: {fileID: 0}
@@ -20202,6 +20172,11 @@ PrefabInstance:
       propertyPath: rawRhubarbData
       value: "0.000\tsil\n0.100\t\tTH\n0.180\t\tAH\n0.300\tK_G_H_NG\n0.350\tW_OO\n0.400\tIH\n0.480\tK_G_H_NG\n0.600\tB_M_P\n0.650\tR\n0.700\tAH\n0.800\tW_OO\n0.850\tT_L_D_N\n1.000\tF_V\n1.100\tOH\n1.200\tK_G_H_NG\n1.280\tS_Z\n1.400\tCH_J\n1.480\tAH\n1.550\t\tB_M_P\n1.650\t\tS_Z\n1.800\tOH\n1.880\tW_OO\n1.950\tF_V\n2.050\tER\n2.200\tTH\n2.280\tAH\n2.400\tT_L_D_N\n2.500\tAE\n2.600\tS_Z\n2.700\tEE\n2.850\tT_L_D_N\n2.950\tOH\n3.100\t\tK_G_H_NG\n3.300\tsil"
       objectReference: {fileID: 0}
+    - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
+      propertyPath: visemeJsonFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 628d6113c25704a48b06e96f9f8fcf1e, type: 3}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
       propertyPath: IsSpeechEnabled
