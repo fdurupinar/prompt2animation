@@ -30,50 +30,8 @@ public class ShapeKey {
 
 
 
-//Ee Er IH Ah Oh W_OO S_Z Ch_J F_V TH T_L_D_N B_M_P K_G_H_NG AE R
-// public enum VisemeEnum
-// {
-//     EE,
-//     ER,
-//     IH,
-//     AH,
-//     OH,
-//     W_OO,
-//     S_Z,
-//     CH_J,
-//     F_V,
-//     TH,
-//     T_L_D_N,
-//     B_M_P,
-//     K_G_H_NG,
-//     AE,
-//     R,
-//     sil
-// };
-
-
-
 public class FACS : MonoBehaviour
 {
-//     public static Dictionary<string, int> VisemeDict = new Dictionary<string, int> {
-//     {"sil", -1},
-//     {"EE", 0},
-//     {"ER", 1},
-//     {"IH", 2},
-//     {"AH", 3},
-//     {"OH", 4},
-//     {"W_OO", 5},
-//     {"S_Z", 6},
-//     {"CH_J", 7},
-//     {"F_V", 8},
-//     {"TH", 9},
-//     {"T_L_D_N", 10},
-//     {"B_M_P", 11},
-//     {"K_G_H_NG", 12},
-//     {"AE", 13},
-//     {"R", 14},
-    
-// };
     public static Dictionary<int, string> VisemeDict = new Dictionary<int, string> {
     {-1, "sil"},
     {0, "EE"},
