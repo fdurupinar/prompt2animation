@@ -9,7 +9,8 @@ n_samples = 110   # number of vectors
 n_features = 65   # dimensionality
 n_clusters = 22    # number of clusters
 
-filenames, X_dense = read_aus("Generated")
+# filenames, X_dense = read_aus("Generated")
+filenames, X_dense = read_aus("../Assets/Resources/OCC-Gemini")
 X_dense = np.transpose(X_dense)
 
 kmeans = KMeans(n_clusters=n_clusters, random_state=0)
@@ -41,7 +42,7 @@ for i in range(n_clusters):
 for i in range(n_clusters):
     csvfilename = "cluster-aveface-%d.csv"%(i)
     print(csvfilename)
-    write_aus_csv(csvfilename)
+    write_aus_csv(csvfilename, X_dense)
  
 sorted_indices = np.argsort(labels)
 X_sorted = X_dense[sorted_indices]

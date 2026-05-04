@@ -3,6 +3,11 @@ Cmd: initializeCompiler
 
 Cmd: initializeCompiler
 
+<<<<<<< HEAD
+=======
+Cmd: initializeCompiler
+
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 Unhandled exception: Protocol error - failed to read magic number. Error code 0x80000004 (Not connected). (transferred 0/4)
 
 Quitting shader compiler process

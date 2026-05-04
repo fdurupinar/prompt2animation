@@ -5,6 +5,7 @@
       "AU": 4,
       "Times": [
         0.0,
+<<<<<<< HEAD
         0.8,
         6.2
       ],
@@ -17,6 +18,23 @@
         0.0,
         65.0,
         65.0
+=======
+        0.2,
+        0.5,
+        2.0
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        70.0,
+        60.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        0.0,
+        70.0,
+        60.0
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
       ],
       "currInd": 0,
       "Semantics": null
@@ -25,6 +43,7 @@
       "AU": 9,
       "Times": [
         0.0,
+<<<<<<< HEAD
         1.2,
         6.2
       ],
@@ -37,6 +56,23 @@
         0.0,
         40.0,
         40.0
+=======
+        0.2,
+        0.5,
+        2.0
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        100.0,
+        80.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        0.0,
+        100.0,
+        80.0
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
       ],
       "currInd": 0,
       "Semantics": null
@@ -45,12 +81,19 @@
       "AU": 10,
       "Times": [
         0.0,
+<<<<<<< HEAD
         1.0,
         6.2
+=======
+        0.2,
+        0.5,
+        2.0
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
       ],
       "Intensities": [
         0.0,
         0.0,
+<<<<<<< HEAD
         50.0
       ],
       "InitialIntensities": [
@@ -179,6 +222,62 @@
         0.0,
         45.0,
         45.0
+=======
+        0.0,
+        75.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        0.0,
+        90.0,
+        75.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 56,
+      "Times": [
+        0.0,
+        0.3,
+        0.7,
+        2.0
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        60.0,
+        60.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        0.0,
+        60.0,
+        60.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 58,
+      "Times": [
+        0.0,
+        0.2,
+        0.6,
+        2.0
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        50.0,
+        40.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        0.0,
+        50.0,
+        40.0
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
       ],
       "currInd": 0,
       "Semantics": null

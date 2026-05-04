@@ -2,6 +2,7 @@ Unity Editor version:    6000.3.10f1 (e35f0c77bd8e)
 Branch:                  6000.3/staging
 Build type:              Release
 Batch mode:              YES
+<<<<<<< HEAD
 macOS version:           Version 26.4.1 (Build 25E253)
 Darwin version:          25.4.0
 Architecture:            arm64
@@ -10,6 +11,16 @@ Available memory:        32768 MB
 Date:                    2026-05-01T17:36:27Z
 [Licensing::Module] Trying to connect to existing licensing client channel...
 [Licensing::IpcConnector] Successfully connected to: "LicenseClient-fundadurupinarbabur" at "2026-05-01T17:36:27.414228Z"
+=======
+macOS version:           Version 26.3.1 (a) (Build 25D771280a)
+Darwin version:          25.3.0
+Architecture:            x86_64
+Running under Rosetta:   NO
+Available memory:        131072 MB
+Date:                    2026-04-26T19:07:03Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-fundadurupinarbabur" at "2026-04-26T19:07:03.613275Z"
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 
 COMMAND LINE ARGUMENTS:
 /Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/MacOS/Unity
@@ -23,11 +34,15 @@ AssetImportWorker1
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
+<<<<<<< HEAD
 60025
+=======
+55864
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 -licensingIpc
 LicenseClient-fundadurupinarbabur
 -job-worker-count
-4
+9
 -background-job-worker-count
 8
 -gc-helper-count
@@ -44,6 +59,11 @@ Successfully changed project path to: /Users/fundadurupinarbabur/Documents/Resea
     "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
     "memorysetup-temp-allocator-size-audio-worker=65536"
     "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
     "memorysetup-bucket-allocator-block-size=33554432"
@@ -64,12 +84,8 @@ Successfully changed project path to: /Users/fundadurupinarbabur/Documents/Resea
     "memorysetup-job-temp-allocator-block-size=2097152"
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
-    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< HEAD
 Player connection [8460343488]  Target information:
 
 Player connection [8460343488]  * "[IP] 172.18.23.230 [Port] 0 [Flags] 2 [Guid] 2554559221 [EditorId] 2554559221 [Version] 1048832 [Id] OSXEditor(0,mac.sfw.umb.edu) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
@@ -77,6 +93,15 @@ Player connection [8460343488]  * "[IP] 172.18.23.230 [Port] 0 [Flags] 2 [Guid] 
 Player connection [8460343488] Host joined multi-casting on [225.0.0.222:54997]...
 Player connection [8460343488] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 4
+=======
+Player connection [140704605383680]  Target information:
+
+Player connection [140704605383680]  * "[IP] 192.168.1.169 [Port] 0 [Flags] 2 [Guid] 3315419407 [EditorId] 3315419407 [Version] 1048832 [Id] OSXEditor(0,Fundas-iMac.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+
+Player connection [140704605383680] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [140704605383680] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 9
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -87,19 +112,23 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
+<<<<<<< HEAD
 Refreshing native plugins compatible for Editor in 12.11 ms, found 4 plugins.
+=======
+Refreshing native plugins compatible for Editor in 9.44 ms, found 4 plugins.
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.3.10f1 (e35f0c77bd8e)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/fundadurupinarbabur/Documents/Research/code/prompt2animation/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
- preferred device: Apple M4 (high power)
+iMac preferred device: AMD Radeon Pro 5500 XT (high power)
 Metal devices available: 1
-0: Apple M4 (high power)
-Using device Apple M4 (high power)
-Initializing Metal device caps: Apple M4
+0: AMD Radeon Pro 5500 XT (high power)
+Using device AMD Radeon Pro 5500 XT (high power)
+Initializing Metal device caps: AMD Radeon Pro 5500 XT
 Mac GPU Family: 2
-Apple GPU Family: 9
+Apple GPU Family: 0
 MSL Version: 3.0
 Has Float MSAA: 1
 Has Float Filtering: 1
@@ -108,6 +137,7 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/Scripting/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/Scripting/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/Scripting/MonoBleedingEdge/etc'
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56654
 Begin MonoManager ReloadAssembly
 [Licensing::Client] Handshaking with LicensingClient:
@@ -123,16 +153,40 @@ Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Registered in 0.000597 seconds.
 - Loaded All Assemblies, in  0.235 seconds
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56683
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.000486 seconds.
+- Loaded All Assemblies, in  0.486 seconds
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 Native extension for OSXStandalone target not found
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              f7be1454a9d44842a346ee82eadad28b
+  Correlation Id:          b40f00d52331059f7f08f4cfed8e2a87
+  External correlation Id: 5474761503110558609
+  Machine Id:              FhiZ/IIbgKkI4RQHBCHsn+1KAqY=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-fundadurupinarbabur" (connect: 0.00s, validation: 0.00s, handshake: 1.24s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-fundadurupinarbabur-notifications" at "2026-04-26T19:07:04.851294Z"
+[Licensing::Module] Licensing Background thread has ended after 1.24s
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 - Finished resetting the current domain, in  0.311 seconds
 Domain Reload Profiling: 546ms
 	BeginReloadAssembly (84ms)
+=======
+- Finished resetting the current domain, in  0.546 seconds
+Domain Reload Profiling: 1032ms
+	BeginReloadAssembly (115ms)
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 		CreateAndSetChildDomain (0ms)
 	RebuildCommonClasses (20ms)
 	RebuildNativeTypeToScriptingClass (7ms)
@@ -155,6 +209,30 @@ Domain Reload Profiling: 546ms
 			BeforeProcessingInitializeOnLoad (67ms)
 			ProcessInitializeOnLoadAttributes (132ms)
 			ProcessInitializeOnLoadMethodAttributes (58ms)
+=======
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (56ms)
+	LoadAllAssembliesAndSetupDomain (244ms)
+		LoadAssemblies (114ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (240ms)
+			TypeCache.Refresh (238ms)
+				TypeCache.ScanAssembly (220ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (546ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (483ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (54ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (122ms)
+			ProcessInitializeOnLoadAttributes (201ms)
+			ProcessInitializeOnLoadMethodAttributes (98ms)
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -166,18 +244,18 @@ Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
 [Licensing::Client] Successfully resolved entitlement details
 [Licensing::Module] License group:
-  Id: F4-F2M6-BR3P-YSAH-R4AD-XXXX
-  Product: Unity Personal
-  Type: ULF
-  Expiration: Unlimited
-[Licensing::Module] License group:
   Id: 2474338172105-UnityPersXXXX
   Product: Unity Personal
   Type: Assigned
   Expiration: Unlimited
 Symbol file LoadedFromMemory is not a mono symbol file
+<<<<<<< HEAD
 - Loaded All Assemblies, in  0.451 seconds
 Refreshing native plugins compatible for Editor in 0.50 ms, found 4 plugins.
+=======
+- Loaded All Assemblies, in  0.961 seconds
+Refreshing native plugins compatible for Editor in 1.22 ms, found 4 plugins.
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 Native extension for OSXStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
@@ -185,13 +263,20 @@ Package Manager log level set to [2]
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 - Finished resetting the current domain, in  0.572 seconds
 Domain Reload Profiling: 1022ms
 	BeginReloadAssembly (72ms)
+=======
+- Finished resetting the current domain, in  1.286 seconds
+Domain Reload Profiling: 2247ms
+	BeginReloadAssembly (181ms)
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (3ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 		CreateAndSetChildDomain (18ms)
 	RebuildCommonClasses (21ms)
 	RebuildNativeTypeToScriptingClass (7ms)
@@ -215,10 +300,36 @@ Domain Reload Profiling: 1022ms
 			ProcessInitializeOnLoadAttributes (169ms)
 			ProcessInitializeOnLoadMethodAttributes (230ms)
 			AfterProcessingInitializeOnLoad (0ms)
+=======
+		CreateAndSetChildDomain (51ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (670ms)
+		LoadAssemblies (377ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (365ms)
+			TypeCache.Refresh (267ms)
+				TypeCache.ScanAssembly (247ms)
+			BuildScriptInfoCaches (76ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1287ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1116ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (206ms)
+			ProcessInitializeOnLoadAttributes (569ms)
+			ProcessInitializeOnLoadMethodAttributes (333ms)
+			AfterProcessingInitializeOnLoad (1ms)
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (2ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
 Launching external process: /Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Helpers/UnityShaderCompiler
+<<<<<<< HEAD
 Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
 Refreshing native plugins compatible for Editor in 0.58 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -241,29 +352,548 @@ Received Import Request.
   path: Assets/Scenes/SpeakingCharacter.unity
   artifactKey: Guid(a0c9edd9223b44885b6c35f345b78a72) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
 Start importing Assets/Scenes/SpeakingCharacter.unity using Guid(a0c9edd9223b44885b6c35f345b78a72) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b36fa790745c571d00596771c06039f1') in 0.006722625 seconds
+=======
+Launched and connected shader compiler UnityShaderCompiler after 0.07 seconds
+Refreshing native plugins compatible for Editor in 1.10 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6955 unused Assets / (4.6 MB). Loaded Objects now: 8055.
+Memory consumption went from 239.4 MB to 234.7 MB.
+Total: 9.087098 ms (FindLiveObjects: 0.621881 ms CreateObjectMapping: 1.094560 ms MarkObjects: 5.370236 ms  DeleteObjects: 1.999695 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 694424.209979 seconds.
+  path: Assets/Resources/Speech/distress2.json
+  artifactKey: Guid(c41a3b7f4636945bda9429f5592cc617) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/distress2.json using Guid(c41a3b7f4636945bda9429f5592cc617) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '60652fd852daba838e59a591c9335e10') in 0.045896447 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000069 seconds.
+  path: Assets/Resources/Speech/happyfor1.json
+  artifactKey: Guid(03e8bd07a9cbc4706b88926f98fff2d4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/happyfor1.json using Guid(03e8bd07a9cbc4706b88926f98fff2d4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4a62d7df641f2a9dbb2d985fe3ed03e1') in 0.003154086 seconds
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+<<<<<<< HEAD
+  Time since last request: 0.000040 seconds.
+  path: Assets/Resources/Speech/disliking1.json
+  artifactKey: Guid(4c9fa10865fe446e8a4edad007df16be) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/disliking1.json using Guid(4c9fa10865fe446e8a4edad007df16be) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8b2f57985356b7149dc8d3e220b75106') in 0.001291208 seconds
+=======
+  Time since last request: 0.000043 seconds.
+  path: Assets/Resources/Speech/gratification2.json
+  artifactKey: Guid(cb445bcc23cc44c9db1a98a04760d123) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gratification2.json using Guid(cb445bcc23cc44c9db1a98a04760d123) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8f8f0ca8be1035fab1bd4ad181fc1b39') in 0.003100305 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Resources/Speech/relief4.json
+  artifactKey: Guid(5c12a67bcaba943d3b96a0b3efb9a240) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/relief4.json using Guid(5c12a67bcaba943d3b96a0b3efb9a240) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8f1b52aa22eccb70f77048c07d628d98') in 0.003255598 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Scripts/Face/The quick brown fox
+  artifactKey: Guid(66027efe450b84deaa81840521a9ec95) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/Face/The quick brown fox using Guid(66027efe450b84deaa81840521a9ec95) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8d55237952a4bf813c23c2f98bc2ed2c') in 0.002230955 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Resources/Speech/disappointment4.json
+  artifactKey: Guid(1517bca46ed1e439cb750b3f4a634f52) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/disappointment4.json using Guid(1517bca46ed1e439cb750b3f4a634f52) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9e9575b88f4e6cbc27dbf591b49ac247') in 0.003302387 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/happyfor4.json
+  artifactKey: Guid(62548ed4a7fbd4ee4954b5c20e8b86c4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/happyfor4.json using Guid(62548ed4a7fbd4ee4954b5c20e8b86c4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a578af2d0df429c2ad79abc7ec8efa00') in 0.003436046 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/happyfor2.json
+  artifactKey: Guid(95495ed22c1074ff694eecdf652e6938) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/happyfor2.json using Guid(95495ed22c1074ff694eecdf652e6938) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1af3843ab9c805332224777b765a918e') in 0.003020982 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/relief1.json
+  artifactKey: Guid(40f3b6f0999d74d4382373ff87f71a25) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/relief1.json using Guid(40f3b6f0999d74d4382373ff87f71a25) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8d775a17b995aafa3ca440cea693d498') in 0.003601714 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000040 seconds.
-  path: Assets/Resources/Speech/disliking1.json
-  artifactKey: Guid(4c9fa10865fe446e8a4edad007df16be) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Resources/Speech/disliking1.json using Guid(4c9fa10865fe446e8a4edad007df16be) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8b2f57985356b7149dc8d3e220b75106') in 0.001291208 seconds
+  path: Assets/Resources/Speech/satisfaction5.json
+  artifactKey: Guid(42335f7977af947b580e537047575b90) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/satisfaction5.json using Guid(42335f7977af947b580e537047575b90) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5993cce2fd85b5e4bcc4872abdfeb371') in 0.002790564 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Resources/Speech/satisfaction4.json
+  artifactKey: Guid(50eeaa4b3f2644b9e8e26946c5e0d578) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/satisfaction4.json using Guid(50eeaa4b3f2644b9e8e26946c5e0d578) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f6d69a64fc3e29f40a95f9bb659ab30f') in 0.003138875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/reproach4.json
+  artifactKey: Guid(2c8637f4dc2de45c0ad72b6736e03a5c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/reproach4.json using Guid(2c8637f4dc2de45c0ad72b6736e03a5c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'cd5ec5c2194514642e3a3e891c275ca9') in 0.003237868 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Resources/Speech/shame2.json
+  artifactKey: Guid(1d3537a076d434d6d93e71a6cf31a64f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/shame2.json using Guid(1d3537a076d434d6d93e71a6cf31a64f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ff4d381da20af4369530c958f80225c0') in 0.003280982 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/Resources/Speech/gratitude4.json
+  artifactKey: Guid(8e649f4c0fc584a3284ca20c9e26e6a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gratitude4.json using Guid(8e649f4c0fc584a3284ca20c9e26e6a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5bbf44228b9690e1e1661b3159a529ce') in 0.003990916 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/fear4.json
+  artifactKey: Guid(58e828ce5824549f6a6b7b0076b96153) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/fear4.json using Guid(58e828ce5824549f6a6b7b0076b96153) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '79ca8488efeec91818827fc1a920022d') in 0.003004077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000071 seconds.
+  path: Assets/Resources/Speech/resentment1.json
+  artifactKey: Guid(86449a92abdf348e884c1487453ccf68) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/resentment1.json using Guid(86449a92abdf348e884c1487453ccf68) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '23d555a3e57a925d48585c2d5b938d61') in 0.003402884 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Scripts/OCCController.cs
+  artifactKey: Guid(63ca5be92048a4d09b2a3ebdb4359ea0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/OCCController.cs using Guid(63ca5be92048a4d09b2a3ebdb4359ea0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0f442bfee4e4943fc5d60268591725eb') in 0.025965418 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Resources/Speech/reproach5.json
+  artifactKey: Guid(aee478222548f4c219aaadb4852e5ee4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/reproach5.json using Guid(aee478222548f4c219aaadb4852e5ee4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5121eeac319aa9b388bb2ded3ef9bc8f') in 0.002794175 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/disappointment2.json
+  artifactKey: Guid(cb0fc254afd494a1bb9a28470359862e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/disappointment2.json using Guid(cb0fc254afd494a1bb9a28470359862e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '39a8100c9aa7e6b6b2f9fa0dc5de09ed') in 0.003287188 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/remorse1.json
+  artifactKey: Guid(be3070c72e3c3401ea56aef6b53759de) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/remorse1.json using Guid(be3070c72e3c3401ea56aef6b53759de) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'af09c6cb9f91a9ec325e310f431b5bee') in 0.003147196 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Resources/Speech/happyfor3.json
+  artifactKey: Guid(0096d9bae49bb41749a0a57df5d1e10c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/happyfor3.json using Guid(0096d9bae49bb41749a0a57df5d1e10c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f0b4fa30e70b568a868ea850b88fa794') in 0.003017263 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Resources/Speech/liking5.json
+  artifactKey: Guid(f06c9c6b460984f64b3a756964f79d13) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/liking5.json using Guid(f06c9c6b460984f64b3a756964f79d13) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'fad86e0d3f1b573d6481e28567c9dc87') in 0.00307204 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Resources/Speech/resentment4.json
+  artifactKey: Guid(d3354b671281f46839a717294644107c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/resentment4.json using Guid(d3354b671281f46839a717294644107c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6e56b11b839be4be35a14993388aabdf') in 0.002774857 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Resources/Speech/disliking4.json
+  artifactKey: Guid(09d9d86bc773b4418a75d24d1ee28412) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/disliking4.json using Guid(09d9d86bc773b4418a75d24d1ee28412) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3a61a8be1f891254495ea292bcc57bae') in 0.002582291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Resources/Speech/gratitude1.json
+  artifactKey: Guid(47817431595d84e8c98c1aadf21159a0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gratitude1.json using Guid(47817431595d84e8c98c1aadf21159a0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7490a2ec1404b3349bcaf94eee560f17') in 0.003119445 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Resources/Speech/admiration3.json
+  artifactKey: Guid(b96310dc5348a4b228ef9b283c8f8293) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/admiration3.json using Guid(b96310dc5348a4b228ef9b283c8f8293) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd085d924952c6d465c29d2ee33179991') in 0.003008481 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Resources/Speech/anger2.json
+  artifactKey: Guid(870921cf340eb498e823da144631f259) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/anger2.json using Guid(870921cf340eb498e823da144631f259) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '932fb8c7f50296f313a0bc8e23a3b327') in 0.003019159 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/hope1.json
+  artifactKey: Guid(94b064105328248e2b66a7c0fa2757ee) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/hope1.json using Guid(94b064105328248e2b66a7c0fa2757ee) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c73dd8125c805ba1677d21ee3a69bf5d') in 0.003100783 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Resources/Speech/gratitude3.json
+  artifactKey: Guid(1900084c410eb4919bbb27626d337afa) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gratitude3.json using Guid(1900084c410eb4919bbb27626d337afa) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f2cea040e143b6049347da69e1e4f888') in 0.003278078 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Resources/Speech/fearsConfirmed3.json
+  artifactKey: Guid(8250104b352634610b7631c1dd6d85ed) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/fearsConfirmed3.json using Guid(8250104b352634610b7631c1dd6d85ed) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4148dba071313bbb4ca9b09410980f53') in 0.003134777 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Resources/Speech/hope3.json
+  artifactKey: Guid(aef80711027ed47e28400df1e45c851a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/hope3.json using Guid(aef80711027ed47e28400df1e45c851a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9871ab21ac89b165a5155f2ed4d5f315') in 0.002734564 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Resources/Speech/shame3.json
+  artifactKey: Guid(8d8e17539689b4a8faf40de74c57adea) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/shame3.json using Guid(8d8e17539689b4a8faf40de74c57adea) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2fd9848500c0b6df4706aedc8321557f') in 0.002854723 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Resources/Speech/pride4.json
+  artifactKey: Guid(d246cbb3cdf03451ab9450e78e029ac4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/pride4.json using Guid(d246cbb3cdf03451ab9450e78e029ac4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '04318b0f7aa00d096c8c8de9471fda51') in 0.002869312 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Resources/Speech/anger3.json
+  artifactKey: Guid(4ee6b617d15dd4c2097dd69a3aea3e2e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/anger3.json using Guid(4ee6b617d15dd4c2097dd69a3aea3e2e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '047fa76282ba73ebfa7e8da40eb6f40c') in 0.00248206 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Resources/Speech/pride1.json
+  artifactKey: Guid(233ea232917154b5c9b439cb3c0bddf1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/pride1.json using Guid(233ea232917154b5c9b439cb3c0bddf1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '92b03f281c5f712151cfffb6e583914b') in 0.003339703 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/reproach2.json
+  artifactKey: Guid(49576fdb86c004d5ebe48dc3c6dc7f75) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/reproach2.json using Guid(49576fdb86c004d5ebe48dc3c6dc7f75) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a39c5a994f0404a0dab4e0a789a33e22') in 0.003631054 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000091 seconds.
+  path: Assets/Resources/Speech/disappointment3.json
+  artifactKey: Guid(89c1c171272cd4b51850b72f826d6c29) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/disappointment3.json using Guid(89c1c171272cd4b51850b72f826d6c29) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '368c5ac9afe1aba88271c52f8caed5a4') in 0.003857608 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Assets/Resources/Speech/admiration1.json
+  artifactKey: Guid(85fd370382d704355974bb4ecdefefeb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/admiration1.json using Guid(85fd370382d704355974bb4ecdefefeb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '43384a502be41bcb4c990759ca0e1ae2') in 0.003553948 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000072 seconds.
+  path: Assets/Resources/Speech/anger5.json
+  artifactKey: Guid(a878f07c412a84afc9ec6276603a40a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/anger5.json using Guid(a878f07c412a84afc9ec6276603a40a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2fdd298dd8fb67a5dfcdd79e54bdd7ad') in 0.003663838 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000085 seconds.
+  path: Assets/Resources/Speech/distress1.json
+  artifactKey: Guid(de0248ca7a76b449fad5828b2922742a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/distress1.json using Guid(de0248ca7a76b449fad5828b2922742a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7d09ba67ef001acfc55be37aff5610b2') in 0.003334222 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000109 seconds.
+  path: Assets/Resources/Speech/gratitude2.json
+  artifactKey: Guid(ac39d98c2b20340cf8395f4f7928ca8f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gratitude2.json using Guid(ac39d98c2b20340cf8395f4f7928ca8f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '99e3b4d416bcaad46e80375d82f2e5f1') in 0.003057299 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Resources/Speech/gratification4.json
+  artifactKey: Guid(01f0fe0c7066140a4837a43ba228af48) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gratification4.json using Guid(01f0fe0c7066140a4837a43ba228af48) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '84313208cbc0f68acb17993c86fc85e8') in 0.003247053 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Resources/Speech/gloating1.json
+  artifactKey: Guid(f3adc23c3cb84431a98f0fe27545e550) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gloating1.json using Guid(f3adc23c3cb84431a98f0fe27545e550) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '37fcf94b491ae3ffb3bfd6f0b092c5cd') in 0.003237415 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Resources/Speech/fear2.json
+  artifactKey: Guid(481387df330d64bcaa02a87f446ef596) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/fear2.json using Guid(481387df330d64bcaa02a87f446ef596) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '55a16052789293a32cde5c4b9b134447') in 0.003190476 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Resources/Speech/liking1.json
+  artifactKey: Guid(503fbf3638fb54d338a8fdc5dea98cf7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/liking1.json using Guid(503fbf3638fb54d338a8fdc5dea98cf7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'cf0d6d3ec3a482fbfe2add27bccb475a') in 0.003461729 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Resources/Speech/pride3.json
+  artifactKey: Guid(af33d34ee8d064a369bb4b504c992739) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/pride3.json using Guid(af33d34ee8d064a369bb4b504c992739) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6e3d74e6105dcb8a237502d865d7bd03') in 0.003424949 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Resources/Speech/gratification1.json
+  artifactKey: Guid(17344d7a0e08d4a0587346f08bbe12c0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gratification1.json using Guid(17344d7a0e08d4a0587346f08bbe12c0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f9019a8234936bb57d62b0d913d08e39') in 0.003406351 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000078 seconds.
+  path: Assets/Resources/Speech/satisfaction1.json
+  artifactKey: Guid(6901841e919a44836819f97d67afba87) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/satisfaction1.json using Guid(6901841e919a44836819f97d67afba87) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '276112f67c7aebada7018394dcb8cd49') in 0.003264168 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Scenes/Main.unity
+  artifactKey: Guid(647029cd076b54efc95309376270baf9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scenes/Main.unity using Guid(647029cd076b54efc95309376270baf9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd7cb81e201cb64ac5083c089ff69cd4d') in 0.01222983 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Resources/Speech/pity2.json
+  artifactKey: Guid(78a46ac0059f14a1fbe4b06b289933df) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/pity2.json using Guid(78a46ac0059f14a1fbe4b06b289933df) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7cc46c9226e228d2a1fe1dba45fff190') in 0.002666799 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Resources/Speech/satisfaction3.json
+  artifactKey: Guid(38eb40e3c69be487dad8a2c3d8a5f236) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/satisfaction3.json using Guid(38eb40e3c69be487dad8a2c3d8a5f236) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e7f61a2da71cdb9c2a2e09f1855a8ed4') in 0.019668026 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Resources/Speech/pity5.json
+  artifactKey: Guid(ea54466994ae44881911841b0bea0fb8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/pity5.json using Guid(ea54466994ae44881911841b0bea0fb8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'bf69a475fd682ab23dc6b2a0f8dbf69b') in 0.003034415 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Resources/Speech/gratification3.json
+  artifactKey: Guid(fe6e5afdeb52046fca84fb477a59bf41) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gratification3.json using Guid(fe6e5afdeb52046fca84fb477a59bf41) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2d67ff5cbce62c1b71334cbe037ad0e7') in 0.002830547 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/remorse3.json
+  artifactKey: Guid(2241fbf413cc3464a8f2527e06e16df9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/remorse3.json using Guid(2241fbf413cc3464a8f2527e06e16df9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3a1c30fe4f68ecf4af2bf5b3f7e258f6') in 0.003311063 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Resources/Speech/distress4.json
+  artifactKey: Guid(75b82f68c254b4c5d93b91199700b1f0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/distress4.json using Guid(75b82f68c254b4c5d93b91199700b1f0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3da19925e02f56e6136443a9d0f1f8ae') in 0.003386052 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Resources/Speech/disliking5.json
+  artifactKey: Guid(11a5c129f1276481ea87147118301f42) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/disliking5.json using Guid(11a5c129f1276481ea87147118301f42) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2ea5d6956afd491e2fe9d84c47ea1f12') in 0.002639259 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Resources/Speech/admiration5.json
+  artifactKey: Guid(561c44ab805c24d24b8647a43dd4ed9a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/admiration5.json using Guid(561c44ab805c24d24b8647a43dd4ed9a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2a84f0e3867999b02dbf52be246e8684') in 0.003134956 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Resources/Speech/gloating2.json
+  artifactKey: Guid(09ee1cc28f903489c9c83b1e76f0a488) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/gloating2.json using Guid(09ee1cc28f903489c9c83b1e76f0a488) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7b79abd5e4ac7909b5bf996dc83bda9b') in 0.00283047 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Resources/Speech/remorse4.json
+  artifactKey: Guid(4cd2f4d758b18479bb1c8cdec7cea50a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Speech/remorse4.json using Guid(4cd2f4d758b18479bb1c8cdec7cea50a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd3f6726b9e1a2932abb2e54e61314160') in 0.002363519 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Scripts/GPT/Parsers.cs
+  artifactKey: Guid(4cb46af49ab684222a41d4d4a3f9a268) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scripts/GPT/Parsers.cs using Guid(4cb46af49ab684222a41d4d4a3f9a268) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7d71d09f18ff625855c0902cb012d743') in 0.00264515 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 170.087419 seconds.
+  path: Assets/sycophancy.wav
+  artifactKey: Guid(3073d3544483144218647befa8ce53fe) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/sycophancy.wav using Guid(3073d3544483144218647befa8ce53fe) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '154cb979ae89e1cbdf9187fda9902e9e') in 0.039949639 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 83.172310 seconds.
+  path: Assets/Resources/Visemes
+  artifactKey: Guid(8600c9cf83dc14826998ed1798839b0d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Visemes using Guid(8600c9cf83dc14826998ed1798839b0d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e10595ad1cb84d551ba64871780ff5fc') in 0.002375481 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 41.450376 seconds.
+  path: Assets/Resources/Visemes/quickBrownFox.json
+  artifactKey: Guid(0595773b4b1904957bb330ddf22f1ceb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Resources/Visemes/quickBrownFox.json using Guid(0595773b4b1904957bb330ddf22f1ceb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '58b023e17b21bf8f1e6a50b673291791') in 0.002658313 seconds
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
+<<<<<<< HEAD
 Thread 0x17d743000 may have been prematurely finalized
 Symbol file LoadedFromMemory is not a mono symbol file
 - Loaded All Assemblies, in  0.319 seconds
 Refreshing native plugins compatible for Editor in 0.44 ms, found 4 plugins.
+=======
+[Licensing::Client] Successfully resolved entitlement details
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.848 seconds
+Refreshing native plugins compatible for Editor in 1.06 ms, found 4 plugins.
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 Native extension for OSXStandalone target not found
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 - Finished resetting the current domain, in  0.409 seconds
 Domain Reload Profiling: 730ms
 	BeginReloadAssembly (88ms)
@@ -303,5 +933,100 @@ Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 6953 unused Assets / (3.2 MB). Loaded Objects now: 8083.
 Memory consumption went from 249.3 MB to 246.1 MB.
 Total: 7.116625 ms (FindLiveObjects: 0.383666 ms CreateObjectMapping: 0.132042 ms MarkObjects: 5.147542 ms  DeleteObjects: 1.452791 ms)
+=======
+- Finished resetting the current domain, in  1.104 seconds
+Domain Reload Profiling: 1955ms
+	BeginReloadAssembly (235ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (91ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (529ms)
+		LoadAssemblies (343ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (251ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (224ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1104ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (851ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (224ms)
+			ProcessInitializeOnLoadAttributes (523ms)
+			ProcessInitializeOnLoadMethodAttributes (96ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (19ms)
+Refreshing native plugins compatible for Editor in 1.37 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6953 unused Assets / (4.7 MB). Loaded Objects now: 8084.
+Memory consumption went from 260.7 MB to 256.0 MB.
+Total: 9.905023 ms (FindLiveObjects: 0.655926 ms CreateObjectMapping: 1.301466 ms MarkObjects: 5.907147 ms  DeleteObjects: 2.039468 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.835 seconds
+Refreshing native plugins compatible for Editor in 1.07 ms, found 4 plugins.
+Native extension for OSXStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.067 seconds
+Domain Reload Profiling: 1905ms
+	BeginReloadAssembly (224ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (89ms)
+	RebuildCommonClasses (44ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (529ms)
+		LoadAssemblies (334ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (252ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (225ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (1068ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (835ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (202ms)
+			ProcessInitializeOnLoadAttributes (536ms)
+			ProcessInitializeOnLoadMethodAttributes (89ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (16ms)
+Refreshing native plugins compatible for Editor in 1.17 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6953 unused Assets / (4.7 MB). Loaded Objects now: 8087.
+Memory consumption went from 261.4 MB to 256.6 MB.
+Total: 9.764495 ms (FindLiveObjects: 0.660698 ms CreateObjectMapping: 1.226721 ms MarkObjects: 5.684303 ms  DeleteObjects: 2.191929 ms)
+>>>>>>> f4ba99e539672eb804e47d7833611ea88b55dffb
 
 Prepare: number of updated asset objects reloaded= 0
