@@ -49,19 +49,16 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.3.10f1/Unity.app/Contents/Resources/BuildPipeline/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/GPT/ChatManager.cs" />
     <Compile Include="Assets/Scripts/CameraControl3dsMaxStyle.cs" />
     <Compile Include="Assets/Scripts/Face/FACS_Visualizer_2D.cs" />
-    <Compile Include="Assets/Scripts/NetClient/Participant.cs" />
-    <Compile Include="Assets/Scripts/NetClient/LogMessage.cs" />
-    <Compile Include="Assets/Scripts/GPT/ChatNetClient.cs" />
+    <Compile Include="Assets/Scripts/GPT/GeminiPayload.cs" />
     <Compile Include="Assets/Scripts/Face/FACS.cs" />
-    <Compile Include="Assets/Scripts/NetClient/LogNetClient.cs" />
     <Compile Include="Assets/Scripts/OCCController.cs" />
     <Compile Include="Assets/Scripts/GPT/Parsers.cs" />
-    <Compile Include="Assets/Scripts/NetClient/ChatNetClient.cs" />
     <Compile Include="Assets/Scripts/ProceduralHeatmapAnalyzer.cs" />
+    <Compile Include="Assets/Scripts/ChatMessageUI.cs" />
     <Compile Include="Assets/Scripts/BatchRecorder.cs" />
-    <Compile Include="Assets/Scripts/NetClient/TestNetClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -85,6 +82,7 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
     <None Include="Assets/Characters/2/2_ImportInfo.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+    <None Include="Assets/Resources/gemini-api-key.txt" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
