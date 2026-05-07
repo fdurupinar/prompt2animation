@@ -15,7 +15,10 @@ public class OCCController : MonoBehaviour {
     public float AnimationDuration { get; private set; }
 
     public bool ShowHeatmap = false;
+
     
+
+     public static OCCController Instance { get; private set; }    
 
     private void Start() {
 
@@ -38,7 +41,6 @@ public class OCCController : MonoBehaviour {
     }
 
 
-
     public void UpdateScenario(TextAsset scenario, int agentIndex) {
         Scenarios[agentIndex] = scenario;
         _facs[agentIndex].GetAUsAndDuration(Scenarios[agentIndex].text);
@@ -52,7 +54,10 @@ public class OCCController : MonoBehaviour {
             heatmapAnalyzer.DisableHeatmap();
 
     }
-
+    
+    
+    
+    
     public void PlayResponse() {
 
         for(int i = 0; i < Agents.Length; i++)
