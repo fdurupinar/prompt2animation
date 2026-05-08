@@ -49,6 +49,7 @@ public class ChatManager : MonoBehaviour
     
     private string _savePath;
     private string _chatResponsePath;
+    private GameObject _progressObject;
     
     
     public class ChatHistoryWrapper
@@ -191,6 +192,8 @@ public class ChatManager : MonoBehaviour
         var (_, utterance, duration) = Parsers.ParseJson(animationJson);
         if (string.IsNullOrEmpty(utterance)) yield break;
 
+        ShowProgress("Synthesizing speech...");
+
         // 2. Synthesize WAV via OS speech synthesis
         string audioDir = Path.Combine(Application.dataPath, "Resources", "Audio");
         if (!Directory.Exists(audioDir)) Directory.CreateDirectory(audioDir);
@@ -214,7 +217,8 @@ public class ChatManager : MonoBehaviour
         // 3. Base64-encode the WAV
         string base64Audio = Convert.ToBase64String(File.ReadAllBytes(wavPath));
 
-      
+        ShowProgress("Extracting visemes...");
+
         // 5. Build multimodal Gemini request
         string durationInstruction = $"The total animation duration is {duration:F3} seconds. " +
             $"Scale all viseme timestamps so the sequence spans exactly {duration:F3} seconds.";
@@ -287,8 +291,29 @@ public class ChatManager : MonoBehaviour
         if (OCCController.Instance != null)
             OCCController.Instance.SetSpeechClip(clip);
 
+        HideProgress();
         AddMessageToUI("Animation and visemes are ready. You can now play the animation.", llmMessagePrefab);
         ScrollToBottom();
+    }
+
+    private void ShowProgress(string text) {
+        if (_progressObject == null)
+            _progressObject = Instantiate(llmMessagePrefab, chatContentPanel);
+        var chatMsg = _progressObject.GetComponent<ChatMessageUI>();
+        if (chatMsg != null)
+            chatMsg.SetText(text);
+        else {
+            var tmp = _progressObject.GetComponentInChildren<TMP_Text>();
+            if (tmp != null) tmp.text = text;
+        }
+        ScrollToBottom();
+    }
+
+    private void HideProgress() {
+        if (_progressObject != null) {
+            Destroy(_progressObject);
+            _progressObject = null;
+        }
     }
 
     private void SetUIInteractable(bool isInteractable)
@@ -316,6 +341,7 @@ public class ChatManager : MonoBehaviour
 /// </summary>
       private IEnumerator GetLLMResponseLoop()
     {
+        ShowProgress("Generating animation...");
         string url = ApiUrlBase + apiKey;
 
 
@@ -366,6 +392,7 @@ public class ChatManager : MonoBehaviour
                     {
                         // This is a regular text response
                         string llmResponseText = responseContent.parts[0].text;
+                        HideProgress();
                         AddMessageToUI(llmResponseText, llmMessagePrefab);
                         SaveResponseAsJson(llmResponseText);
                         

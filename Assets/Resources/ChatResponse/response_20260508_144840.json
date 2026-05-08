@@ -1,0 +1,52 @@
+{
+  "duration": 3.8,
+  "emotion": "Hope",
+  "utterance": "I truly believe that if we work together on this, we can achieve something really special.",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [0.0, 0.5, 2.8, 3.8],
+      "Intensities": [0, 40, 50, 0]
+    },
+    {
+      "AU": 2,
+      "Times": [0.0, 0.5, 2.8, 3.8],
+      "Intensities": [0, 40, 50, 0]
+    },
+    {
+      "AU": 4,
+      "Times": [0.0, 0.8, 1.5, 2.0, 3.8],
+      "Intensities": [0, 0, 20, 10, 0]
+    },
+    {
+      "AU": 6,
+      "Times": [0.0, 2.0, 3.5, 3.8],
+      "Intensities": [0, 25, 60, 40]
+    },
+    {
+      "AU": 12,
+      "Times": [0.0, 2.0, 3.5, 3.8],
+      "Intensities": [0, 25, 60, 40]
+    },
+    {
+      "AU": 25,
+      "Times": [0.0, 0.2, 3.6, 3.8],
+      "Intensities": [0, 20, 15, 0]
+    },
+    {
+      "AU": 53,
+      "Times": [0.0, 0.8, 1.2, 2.9, 3.3, 3.8],
+      "Intensities": [50, 55, 50, 55, 50, 50]
+    },
+    {
+      "AU": 55,
+      "Times": [0.0, 0.6, 3.8],
+      "Intensities": [50, 60, 58]
+    },
+    {
+      "AU": 63,
+      "Times": [0.0, 1.8, 2.2, 3.8],
+      "Intensities": [50, 58, 50, 50]
+    }
+  ]
+}
