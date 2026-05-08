@@ -127,7 +127,7 @@ public class ProceduralHeatmapAnalyzer : MonoBehaviour
 
         foreach(GameObject o in ObjectsToDisable)
             o.SetActive(true);
-        Debug.Log("Live heatmap DISABLED.");
+
     }
 
     void LateUpdate() {

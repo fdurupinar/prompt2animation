@@ -103,6 +103,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -148,7 +149,6 @@ GameObject:
   - component: {fileID: 3158581303408380707}
   - component: {fileID: 9178324221307702757}
   - component: {fileID: 1980876565438610722}
-  - component: {fileID: 4190646512695762825}
   - component: {fileID: 6994193096292393447}
   m_Layer: 5
   m_Name: LLMMessage
@@ -241,19 +241,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4190646512695762825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6506367698282798891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40723856d9d114421b650397dfa919ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  messageText: {fileID: 6491556475131243521}
 --- !u!114 &6994193096292393447
 MonoBehaviour:
   m_ObjectHideFlags: 0

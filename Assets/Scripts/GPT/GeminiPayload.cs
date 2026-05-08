@@ -25,10 +25,22 @@ public class Content
     
 }
 
+public class InlineData
+{
+    [JsonProperty("mimeType")]
+    public string mimeType { get; set; }
+
+    [JsonProperty("data")]
+    public string data { get; set; } // base64-encoded bytes
+}
+
 public class Part
 {
     [JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
     public string text { get; set; }
+
+    [JsonProperty("inlineData", NullValueHandling = NullValueHandling.Ignore)]
+    public InlineData inlineData { get; set; }
 
     [JsonProperty("functionCall", NullValueHandling = NullValueHandling.Ignore)]
     public FunctionCall functionCall { get; set; }

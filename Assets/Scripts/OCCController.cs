@@ -16,11 +16,35 @@ public class OCCController : MonoBehaviour {
 
     public bool ShowHeatmap = false;
 
+    [Header("UI to hide during playback")]
+    public Canvas UICanvas;
+
+    public event System.Action OnAnimationStart;
+    public event System.Action OnAnimationComplete;
+    private int _pendingAgentCount;
+
     
 
-     public static OCCController Instance { get; private set; }    
+    public static OCCController Instance { get; private set; }
+
+    private string _sessionChatResponse;
+
+    public void SetLatestChatResponse(string json) => _sessionChatResponse = json;
+
+    public void SetVisemeData(string json) {
+        foreach (FACS facs in _facs)
+            facs.SetVisemeData(json);
+    }
+
+    public void SetSpeechClip(AudioClip clip) {
+        foreach (FACS facs in _facs) {
+            facs.SpeechClip = clip;
+            facs.IsSpeechEnabled = true;
+        }
+    }
 
     private void Start() {
+        Instance = this;
 
         _facs = new FACS[Agents.Length];
         AnimationDuration = 0f;
@@ -60,36 +84,52 @@ public class OCCController : MonoBehaviour {
     
     public void PlayResponse() {
 
+        OnAnimationStart?.Invoke();
+        SetUIVisible(false);
+
+        // Reset subscriptions to avoid duplicates on repeated calls
+        foreach (FACS facs in _facs)
+            facs.OnAnimationComplete -= HandleAgentAnimationComplete;
+
+        _pendingAgentCount = Agents.Length;
+
+        foreach (FACS facs in _facs)
+            facs.OnAnimationComplete += HandleAgentAnimationComplete;
+
         for(int i = 0; i < Agents.Length; i++)
         {
-         
-        
-            string response = Scenarios[i].text;
+            string response = _sessionChatResponse ?? Scenarios[i].text;
 
             Agents[i].GetComponent<FACS>().EmotionName = Scenarios[i].name;
             Agents[i].GetComponent<FACS>().ResetShapeKeys();
 
-
-            //heatmapAnalyzer.ResetHeatmapData();
             if (heatmapAnalyzer != null)
             {
-                if (ShowHeatmap)                
+                if (ShowHeatmap)
                     heatmapAnalyzer.EnableHeatmap();
-                
                 else
-
                     heatmapAnalyzer.DisableHeatmap();
-                
             }
 
-
             _facs[i].AUResponseCb(response);
-
-        
         }
+
         if(ShowHeatmap)
             StartCoroutine(DisplayHeatmap());
+    }
 
+    private void HandleAgentAnimationComplete() {
+        _pendingAgentCount--;
+        if (_pendingAgentCount <= 0) {
+            foreach (FACS facs in _facs)
+                facs.OnAnimationComplete -= HandleAgentAnimationComplete;
+            SetUIVisible(true);
+            OnAnimationComplete?.Invoke();
+        }
+    }
+
+    private void SetUIVisible(bool visible) {
+        if (UICanvas != null) UICanvas.enabled = visible;
     }
 
 

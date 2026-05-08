@@ -1,0 +1,155 @@
+{
+  "duration": 6.5,
+  "emotion": "Admiration",
+  "utterance": "That's an absolutely brilliant idea, boss! Truly, only you could have come up with something so insightful.",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [
+        0.0,
+        0.8,
+        5.0,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        70,
+        70,
+        30
+      ]
+    },
+    {
+      "AU": 2,
+      "Times": [
+        0.0,
+        0.8,
+        5.0,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        60,
+        60,
+        25
+      ]
+    },
+    {
+      "AU": 5,
+      "Times": [
+        0.0,
+        0.7,
+        5.5,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        50,
+        50,
+        20
+      ]
+    },
+    {
+      "AU": 6,
+      "Times": [
+        0.0,
+        1.2,
+        6.0,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        80,
+        80,
+        70
+      ]
+    },
+    {
+      "AU": 12,
+      "Times": [
+        0.0,
+        1.2,
+        6.0,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        90,
+        90,
+        75
+      ]
+    },
+    {
+      "AU": 25,
+      "Times": [
+        0.0,
+        0.5,
+        2.0,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        30,
+        20,
+        10
+      ]
+    },
+    {
+      "AU": 54,
+      "Times": [
+        0.0,
+        2.5,
+        4.0,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        40,
+        0,
+        0
+      ]
+    },
+    {
+      "AU": 53,
+      "Times": [
+        0.0,
+        4.0,
+        5.5,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        0,
+        20,
+        15
+      ]
+    },
+    {
+      "AU": 56,
+      "Times": [
+        0.0,
+        1.5,
+        6.0,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        30,
+        30,
+        25
+      ]
+    },
+    {
+      "AU": 63,
+      "Times": [
+        0.0,
+        1.0,
+        6.5
+      ],
+      "Intensities": [
+        0,
+        15,
+        15
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "duration": 4.5,
+  "emotion": "Reproach",
+  "utterance": "This is the third time you've missed a deadline. It's completely unacceptable.",
+  "facial_actions": [
+    {
+      "AU": 4,
+      "Times": [0.0, 0.4, 3.5, 4.0, 4.5],
+      "Intensities": [0, 80, 85, 95, 90]
+    },
+    {
+      "AU": 5,
+      "Times": [0.0, 0.5, 3.5, 4.0, 4.5],
+      "Intensities": [0, 30, 30, 40, 35]
+    },
+    {
+      "AU": 7,
+      "Times": [0.0, 0.4, 3.5, 4.0, 4.5],
+      "Intensities": [0, 70, 75, 85, 80]
+    },
+    {
+      "AU": 17,
+      "Times": [0.0, 0.6, 3.5, 4.0, 4.5],
+      "Intensities": [0, 30, 40, 60, 50]
+    },
+    {
+      "AU": 23,
+      "Times": [0.0, 0.5, 3.5, 4.0, 4.5],
+      "Intensities": [0, 50, 55, 80, 70]
+    },
+    {
+      "AU": 53,
+      "Times": [0.0, 0.4, 3.5, 3.9, 4.5],
+      "Intensities": [0, 0, 5, 40, 10]
+    },
+    {
+      "AU": 63,
+      "Times": [0.0, 0.4, 3.5, 3.9, 4.5],
+      "Intensities": [50, 50, 50, 50, 50]
+    }
+  ]
+}

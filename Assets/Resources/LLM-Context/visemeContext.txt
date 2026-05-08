@@ -1,0 +1,15 @@
+Task: Output a JSON array mapping the provided audio to visemes. Use
+
+ONLY the viseme following visemes: [EE, ER, IH, AH, OH, AE, W_OO, S_Z,
+
+CH_J, F_V, TH, T_L_D_N, B_M_P, K_G_H_NG, R, sil]
+
+Format: [{"time": 0.000, "viseme": "sil"}, ...]
+
+Rules:
+
+- Do not invent or substitute labels.
+
+- Start with "sil" if speech does not begin immediately.
+
+- Output ONLY raw JSON. No preamble or markdown

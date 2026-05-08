@@ -177,7 +177,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Send
+  m_text: 'Send
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -212,7 +214,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 2048
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -221,7 +223,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1570,8 +1572,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7420,6 +7422,7 @@ MonoBehaviour:
   Agents:
   - {fileID: 1296814085}
   ShowHeatmap: 0
+  UICanvas: {fileID: 172844550}
 --- !u!1 &778301581
 GameObject:
   m_ObjectHideFlags: 0
@@ -10990,7 +10993,7 @@ RectTransform:
   m_GameObject: {fileID: 1164030440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.55669373, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1400781165}
@@ -10998,8 +11001,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 676, y: 62}
-  m_SizeDelta: {x: 1000, y: 150}
+  m_AnchoredPosition: {x: 680, y: 62}
+  m_SizeDelta: {x: 560, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1164030442
 MonoBehaviour:
@@ -13812,32 +13815,32 @@ PrefabInstance:
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
@@ -13847,7 +13850,7 @@ PrefabInstance:
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1000
+      value: 950
       objectReference: {fileID: 0}
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
@@ -13887,12 +13890,12 @@ PrefabInstance:
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1357
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 113
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8090337064529518444, guid: ccab39474b79747339c0a05a5aa166a0,
         type: 3}
@@ -14227,13 +14230,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -16448,7 +16451,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1730732497}
-  - component: {fileID: 1730732496}
   - component: {fileID: 1730732498}
   m_Layer: 0
   m_Name: ChatManager
@@ -16457,25 +16459,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1730732496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730732495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a81fc61463e3544aeb044f9b42b26ae0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  apiKey: aa
-  userInputField: {fileID: 1164030442}
-  sendButton: {fileID: 0}
-  chatContentPanel: {fileID: 0}
-  userMessagePrefab: {fileID: 0}
-  llmMessagePrefab: {fileID: 0}
-  chatScrollRect: {fileID: 0}
 --- !u!4 &1730732497
 Transform:
   m_ObjectHideFlags: 0
@@ -16503,7 +16486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81fc61463e3544aeb044f9b42b26ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChatManager
-  apiKey: '[YOUR_API_KEY_HERE]'
   userInputField: {fileID: 1164030442}
   sendButton: {fileID: 393072880}
   chatContentPanel: {fileID: 1498142644}
@@ -16512,6 +16494,7 @@ MonoBehaviour:
   llmMessagePrefab: {fileID: 6506367698282798891, guid: 261fefe688277494abce5bdcb0bcd89f,
     type: 3}
   chatScrollRect: {fileID: 1498142642}
+  systemPrompt: {fileID: 4900000, guid: cfee0daf73a464b5281d2f62d641983b, type: 3}
 --- !u!1 &1741972377
 GameObject:
   m_ObjectHideFlags: 0

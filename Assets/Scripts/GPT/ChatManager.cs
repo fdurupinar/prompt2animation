@@ -8,6 +8,7 @@ using TMPro; // Use TextMeshPro for better text rendering
 using Newtonsoft.Json; // EXTENDED: We must use Newtonsoft for advanced JSON
 using System.Linq;
 using System.IO;
+using System;
 
 
 /// <summary>
@@ -18,7 +19,7 @@ public class ChatManager : MonoBehaviour
 {
     [Header("API Settings")]
     [Tooltip("Enter your Gemini API key here. DO NOT expose this in production builds.")]
-    [SerializeField]
+    
     private string apiKey = "[YOUR_API_KEY_HERE]";
     // EXTENDED: Changed constant to be just the base URL
     private const string ApiUrlBase = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=" ;
@@ -37,8 +38,17 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     private ScrollRect chatScrollRect;
 
+    [SerializeField]
+    TextAsset systemPrompt;
+    
+    [SerializeField]
+    TextAsset visemePrompt;
+        
+
+
     
     private string _savePath;
+    private string _chatResponsePath;
     
     
     public class ChatHistoryWrapper
@@ -56,12 +66,18 @@ public class ChatManager : MonoBehaviour
     
     private string Key()
     {
-        TextAsset obscure = Resources.Load("gemini-api-key") as TextAsset;
-        return obscure.text.Trim();
+      
+        TextAsset keyAsset = Resources.Load<TextAsset>("gemini-api-key");
+    
+        apiKey = keyAsset.text.Trim();
+        return apiKey;
+
     }
 
     void Start()
     {
+        apiKey = Key();
+
         sendButton.onClick.AddListener(OnSendButtonClick);
         userInputField.onSubmit.AddListener((_) => OnSendButtonClick());
         chatHistory = new List<Content>();
@@ -69,8 +85,11 @@ public class ChatManager : MonoBehaviour
         _savePath = Path.Combine(Application.dataPath, "Resources", "ChatHistory");
         if (!Directory.Exists(_savePath)) Directory.CreateDirectory(_savePath);
 
-        apiKey = Key();
+        _chatResponsePath = Path.Combine(Application.dataPath, "Resources", "ChatResponse");
+        if (!Directory.Exists(_chatResponsePath)) Directory.CreateDirectory(_chatResponsePath);
 
+        
+        
         // Set up the system prompt and tool definitions
         InitializeDirector();
         
@@ -90,9 +109,9 @@ public class ChatManager : MonoBehaviour
         // 1. Add the System Prompt to the chat history
         // This tells the LLM its job.
         //FUNDA
-        TextAsset systemPrompt = Resources.Load("LLM-Context/occContext") as TextAsset;
+        
         Debug.Log(systemPrompt.text);
-        this.systemInstruction = new Content
+                this.systemInstruction = new Content
         {
             role = "system",
             parts = new List<Part> { new Part { text = systemPrompt.text } }
@@ -152,7 +171,127 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-private void SetUIInteractable(bool isInteractable)
+    private void SaveResponseAsJson(string response) {
+        string trimmed = response.Trim();
+        if (trimmed.StartsWith("```"))
+        {
+            int firstNewline = trimmed.IndexOf('\n');
+            if (firstNewline >= 0) trimmed = trimmed[(firstNewline + 1)..];
+            if (trimmed.EndsWith("```")) trimmed = trimmed[..trimmed.LastIndexOf("```")].TrimEnd();
+        }
+        string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        string filePath = Path.Combine(_chatResponsePath, $"response_{timestamp}.json");
+        File.WriteAllText(filePath, trimmed);
+        if (OCCController.Instance != null) OCCController.Instance.SetLatestChatResponse(trimmed);
+        StartCoroutine(SynthesizeAndExtractVisemes(trimmed));
+    }
+
+    private IEnumerator SynthesizeAndExtractVisemes(string animationJson) {
+        // 1. Parse utterance and duration from the animation JSON
+        var (_, utterance, duration) = Parsers.ParseJson(animationJson);
+        if (string.IsNullOrEmpty(utterance)) yield break;
+
+        // 2. Synthesize WAV via OS speech synthesis
+        string audioDir = Path.Combine(Application.dataPath, "Resources", "Audio");
+        if (!Directory.Exists(audioDir)) Directory.CreateDirectory(audioDir);
+        string wavTimestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        string wavPath = Path.Combine(audioDir, $"audio_{wavTimestamp}.wav");
+        if (File.Exists(wavPath)) File.Delete(wavPath);
+
+        string safeText = utterance.Replace("\"", "\\\"");
+        var process = System.Diagnostics.Process.Start(
+            "/usr/bin/say",
+            $"-o \"{wavPath}\" --data-format=LEF32@44100 \"{safeText}\""
+        );
+        if (process == null) { Debug.LogError("Failed to start speech synthesis."); yield break; }
+        while (!process.HasExited) yield return null;
+
+        if (!File.Exists(wavPath) || new FileInfo(wavPath).Length == 0) {
+            Debug.LogError("Speech synthesis produced no audio file.");
+            yield break;
+        }
+
+        // 3. Base64-encode the WAV
+        string base64Audio = Convert.ToBase64String(File.ReadAllBytes(wavPath));
+
+      
+        // 5. Build multimodal Gemini request
+        string durationInstruction = $"The total animation duration is {duration:F3} seconds. " +
+            $"Scale all viseme timestamps so the sequence spans exactly {duration:F3} seconds.";
+
+        var payload = new GeminiPayload {
+            contents = new List<Content> {
+                new() {
+                    role = "user",
+                    parts = new List<Part> {
+                        new() { inlineData = new() { mimeType = "audio/wav", data = base64Audio } },
+                        new() { text = durationInstruction }
+                    }
+                }
+            },
+            systemInstruction = new() {
+                role = "system",
+                parts = new List<Part> { new() { text = visemePrompt.text } }
+            }
+        };
+
+        string jsonPayload = JsonConvert.SerializeObject(payload, new JsonSerializerSettings {
+            NullValueHandling = NullValueHandling.Ignore
+        });
+
+        // 6. Send to Gemini
+        using UnityWebRequest request = new(ApiUrlBase + apiKey, "POST");
+        request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(jsonPayload));
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success) {
+            Debug.LogError("Viseme extraction error: " + request.error);
+            yield break;
+        }
+
+        var geminiResponse = JsonConvert.DeserializeObject<GeminiResponse>(request.downloadHandler.text);
+        string visemeText = geminiResponse?.candidates?[0]?.content?.parts?[0]?.text;
+        if (string.IsNullOrEmpty(visemeText)) { Debug.LogError("Empty viseme response from Gemini."); yield break; }
+
+        // 7. Strip markdown fences
+        visemeText = visemeText.Trim();
+        if (visemeText.StartsWith("```")) {
+            int nl = visemeText.IndexOf('\n');
+            if (nl >= 0) visemeText = visemeText[(nl + 1)..];
+            if (visemeText.EndsWith("```")) visemeText = visemeText[..visemeText.LastIndexOf("```")].TrimEnd();
+        }
+
+        // 8. Save viseme JSON to Resources/Speech/
+        string speechDir = Path.Combine(Application.dataPath, "Resources", "Visemes");
+        if (!Directory.Exists(speechDir)) Directory.CreateDirectory(speechDir);
+        string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        File.WriteAllText(Path.Combine(speechDir, $"visemes_{timestamp}.json"), visemeText);
+
+        // 9. Push viseme data to all agents
+        if (OCCController.Instance != null)
+            OCCController.Instance.SetVisemeData(visemeText);
+
+        // 10. Load out.wav and set as the speech clip on all agents
+        using UnityWebRequest audioRequest = UnityWebRequestMultimedia.GetAudioClip(
+            "file://" + wavPath, AudioType.WAV);
+        yield return audioRequest.SendWebRequest();
+
+        if (audioRequest.result != UnityWebRequest.Result.Success) {
+            Debug.LogError("Failed to load synthesized WAV: " + audioRequest.error);
+            yield break;
+        }
+
+        AudioClip clip = DownloadHandlerAudioClip.GetContent(audioRequest);
+        if (OCCController.Instance != null)
+            OCCController.Instance.SetSpeechClip(clip);
+
+        AddMessageToUI("Animation and visemes are ready. You can now play the animation.", llmMessagePrefab);
+        ScrollToBottom();
+    }
+
+    private void SetUIInteractable(bool isInteractable)
     {
         userInputField.interactable = isInteractable;
         sendButton.interactable = isInteractable;
@@ -179,7 +318,7 @@ private void SetUIInteractable(bool isInteractable)
     {
         string url = ApiUrlBase + apiKey;
 
-        Debug.Log(url);
+
         var payload = new GeminiPayload
         {
             contents = this.chatHistory,
@@ -228,6 +367,7 @@ private void SetUIInteractable(bool isInteractable)
                         // This is a regular text response
                         string llmResponseText = responseContent.parts[0].text;
                         AddMessageToUI(llmResponseText, llmMessagePrefab);
+                        SaveResponseAsJson(llmResponseText);
                         
                         SetUIInteractable(true);
                         userInputField.ActivateInputField();

@@ -1,0 +1,108 @@
+{
+  "duration": 5.5,
+  "emotion": "Anger",
+  "utterance": "I can't believe you told everyone my idea was yours. I trusted you.",
+  "facial_actions": [
+    {
+      "AU": 4,
+      "Times": [
+        0.0,
+        0.4,
+        4.5,
+        5.5
+      ],
+      "Intensities": [
+        0,
+        80,
+        95,
+        70
+      ]
+    },
+    {
+      "AU": 5,
+      "Times": [
+        0.0,
+        0.3,
+        1.0,
+        5.5
+      ],
+      "Intensities": [
+        0,
+        40,
+        20,
+        15
+      ]
+    },
+    {
+      "AU": 7,
+      "Times": [
+        0.0,
+        0.5,
+        4.5,
+        5.5
+      ],
+      "Intensities": [
+        0,
+        60,
+        75,
+        65
+      ]
+    },
+    {
+      "AU": 17,
+      "Times": [
+        0.0,
+        1.8,
+        4.0,
+        5.5
+      ],
+      "Intensities": [
+        0,
+        40,
+        50,
+        20
+      ]
+    },
+    {
+      "AU": 24,
+      "Times": [
+        0.0,
+        1.5,
+        4.2,
+        5.5
+      ],
+      "Intensities": [
+        0,
+        70,
+        85,
+        40
+      ]
+    },
+    {
+      "AU": 54,
+      "Times": [
+        0.0,
+        0.6,
+        5.5
+      ],
+      "Intensities": [
+        0,
+        40,
+        35
+      ]
+    },
+    {
+      "AU": 63,
+      "Times": [
+        0.0,
+        0.6,
+        5.5
+      ],
+      "Intensities": [
+        0,
+        30,
+        25
+      ]
+    }
+  ]
+}

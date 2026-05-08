@@ -159,7 +159,7 @@ public class FACS : MonoBehaviour
     }
     AudioSource _audioSource;
 
-    public TMP_InputField UtteranceTMP;
+    
 
     float [] _visemeWeight = new float[15];
     //Dictionary<string, int> _shapeKeyDictTongue = new Dictionary<string, int>();
@@ -167,6 +167,9 @@ public class FACS : MonoBehaviour
 
 
     public bool IsWaitingResponse = false;
+
+    public event System.Action OnAnimationComplete;
+    private int _activeAUCoroutines = 0;
 
 
     //RHUBARB
@@ -922,7 +925,8 @@ float GetSuppression(int auInd, string visemeName)
 
         au.currInd = 0;
 
-
+                
+        
         while(au.currInd < au.Times.Count() - 1) {
             
             yield return StartCoroutine(AnimateAllAUShapeKeys(au));
@@ -934,12 +938,23 @@ float GetSuppression(int auInd, string visemeName)
     }
 
     
+    private IEnumerator AnimateAUTracked(ActionUnit au) {
+        yield return StartCoroutine(AnimateAU(au));
+        _activeAUCoroutines--;
+        if (_activeAUCoroutines == 0)
+            OnAnimationComplete?.Invoke();
+    }
+
     void AnimateAllAUs() {
-        
+
         _startTimeAU = Time.time;
-        
-        foreach(ActionUnit au in AUList)            
-            StartCoroutine(AnimateAU(au));
+        _activeAUCoroutines = AUList.Count;
+
+        if (_activeAUCoroutines == 0)
+            return;
+
+        foreach(ActionUnit au in AUList)
+            StartCoroutine(AnimateAUTracked(au));
     }
 
     
@@ -1032,9 +1047,6 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     
     
-        // GetComponent<OVRLipSyncContextBase>().audioSource.clip = clip;
-        // GetComponent<OVRLipSyncContextBase>().audioSource.Play();
-    
     }
     
     public void ResetAUIntensities()
@@ -1076,11 +1088,6 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         
         if (AUsOn)
             AnimateAllAUs();
-
-            
-        
-        // GetComponent<OVRLipSyncContextBase>().audioSource.Play() ;
-        
      
     }
     
@@ -1111,6 +1118,11 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
     }
 
+    public void SetVisemeData(string json) {
+        rawVisemeData = json;
+        _visemeFrames = Parsers.ParseVisemes(json);
+    }
+
     public string AUListToString() {
         string auStr = "AU\tSemantics\tTimes\tIntensities\n";
         foreach(ActionUnit au in AUList) {
@@ -1122,23 +1134,12 @@ private IEnumerator GenerateAndPlaySpeech(string text)
     }
 
 
-    // void ParseVisemeText() {
-    //     _visemeFrames.Clear();
-    //     string[] lines = rawVisemeData.Split('\n');
-    //     foreach (string line in lines) {
-    //         string[] parts = line.Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-    //         if (parts.Length >= 2 && float.TryParse(parts[0], out float t) && Enum.TryParse(parts[1], true, out VisemeEnum v)) {
-    //             _visemeFrames.Add(new VisemeFrame { time = t, viseme = v });
-                
-    //         }
-    //     }
-    // }
 
 
     IEnumerator PlayVisemeSequence() {
         if (_visemeFrames.Count == 0)
             Parsers.ParseVisemes(rawVisemeData);
-            //ParseVisemeText();
+
         
         int frameIndex = 0;
         while (_audioSource.isPlaying) {
@@ -1162,9 +1163,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
                 _meshRendererBody.SetBlendShapeWeight(i, _visemeWeight[i] * 100f);
             }
 
-            // Apply these smoothed weights to the Actual Blendshapes
-            // ApplyVisemeWeightsToMesh();
-
+   
 
             yield return null;
         }
@@ -1179,19 +1178,11 @@ private IEnumerator GenerateAndPlaySpeech(string text)
             }
             
             
-            // ApplyVisemeWeightsToMesh();
+   
             yield return null;
         }
     }
 
-    // void ApplyVisemeWeightsToMesh() {
-    //     // Maps your VisemeEnum to the actual CC4 indices in _shapeKeyDict
-    //     foreach (var pair in VisemeDict) {
-    //         if (_shapeKeyDict[pair.Key].TryGetValue(pair.Key, out int meshIndex)) {
-    //             if(pair.Value>=0)
-    //                 _meshRendererBody.SetBlendShapeWeight(meshIndex, _visemeWeight[pair.Value] * 100f);
-    //         }
-    //     }
-    // }    
+   
 
 }
