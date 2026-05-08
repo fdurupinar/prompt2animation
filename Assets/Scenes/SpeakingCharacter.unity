@@ -16469,7 +16469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81fc61463e3544aeb044f9b42b26ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  apiKey: AIzaSyDuSmWes2hvXHrZO-Yb1GPQfEW7LW3N7tY
+  apiKey: aa
   userInputField: {fileID: 1164030442}
   sendButton: {fileID: 0}
   chatContentPanel: {fileID: 0}
