@@ -6821,13 +6821,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.046087958, y: 0.96065974, z: 0.21988286, w: -0.16327992}
+  m_LocalRotation: {x: -0.004015762, y: 0.9742347, z: 0.22462514, w: 0.019855697}
   m_LocalPosition: {x: 6.4518, y: 1.2776806, z: -8.302658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -24.043, y: 201.451, z: -10.113}
+  m_LocalEulerAnglesHint: {x: -25.966, y: 177.649, z: 0.07}
 --- !u!114 &705507996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7155,11 +7155,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OCCController
   Scenarios:
-  - {fileID: 4900000, guid: 4d4a4f6adc5db47259498c7f6d453cf6, type: 3}
+  - {fileID: 4900000, guid: 28d1e06ef145640f4bec40b3c5605095, type: 3}
   heatmapAnalyzer: {fileID: 543450652274150221}
   Agents:
   - {fileID: 1296814085}
   ShowHeatmap: 0
+  UICanvas: {fileID: 172844550}
 --- !u!1 &778301581
 GameObject:
   m_ObjectHideFlags: 0
@@ -19679,7 +19680,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3073d3544483144218647befa8ce53fe, type: 3}
+  m_Resource: {fileID: 8300000, guid: 717f4bba75398404bb990f503f7e1d92, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -19956,134 +19957,27 @@ PrefabInstance:
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
       propertyPath: rawVisemeData
-      value: '[
-
-        {"time": 0.000, "viseme": "sil"},
-
-        {"time": 0.100,
-        "viseme": "EE"},
-
-        {"time": 0.150, "viseme": "W_OO"},
-
-        {"time":
-        0.250, "viseme": "AH"},
-
-        {"time": 0.300, "viseme": "R"},
-
-        {"time":
-        0.400, "viseme": "T_L_D_N"},
-
-        {"time": 0.450, "viseme": "AH"},
-
-        {"time":
-        0.500, "viseme": "T_L_D_N"},
-
-        {"time": 0.550, "viseme": "TH"},
-
-        {"time":
-        0.600, "viseme": "AH"},
-
-        {"time": 0.650, "viseme": "B_M_P"},
-
-        {"time":
-        0.700, "viseme": "R"},
-
-        {"time": 0.750, "viseme": "AH"},
-
-        {"time":
-        0.800, "viseme": "B_M_P"},
-
-        {"time": 0.850, "viseme": "T_L_D_N"},
-
-        {"time":
-        0.900, "viseme": "AH"},
-
-        {"time": 0.950, "viseme": "B_M_P"},
-
-        {"time":
-        1.050, "viseme": "sil"},
-
-        {"time": 1.300, "viseme": "TH"},
-
-        {"time":
-        1.350, "viseme": "AH"},
-
-        {"time": 1.400, "viseme": "B_M_P"},
-
-        {"time":
-        1.450, "viseme": "R"},
-
-        {"time": 1.500, "viseme": "AH"},
-
-        {"time":
-        1.550, "viseme": "B_M_P"},
-
-        {"time": 1.600, "viseme": "T_L_D_N"},
-
-        {"time":
-        1.650, "viseme": "AH"},
-
-        {"time": 1.700, "viseme": "B_M_P"},
-
-        {"time":
-        1.800, "viseme": "IH"},
-
-        {"time": 1.850, "viseme": "S_Z"},
-
-        {"time":
-        1.950, "viseme": "AH"},
-
-        {"time": 2.000, "viseme": "TH"},
-
-        {"time":
-        2.050, "viseme": "ER"},
-
-        {"time": 2.150, "viseme": "S_Z"},
-
-        {"time":
-        2.250, "viseme": "K_G_H_NG"},
-
-        {"time": 2.300, "viseme": "W_OO"},
-
-        {"time":
-        2.400, "viseme": "T_L_D_N"},
-
-        {"time": 2.450, "viseme": "OH"},
-
-        {"time":
-        2.550, "viseme": "T_L_D_N"},
-
-        {"time": 2.600, "viseme": "T_L_D_N"},
-
-        {"time":
-        2.700, "viseme": "S_Z"},
-
-        {"time": 2.800, "viseme": "EE"},
-
-        {"time":
-        2.900, "viseme": "EE"},
-
-        {"time": 2.950, "viseme": "OH"},
-
-        {"time":
-        3.000, "viseme": "R"},
-
-        {"time": 3.100, "viseme": "F_V"},
-
-        {"time":
-        3.200, "viseme": "AE"},
-
-        {"time": 3.300, "viseme": "T_L_D_N"},
-
-        {"time":
-        3.400, "viseme": "EE"},
-
-        {"time": 3.450, "viseme": "W_OO"},
-
-        {"time":
-        3.600, "viseme": "sil"}
-
-        ]'
+      value: "[\n  { \"time\": 0.000, \"viseme\": \"sil\" },\n  { \"time\": 0.080,
+        \"viseme\": \"TH\" },\n  { \"time\": 0.140, \"viseme\": \"AH\" },\n  { \"time\":
+        0.240, \"viseme\": \"K_G_H_NG\" },\n  { \"time\": 0.320, \"viseme\": \"W_OO\"
+        },\n  { \"time\": 0.380, \"viseme\": \"IH\" },\n  { \"time\": 0.440, \"viseme\":
+        \"K_G_H_NG\" },\n  { \"time\": 0.540, \"viseme\": \"B_M_P\" },\n  { \"time\":
+        0.600, \"viseme\": \"R\" },\n  { \"time\": 0.660, \"viseme\": \"AH\" },\n 
+        { \"time\": 0.720, \"viseme\": \"W_OO\" },\n  { \"time\": 0.800, \"viseme\":
+        \"T_L_D_N\" },\n  { \"time\": 0.900, \"viseme\": \"F_V\" },\n  { \"time\":
+        0.980, \"viseme\": \"OH\" },\n  { \"time\": 1.080, \"viseme\": \"K_G_H_NG\"
+        },\n  { \"time\": 1.160, \"viseme\": \"S_Z\" },\n  { \"time\": 1.260, \"viseme\":
+        \"CH_J\" },\n  { \"time\": 1.340, \"viseme\": \"AH\" },\n  { \"time\": 1.420,
+        \"viseme\": \"B_M_P\" },\n  { \"time\": 1.520, \"viseme\": \"S_Z\" },\n 
+        { \"time\": 1.620, \"viseme\": \"OH\" },\n  { \"time\": 1.700, \"viseme\":
+        \"W_OO\" },\n  { \"time\": 1.780, \"viseme\": \"F_V\" },\n  { \"time\": 1.880,
+        \"viseme\": \"ER\" },\n  { \"time\": 1.980, \"viseme\": \"TH\" },\n  { \"time\":
+        2.060, \"viseme\": \"AH\" },\n  { \"time\": 2.160, \"viseme\": \"T_L_D_N\"
+        },\n  { \"time\": 2.240, \"viseme\": \"AE\" },\n  { \"time\": 2.340, \"viseme\":
+        \"S_Z\" },\n  { \"time\": 2.440, \"viseme\": \"EE\" },\n  { \"time\": 2.540,
+        \"viseme\": \"T_L_D_N\" },\n  { \"time\": 2.620, \"viseme\": \"OH\" },\n 
+        { \"time\": 2.720, \"viseme\": \"K_G_H_NG\" },\n  { \"time\": 2.790, \"viseme\":
+        \"sil\" }\n]"
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
@@ -20092,8 +19986,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
+      propertyPath: visemeJsonFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 0595773b4b1904957bb330ddf22f1ceb, type: 3}
+    - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
+        type: 3}
       propertyPath: IsSpeechEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}

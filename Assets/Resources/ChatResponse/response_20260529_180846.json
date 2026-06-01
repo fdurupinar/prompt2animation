@@ -1,0 +1,57 @@
+{
+  "duration": 6.0,
+  "emotion": "Reproach",
+  "utterance": "I am so incredibly glad to see your financial crisis resolved itself so quickly.",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 40, 70, 10, 0, 0]
+    },
+    {
+      "AU": 2,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 30, 60, 0, 0, 0]
+    },
+    {
+      "AU": 4,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 0, 10, 60, 80, 70]
+    },
+    {
+      "AU": 7,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 20, 40, 60, 80, 70]
+    },
+    {
+      "AU": 10,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 0, 10, 40, 60, 50]
+    },
+    {
+      "AU": 12,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 40, 60, 10, 0, 0]
+    },
+    {
+      "AU": 14,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 30, 70, 60, 50, 40]
+    },
+    {
+      "AU": 53,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 10, 20, 30, 40, 30]
+    },
+    {
+      "AU": 56,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 15, 25, 10, 0, 0]
+    },
+    {
+      "AU": 63,
+      "Times": [0.0, 0.8, 2.0, 3.5, 5.0, 6.0],
+      "Intensities": [0, 70, 0, 0, 0, 0]
+    }
+  ]
+}

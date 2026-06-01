@@ -1,0 +1,132 @@
+{
+  "utterance": null,
+  "facial_actions": [
+    {
+      "AU": 7,
+      "Times": [
+        0.0,
+        0.7,
+        3.6
+      ],
+      "Intensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 10,
+      "Times": [
+        0.0,
+        1.0,
+        3.6
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        50.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        50.0,
+        50.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 12,
+      "Times": [
+        0.0,
+        0.8,
+        3.6
+      ],
+      "Intensities": [
+        0.0,
+        9.0,
+        30.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        30.0,
+        30.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 17,
+      "Times": [
+        0.0,
+        1.0,
+        3.6
+      ],
+      "Intensities": [
+        0.0,
+        20.0,
+        40.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        40.0,
+        40.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 24,
+      "Times": [
+        0.0,
+        0.8,
+        3.6
+      ],
+      "Intensities": [
+        0.0,
+        15.000001,
+        50.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        50.0,
+        50.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 52,
+      "Times": [
+        0.0,
+        1.8,
+        2.3,
+        2.8,
+        3.6
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        15.0,
+        0.0,
+        0.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        0.0,
+        15.0,
+        0.0,
+        0.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    }
+  ],
+  "duration": 0.0
+}

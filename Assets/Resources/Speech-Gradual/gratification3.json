@@ -1,0 +1,115 @@
+{
+  "utterance": null,
+  "facial_actions": [
+    {
+      "AU": 6,
+      "Times": [
+        0.0,
+        1.0,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 7,
+      "Times": [
+        0.0,
+        0.5,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        30.0,
+        30.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        30.0,
+        30.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 12,
+      "Times": [
+        0.0,
+        0.5,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        21.0,
+        70.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        70.0,
+        70.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 52,
+      "Times": [
+        0.0,
+        2.0,
+        2.4,
+        2.8,
+        3.2,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        0.0,
+        15.0,
+        0.0,
+        10.0,
+        0.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        0.0,
+        15.0,
+        0.0,
+        10.0,
+        0.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 54,
+      "Times": [
+        0.0,
+        1.5,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        10.0,
+        10.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        10.0,
+        10.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    }
+  ],
+  "duration": 0.0
+}

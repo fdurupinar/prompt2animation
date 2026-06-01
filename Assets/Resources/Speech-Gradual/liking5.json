@@ -1,0 +1,89 @@
+{
+  "utterance": null,
+  "facial_actions": [
+    {
+      "AU": 6,
+      "Times": [
+        0.0,
+        1.0,
+        4.5
+      ],
+      "Intensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 12,
+      "Times": [
+        0.0,
+        0.8,
+        4.5
+      ],
+      "Intensities": [
+        0.0,
+        15.000001,
+        50.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        50.0,
+        50.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 43,
+      "Times": [
+        0.0,
+        1.5,
+        3.5,
+        4.5
+      ],
+      "Intensities": [
+        0.0,
+        90.0,
+        90.0,
+        0.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        90.0,
+        90.0,
+        0.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 55,
+      "Times": [
+        0.0,
+        2.0,
+        4.5
+      ],
+      "Intensities": [
+        0.0,
+        10.0,
+        10.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        10.0,
+        10.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    }
+  ],
+  "duration": 0.0
+}

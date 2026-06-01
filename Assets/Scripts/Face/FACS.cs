@@ -480,158 +480,103 @@ public class FACS : MonoBehaviour
         );
     }
 
-    // float GetSuppression(int auInd, string visemeName)
-    // {
-        
-    //     if(visemeName.ToUpper().Equals("SIL"))
-    //         return 0f; 
-    //     //Check how much the a viseme should suppress the an AU
-    //     int visemeInd = VisemeDict.FirstOrDefault(x => x.Value == visemeName).Key;
-    //     float wt = _visemeWeight[visemeInd];
-        
-    //     if(visemeName.Equals("B_M_P"))
-    //     {
-    //         int[] conflictingAUs = {  10,  16, 22, 25 ,26, 27 }; //9 was here
-    //         if (conflictingAUs.Contains(auInd)){
-    //             return 1f;
-    //         }
-
-    //     }
-    //     else if (visemeName.Equals("EE"))
-    //     {
-    //         int[] conflictingAUs = { 27 };
-    //         if (conflictingAUs.Contains(auInd))
-    //             return 1f;
-
-    //         if (new int[] { 20, 21 }.Contains(auInd))
-    //             return wt;
-
-    //     }
-
-    //     else if (visemeName.Equals("AH") || visemeName.Equals("AE"))
-    //     {
-    //         int[] conflictingAUs = { 18, 22, 23 };
-
-    //         if (conflictingAUs.Contains(auInd))
-    //             return wt;
-
-
-    //     }
-    //     else if (visemeName.Equals("W_OO") || visemeName.Equals("OH"))
-    //     {
-    //         int[] conflictingAUs = { 18, 22, 23, 12 };
-
-    //         if (conflictingAUs.Contains(auInd))
-    //             return wt;
-    //     }
-
-        
-    //     else if (visemeName.Equals("F_V"))
-    //     {
-    //         int[] conflictingAUs = { 16,  18, 22, 24, 26, 27, 28 }; //23 should not be in this list
-
-    //         if (conflictingAUs.Contains(auInd))
-    //             return wt;
-    //     }
-
-    //     else if (visemeName.Equals("S_Z"))
-    //     {
-    //         int[] conflictingAUs = { 18 };
-
-    //         if (conflictingAUs.Contains(auInd))
-    //             return wt;
-    //     }
-        
-        
-    //     if(auInd == 12){ //Smilesuppressed in all cases
-    //         // Debug.Log(VisemeDict.FirstOrDefault(x => x.Value == visemeInd).Key + " " +wt);
-    //         return 0.5f; //TODO
-    //     }
     
-    //     return 0f;
-    // }
 float GetSuppression(int auInd, string visemeName)
     {
         visemeName = visemeName.ToUpper();
         if(visemeName.Equals("SIL"))
             return 0f; 
-            
+     
+
+               
         //Check how much a viseme should suppress an AU
         int visemeInd = VisemeDict.FirstOrDefault(x => x.Value == visemeName).Key;
-        float wt = _visemeWeight[visemeInd];
+        
+        // float wt = _visemeWeight[visemeInd];
         
         int[] conflictingAUs = new int[0];
 
         switch (visemeName)
         {
-            case "B_M_P":
-                conflictingAUs = new int[] { 10, 16, 18, 20, 22, 25, 26, 27, 28 };
-                if (conflictingAUs.Contains(auInd)) return 1f; // Hard suppression for bilabials
-                break;
-                
-            case "F_V":
-                conflictingAUs = new int[] { 16, 18, 22, 24, 26, 27, 28 };
-                break;
-                
-            case "TH":
-                conflictingAUs = new int[] { 18, 22, 23, 24, 26, 27, 28 };
-                break;
-                
-            case "S_Z":
-                conflictingAUs = new int[] { 18, 22, 24, 26, 27, 28 };
-                break;
-                
-            case "R":
-                conflictingAUs = new int[] { 12, 20, 23, 24, 26, 27, 28 };
-                break;
-                
-            case "AH":
-                conflictingAUs = new int[] { 17, 18, 22, 23, 24, 28 };
-                break;
-                
-            case "AE":
-                conflictingAUs = new int[] { 17, 18, 22, 24, 28 };
-                break;
-            case "EE":
-                conflictingAUs = new int[] { 18, 22, 23, 24, 26, 27, 28 };
-                break;
-                
-            case "IH":
-                conflictingAUs = new int[] { 18, 22, 24, 26, 27, 28 };
-                break;
-                
-            case "OH":
-                conflictingAUs = new int[] { 10, 12, 15, 20, 23, 24, 26, 27, 28 };
-                break;
-                
-            case "W_OO":
-                conflictingAUs = new int[] { 10, 12, 15, 16, 20, 23, 24, 26, 27, 28 };
-                break;
-                
-            case "CH_J":
-                conflictingAUs = new int[] { 12, 15, 20, 23, 24, 26, 27, 28 };
-                break;
-                
-        
+          
+            
+        case "B_M_P":
+            conflictingAUs = new int[] { 10, 16, 18, 20, 22, 25, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 1.0f; // Hard: lips must close
+            break;
 
-            case "K_G_H_NG":
-                conflictingAUs = new int[] { 18, 22, 24, 28 };
-                break;
+        case "W_OO":
+            conflictingAUs = new int[] { 10, 12, 15, 16, 20, 23, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.7f; // Strong: lips rounded and protruded
+            break;
 
-            case "T_L_D_N":
-                conflictingAUs = new int[] { 18, 22, 24, 26, 27, 28 };
-                break;
+        case "F_V":
+            conflictingAUs = new int[] { 16, 18, 22, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.7f; // Strong: lower lip on upper teeth
+            break;
 
-            case "ER":
-                conflictingAUs = new int[] { 12, 20, 23, 24, 26, 27, 28 };
-                break;
+        case "OH":
+            conflictingAUs = new int[] { 10, 12, 15, 20, 23, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.5f; // Moderate: mouth narrowed and rounded
+            break;
+
+        case "CH_J":
+            conflictingAUs = new int[] { 12, 15, 20, 23, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.5f; // Moderate: lips slightly rounded and protruded
+            break;
+
+        case "AH":
+            conflictingAUs = new int[] { 17, 18, 22, 23, 24, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.5f; // Moderate: open mouth
+            break;
+
+        case "AE":
+            conflictingAUs = new int[] { 17, 18, 22, 24, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.5f; // Moderate: open mouth, lips spread
+            break;
+
+        case "EE":
+            conflictingAUs = new int[] { 18, 22, 23, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.3f; // Light: lips spread, jaw nearly closed
+            break;
+
+        case "IH":
+            conflictingAUs = new int[] { 18, 22, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.3f; // Light: slightly spread, minimal constraint
+            break;
+
+        case "S_Z":
+            conflictingAUs = new int[] { 18, 22, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.3f; // Light: teeth close, mild lip tension
+            break;
+
+        case "TH":
+            conflictingAUs = new int[] { 18, 22, 23, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.3f; // Light: tongue between teeth
+            break;
+
+        case "T_L_D_N":
+            conflictingAUs = new int[] { 18, 22, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.3f; // Light: tongue tip on alveolar ridge
+            break;
+
+        case "K_G_H_NG":
+            conflictingAUs = new int[] { 18, 22, 24, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.3f; // Light: back of tongue, mouth relatively free
+            break;
+
+        case "R":
+            conflictingAUs = new int[] { 12, 20, 23, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.3f; // Light: lips slightly rounded
+            break;
+
+        case "ER":
+            conflictingAUs = new int[] { 12, 20, 23, 24, 26, 27, 28 };
+            if (conflictingAUs.Contains(auInd)) return 0.3f; // Light: similar to R
+            break;
         }
 
-        if (conflictingAUs.Contains(auInd))
-        {
-            return wt;
-        }
-        
+       
         // Smile is partially suppressed in all non-conflicting cases
         if(auInd == 12)
         { 
@@ -641,15 +586,27 @@ float GetSuppression(int auInd, string visemeName)
     
         return 0f;
     }
+    
+    
+    
     void UpdateAUIntensitiesBySpeech()
     {
+    
         foreach (ActionUnit au in AUList)
         {
+    
+        
+                
+
             // We iterate through segments: [i] to [i+1]
-            for (int i = 0; i < au.Times.Count - 1; i++)
+            for (int i = 0; i < au.Times.Count-1; i++)
             {
+            
+
+           
                 float auStart = au.Times[i];
                 float auEnd = au.Times[i + 1];
+                //  float t = au.Times[i];
                 float maxSuppression = 0f;
 
                 // Find all visemes that overlap with this AU interval
@@ -661,21 +618,29 @@ float GetSuppression(int auInd, string visemeName)
 
                     // Check for interval overlap
                     if (Mathf.Max(auStart, vStart) < Mathf.Min(auEnd, vEnd))
+                    //   if (t >= vStart && t < vEnd)
                     {
                     
-                    
-                    
-                    
+          
                         float factor = GetSuppression(au.AU, _visemeFrames[v].viseme);
                         
+                        // Debug.Log(ga)
                         // If multiple visemes overlap one AU segment, 
                         // we usually take the strongest suppression
                         if (factor > maxSuppression) maxSuppression = factor;
                     }
                 }
 
+                
                 // Apply suppression to the segment start point
-                au.Intensities[i] = au.InitialIntensities[i] * (1 - maxSuppression);
+            //    au.Intensities[i] = au.InitialIntensities[i] * (1 - maxSuppression);
+            au.Intensities[i] = au.InitialIntensities[i] * (1 - maxSuppression);
+               // Apply suppression to the segment end  point if it is the last segment
+               //if(i == au.Times.Count-2) //does not make sense because then the last au time is later than the speech end. we don't need to suppress it.
+               //au.Intensities[i+1] = au.InitialIntensities[i+1] * (1 - maxSuppression);
+               
+//                if(maxSuppression > 0)
+               Debug.Log(au.InitialIntensities[i]+ " " + au.Intensities[i]);
             }
         }
 }
@@ -702,9 +667,6 @@ float GetSuppression(int auInd, string visemeName)
          
         while(timeElapsed < duration) {
         
-            float suppressionFactor = GetSuppression(au.AU, ActiveVisemeName);
-
-            
             timeElapsed += Time.deltaTime;
             
             //Check if current AU needs to be suppressed
@@ -871,8 +833,9 @@ float GetSuppression(int auInd, string visemeName)
 
     void GetCurrentNormalizedVisemeWeights()
     {
-            for(int i = 0; i < _visemeWeight.Length; i++) //this also includes sil
-                _visemeWeight[i]  = _meshRendererBody.GetBlendShapeWeight(i) / 100f;
+            for(int i = 0; i < _visemeWeight.Length; i++){ //this also includes sil
+                _visemeWeight[i]  = _meshRendererBody.GetBlendShapeWeight(i) / 100f;                
+            }
         
     }
 
@@ -913,9 +876,7 @@ float GetSuppression(int auInd, string visemeName)
             _jawRot = _jawRotInit * Quaternion.Euler(0, 0, -jawAngleInc);
         }
 
-      //  if (_visemeWeight[(int)VisemeEnum.F_V] > 0.05f || _visemeWeight[(int)VisemeEnum.B_M_P] > 0.05f || _visemeWeight[(int)VisemeEnum.CH_J] > 0.05f || _visemeWeight[(int)VisemeEnum.S_Z] > 0.05f)
-        //    _jawRot = _jawRotInit; //don't open the jaw
-
+  
 
     }
 
@@ -1054,6 +1015,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
        foreach (ActionUnit au in AUList){
             if (au.Intensities != null) {        
                 au.InitialIntensities = new List<float>(au.Intensities);
+                
             }
         }
     }
@@ -1080,10 +1042,13 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
         if (IsSpeechEnabled)
         {
+            
+            
             UpdateAUIntensitiesBySpeech();
-            Parsers.WriteAUs(Path.Combine(Application.dataPath,"Resources/Speech/" + EmotionName), AUList);
+            Parsers.WriteAUs(Path.Combine(Application.dataPath,"Resources/Speech-Gradual/" + EmotionName), AUList);
             _audioSource.Play();
             StartCoroutine(PlayVisemeSequence()); // Starts in the same frame as animating AUs
+            
         }
         
         if (AUsOn)
@@ -1111,10 +1076,6 @@ private IEnumerator GenerateAndPlaySpeech(string text)
     public void GetAUsAndDuration(string response) {
         
         (AUList, Duration) = Parsers.ParseAU(response);
-
-        
-
-        
 
     }
 
@@ -1152,12 +1113,14 @@ private IEnumerator GenerateAndPlaySpeech(string text)
 
             ActiveVisemeName = _visemeFrames[frameIndex].viseme.ToUpper();
             int activeVisemeInd = VisemeDict.FirstOrDefault(x => x.Value == ActiveVisemeName).Key;
-            // Smoothly transition ALL viseme weights
+
+                        // Smoothly transition ALL viseme weights
             for (int i = 0; i < _visemeWeight.Length; i++) {
                 float target = (i == activeVisemeInd) ? 1.0f : 0.0f;
                 
                 // MoveTowards provides a consistent linear transition (better for speech "snaps")
                 // Use Mathf.Lerp if you want a more "organic/lazy" feel
+                
                 _visemeWeight[i] = Mathf.MoveTowards(_visemeWeight[i], target, Time.deltaTime * VisemeSmoothSpeed);
                 
                 _meshRendererBody.SetBlendShapeWeight(i, _visemeWeight[i] * 100f);

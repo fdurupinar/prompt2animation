@@ -1,0 +1,132 @@
+{
+  "utterance": null,
+  "facial_actions": [
+    {
+      "AU": 5,
+      "Times": [
+        0.0,
+        0.8,
+        1.3,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        60.0,
+        0.0,
+        0.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        60.0,
+        0.0,
+        0.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 7,
+      "Times": [
+        0.0,
+        1.5,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        40.0,
+        40.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        40.0,
+        40.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 12,
+      "Times": [
+        0.0,
+        0.7,
+        1.2,
+        4.0
+      ],
+      "Intensities": [
+        9.0,
+        9.0,
+        0.0,
+        0.0
+      ],
+      "InitialIntensities": [
+        30.0,
+        30.0,
+        0.0,
+        0.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 24,
+      "Times": [
+        0.0,
+        1.2,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        21.0,
+        70.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        70.0,
+        70.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 54,
+      "Times": [
+        0.0,
+        1.4,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        50.0,
+        50.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        50.0,
+        50.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 64,
+      "Times": [
+        0.0,
+        1.4,
+        4.0
+      ],
+      "Intensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "InitialIntensities": [
+        0.0,
+        60.0,
+        60.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    }
+  ],
+  "duration": 0.0
+}

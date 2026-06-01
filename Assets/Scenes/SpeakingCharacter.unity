@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 3
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1721,7 +1721,6 @@ RectTransform:
   m_Children:
   - {fileID: 1498142643}
   - {fileID: 103773493}
-  - {fileID: 2017439044}
   - {fileID: 1164030441}
   - {fileID: 393072879}
   m_Father: {fileID: 0}
@@ -7417,7 +7416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OCCController
   Scenarios:
-  - {fileID: 4900000, guid: bc591dfc90d234d7bbffd2bbb5cba5cc, type: 3}
+  - {fileID: 4900000, guid: 3784c06cf6bda4f8280bd4c10e5aedad, type: 3}
   heatmapAnalyzer: {fileID: 543450652274150221}
   Agents:
   - {fileID: 1296814085}
@@ -11056,7 +11055,7 @@ MonoBehaviour:
   m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
-  m_LineType: 0
+  m_LineType: 1
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
@@ -13011,6 +13010,108 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &1399496084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399496088}
+  - component: {fileID: 1399496087}
+  - component: {fileID: 1399496086}
+  - component: {fileID: 1399496085}
+  m_Layer: 5
+  m_Name: PermanentCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1399496085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399496084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1399496086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399496084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1399496087
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399496084}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1399496088
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399496084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2017439044}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1400781164
 GameObject:
   m_ObjectHideFlags: 0
@@ -16495,6 +16596,7 @@ MonoBehaviour:
     type: 3}
   chatScrollRect: {fileID: 1498142642}
   systemPrompt: {fileID: 4900000, guid: cfee0daf73a464b5281d2f62d641983b, type: 3}
+  visemePrompt: {fileID: 4900000, guid: a30b4b0c1d0cd44d49258fc461c0503e, type: 3}
 --- !u!1 &1741972377
 GameObject:
   m_ObjectHideFlags: 0
@@ -18634,12 +18736,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017439043}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 172844551}
+  m_Father: {fileID: 1399496088}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -20167,7 +20269,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: eb07333c2584a4d1e80f19e9fe2a9eb0, type: 3}
+  m_Resource: {fileID: 8300000, guid: fcb8e7f7da32e4896ae4a9006d270748, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -20451,207 +20553,162 @@ PrefabInstance:
         {"time": 0.100,
         "viseme": "AH"},
 
-        {"time": 0.200, "viseme": "F_V"},
+        {"time": 0.150, "viseme": "EE"},
 
         {"time":
-        0.300, "viseme": "CH_J"},
+        0.200, "viseme": "AE"},
 
-        {"time": 0.400, "viseme": "AE"},
-
-        {"time":
-        0.500, "viseme": "K_G_H_NG"},
-
-        {"time": 0.550, "viseme": "T_L_D_N"},
+        {"time": 0.300, "viseme": "B_M_P"},
 
         {"time":
-        0.650, "viseme": "TH"},
+        0.400, "viseme": "S_Z"},
 
-        {"time": 0.750, "viseme": "AH"},
-
-        {"time":
-        0.850, "viseme": "K_G_H_NG"},
-
-        {"time": 0.950, "viseme": "AE"},
+        {"time": 0.500, "viseme": "OH"},
 
         {"time":
-        1.050, "viseme": "T_L_D_N"},
+        0.600, "viseme": "IH"},
 
-        {"time": 1.150, "viseme": "K_G_H_NG"},
+        {"time": 0.650, "viseme": "T_L_D_N"},
 
         {"time":
-        1.250, "viseme": "W_OO"},
+        0.700, "viseme": "K_G_H_NG"},
+
+        {"time": 0.750, "viseme": "R"},
+
+        {"time":
+        0.800, "viseme": "AE"},
+
+        {"time": 0.850, "viseme": "T_L_D_N"},
+
+        {"time":
+        0.900, "viseme": "IH"},
+
+        {"time": 0.950, "viseme": "B_M_P"},
+
+        {"time":
+        1.000, "viseme": "T_L_D_N"},
+
+        {"time": 1.050, "viseme": "EE"},
+
+        {"time":
+        1.150, "viseme": "K_G_H_NG"},
+
+        {"time": 1.200, "viseme": "T_L_D_N"},
+
+        {"time":
+        1.250, "viseme": "AE"},
 
         {"time": 1.350, "viseme": "T_L_D_N"},
 
         {"time":
-        1.450, "viseme": "AE"},
+        1.450, "viseme": "T_L_D_N"},
 
-        {"time": 1.550, "viseme": "CH_J"},
-
-        {"time":
-        1.650, "viseme": "AH"},
-
-        {"time": 1.750, "viseme": "T_L_D_N"},
+        {"time": 1.500, "viseme": "W_OO"},
 
         {"time":
-        1.850, "viseme": "S_Z"},
+        1.600, "viseme": "S_Z"},
 
-        {"time": 1.950, "viseme": "AE"},
+        {"time": 1.700, "viseme": "EE"},
 
         {"time":
-        2.050, "viseme": "T_L_D_N"},
+        1.800, "viseme": "EE"},
+
+        {"time": 1.850, "viseme": "W_OO"},
+
+        {"time":
+        1.950, "viseme": "R"},
+
+        {"time": 2.050, "viseme": "F_V"},
+
+        {"time":
+        2.100, "viseme": "AH"},
 
         {"time": 2.150, "viseme": "T_L_D_N"},
 
         {"time":
-        2.250, "viseme": "AH"},
+        2.250, "viseme": "AE"},
 
-        {"time": 2.350, "viseme": "B_M_P"},
-
-        {"time":
-        2.450, "viseme": "K_G_H_NG"},
-
-        {"time": 2.550, "viseme": "W_OO"},
+        {"time": 2.300, "viseme": "T_L_D_N"},
 
         {"time":
-        2.650, "viseme": "AH"},
+        2.400, "viseme": "CH_J"},
 
-        {"time": 2.750, "viseme": "T_L_D_N"},
-
-        {"time":
-        2.850, "viseme": "CH_J"},
-
-        {"time": 2.950, "viseme": "W_OO"},
+        {"time": 2.500, "viseme": "AH"},
 
         {"time":
-        3.050, "viseme": "ER"},
+        2.600, "viseme": "T_L_D_N"},
 
-        {"time": 3.150, "viseme": "TH"},
-
-        {"time":
-        3.250, "viseme": "IH"},
-
-        {"time": 3.350, "viseme": "S_Z"},
+        {"time": 2.700, "viseme": "K_G_H_NG"},
 
         {"time":
-        3.450, "viseme": "IH"},
+        2.800, "viseme": "R"},
 
-        {"time": 3.550, "viseme": "S_Z"},
-
-        {"time":
-        3.650, "viseme": "TH"},
-
-        {"time": 3.750, "viseme": "AH"},
+        {"time": 2.900, "viseme": "AH"},
 
         {"time":
-        3.850, "viseme": "K_G_H_NG"},
+        3.000, "viseme": "EE"},
 
-        {"time": 3.950, "viseme": "OH"},
-
-        {"time":
-        4.050, "viseme": "R"},
-
-        {"time": 4.150, "viseme": "R"},
+        {"time": 3.100, "viseme": "S_Z"},
 
         {"time":
-        4.250, "viseme": "AE"},
+        3.200, "viseme": "IH"},
 
-        {"time": 4.350, "viseme": "K_G_H_NG"},
-
-        {"time":
-        4.450, "viseme": "T_L_D_N"},
-
-        {"time": 4.550, "viseme": "AH"},
+        {"time": 3.300, "viseme": "S_Z"},
 
         {"time":
-        4.650, "viseme": "B_M_P"},
+        3.400, "viseme": "R"},
 
-        {"time": 4.750, "viseme": "R"},
-
-        {"time":
-        4.850, "viseme": "OH"},
-
-        {"time": 4.950, "viseme": "CH_J"},
+        {"time": 3.500, "viseme": "EE"},
 
         {"time":
-        5.050, "viseme": "sil"},
+        3.600, "viseme": "S_Z"},
 
-        {"time": 5.200, "viseme": "T_L_D_N"},
-
-        {"time":
-        5.300, "viseme": "AE"},
-
-        {"time": 5.400, "viseme": "T_L_D_N"},
+        {"time": 3.700, "viseme": "AH"},
 
         {"time":
-        5.500, "viseme": "S_Z"},
+        3.800, "viseme": "T_L_D_N"},
 
-        {"time": 5.600, "viseme": "B_M_P"},
-
-        {"time":
-        5.700, "viseme": "W_OO"},
-
-        {"time": 5.800, "viseme": "F_V"},
+        {"time": 3.900, "viseme": "F_V"},
 
         {"time":
-        5.900, "viseme": "OH"},
+        4.000, "viseme": "T_L_D_N"},
 
-        {"time": 6.000, "viseme": "T_L_D_N"},
-
-        {"time":
-        6.100, "viseme": "T_L_D_N"},
-
-        {"time": 6.200, "viseme": "W_OO"},
+        {"time": 4.100, "viseme": "IH"},
 
         {"time":
-        6.300, "viseme": "TH"},
+        4.200, "viseme": "T_L_D_N"},
 
-        {"time": 6.400, "viseme": "AH"},
-
-        {"time":
-        6.500, "viseme": "T_L_D_N"},
-
-        {"time": 6.600, "viseme": "AE"},
+        {"time": 4.300, "viseme": "S_Z"},
 
         {"time":
-        6.700, "viseme": "K_G_H_NG"},
+        4.400, "viseme": "AE"},
 
-        {"time": 6.800, "viseme": "S_Z"},
-
-        {"time":
-        6.900, "viseme": "T_L_D_N"},
-
-        {"time": 7.000, "viseme": "S_Z"},
+        {"time": 4.500, "viseme": "T_L_D_N"},
 
         {"time":
-        7.100, "viseme": "AE"},
+        4.600, "viseme": "F_V"},
 
-        {"time": 7.200, "viseme": "K_G_H_NG"},
-
-        {"time":
-        7.300, "viseme": "CH_J"},
-
-        {"time": 7.400, "viseme": "AH"},
+        {"time": 4.700, "viseme": "S_Z"},
 
         {"time":
-        7.500, "viseme": "T_L_D_N"},
+        4.800, "viseme": "OH"},
 
-        {"time": 7.600, "viseme": "T_L_D_N"},
-
-        {"time":
-        7.700, "viseme": "AH"},
-
-        {"time": 7.800, "viseme": "K_G_H_NG"},
+        {"time": 4.900, "viseme": "K_G_H_NG"},
 
         {"time":
-        7.900, "viseme": "AE"},
+        5.000, "viseme": "W_OO"},
 
-        {"time": 8.000, "viseme": "TH"},
+        {"time": 5.100, "viseme": "IH"},
 
         {"time":
-        8.100, "viseme": "ER"},
+        5.200, "viseme": "K_G_H_NG"},
 
-        {"time": 8.200, "viseme": "sil"}
+        {"time": 5.300, "viseme": "T_L_D_N"},
+
+        {"time":
+        5.400, "viseme": "EE"},
+
+        {"time": 5.600, "viseme": "sil"}
 
         ]'
       objectReference: {fileID: 0}
@@ -20664,7 +20721,7 @@ PrefabInstance:
         type: 3}
       propertyPath: visemeJsonFile
       value: 
-      objectReference: {fileID: 4900000, guid: 628d6113c25704a48b06e96f9f8fcf1e, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5,
         type: 3}
       propertyPath: IsSpeechEnabled
@@ -21204,3 +21261,4 @@ SceneRoots:
   - {fileID: 1312405088}
   - {fileID: 667967954}
   - {fileID: 1730732497}
+  - {fileID: 1399496088}

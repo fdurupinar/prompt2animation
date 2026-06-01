@@ -22,7 +22,7 @@ public class ChatManager : MonoBehaviour
     
     private string apiKey = "[YOUR_API_KEY_HERE]";
     // EXTENDED: Changed constant to be just the base URL
-    private const string ApiUrlBase = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=" ;
+    private const string ApiUrlBase =  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent?key=" ; // "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=" ;
 
     [Header("UI References")]
     [SerializeField]

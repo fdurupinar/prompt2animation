@@ -10,12 +10,12 @@
       ],
       "Intensities": [
         0.0,
-        40.0,
+        0.0,
         40.0
       ],
       "InitialIntensities": [
         0.0,
-        40.0,
+        0.0,
         40.0
       ],
       "currInd": 0,
@@ -30,12 +30,12 @@
       ],
       "Intensities": [
         0.0,
-        30.0,
+        0.0,
         30.0
       ],
       "InitialIntensities": [
         0.0,
-        30.0,
+        0.0,
         30.0
       ],
       "currInd": 0,
@@ -50,12 +50,12 @@
       ],
       "Intensities": [
         0.0,
-        35.0,
+        0.0,
         35.0
       ],
       "InitialIntensities": [
         0.0,
-        35.0,
+        0.0,
         35.0
       ],
       "currInd": 0,
@@ -70,12 +70,12 @@
       ],
       "Intensities": [
         0.0,
-        10.0,
+        0.0,
         20.0
       ],
       "InitialIntensities": [
         0.0,
-        20.0,
+        0.0,
         20.0
       ],
       "currInd": 0,
@@ -90,12 +90,12 @@
       ],
       "Intensities": [
         0.0,
-        25.0,
+        0.0,
         25.0
       ],
       "InitialIntensities": [
         0.0,
-        25.0,
+        0.0,
         25.0
       ],
       "currInd": 0,
@@ -110,12 +110,12 @@
       ],
       "Intensities": [
         0.0,
-        10.0,
+        0.0,
         10.0
       ],
       "InitialIntensities": [
         0.0,
-        10.0,
+        0.0,
         10.0
       ],
       "currInd": 0,
