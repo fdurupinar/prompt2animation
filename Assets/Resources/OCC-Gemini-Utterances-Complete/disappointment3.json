@@ -1,0 +1,85 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                0.8,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.8,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.6,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0.0,
+                1.0,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 24,
+            "Times": [
+                0.0,
+                1.2,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                1.5,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                20.0
+            ]
+        }
+    ],
+    "duration": 3.8,
+    "emotion": "Disappointment",
+    "utterance": "You've got to be kidding me, I've been waiting for months."
+}

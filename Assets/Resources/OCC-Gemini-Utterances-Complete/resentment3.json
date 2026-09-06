@@ -1,0 +1,78 @@
+{
+    "facial_actions": [
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.6,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 5,
+            "Times": [
+                0.0,
+                0.2,
+                0.6,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 10,
+            "Times": [
+                0.0,
+                0.8,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 17,
+            "Times": [
+                0.0,
+                0.8,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                35.0,
+                35.0
+            ]
+        },
+        {
+            "AU": 52,
+            "Times": [
+                0.0,
+                1.5,
+                2.0,
+                2.5,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                15.0,
+                0.0,
+                10.0,
+                0.0
+            ]
+        }
+    ],
+    "duration": 3.5,
+    "emotion": "Resentment",
+    "utterance": "It is so unfair that someone like that gets lucky."
+}

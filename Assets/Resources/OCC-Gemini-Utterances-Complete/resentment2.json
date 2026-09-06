@@ -1,0 +1,76 @@
+{
+    "facial_actions": [
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.5,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.5,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 10,
+            "Times": [
+                0.0,
+                0.8,
+                1.5,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                0.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0.0,
+                1.0,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                20.0
+            ]
+        },
+        {
+            "AU": 24,
+            "Times": [
+                0.0,
+                0.6,
+                1.5,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                50.0,
+                50.0
+            ]
+        }
+    ],
+    "duration": 3.0,
+    "emotion": "Resentment",
+    "utterance": "It makes me sick that they get rewarded for doing absolutely nothing."
+}

@@ -1,0 +1,85 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                1.2,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                0.8,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                90.0,
+                85.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                1.0,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.6,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                90.0
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0.0,
+                0.7,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 53,
+            "Times": [
+                0.0,
+                1.5,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                15.0,
+                15.0
+            ]
+        }
+    ],
+    "duration": 3.8,
+    "emotion": "Happyfor",
+    "utterance": "They completely deserve this."
+}

@@ -1,0 +1,87 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                0.5,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 2,
+            "Times": [
+                0.0,
+                0.5,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 5,
+            "Times": [
+                0.0,
+                0.3,
+                1.0,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                20.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                0.6,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                90.0,
+                90.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.5,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                100.0
+            ]
+        },
+        {
+            "AU": 26,
+            "Times": [
+                0.0,
+                0.4,
+                3.5
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                40.0
+            ]
+        }
+    ],
+    "duration": 3.5,
+    "emotion": "Satisfaction",
+    "utterance": "All that studying actually paid off."
+}

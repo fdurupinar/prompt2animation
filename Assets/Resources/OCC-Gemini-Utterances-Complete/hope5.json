@@ -1,0 +1,72 @@
+{
+    "facial_actions": [
+        {
+            "AU": 5,
+            "Times": [
+                0.0,
+                1.5,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                25.0,
+                25.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                17.5,
+                35.0
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0.0,
+                2.2,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                15.0,
+                15.0
+            ]
+        },
+        {
+            "AU": 53,
+            "Times": [
+                0.0,
+                1.8,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                20.0
+            ]
+        },
+        {
+            "AU": 63,
+            "Times": [
+                0.0,
+                1.8,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                30.0
+            ]
+        }
+    ],
+    "duration": 4.5,
+    "emotion": "Hope",
+    "utterance": "Just hold off for another hour, please."
+}

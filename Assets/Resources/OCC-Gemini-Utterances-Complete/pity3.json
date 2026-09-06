@@ -1,0 +1,72 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                0.7,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                75.0,
+                75.0
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.7,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                55.0,
+                55.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.5,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0.0,
+                0.9,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                65.0,
+                65.0
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0.0,
+                1.2,
+                3.8
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                30.0
+            ]
+        }
+    ],
+    "duration": 3.8,
+    "emotion": "Pity",
+    "utterance": "That's just devastating, all that hard work gone."
+}

@@ -1,0 +1,166 @@
+[
+  {
+    "time": 0.0,
+    "viseme": "sil"
+  },
+  {
+    "time": 0.144,
+    "viseme": "AH"
+  },
+  {
+    "time": 0.3,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 0.384,
+    "viseme": "AE"
+  },
+  {
+    "time": 0.456,
+    "viseme": "F_V"
+  },
+  {
+    "time": 0.528,
+    "viseme": "R"
+  },
+  {
+    "time": 0.66,
+    "viseme": "CH_J"
+  },
+  {
+    "time": 0.756,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 0.84,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 0.936,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 0.984,
+    "viseme": "AE"
+  },
+  {
+    "time": 1.08,
+    "viseme": "F_V"
+  },
+  {
+    "time": 1.2,
+    "viseme": "OH"
+  },
+  {
+    "time": 1.296,
+    "viseme": "B_M_P"
+  },
+  {
+    "time": 1.392,
+    "viseme": "IH"
+  },
+  {
+    "time": 1.452,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 1.68,
+    "viseme": "B_M_P"
+  },
+  {
+    "time": 1.86,
+    "viseme": "AH"
+  },
+  {
+    "time": 2.04,
+    "viseme": "B_M_P"
+  },
+  {
+    "time": 2.16,
+    "viseme": "AH"
+  },
+  {
+    "time": 2.28,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 2.34,
+    "viseme": "TH"
+  },
+  {
+    "time": 2.52,
+    "viseme": "sil"
+  },
+  {
+    "time": 2.616,
+    "viseme": "AH"
+  },
+  {
+    "time": 2.76,
+    "viseme": "R"
+  },
+  {
+    "time": 2.856,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 2.94,
+    "viseme": "IH"
+  },
+  {
+    "time": 3.0,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 3.144,
+    "viseme": "AE"
+  },
+  {
+    "time": 3.24,
+    "viseme": "F_V"
+  },
+  {
+    "time": 3.3,
+    "viseme": "R"
+  },
+  {
+    "time": 3.396,
+    "viseme": "EE"
+  },
+  {
+    "time": 3.48,
+    "viseme": "TH"
+  },
+  {
+    "time": 3.576,
+    "viseme": "IH"
+  },
+  {
+    "time": 3.66,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 3.816,
+    "viseme": "F_V"
+  },
+  {
+    "time": 3.996,
+    "viseme": "R"
+  },
+  {
+    "time": 4.14,
+    "viseme": "TH"
+  },
+  {
+    "time": 4.26,
+    "viseme": "AE"
+  },
+  {
+    "time": 4.38,
+    "viseme": "B_M_P"
+  },
+  {
+    "time": 4.5,
+    "viseme": "sil"
+  }
+]

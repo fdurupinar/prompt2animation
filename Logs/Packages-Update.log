@@ -29,3 +29,23 @@ The following packages were updated:
   com.unity.render-pipelines.high-definition from version 17.2.0 to 17.3.0
   com.unity.timeline from version 1.8.9 to 1.8.10
   com.unity.visualscripting from version 1.9.7 to 1.9.9
+
+=== Tue Sep  1 14:15:19 2026
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were added:
+  com.unity.modules.physicscore2d@1.0.0
+  com.unity.modules.tetgen@1.0.0
+  com.unity.modules.timelinefoundation@1.0.0
+The following packages were updated:
+  com.unity.collab-proxy from version 2.11.3 to 2.13.6
+  com.unity.editorcoroutines from version 1.0.1 to 6.6.0
+  com.unity.recorder from version 5.1.5 to 5.1.7
+  com.unity.render-pipelines.high-definition from version 17.3.0 to 17.6.0
+  com.unity.timeline from version 1.8.10 to 6.6.0
+  com.unity.ugui from version 2.0.0 to 2.6.0
+  com.unity.visualscripting from version 1.9.9 to 1.9.12
+The following packages were removed:
+  com.unity.modules.vr@1.0.0

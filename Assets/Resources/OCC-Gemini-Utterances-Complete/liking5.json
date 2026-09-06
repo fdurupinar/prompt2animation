@@ -1,0 +1,61 @@
+{
+    "facial_actions": [
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                1.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.8,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                25.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 43,
+            "Times": [
+                0.0,
+                1.5,
+                3.5,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                90.0,
+                90.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 55,
+            "Times": [
+                0.0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                10.0,
+                10.0
+            ]
+        }
+    ],
+    "duration": 4.5,
+    "emotion": "Liking",
+    "utterance": "This is so soft, I never want to take it off."
+}

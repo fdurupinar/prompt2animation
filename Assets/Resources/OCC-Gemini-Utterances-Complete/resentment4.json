@@ -1,0 +1,72 @@
+{
+    "facial_actions": [
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.5,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                90.0,
+                90.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.5,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                85.0,
+                85.0
+            ]
+        },
+        {
+            "AU": 14,
+            "Times": [
+                0.0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 23,
+            "Times": [
+                0.0,
+                0.8,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 58,
+            "Times": [
+                0.0,
+                1.5,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                20.0
+            ]
+        }
+    ],
+    "duration": 4.0,
+    "emotion": "Resentment",
+    "utterance": "They don't deserve that medal, everyone knows they cheated."
+}

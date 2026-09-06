@@ -24,8 +24,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hair_Transparency_1
-  m_Shader: {fileID: -6465566751694194690, guid: 1b1fb9190f9a21344931aa2df1b6a845,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 1b1fb9190f9a21344931aa2df1b6a845, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:

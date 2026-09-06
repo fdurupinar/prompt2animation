@@ -1,0 +1,85 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                0.3,
+                3.2
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 2,
+            "Times": [
+                0.0,
+                0.3,
+                3.2
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 5,
+            "Times": [
+                0.0,
+                0.2,
+                3.2
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                20.0
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                0.4,
+                3.2
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.3,
+                3.2
+            ],
+            "Intensities": [
+                0.0,
+                45.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0.0,
+                0.4,
+                3.2
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                50.0
+            ]
+        }
+    ],
+    "duration": 3.2,
+    "emotion": "Liking",
+    "utterance": "Oh, look how cute you are!"
+}

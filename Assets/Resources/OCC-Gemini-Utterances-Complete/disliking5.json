@@ -1,0 +1,76 @@
+{
+    "facial_actions": [
+        {
+            "AU": 5,
+            "Times": [
+                0.0,
+                0.1,
+                0.4,
+                1.8
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 9,
+            "Times": [
+                0.0,
+                0.2,
+                1.8
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 10,
+            "Times": [
+                0.0,
+                0.2,
+                1.8
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 26,
+            "Times": [
+                0.0,
+                0.3,
+                1.8
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                20.0
+            ]
+        },
+        {
+            "AU": 58,
+            "Times": [
+                0.0,
+                0.1,
+                0.5,
+                1.8
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0,
+                40.0
+            ]
+        }
+    ],
+    "duration": 1.8,
+    "emotion": "Disliking",
+    "utterance": "Ew, why is it wet and slimy?"
+}

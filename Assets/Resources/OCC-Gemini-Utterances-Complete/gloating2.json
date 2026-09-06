@@ -1,0 +1,89 @@
+{
+    "facial_actions": [
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.7,
+                3.6
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 10,
+            "Times": [
+                0.0,
+                1.0,
+                3.6
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.8,
+                3.6
+            ],
+            "Intensities": [
+                0.0,
+                15.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 17,
+            "Times": [
+                0.0,
+                1.0,
+                3.6
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 24,
+            "Times": [
+                0.0,
+                0.8,
+                3.6
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 52,
+            "Times": [
+                0.0,
+                1.8,
+                2.3,
+                2.8,
+                3.6
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                15.0,
+                0.0,
+                0.0
+            ]
+        }
+    ],
+    "duration": 3.6,
+    "emotion": "Gloating",
+    "utterance": "Looks like all that bragging didn't pay off."
+}

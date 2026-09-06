@@ -1,0 +1,98 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                0.9,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.9,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.6,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0.0,
+                1.2,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 24,
+            "Times": [
+                0.0,
+                1.0,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                1.5,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                25.0,
+                25.0
+            ]
+        },
+        {
+            "AU": 64,
+            "Times": [
+                0.0,
+                1.5,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                35.0,
+                35.0
+            ]
+        }
+    ],
+    "duration": 4.8,
+    "emotion": "Fearsconfirmed",
+    "utterance": "This is it... they're letting me go."
+}

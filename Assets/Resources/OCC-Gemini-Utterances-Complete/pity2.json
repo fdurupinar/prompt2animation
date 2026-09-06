@@ -1,0 +1,72 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                0.8,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.8,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 11,
+            "Times": [
+                0.0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0.0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                1.5,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                20.0
+            ]
+        }
+    ],
+    "duration": 4.0,
+    "emotion": "Pity",
+    "utterance": "Poor thing, you look so cold and hungry."
+}

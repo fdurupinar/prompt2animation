@@ -1,0 +1,34 @@
+[
+  {
+    "time": 0.0,
+    "viseme": "sil"
+  },
+  {
+    "time": 0.35,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 0.55,
+    "viseme": "AH"
+  },
+  {
+    "time": 0.9,
+    "viseme": "CH_J"
+  },
+  {
+    "time": 1.35,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.7,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 2.05,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 2.5,
+    "viseme": "sil"
+  }
+]

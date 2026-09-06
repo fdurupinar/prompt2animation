@@ -1,0 +1,76 @@
+{
+    "facial_actions": [
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                1.0,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.8,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                22.5,
+                45.0
+            ]
+        },
+        {
+            "AU": 24,
+            "Times": [
+                0.0,
+                0.8,
+                2.0,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                20.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 53,
+            "Times": [
+                0.0,
+                1.5,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                15.0,
+                15.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                2.0,
+                3.0,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                10.0,
+                0.0
+            ]
+        }
+    ],
+    "duration": 4.2,
+    "emotion": "Pride",
+    "utterance": "I think that went incredibly well."
+}

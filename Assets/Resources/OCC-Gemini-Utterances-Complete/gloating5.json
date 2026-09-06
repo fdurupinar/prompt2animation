@@ -1,0 +1,74 @@
+{
+    "facial_actions": [
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.8,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.6,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                17.5,
+                35.0
+            ]
+        },
+        {
+            "AU": 14,
+            "Times": [
+                0.0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                1.5,
+                2.5,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                10.0,
+                5.0
+            ]
+        }
+    ],
+    "duration": 4.0,
+    "emotion": "Gloating",
+    "utterance": "Couldn't have happened to a worse company."
+}

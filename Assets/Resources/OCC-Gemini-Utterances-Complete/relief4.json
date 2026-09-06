@@ -1,0 +1,91 @@
+{
+    "facial_actions": [
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.5,
+                1.2,
+                5.0
+            ],
+            "Intensities": [
+                80.0,
+                80.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.5,
+                1.2,
+                5.0
+            ],
+            "Intensities": [
+                90.0,
+                90.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 43,
+            "Times": [
+                0.0,
+                0.8,
+                3.5,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                100.0,
+                100.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                1.0,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                35.0,
+                25.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                2.0,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                2.2,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                30.0
+            ]
+        }
+    ],
+    "duration": 5.0,
+    "emotion": "Relief",
+    "utterance": "Glad to finally be back on the ground."
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "time": 0.0,
+    "viseme": "sil"
+  },
+  {
+    "time": 0.241,
+    "viseme": "IH"
+  },
+  {
+    "time": 0.31,
+    "viseme": "F_V"
+  },
+  {
+    "time": 0.448,
+    "viseme": "AH"
+  },
+  {
+    "time": 0.655,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 0.862,
+    "viseme": "EE"
+  },
+  {
+    "time": 1.103,
+    "viseme": "F_V"
+  },
+  {
+    "time": 1.482,
+    "viseme": "EE"
+  },
+  {
+    "time": 1.827,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 2.0,
+    "viseme": "S_Z"
+  },
+  {
+    "time": 2.551,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 2.758,
+    "viseme": "AH"
+  },
+  {
+    "time": 3.034,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 3.379,
+    "viseme": "S_Z"
+  },
+  {
+    "time": 3.655,
+    "viseme": "B_M_P"
+  },
+  {
+    "time": 3.827,
+    "viseme": "R"
+  },
+  {
+    "time": 4.103,
+    "viseme": "IH"
+  },
+  {
+    "time": 4.413,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 5.0,
+    "viseme": "sil"
+  }
+]

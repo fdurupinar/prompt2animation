@@ -1,0 +1,76 @@
+{
+    "facial_actions": [
+        {
+            "AU": 5,
+            "Times": [
+                0.0,
+                1.0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                90.0,
+                90.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                1.0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                2.5,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                15.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 26,
+            "Times": [
+                0.0,
+                2.2,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 58,
+            "Times": [
+                0.0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        }
+    ],
+    "duration": 4.5,
+    "emotion": "Hope",
+    "utterance": "Just one more number, please be a seven..."
+}

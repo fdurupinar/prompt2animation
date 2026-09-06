@@ -1,0 +1,85 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                1.0,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.8,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                90.0,
+                90.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.8,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0.0,
+                1.2,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 17,
+            "Times": [
+                0.0,
+                1.2,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 24,
+            "Times": [
+                0.0,
+                1.0,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        }
+    ],
+    "duration": 4.2,
+    "emotion": "Reproach",
+    "utterance": "You really shouldn't leave an animal out like that."
+}

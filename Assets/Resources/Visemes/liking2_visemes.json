@@ -1,0 +1,62 @@
+[
+  {
+    "time": 0.0,
+    "viseme": "sil"
+  },
+  {
+    "time": 0.29,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 0.58,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.18,
+    "viseme": "CH_J"
+  },
+  {
+    "time": 1.48,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.7,
+    "viseme": "S_Z"
+  },
+  {
+    "time": 2.05,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 2.5,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 2.84,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 3.07,
+    "viseme": "AE"
+  },
+  {
+    "time": 3.41,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 3.64,
+    "viseme": "TH"
+  },
+  {
+    "time": 4.0,
+    "viseme": "OH"
+  },
+  {
+    "time": 4.55,
+    "viseme": "S_Z"
+  },
+  {
+    "time": 5.0,
+    "viseme": "sil"
+  }
+]

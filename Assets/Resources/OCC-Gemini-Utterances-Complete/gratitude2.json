@@ -1,0 +1,72 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                1.5,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                1.0,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.8,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0.0,
+                0.9,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 55,
+            "Times": [
+                0.0,
+                2.0,
+                4.2
+            ],
+            "Intensities": [
+                0.0,
+                15.0,
+                15.0
+            ]
+        }
+    ],
+    "duration": 4.2,
+    "emotion": "Gratitude",
+    "utterance": "I can't believe you did this for me, thank you!"
+}

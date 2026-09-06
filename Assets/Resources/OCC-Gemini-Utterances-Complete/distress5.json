@@ -1,0 +1,85 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                1.0,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                1.0,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0.0,
+                1.4,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 17,
+            "Times": [
+                0.0,
+                1.6,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                45.0,
+                45.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                2.0,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                20.0
+            ]
+        },
+        {
+            "AU": 64,
+            "Times": [
+                0.0,
+                2.0,
+                4.8
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                30.0
+            ]
+        }
+    ],
+    "duration": 4.8,
+    "emotion": "Distress",
+    "utterance": "I'm going to miss you so much."
+}

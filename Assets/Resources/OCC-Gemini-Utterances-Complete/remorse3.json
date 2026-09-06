@@ -1,0 +1,87 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                0.8,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.7,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 5,
+            "Times": [
+                0.0,
+                0.3,
+                0.8,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 20,
+            "Times": [
+                0.0,
+                0.6,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                1.2,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 64,
+            "Times": [
+                0.0,
+                1.2,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        }
+    ],
+    "duration": 4.0,
+    "emotion": "Remorse",
+    "utterance": "I can't believe I missed that, I really messed up."
+}

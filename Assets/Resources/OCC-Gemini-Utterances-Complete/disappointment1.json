@@ -1,0 +1,85 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                1.2,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                1.2,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 15,
+            "Times": [
+                0.0,
+                1.5,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 17,
+            "Times": [
+                0.0,
+                1.8,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 64,
+            "Times": [
+                0.0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        }
+    ],
+    "duration": 4.5,
+    "emotion": "Disappointment",
+    "utterance": "I really thought I had a good chance at this one."
+}

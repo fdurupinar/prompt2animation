@@ -1,0 +1,78 @@
+{
+    "facial_actions": [
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.5,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.5,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                35.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 52,
+            "Times": [
+                0.0,
+                2.0,
+                2.4,
+                2.8,
+                3.2,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                15.0,
+                0.0,
+                10.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                1.5,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                10.0,
+                10.0
+            ]
+        }
+    ],
+    "duration": 4.0,
+    "emotion": "Gratification",
+    "utterance": "I knew you were going to love it."
+}

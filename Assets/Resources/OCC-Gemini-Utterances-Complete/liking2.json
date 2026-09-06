@@ -1,0 +1,98 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                1.5,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 2,
+            "Times": [
+                0.0,
+                1.5,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                25.0,
+                25.0
+            ]
+        },
+        {
+            "AU": 5,
+            "Times": [
+                0.0,
+                1.2,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                20.0
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                2.5,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                2.2,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                17.5,
+                35.0
+            ]
+        },
+        {
+            "AU": 26,
+            "Times": [
+                0.0,
+                1.8,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                15.0,
+                15.0
+            ]
+        },
+        {
+            "AU": 53,
+            "Times": [
+                0.0,
+                2.0,
+                5.0
+            ],
+            "Intensities": [
+                0.0,
+                10.0,
+                10.0
+            ]
+        }
+    ],
+    "duration": 5.0,
+    "emotion": "Liking",
+    "utterance": "Wow, just look at those colors."
+}

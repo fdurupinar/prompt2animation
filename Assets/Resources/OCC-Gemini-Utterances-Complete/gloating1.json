@@ -1,0 +1,74 @@
+{
+    "facial_actions": [
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                1.2,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.8,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.9,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 14,
+            "Times": [
+                0.0,
+                1.0,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                55.0,
+                55.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                2.0,
+                2.8,
+                4.0
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                10.0,
+                0.0
+            ]
+        }
+    ],
+    "duration": 4.0,
+    "emotion": "Gloating",
+    "utterance": "That's exactly what you get for driving like a jerk."
+}

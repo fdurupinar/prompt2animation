@@ -1,0 +1,76 @@
+{
+    "facial_actions": [
+        {
+            "AU": 4,
+            "Times": [
+                0.0,
+                0.7,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                0.6,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                70.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 10,
+            "Times": [
+                0.0,
+                0.8,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                55.0
+            ]
+        },
+        {
+            "AU": 17,
+            "Times": [
+                0.0,
+                0.8,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                40.0,
+                40.0
+            ]
+        },
+        {
+            "AU": 52,
+            "Times": [
+                0.0,
+                1.5,
+                2.0,
+                2.5,
+                3.0
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                15.0,
+                0.0,
+                0.0
+            ]
+        }
+    ],
+    "duration": 3.0,
+    "emotion": "Reproach",
+    "utterance": "Excuse me, you dropped this. There's a trash can right there."
+}

@@ -93,7 +93,7 @@
       ],
       "Intensities": [
         0.0,
-        30.0000019,
+        50.0,
         100.0
       ],
       "InitialIntensities": [
@@ -114,8 +114,8 @@
       ],
       "Intensities": [
         0.0,
-        0.0,
         70.0,
+        0.0,
         70.0
       ],
       "InitialIntensities": [

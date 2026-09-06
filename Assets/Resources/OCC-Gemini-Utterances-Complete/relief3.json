@@ -1,0 +1,80 @@
+{
+    "facial_actions": [
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                0.8,
+                3.4
+            ],
+            "Intensities": [
+                0.0,
+                90.0,
+                80.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.6,
+                3.4
+            ],
+            "Intensities": [
+                0.0,
+                50.0,
+                90.0
+            ]
+        },
+        {
+            "AU": 25,
+            "Times": [
+                0.0,
+                0.7,
+                3.4
+            ],
+            "Intensities": [
+                0.0,
+                0.0,
+                70.0
+            ]
+        },
+        {
+            "AU": 43,
+            "Times": [
+                0.0,
+                0.5,
+                1.2,
+                1.5,
+                3.4
+            ],
+            "Intensities": [
+                0.0,
+                80.0,
+                80.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "AU": 52,
+            "Times": [
+                0.0,
+                1.0,
+                1.4,
+                1.8,
+                3.4
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                0.0,
+                15.0,
+                0.0
+            ]
+        }
+    ],
+    "duration": 3.4,
+    "emotion": "Relief",
+    "utterance": "That is a huge weight off my shoulders."
+}

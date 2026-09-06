@@ -1,0 +1,85 @@
+{
+    "facial_actions": [
+        {
+            "AU": 1,
+            "Times": [
+                0.0,
+                1.5,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                20.0,
+                20.0
+            ]
+        },
+        {
+            "AU": 6,
+            "Times": [
+                0.0,
+                1.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                60.0,
+                60.0
+            ]
+        },
+        {
+            "AU": 7,
+            "Times": [
+                0.0,
+                1.2,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                30.0,
+                30.0
+            ]
+        },
+        {
+            "AU": 12,
+            "Times": [
+                0.0,
+                0.8,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                25.0,
+                50.0
+            ]
+        },
+        {
+            "AU": 53,
+            "Times": [
+                0.0,
+                2.0,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                15.0,
+                15.0
+            ]
+        },
+        {
+            "AU": 54,
+            "Times": [
+                0.0,
+                2.2,
+                4.5
+            ],
+            "Intensities": [
+                0.0,
+                10.0,
+                10.0
+            ]
+        }
+    ],
+    "duration": 4.5,
+    "emotion": "Gratification",
+    "utterance": "Oh, it finally bloomed."
+}
