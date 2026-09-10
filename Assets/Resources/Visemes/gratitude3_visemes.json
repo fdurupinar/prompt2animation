@@ -4,103 +4,151 @@
     "viseme": "sil"
   },
   {
-    "time": 0.185,
+    "time": 0.06,
     "viseme": "AH"
   },
   {
-    "time": 0.385,
-    "viseme": "R"
-  },
-  {
-    "time": 0.585,
-    "viseme": "EE"
-  },
-  {
-    "time": 0.738,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 0.923,
-    "viseme": "K_G_H_NG"
-  },
-  {
-    "time": 1.046,
-    "viseme": "W_OO"
-  },
-  {
-    "time": 1.154,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 1.385,
-    "viseme": "AH"
-  },
-  {
-    "time": 1.538,
-    "viseme": "F_V"
-  },
-  {
-    "time": 1.662,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 1.785,
-    "viseme": "AH"
-  },
-  {
-    "time": 2.0,
-    "viseme": "TH"
-  },
-  {
-    "time": 2.123,
+    "time": 0.106,
     "viseme": "IH"
   },
   {
-    "time": 2.231,
-    "viseme": "S_Z"
-  },
-  {
-    "time": 2.338,
-    "viseme": "W_OO"
-  },
-  {
-    "time": 2.492,
-    "viseme": "TH"
-  },
-  {
-    "time": 2.615,
-    "viseme": "AH"
-  },
-  {
-    "time": 2.815,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 2.923,
-    "viseme": "EE"
-  },
-  {
-    "time": 3.077,
+    "time": 0.13,
     "viseme": "R"
   },
   {
-    "time": 3.2,
-    "viseme": "K_G_H_NG"
+    "time": 0.26,
+    "viseme": "EE"
   },
   {
-    "time": 3.385,
-    "viseme": "AH"
-  },
-  {
-    "time": 3.615,
+    "time": 0.31,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 3.846,
+    "time": 0.37,
+    "viseme": "EE"
+  },
+  {
+    "time": 0.43,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 0.51,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 0.57,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 0.6,
+    "viseme": "AH"
+  },
+  {
+    "time": 0.63,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 0.66,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 0.72,
+    "viseme": "AE"
+  },
+  {
+    "time": 0.77,
+    "viseme": "F_V"
+  },
+  {
+    "time": 0.82,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 0.94,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.01,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 1.08,
+    "viseme": "TH"
+  },
+  {
+    "time": 1.12,
+    "viseme": "IH"
+  },
+  {
+    "time": 1.18,
     "viseme": "S_Z"
   },
   {
-    "time": 4.0,
+    "time": 1.27,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 1.32,
+    "viseme": "IH"
+  },
+  {
+    "time": 1.36,
+    "viseme": "TH"
+  },
+  {
+    "time": 1.42,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.485,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 1.52,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 1.57,
+    "viseme": "EE"
+  },
+  {
+    "time": 1.63,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 1.66,
+    "viseme": "R"
+  },
+  {
+    "time": 1.69,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 1.77,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.874,
+    "viseme": "IH"
+  },
+  {
+    "time": 1.93,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 2.0,
+    "viseme": "AH"
+  },
+  {
+    "time": 2.03,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 2.11,
+    "viseme": "S_Z"
+  },
+  {
+    "time": 2.28,
     "viseme": "sil"
   }
 ]

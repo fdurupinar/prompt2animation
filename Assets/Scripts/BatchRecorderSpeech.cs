@@ -24,58 +24,48 @@ public class BatchRecorderSpeech : MonoBehaviour {
     [Tooltip("The duration (in seconds) to record for each scenario file. Use this for procedural animations that don't have a fixed AnimationClip length.")]
     public float recordingDuration = 10.0f;
 
-    /// <summary>
-    /// This is a helper method called by the editor script to update the state.
-    /// It uses the currently assigned Scenario variable.
-    /// </summary>
+    // Retain immediate playback for callers outside the recording editor.
     public void SetCurrentlyProcessingFile() {
-        OCCController oCCController = GetComponent<OCCController>();
-        
-        for(int i = 0; i < oCCController.Agents.Length; i++)
-        { 
-            // Pass the assigned Scenario to the controller
-            oCCController.UpdateScenario(Scenario, i);
-            
-            FACS facs = oCCController.Agents[i].GetComponent<FACS>();
-            
-            if (facs != null)
-            {
-                // The naming is based on the EmotionName variable within FACS.cs
-                string emotionName = facs.EmotionName;
+        if (PrepareScenario())
+            GetComponent<OCCController>().PlayResponse();
+    }
 
-                // Update Visemes (.json) from Resources/Visemes with the "_visemes" suffix
-                TextAsset visemeAsset = Resources.Load<TextAsset>("Visemes/" + emotionName + "_visemes");
-                Debug.Log(visemeAsset);
-                if (visemeAsset != null)
-                {
-                    facs.SetVisemeData(visemeAsset.text);
-                }
-                else
-                {
-                    Debug.LogWarning($"Viseme JSON not found for emotion: {emotionName}_visemes in Resources/Visemes");
-                }
-
-                // Update Audio (.wav) from Resources/Audio
-                AudioClip audioClip = Resources.Load<AudioClip>("Audio/" + emotionName);
-                                Debug.Log(audioClip);
-
-                if (audioClip != null)
-                {
-                    facs.SpeechClip = audioClip;
-                }
-                else
-                {
-                    Debug.LogWarning($"AudioClip not found for emotion: {emotionName} in Resources/Audio");
-                }
-            }
-            else
-            {
-                Debug.LogError("FACS component missing on Agent " + i);
-            }
-
-            recordingDuration = oCCController.AnimationDuration;
+    // Load the complete scenario before recording, without starting playback.
+    public bool PrepareScenario() {
+        OCCController controller = GetComponent<OCCController>();
+        if (Scenario == null || controller == null || controller.Agents == null || controller.Agents.Length == 0) {
+            Debug.LogError("Cannot prepare speech recording: assign a scenario, controller, and agents.");
+            return false;
         }
 
-        oCCController.PlayResponse();
+        string scenarioName = Scenario.name;
+        TextAsset visemes = Resources.Load<TextAsset>("Visemes/" + scenarioName + "_visemes");
+        AudioClip audio = Resources.Load<AudioClip>("Audio/" + scenarioName);
+        if (visemes == null || audio == null) {
+            Debug.LogError($"Cannot record '{scenarioName}': matching audio or visemes are missing.");
+            return false;
+        }
+
+        FACS[] faces = new FACS[controller.Agents.Length];
+        for (int i = 0; i < faces.Length; i++) {
+            faces[i] = controller.Agents[i] != null ? controller.Agents[i].GetComponent<FACS>() : null;
+            if (faces[i] == null) {
+                Debug.LogError($"Cannot record '{scenarioName}': agent {i} has no FACS component.");
+                return false;
+            }
+        }
+
+        // Batch recordings use their selected scenario, not a previous chat response.
+        controller.SetLatestChatResponse(null);
+        recordingDuration = audio.length;
+        for (int i = 0; i < faces.Length; i++) {
+            controller.UpdateScenario(Scenario, i);
+            faces[i].EmotionName = scenarioName;
+            faces[i].SetVisemeData(visemes.text);
+            faces[i].SpeechClip = audio;
+            faces[i].IsSpeechEnabled = true;
+            recordingDuration = Mathf.Max(recordingDuration, faces[i].Duration);
+        }
+        return true;
     }
 }

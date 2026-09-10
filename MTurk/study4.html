@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Animation Naturalness Study</title>
+    <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+    <style>
+        :root {
+            --background-color: #f4f7f9;
+            --slide-background: #ffffff;
+            --primary-text-color: #2c3e50;
+            --secondary-text-color: #000000;
+            --accent-color: #3498db;
+            --border-color: #e0e6ed;
+            --shadow-color: rgba(60, 64, 67, 0.15);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            max-width: 100rem;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background-color);
+            color: var(--primary-text-color);
+        }
+
+        ol, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel {
+            position: relative;
+            height: 760px;
+            margin: 1.5rem auto;
+            filter: drop-shadow(0 0 10px #0003);
+        }
+
+        .carousel__viewport {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+
+        .carousel__slide {
+            position: relative;
+            flex: 0 0 100%;
+            width: 100%;
+            scroll-snap-align: center;
+            background: var(--slide-background);
+        }
+
+        .carousel__snapper {
+            position: absolute;
+            inset: 0;
+            padding: 2rem 4rem;
+        }
+
+        .outer-container {
+            width: 100%;
+            height: calc(100% - 5rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .left-container,
+        .right-container {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .left-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .right-container {
+            max-height: 100%;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .vertical-separator {
+            width: 1px;
+            align-self: stretch;
+            background: var(--border-color);
+        }
+
+        .carousel-video {
+            width: 100%;
+            max-width: 720px;
+            max-height: 520px;
+            background: #000;
+        }
+
+        .instruction-box {
+            margin-top: 1rem;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #f8fafc;
+            width: 100%;
+            max-width: 720px;
+        }
+
+        .sound-warning {
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .rating-grid {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(55px, 1fr));
+            gap: 0.45rem;
+            margin-top: 0.7rem;
+        }
+
+        .rating-grid input[type="radio"] {
+            display: none;
+        }
+
+        .rating-grid label {
+            display: flex;
+            min-height: 40px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #aeb8c2;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            background: #fff;
+        }
+
+        .rating-grid input[type="radio"]:checked + label {
+            border: 2px solid var(--accent-color);
+            font-weight: 700;
+            background: #eef7fd;
+        }
+
+        .rating-grid input[type="radio"]:disabled + label {
+            opacity: 0.42;
+            cursor: not-allowed;
+        }
+
+        .speech-check-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.55rem;
+            margin-top: 0.7rem;
+        }
+
+        .speech-check-grid input[type="radio"] {
+            display: none;
+        }
+
+        .speech-check-grid label {
+            display: flex;
+            min-height: 54px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0.55rem;
+            border: 1px solid #aeb8c2;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            background: #fff;
+        }
+
+        .speech-check-grid input[type="radio"]:checked + label {
+            border: 2px solid var(--accent-color);
+            font-weight: 700;
+            background: #eef7fd;
+        }
+
+        .speech-check-grid input[type="radio"]:disabled + label {
+            opacity: 0.42;
+            cursor: not-allowed;
+        }
+
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.35rem;
+            font-size: 0.85rem;
+        }
+
+        .rating-panel {
+            display: none;
+        }
+
+        .rating-panel.available {
+            display: block;
+        }
+
+        .rating-question {
+            margin-bottom: 0.95rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .rating-question:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .rating-question h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+            line-height: 1.25;
+        }
+
+        .navigation {
+            position: absolute;
+            left: 4rem;
+            right: 4rem;
+            bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 0.7rem 1.1rem;
+            border-radius: 6px;
+            background: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-button.disabled {
+            visibility: hidden;
+        }
+
+        .options-grid label {
+            margin-right: 1rem;
+        }
+
+        .demographic-block {
+            margin-bottom: 1.1rem;
+        }
+
+        .attention-box {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        #errorBox {
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 900px) {
+            .carousel { height: 900px; }
+            .outer-container { flex-direction: column; }
+            .vertical-separator { width: 100%; height: 1px; }
+            .rating-grid { grid-template-columns: repeat(7, 1fr); }
+            .speech-check-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<crowd-form answer-format="flatten-objects">
+    <div id="errorBox"></div>
+
+    <section class="carousel" aria-label="Naturalness questionnaire">
+        <ol class="carousel__viewport" id="carouselViewport"></ol>
+    </section>
+</crowd-form>
+
+<script>
+    // ============================================================
+    // EDIT THESE TWO PATHS BEFORE DEPLOYMENT.
+    // Both versions should use the SAME scenario-specific speech.
+    // The only intended difference is emotional facial expression.
+    // Files are assumed to be named, for example: anger1.mp4
+    // ============================================================
+    const VIDEO_BASE_URLS = {
+           expression: "https://www.cs.umb.edu/~fundad/occPipelineFull/",
+        noexpression: "https://www.cs.umb.edu/~fundad/occPipelineNoExpression/",
+    };
+
+    const EMOTIONS = [
+        "gratitude",
+        "pity",
+        "disappointment",
+        "fearsConfirmed",
+        "shame",
+        "reproach",
+        "anger",
+        "hope",
+        "pride",
+        "joy",
+        "remorse",
+        "fear",
+        "gloating",
+        "happyfor",
+        "gratification",
+        "disliking",
+        "resentment",
+        "liking",
+        "admiration",
+        "satisfaction",
+        "distress",
+        "relief"
+    ];
+
+    // ============================================================
+    // EXACT UTTERANCES USED IN THE 110 SPEAKING VIDEOS
+    // Used only to construct one speech-comprehension check per HIT.
+    // ============================================================
+    const SPEECH_TEXTS = {
+        "gratitude1": "Thank you so much, you're a lifesaver.",
+        "gratitude2": "I can't believe you did this for me, thank you!",
+        "gratitude3": "I really couldn't have done this without your guidance.",
+        "gratitude4": "Thank you for stopping, I was really stuck.",
+        "gratitude5": "I don't know how to ever repay you for saving him.",
+        "pity1": "Oh, it breaks my heart to see them so lonely.",
+        "pity2": "Poor thing, you look so cold and hungry.",
+        "pity3": "That's just devastating, all that hard work gone.",
+        "pity4": "Oh no... that is awful to hear.",
+        "pity5": "Oh sweetie, it's okay, you can do it.",
+        "disappointment1": "I really thought I had a good chance at this one.",
+        "disappointment2": "I guess I just thought they would have remembered.",
+        "disappointment3": "You've got to be kidding me, I've been waiting for months.",
+        "disappointment4": "Of course it goes down tonight of all nights.",
+        "disappointment5": "Oh, a watch. Thank you, it's very nice.",
+        "fearsConfirmed1": "It's bad news, isn't it?",
+        "fearsConfirmed2": "No, no, no... everyone knows.",
+        "fearsConfirmed3": "This is it... they're letting me go.",
+        "fearsConfirmed4": "Who's there?! Stay back!",
+        "fearsConfirmed5": "They're all dead... the whole crop is gone.",
+        "shame1": "Oh my god, I sent that to them. I'm so mortified.",
+        "shame2": "Right, sorry, I guess I got carried away.",
+        "shame3": "I... I'm sorry, I've completely lost my place.",
+        "shame4": "I am so, so sorry, let me get you some napkins.",
+        "shame5": "Well... that didn't go how I planned.",
+        "reproach1": "There is absolutely no need to speak to them like that.",
+        "reproach2": "That's a terrible thing to make up about someone.",
+        "reproach3": "Excuse me, you dropped this. There's a trash can right there.",
+        "reproach4": "Actually, I believe that was Sarah's original concept.",
+        "reproach5": "You really shouldn't leave an animal out like that.",
+        "anger1": "I can't believe you just pitched my work as your own.",
+        "anger2": "Are you kidding me? I was parked completely legally!",
+        "anger3": "This is completely unacceptable, my entire trip is ruined!",
+        "anger4": "You have absolutely no grounds to keep that money!",
+        "anger5": "No! All of it is just gone! Piece of junk!",
+        "hope1": "Come on, come on... go in.",
+        "hope2": "Please let this be the acceptance.",
+        "hope3": "Just one more number, please be a seven...",
+        "hope4": "Maybe this is finally it.",
+        "hope5": "Just hold off for another hour, please.",
+        "pride1": "Yes... that is exactly how I pictured it.",
+        "pride2": "I actually did it. I crossed the finish line.",
+        "pride3": "I think that went incredibly well.",
+        "pride4": "Finally, I got it perfect.",
+        "pride5": "I did the right thing.",
+        "joy1": "Oh, perfect, my spot is open.",
+        "joy2": "I have missed you so much!",
+        "joy3": "This is absolutely amazing!",
+        "joy4": "Look at you go, buddy!",
+        "joy5": "It finally feels like spring.",
+        "remorse1": "I never should have opened my mouth, I ruined everything for them.",
+        "remorse2": "I am so sorry, I didn't mean that at all.",
+        "remorse3": "I can't believe I missed that, I really messed up.",
+        "remorse4": "I feel terrible, I can't believe I forgot.",
+        "remorse5": "I'm so sorry, I was being so careless.",
+        "fear1": "Is someone up there...?",
+        "fear2": "Watch out, hold on!",
+        "fear3": "Get out of the water! Now!",
+        "fear4": "Oh no... what did I do?",
+        "fear5": "What the... did that just move?",
+        "gloating1": "That's exactly what you get for driving like a jerk.",
+        "gloating2": "Looks like all that bragging didn't pay off.",
+        "gloating3": "And that's how you win.",
+        "gloating4": "Karma.",
+        "gloating5": "Couldn't have happened to a worse company.",
+        "happyfor1": "That is amazing news, I am so incredibly happy for you!",
+        "happyfor2": "Yes! You did it!",
+        "happyfor3": "They completely deserve this.",
+        "happyfor4": "I am so proud of you, look at this grade!",
+        "happyfor5": "You nailed it, absolutely brilliant job.",
+        "gratification1": "Oh, it finally bloomed.",
+        "gratification2": "I can't believe it, thank you so much for this opportunity.",
+        "gratification3": "I knew you were going to love it.",
+        "gratification4": "Yes! I knew that would fix it.",
+        "gratification5": "It worked, it actually held together.",
+        "disliking1": "Ugh, what is that awful smell?",
+        "disliking2": "Gross, this has definitely gone bad.",
+        "disliking3": "Make it stop, that is a horrible sound.",
+        "disliking4": "That is the ugliest thing I've ever seen.",
+        "disliking5": "Ew, why is it wet and slimy?",
+        "resentment1": "Of course he gets it. Hard work doesn't mean a thing here.",
+        "resentment2": "It makes me sick that they get rewarded for doing absolutely nothing.",
+        "resentment3": "It is so unfair that someone like that gets lucky.",
+        "resentment4": "They don't deserve that medal, everyone knows they cheated.",
+        "resentment5": "Effortless success? They're a horrible person.",
+        "liking1": "Mmm, this is absolutely incredible.",
+        "liking2": "Wow, just look at those colors.",
+        "liking3": "This is such a beautiful piece.",
+        "liking4": "Oh, look how cute you are!",
+        "liking5": "This is so soft, I never want to take it off.",
+        "admiration1": "That was incredible.",
+        "admiration2": "The level of talent here is just astonishing.",
+        "admiration3": "They are so brave for doing that.",
+        "admiration4": "I wish I could handle conflict as smoothly as you do.",
+        "admiration5": "The precision is just remarkable to watch.",
+        "satisfaction1": "Yes! Right at the buzzer!",
+        "satisfaction2": "All that studying actually paid off.",
+        "satisfaction3": "Got it. Perfect.",
+        "satisfaction4": "They like it... thank goodness.",
+        "satisfaction5": "First try. That feels good.",
+        "distress1": "This is so sad, we're losing a piece of the community.",
+        "distress2": "Those poor people, the destruction is just awful.",
+        "distress3": "I really don't want to go back tomorrow.",
+        "distress4": "Oh no... it's broken.",
+        "distress5": "I'm going to miss you so much.",
+        "relief1": "Oh thank god, I was dreading that all week.",
+        "relief2": "Phew, it's right here. I thought I lost it.",
+        "relief3": "That is a huge weight off my shoulders.",
+        "relief4": "Glad to finally be back on the ground.",
+        "relief5": "Oh good, they aren't mad at me after all."
+};
+
+    // ------------------------------------------------------------
+    // Stable participant-specific randomization
+    // ------------------------------------------------------------
+    function getParticipantKey() {
+        const params = new URLSearchParams(window.location.search);
+        const workerId = params.get("workerId");
+        const assignmentId = params.get("assignmentId");
+
+        if (workerId) return "worker:" + workerId;
+        if (assignmentId) return "assignment:" + assignmentId;
+
+        // Preview/local fallback only.
+        return "local:" + String(Math.random());
+    }
+
+    function hashStringToUint32(str) {
+        let h = 2166136261 >>> 0;
+        for (let i = 0; i < str.length; i++) {
+            h ^= str.charCodeAt(i);
+            h = Math.imul(h, 16777619);
+        }
+        return h >>> 0;
+    }
+
+    function mulberry32(seed) {
+        return function () {
+            let t = seed += 0x6D2B79F5;
+            t = Math.imul(t ^ (t >>> 15), t | 1);
+            t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+            return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+    }
+
+    function shuffleCopy(array, randomFn) {
+        const result = array.slice();
+        for (let i = result.length - 1; i > 0; i--) {
+            const j = Math.floor(randomFn() * (i + 1));
+            const tmp = result[i];
+            result[i] = result[j];
+            result[j] = tmp;
+        }
+        return result;
+    }
+
+    const participantKey = getParticipantKey();
+
+    // ============================================================
+    // MTurk CSV input: scenarioSet must be one of 1,2,3,4,5.
+    // The MTurk template placeholders in this file are scenarioSet and conditionVersion.
+    // ============================================================
+    const scenarioSetRaw = "${scenarioSet}";
+    const scenarioSetId = (scenarioSetRaw.indexOf("$" + "{") !== -1)
+        ? 1
+        : Number(scenarioSetRaw);
+
+    if (!Number.isInteger(scenarioSetId)
+        || scenarioSetId < 1
+        || scenarioSetId > 5) {
+        throw new Error(
+            "Invalid scenarioSet input. Expected an integer from 1 to 5, received: "
+            + String(scenarioSetRaw)
+        );
+    }
+
+    // ============================================================
+    // MTurk CSV input: conditionVersion must be A or B.
+    // A and B are exact complements, which guarantees balanced assignment
+    // when the two CSV rows for each scenario set receive equal assignments.
+    // ============================================================
+    const conditionVersionRaw = "${conditionVersion}";
+    const conditionVersion = (conditionVersionRaw.indexOf("$" + "{") !== -1)
+        ? "A"
+        : String(conditionVersionRaw).trim().toUpperCase();
+
+    if (conditionVersion !== "A" && conditionVersion !== "B") {
+        throw new Error(
+            "Invalid conditionVersion input. Expected A or B, received: "
+            + String(conditionVersionRaw)
+        );
+    }
+
+    // Participant-specific seed is used only to randomize trial order.
+    const participantSeed = hashStringToUint32(
+        participantKey
+        + "|scenarioSet:" + String(scenarioSetId)
+        + "|conditionVersion:" + conditionVersion
+    );
+    const rng = mulberry32(participantSeed);
+
+    // Version A and B are exact complements. Each HIT has 11 trials in
+    // each condition because there are 22 emotion trials.
+
+    function conditionForSlot(slotIndex, version) {
+        const versionACondition = (slotIndex % 2 === 0)
+            ? "expression"
+            : "noexpression";
+
+        if (version === "A") return versionACondition;
+        return (versionACondition === "expression")
+            ? "noexpression"
+            : "expression";
+    }
+
+    function buildTrials() {
+        const trials = [];
+
+        EMOTIONS.forEach(function (emotion, index) {
+            trials.push({
+                emotion: emotion,
+                scenarioId: scenarioSetId,
+                condition: conditionForSlot(index, conditionVersion)
+            });
+        });
+
+        return trials;
+    }
+
+    function videoUrlFor(trial) {
+        const base = VIDEO_BASE_URLS[trial.condition];
+        return base + trial.emotion + String(trial.scenarioId) + ".mp4";
+    }
+
+    function demographicSlide() {
+        return ''
+            + '<li id="carousel__slide0" tabindex="0" class="carousel__slide">'
+            + '<div class="carousel__snapper">'
+            + '<div class="outer-container">'
+            + '<div class="left-container">'
+            + '<h2>Facial Animation Naturalness Study</h2>'
+            + '<p>You will watch 22 short videos of a speaking animated character.</p>'
+            + '<div class="instruction-box">'
+            + '<p class="sound-warning">Sound must be ON for every video.</p>'
+            + '<p>Please use headphones or speakers and set the volume to a comfortable level. '
+            + 'For each trial, watch and listen to the entire video once. The rating questions will appear after the video finishes.</p>'
+            + '<label><input type="checkbox" id="sound_confirm" name="sound_confirm" value="yes" required> '
+            + 'I confirm that my sound is on and audible.</label>'
+            + '</div>'
+            + '<p>You can find the consent form at the following link:</p>'
+            + '<p><a href="https://www.cs.umb.edu/~fundad/occ/ConsentForm.pdf" target="_blank">Consent form</a></p>'
+            + '</div>'
+            + '<div class="vertical-separator"></div>'
+            + '<div class="right-container">'
+            + '<div class="demographic-block">'
+            + '<p><strong>1. What is your age?</strong></p>'
+            + '<input type="range" value="35" name="age" min="18" max="100" id="age" '
+            + 'oninput="this.nextElementSibling.value = this.value"> <output>35</output>'
+            + '</div>'
+            + '<div class="demographic-block options-grid">'
+            + '<p><strong>2. What is your gender?</strong></p>'
+            + '<input type="radio" id="Female" name="gender" value="Female" required><label for="Female">Female</label>'
+            + '<input type="radio" id="Male" name="gender" value="Male" required><label for="Male">Male</label>'
+            + '<input type="radio" id="Other" name="gender" value="Other" required><label for="Other">Other</label>'
+            + '<input type="radio" id="Prefer_not_to_say_gender" name="gender" value="Prefer not to say" required>'
+            + '<label for="Prefer_not_to_say_gender">Prefer not to say</label>'
+            + '</div>'
+            + '<div class="demographic-block options-grid">'
+            + '<p><strong>3. What is your race?</strong></p>'
+            + '<input type="radio" id="American_Indian_or_Alaska_Native" name="race" value="American Indian or Alaska Native" required>'
+            + '<label for="American_Indian_or_Alaska_Native">American Indian or Alaska Native</label><br>'
+            + '<input type="radio" id="Asian" name="race" value="Asian" required><label for="Asian">Asian</label><br>'
+            + '<input type="radio" id="Black_or_African_American" name="race" value="Black or African American" required>'
+            + '<label for="Black_or_African_American">Black or African American</label><br>'
+            + '<input type="radio" id="Native_Hawaiian_or_Other_Pacific_Islander" name="race" value="Native Hawaiian or Other Pacific Islander" required>'
+            + '<label for="Native_Hawaiian_or_Other_Pacific_Islander">Native Hawaiian or Other Pacific Islander</label><br>'
+            + '<input type="radio" id="White" name="race" value="White" required><label for="White">White</label><br>'
+            + '<input type="radio" id="Latin" name="race" value="Latin" required><label for="Latin">Latino/Latina/Latinx</label><br>'
+            + '<input type="radio" id="Prefer_not_to_say_race" name="race" value="Prefer not to say" required>'
+            + '<label for="Prefer_not_to_say_race">Prefer not to say</label>'
+            + '</div>'
+            + '</div>'
+            + '</div>'
+            + '<div class="navigation">'
+            + '<span></span>'
+            + '<a href="#carousel__slide1" class="nav-button">Start</a>'
+            + '</div>'
+            + '</div>'
+            + '</li>';
+    }
+
+    function ratingButtons(groupName, idPrefix, leftLabel, rightLabel, disabledInitially) {
+        let html = '<div class="rating-grid">';
+
+        for (let rating = 1; rating <= 7; rating++) {
+            const id = idPrefix + '_' + String(rating);
+            html += '<input type="radio" id="' + id + '" name="' + groupName + '" value="' + String(rating) + '" required';
+            if (disabledInitially) html += ' disabled';
+            html += '>';
+            html += '<label for="' + id + '">' + String(rating) + '</label>';
+        }
+
+        html += '</div>';
+        html += '<div class="scale-labels"><span>1 = ' + leftLabel + '</span><span>7 = ' + rightLabel + '</span></div>';
+        return html;
+    }
+
+    function trialSlide(slideId, trial, totalQuestionSlides, speechCheckOptions) {
+        const link = videoUrlFor(trial);
+        const trialKey = trial.emotion + String(trial.scenarioId) + '_' + trial.condition;
+
+        const naturalnessGroup = 'naturalness_' + trialKey;
+        const emotionMatchGroup = 'emotion_match_' + trialKey;
+        const coordinationGroup = 'coordination_' + trialKey;
+        const believabilityGroup = 'believability_' + trialKey;
+
+        let speechCheckHtml = '';
+
+        if (speechCheckOptions) {
+            const targetKey = speechKeyForTrial(trial);
+            const groupName = 'speech_check_' + targetKey;
+
+            speechCheckHtml += '<div class="rating-question">';
+            speechCheckHtml += '<h3>5. What did the character say in the video you just watched?</h3>';
+            speechCheckHtml += '<div class="speech-check-grid">';
+
+            speechCheckOptions.forEach(function (option, index) {
+                const id = 'speech_check_option_' + trialKey + '_' + String(index);
+
+                speechCheckHtml += ''
+                    + '<input type="radio" id="' + id + '" '
+                    + 'name="' + groupName + '" '
+                    + 'value="' + option.key + '" required disabled>'
+                    + '<label for="' + id + '">'
+                    + escapeHtml(option.text)
+                    + '</label>';
+            });
+
+            speechCheckHtml += '</div>';
+            speechCheckHtml += '</div>';
+        }
+
+        return ''
+            + '<li id="carousel__slide' + String(slideId) + '" tabindex="0" class="carousel__slide">'
+            + '<div class="carousel__snapper">'
+            + '<div class="outer-container">'
+            + '<div class="left-container">'
+            + '<video class="carousel-video" controls playsinline preload="metadata" '
+            + 'data-trial-key="' + trialKey + '">'
+            + '<source src="' + link + '" type="video/mp4">'
+            + 'Your browser does not support the video tag.'
+            + '</video>'
+            + '<div class="instruction-box">'
+            + '<p class="sound-warning">Please watch the complete video with sound before rating it.</p>'
+            + '<p class="watch-status" data-trial-key="' + trialKey + '">The rating questions will appear after the video has played once.</p>'
+            + '</div>'
+            + '</div>'
+            + '<div class="vertical-separator"></div>'
+            + '<div class="right-container">'
+            + '<p>Question ' + String(slideId) + ' of ' + String(totalQuestionSlides) + '</p>'
+            + '<div class="rating-panel" data-trial-key="' + trialKey + '">'
+
+            + '<div class="rating-question">'
+            + '<h3>1. How natural did the character\'s facial movements look while speaking?</h3>'
+            + ratingButtons(naturalnessGroup, 'naturalness_rating_' + trialKey,
+                'Very unnatural', 'Very natural', true)
+            + '</div>'
+
+            + '<div class="rating-question">'
+            + '<h3>2. How well did the character\'s facial behavior match the emotional content of the situation and speech?</h3>'
+            + ratingButtons(emotionMatchGroup, 'emotion_match_rating_' + trialKey,
+                'Not at all', 'Extremely well', true)
+            + '</div>'
+
+            + '<div class="rating-question">'
+            + '<h3>3. How well did the mouth movements and the rest of the character\'s facial behavior work together?</h3>'
+            + ratingButtons(coordinationGroup, 'coordination_rating_' + trialKey,
+                'Strongly conflicted', 'Very well coordinated', true)
+            + '</div>'
+
+            + '<div class="rating-question">'
+            + '<h3>4. Overall, how believable was the character\'s performance?</h3>'
+            + ratingButtons(believabilityGroup, 'believability_rating_' + trialKey,
+                'Not at all believable', 'Extremely believable', true)
+            + '</div>'
+
+            + speechCheckHtml
+
+            + '</div>'
+            + '</div>'
+            + '</div>'
+            + '<div class="navigation">'
+            + '<a href="#carousel__slide' + String(slideId - 1) + '" class="nav-button">Previous</a>'
+            + '<a href="#carousel__slide' + String(slideId + 1) + '" class="nav-button nav-next">Next</a>'
+            + '</div>'
+            + '<div class="slide-error" data-slide-id="' + String(slideId) + '"></div>'
+            + '</div>'
+            + '</li>';
+    }
+
+    function escapeHtml(value) {
+        const div = document.createElement("div");
+        div.textContent = String(value);
+        return div.innerHTML;
+    }
+
+    function speechKeyForTrial(trial) {
+        return trial.emotion + String(trial.scenarioId);
+    }
+
+    function wordCount(text) {
+        return String(text).trim().split(/\s+/).filter(Boolean).length;
+    }
+
+    function buildSpeechCheckOptions(targetTrial, allTrials) {
+        const targetKey = speechKeyForTrial(targetTrial);
+        const targetText = SPEECH_TEXTS[targetKey];
+
+        if (!targetText) {
+            throw new Error("Missing utterance for speech-check target: " + targetKey);
+        }
+
+        const targetLength = wordCount(targetText);
+
+        // Prefer distractors with roughly similar length so that the correct
+        // answer is not obvious from visual length alone.
+        const candidates = allTrials
+            .filter(function (trial) {
+                return speechKeyForTrial(trial) !== targetKey;
+            })
+            .map(function (trial) {
+                const key = speechKeyForTrial(trial);
+                const text = SPEECH_TEXTS[key];
+
+                if (!text) {
+                    throw new Error("Missing utterance for distractor: " + key);
+                }
+
+                return {
+                    key: key,
+                    text: text,
+                    lengthDifference: Math.abs(wordCount(text) - targetLength)
+                };
+            })
+            .sort(function (a, b) {
+                return a.lengthDifference - b.lengthDifference;
+            });
+
+        // Randomly choose two from the closest eight candidates.
+        const pool = candidates.slice(0, Math.min(8, candidates.length));
+        const distractors = shuffleCopy(pool, rng).slice(0, 2);
+
+        return shuffleCopy([
+            { key: targetKey, text: targetText },
+            { key: distractors[0].key, text: distractors[0].text },
+            { key: distractors[1].key, text: distractors[1].text }
+        ], rng);
+    }
+
+    function lastSlide(slideId) {
+        return ''
+            + '<li id="carousel__slide' + String(slideId) + '" tabindex="0" class="carousel__slide">'
+            + '<div class="carousel__snapper">'
+            + '<div class="outer-container">'
+            + '<div style="text-align:center">'
+            + '<h2>Thank you!</h2>'
+            + '<p>Please make sure you answered every question, then click the MTurk Submit HIT button.</p>'
+            + '</div>'
+            + '</div>'
+            + '<div class="navigation">'
+            + '<a href="#carousel__slide' + String(slideId - 1) + '" class="nav-button">Previous</a>'
+            + '<span></span>'
+            + '</div>'
+            + '</div>'
+            + '</li>';
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const trials = shuffleCopy(buildTrials(), rng);
+
+        if (trials.length !== 22) {
+            throw new Error("Expected 22 experimental trials, found " + String(trials.length));
+        }
+
+        const expressionCount = trials.filter(function (t) {
+            return t.condition === "expression";
+        }).length;
+
+        const noExpressionCount = trials.filter(function (t) {
+            return t.condition === "noexpression";
+        }).length;
+
+        if (expressionCount !== 11 || noExpressionCount !== 11) {
+            throw new Error(
+                "Condition balance error: expression=" + String(expressionCount)
+                + ", noexpression=" + String(noExpressionCount)
+            );
+        }
+
+        const crowdForm = document.querySelector("crowd-form");
+        [
+            ["naturalness_scenario_set", scenarioSetId],
+            ["naturalness_condition_version", conditionVersion]
+        ].forEach(function (pair) {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = pair[0];
+            input.value = String(pair[1]);
+            crowdForm.appendChild(input);
+        });
+
+        const totalQuestionSlides = 22;
+
+        // Exactly two distinct experimental trials per HIT receive an
+        // additional three-alternative speech-comprehension item at the end
+        // of their ordinary four rating questions.
+        const speechCheckTrialIndices = shuffleCopy(
+            trials.map(function (_, index) { return index; }),
+            rng
+        ).slice(0, 2).sort(function (a, b) { return a - b; });
+
+        const speechChecks = speechCheckTrialIndices.map(function (trialIndex, checkIndex) {
+            const trial = trials[trialIndex];
+            return {
+                checkNumber: checkIndex + 1,
+                trialIndex: trialIndex,
+                trial: trial,
+                targetKey: speechKeyForTrial(trial),
+                options: buildSpeechCheckOptions(trial, trials)
+            };
+        });
+
+        speechChecks.forEach(function (check) {
+            [
+                ["naturalness_speech_check_" + String(check.checkNumber) + "_target", check.targetKey],
+                ["naturalness_speech_check_" + String(check.checkNumber) + "_trial_index", check.trialIndex]
+            ].forEach(function (pair) {
+                const input = document.createElement("input");
+                input.type = "hidden";
+                input.name = pair[0];
+                input.value = String(pair[1]);
+                crowdForm.appendChild(input);
+            });
+        });
+
+        let slidesHTML = demographicSlide();
+        let slideId = 1;
+
+        trials.forEach(function (trial, index) {
+            const matchingCheck = speechChecks.find(function (check) {
+                return check.trialIndex === index;
+            });
+            const inlineSpeechOptions = matchingCheck
+                ? matchingCheck.options
+                : null;
+
+            slidesHTML += trialSlide(
+                slideId,
+                trial,
+                totalQuestionSlides,
+                inlineSpeechOptions
+            );
+            slideId += 1;
+        });
+
+        slidesHTML += lastSlide(slideId);
+        document.getElementById("carouselViewport").innerHTML = slidesHTML;
+
+        // ------------------------------------------------------------
+        // SOUND / WATCH LOGIC
+        // Sound-on autoplay is commonly blocked by browsers, so videos
+        // are intentionally click-to-play. Rating scales remain hidden and
+        // disabled until essentially the full video has actually been played.
+        // This prevents seeking directly to the end from unlocking the ratings.
+        // ------------------------------------------------------------
+        function totalPlayedSeconds(video) {
+            let total = 0;
+            for (let i = 0; i < video.played.length; i++) {
+                total += video.played.end(i) - video.played.start(i);
+            }
+            return total;
+        }
+
+        function unlockRatings(video) {
+            const trialKey = video.getAttribute("data-trial-key");
+            const panel = document.querySelector('.rating-panel[data-trial-key="' + trialKey + '"]');
+            const status = document.querySelector('.watch-status[data-trial-key="' + trialKey + '"]');
+
+            if (panel) {
+                panel.classList.add("available");
+                panel.setAttribute("data-completed", "true");
+                panel.querySelectorAll('input[type="radio"]').forEach(function (input) {
+                    input.disabled = false;
+                });
+            }
+
+            if (status) {
+                status.textContent = "Video completed. Please answer all four questions.";
+            }
+        }
+
+        document.querySelectorAll(".carousel-video").forEach(function (video) {
+            video.muted = false;
+
+            video.addEventListener("play", function () {
+                // The study requires audible speech. Keep the browser-level
+                // video audio enabled throughout playback.
+                video.muted = false;
+                if (video.volume === 0) video.volume = 1.0;
+            });
+
+            video.addEventListener("volumechange", function () {
+                if (video.muted) video.muted = false;
+                if (video.volume === 0) video.volume = 1.0;
+            });
+
+            video.addEventListener("ended", function () {
+                const trialKey = video.getAttribute("data-trial-key");
+                const status = document.querySelector('.watch-status[data-trial-key="' + trialKey + '"]');
+                const duration = video.duration;
+                const played = totalPlayedSeconds(video);
+                const playedFraction = (Number.isFinite(duration) && duration > 0)
+                    ? played / duration
+                    : 0;
+
+                // Allow a small tolerance for browser timing at the start/end.
+                if (playedFraction >= 0.95) {
+                    unlockRatings(video);
+                } else if (status) {
+                    status.textContent = "Please play the complete video before rating it. The ratings are still locked.";
+                }
+            });
+        });
+
+        // Pause videos when their slide is no longer visible so audio
+        // from two trials cannot overlap.
+        const carouselViewport = document.getElementById("carouselViewport");
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                const video = entry.target.querySelector(".carousel-video");
+                if (!video) return;
+
+                if (!entry.isIntersecting) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+        }, {
+            root: carouselViewport,
+            threshold: 0.8
+        });
+
+        document.querySelectorAll(".carousel__slide").forEach(function (slide) {
+            observer.observe(slide);
+        });
+
+
+        function setSlideError(slideEl, message) {
+            const box = slideEl.querySelector(".slide-error");
+            if (!box) return;
+
+            box.innerHTML = ''
+                + '<crowd-alert type="error" dismissible>'
+                + message
+                + '</crowd-alert>';
+            box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        function clearSlideError(slideEl) {
+            const box = slideEl.querySelector(".slide-error");
+            if (box) {
+                box.innerHTML = "";
+            }
+        }
+
+        function validateSlide(slideEl) {
+            clearSlideError(slideEl);
+
+            const video = slideEl.querySelector(".carousel-video");
+            const panel = slideEl.querySelector(".rating-panel");
+
+            if (video && panel && panel.getAttribute("data-completed") !== "true") {
+                setSlideError(
+                    slideEl,
+                    "Please watch the complete video with sound before continuing."
+                );
+                return false;
+            }
+
+            const requiredRadioGroups = new Set(
+                Array.from(slideEl.querySelectorAll('input[type="radio"][required]:not([disabled])'))
+                    .map(function (input) { return input.name; })
+            );
+
+            for (const groupName of requiredRadioGroups) {
+                if (!slideEl.querySelector('input[name="' + groupName + '"]:checked')) {
+                    setSlideError(
+                        slideEl,
+                        "Please select one option for every required question before continuing."
+                    );
+                    return false;
+                }
+            }
+
+            const requiredCheckboxes = Array.from(
+                slideEl.querySelectorAll('input[type="checkbox"][required]')
+            );
+
+            for (const checkbox of requiredCheckboxes) {
+                if (!checkbox.checked) {
+                    setSlideError(
+                        slideEl,
+                        "Please complete all required items before continuing."
+                    );
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        document.addEventListener("click", function (e) {
+            const nextButton = e.target.closest(".nav-next");
+            if (!nextButton) return;
+
+            const currentSlide = nextButton.closest(".carousel__slide");
+            if (!currentSlide) return;
+
+            if (!validateSlide(currentSlide)) {
+                e.preventDefault();
+            }
+        });
+
+        // ------------------------------------------------------------
+        // FORM VALIDATION
+        // ------------------------------------------------------------
+        crowdForm.onsubmit = function (e) {
+            const errorBox = document.getElementById("errorBox");
+            errorBox.innerHTML = "";
+
+            let allAnswered = true;
+
+            if (!document.getElementById("sound_confirm").checked) {
+                allAnswered = false;
+            }
+
+            if (!document.querySelector('input[name="gender"]:checked')
+                || !document.querySelector('input[name="race"]:checked')) {
+                allAnswered = false;
+            }
+
+            // Every rating group must have one selected value.
+            const requiredGroups = new Set(
+                Array.from(document.querySelectorAll('input[type="radio"][required]'))
+                    .map(function (input) { return input.name; })
+            );
+
+            requiredGroups.forEach(function (groupName) {
+                if (!document.querySelector('input[name="' + groupName + '"]:checked')) {
+                    allAnswered = false;
+                }
+            });
+
+            if (!allAnswered) {
+                e.preventDefault();
+                errorBox.innerHTML = ''
+                    + '<crowd-alert type="error" dismissible>'
+                    + 'Please watch every video completely with sound and answer all required questions before submitting.'
+                    + '</crowd-alert>';
+                errorBox.scrollIntoView({ behavior: "smooth" });
+                return;
+            }
+
+            let speechChecksPassed = 0;
+
+            speechChecks.forEach(function (check) {
+                const speechCheckGroup = "speech_check_" + check.targetKey;
+                const speechCheckAnswer = document.querySelector(
+                    'input[name="' + speechCheckGroup + '"]:checked'
+                );
+
+                const isCorrect = Boolean(
+                    speechCheckAnswer
+                    && speechCheckAnswer.value === check.targetKey
+                );
+
+                if (isCorrect) {
+                    speechChecksPassed += 1;
+                }
+
+                const speechCheckCorrect = document.createElement("input");
+                speechCheckCorrect.type = "hidden";
+                speechCheckCorrect.name =
+                    "naturalness_speech_check_" + String(check.checkNumber) + "_correct";
+                speechCheckCorrect.value = isCorrect ? "True" : "False";
+                crowdForm.appendChild(speechCheckCorrect);
+            });
+
+            const speechChecksPassedInput = document.createElement("input");
+            speechChecksPassedInput.type = "hidden";
+            speechChecksPassedInput.name = "naturalness_speech_checks_passed";
+            speechChecksPassedInput.value = String(speechChecksPassed);
+            crowdForm.appendChild(speechChecksPassedInput);
+        };
+
+        console.log("Naturalness study scenario set:", scenarioSetId);
+        console.log("Condition version:", conditionVersion);
+        console.log("Expression trials:", expressionCount);
+        console.log("No-expression trials:", noExpressionCount);
+        console.log("Speech-check targets:", speechChecks.map(function (check) { return check.targetKey; }));
+        console.table(trials);
+    });
+</script>
+
+</body>
+</html>

@@ -12,95 +12,107 @@
     "viseme": "AE"
   },
   {
-    "time": 0.3,
+    "time": 0.29,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 0.4,
+    "time": 0.32,
     "viseme": "IH"
   },
   {
-    "time": 0.5,
+    "time": 0.39,
     "viseme": "S_Z"
   },
   {
-    "time": 0.65,
+    "time": 0.48,
     "viseme": "TH"
   },
   {
-    "time": 0.72,
-    "viseme": "AH"
-  },
-  {
-    "time": 0.8,
-    "viseme": "AH"
-  },
-  {
-    "time": 0.9,
-    "viseme": "K_G_H_NG"
-  },
-  {
-    "time": 0.98,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 1.05,
+    "time": 0.52,
     "viseme": "EE"
   },
   {
-    "time": 1.18,
-    "viseme": "S_Z"
+    "time": 0.7,
+    "viseme": "sil"
   },
   {
-    "time": 1.25,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 1.4,
-    "viseme": "TH"
-  },
-  {
-    "time": 1.52,
-    "viseme": "IH"
-  },
-  {
-    "time": 1.6,
-    "viseme": "K_G_H_NG"
-  },
-  {
-    "time": 1.75,
+    "time": 0.84,
     "viseme": "AH"
   },
   {
-    "time": 1.9,
+    "time": 0.92,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 0.97,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 1.0,
+    "viseme": "EE"
+  },
+  {
+    "time": 1.12,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.16,
+    "viseme": "S_Z"
+  },
+  {
+    "time": 1.23,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 1.26,
+    "viseme": "TH"
+  },
+  {
+    "time": 1.29,
+    "viseme": "IH"
+  },
+  {
+    "time": 1.33,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 1.39,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.455,
+    "viseme": "IH"
+  },
+  {
+    "time": 1.49,
     "viseme": "F_V"
   },
   {
-    "time": 2.0,
+    "time": 1.55,
     "viseme": "AE"
   },
   {
-    "time": 2.15,
+    "time": 1.62,
     "viseme": "F_V"
   },
   {
-    "time": 2.22,
+    "time": 1.67,
     "viseme": "R"
   },
   {
-    "time": 2.4,
+    "time": 1.75,
     "viseme": "S_Z"
   },
   {
-    "time": 2.55,
+    "time": 1.88,
     "viseme": "EE"
   },
   {
-    "time": 2.75,
+    "time": 2.11,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 2.9,
+    "time": 2.25,
     "viseme": "sil"
   }
 ]

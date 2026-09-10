@@ -80,7 +80,11 @@ public class BatchRecorderSpeechEditor : Editor {
 
         string fileName = recorderComponent.Scenario.name;  
 
-        recorderComponent.SetCurrentlyProcessingFile();
+        if (!recorderComponent.PrepareScenario()) {
+            currentBatchCoroutine = null;
+            EditorUtility.ClearProgressBar();
+            yield break;
+        }
     
         EditorUtility.SetDirty(recorderComponent);     // Mark the component as dirty to ensure the UI updates
 
@@ -98,7 +102,14 @@ public class BatchRecorderSpeechEditor : Editor {
 
         Debug.Log($"Starting recording for '{fileName}'. Duration: {durationInSeconds:F2} seconds.");
         recorderController.PrepareRecording();
-        recorderController.StartRecording();
+        if (!recorderController.StartRecording()) {
+            recorderController.StopRecording();
+            currentBatchCoroutine = null;
+            EditorUtility.ClearProgressBar();
+            Debug.LogError($"Could not start recording '{fileName}'.");
+            yield break;
+        }
+        recorderComponent.GetComponent<OCCController>().PlayResponse();
         
         GameObject playAuObj = GameObject.Find("PlayAU");
         if (playAuObj != null) playAuObj.SetActive(false);
@@ -120,7 +131,8 @@ public class BatchRecorderSpeechEditor : Editor {
 
         if (playAuObj != null) playAuObj.SetActive(true);
      
-        EditorUtility.ClearProgressBar();        
+        EditorUtility.ClearProgressBar();
+        currentBatchCoroutine = null;
     }
 
     private IEnumerator RunBatchProcess(BatchRecorderSpeech recorderComponent) {
@@ -134,7 +146,8 @@ public class BatchRecorderSpeechEditor : Editor {
         // --- MODIFIED FILE SEARCH LOGIC ---
         // Find all files in the folder and filter them to only include files with the ".json" extension, ignoring case.
         string[] filePaths = Directory.GetFiles(folderPath)
-                                     .Where(path => path.EndsWith(".json", StringComparison.OrdinalIgnoreCase)).ToArray();
+                                     .Where(path => path.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+                                     .OrderBy(path => path, StringComparer.OrdinalIgnoreCase).ToArray();
 
         if(filePaths.Length == 0) {
             Debug.LogWarning($"No '.json' files found in folder: {folderPath}. Make sure your scenario files are in the selected folder and have the correct extension.");
@@ -157,7 +170,11 @@ public class BatchRecorderSpeechEditor : Editor {
 
             recorderComponent.Scenario = AssetDatabase.LoadAssetAtPath<TextAsset>(filePath);
             
-            recorderComponent.SetCurrentlyProcessingFile();
+            if (!recorderComponent.PrepareScenario()) {
+                currentBatchCoroutine = null;
+                EditorUtility.ClearProgressBar();
+                yield break;
+            }
             
             EditorUtility.SetDirty(recorderComponent); // Mark the component as dirty to ensure the UI updates
             
@@ -175,7 +192,14 @@ public class BatchRecorderSpeechEditor : Editor {
 
             Debug.Log($"Starting recording for '{fileName}'. Duration: {durationInSeconds:F2} seconds.");
             recorderController.PrepareRecording();
-            recorderController.StartRecording();
+            if (!recorderController.StartRecording()) {
+                recorderController.StopRecording();
+                currentBatchCoroutine = null;
+                EditorUtility.ClearProgressBar();
+                Debug.LogError($"Could not start recording '{fileName}'.");
+                yield break;
+            }
+            recorderComponent.GetComponent<OCCController>().PlayResponse();
 
             // --- 4. Wait for Recording to Finish ---
             // We just need to wait for the specified duration. The procedural animation should
@@ -200,10 +224,7 @@ public class BatchRecorderSpeechEditor : Editor {
         EditorUtility.ClearProgressBar();
         Debug.Log("Batch recording process finished successfully!");
         
-        // It is recommended to check if you actually want to call this again at the end, 
-        // as the Scenario will still be the last file in the array.
-        recorderComponent.SetCurrentlyProcessingFile();
-        EditorUtility.SetDirty(recorderComponent);
+        currentBatchCoroutine = null;
     }
 
     /// <summary>

@@ -33,7 +33,7 @@ public class ShapeKey {
 public class FACS : MonoBehaviour
 {
     public static Dictionary<int, string> VisemeDict = new Dictionary<int, string> {
-    {-1, "sil"},
+    {-1, "SIL"},
     {0, "EE"},
     {1, "ER"},
     {2, "IH"},
@@ -116,6 +116,12 @@ public class FACS : MonoBehaviour
 
     private Quaternion _jawRotInit;
     private Quaternion _jawRot; //We need this because animation overwrites the updates
+    private float _jawAU26Weight;
+    private float _jawAU27Weight;
+
+    [Header("Jaw blending")]
+    [Min(0f)] public float MaxJawAngle = 9f;
+    [Min(0f)] public float SpeechJawAngle = 7f;
     private Quaternion _headRotInit;
     private Quaternion _headRot; 
     private Quaternion _neckRotInit;
@@ -133,7 +139,7 @@ public class FACS : MonoBehaviour
     [SerializeField]
     private float _startTimeAU;
     
-
+    public bool SuppressionOff = false;
 
     public List<ActionUnit> AUList;
     
@@ -174,9 +180,9 @@ public class FACS : MonoBehaviour
 
     //RHUBARB
     [Header("Visemes")]
-    public TextAsset visemeJsonFile; // If using JSON
+    public TextAsset visemeJsonFile; // Preferred source for prerecorded visemes
     [TextArea(5, 10)]
-    public string rawVisemeData;    // If pasting the text list directly
+    public string rawVisemeData;    // Fallback when no JSON file is assigned
 
 
     // private struct VisemeFrame
@@ -222,8 +228,7 @@ public class FACS : MonoBehaviour
         _audioSource = gameObject.GetComponent<AudioSource>();
 
 
-        //ParseVisemeText();
-        _visemeFrames = Parsers.ParseVisemes(rawVisemeData);
+        SetVisemeData(visemeJsonFile != null ? visemeJsonFile.text : rawVisemeData);
         
         
     }
@@ -452,6 +457,7 @@ public class FACS : MonoBehaviour
 
         if(ind == _shapeKeyDict["Jaw_Open".ToUpper()] || ind == _shapeKeyDict["IH"]) { 
             _jawRot = _jawRotInit;
+            _jawAU26Weight = _jawAU27Weight = 0f;
         }
         else if(ind >= _shapeKeyDict["Head_Forward".ToUpper()] && ind <= _shapeKeyDict["Head_Backward".ToUpper()]) {            
             _neckRot = _neckRotInit;
@@ -483,6 +489,8 @@ public class FACS : MonoBehaviour
     
 float GetSuppression(int auInd, string visemeName)
     {
+        if(SuppressionOff)
+            return 0f;
         visemeName = visemeName.ToUpper();
         if(visemeName.Equals("SIL"))
             return 0f; 
@@ -594,6 +602,9 @@ float GetSuppression(int auInd, string visemeName)
     
         foreach (ActionUnit au in AUList)
         {
+            // Jaw AUs are suppressed once, using current speech weights in LateUpdate.
+            if (au.AU == 26 || au.AU == 27)
+                continue;
     
         
                 
@@ -704,16 +715,7 @@ float GetSuppression(int auInd, string visemeName)
 
                 if (sk.Ind == _shapeKeyDict["Jaw_Open".ToUpper()])
                 {
-
-                    Quaternion startJaw = _jawRotInit;
-                    Quaternion targetJaw = _jawRotInit * Quaternion.Euler(0, 0, -ShapeKeyTargets[sk.Ind] * 0.1f);
-
-
-                    
-                    if (ActiveVisemeName.Equals("FV") || ActiveVisemeName.Equals("B_M_P") || ActiveVisemeName.Equals("CH_J") || ActiveVisemeName.Equals("S_Z"))
-                        targetJaw = _jawRotInit; // no update
-                    
-                    _jawRot = Quaternion.Slerp(startJaw, targetJaw, blendW);
+                    SetEmotionJawWeight(au.AU, blendW);
                 }
 
                 else if (sk.Ind == _shapeKeyDict["Head_Tilt_R".ToUpper()])
@@ -825,25 +827,39 @@ float GetSuppression(int auInd, string visemeName)
         float finalPct = au.Intensities[i2] / 100f;
         foreach(ShapeKey sk in AUShapeKeys[au.AU]) {
             _meshRendererBody.SetBlendShapeWeight(sk.Ind, sk.MaxValue * finalPct);
+            if (sk.Ind == _shapeKeyDict["JAW_OPEN"])
+                SetEmotionJawWeight(au.AU, sk.MaxValue * finalPct);
         }
 
   
     }
 
 
-    void GetCurrentNormalizedVisemeWeights()
-    {
-            for(int i = 0; i < _visemeWeight.Length; i++){ //this also includes sil
-                _visemeWeight[i]  = _meshRendererBody.GetBlendShapeWeight(i) / 100f;                
-            }
-        
+    void SetEmotionJawWeight(int au, float weight) {
+        if (au == 26) _jawAU26Weight = Mathf.Max(0f, weight);
+        if (au == 27) _jawAU27Weight = Mathf.Max(0f, weight);
     }
 
+    float GetJawSuppression() {
+        if (SuppressionOff || !IsSpeechEnabled)
+            return 0f;
+
+        float suppression = 0f;
+        foreach (var viseme in VisemeDict) {
+            if (viseme.Key < 0) continue;
+            float factor = GetSuppression(26, viseme.Value);
+            // Preserve the closed-jaw constraints, including the correct F_V label.
+            if (viseme.Value == "B_M_P" || viseme.Value == "F_V" ||
+                viseme.Value == "CH_J" || viseme.Value == "S_Z")
+                factor = 1f;
+            suppression += _visemeWeight[viseme.Key] * factor;
+        }
+        return Mathf.Clamp01(suppression);
+    }
 
     public void LateUpdate()
     {
         //Jaw and head must be updated here
-        Jaw.localRotation = _jawRot;
         Head.localRotation = _headRot;
         Neck.localRotation = _neckRot;
         Eyes[0].localRotation = _eyesRot[0];
@@ -858,7 +874,7 @@ float GetSuppression(int auInd, string visemeName)
         int eeInd = VisemeDict.FirstOrDefault(x => x.Value == "EE").Key;
         int kghngInd = VisemeDict.FirstOrDefault(x => x.Value == "K_G_H_NG").Key;
         int rInd = VisemeDict.FirstOrDefault(x => x.Value == "R").Key;  
-        GetCurrentNormalizedVisemeWeights();
+        // Use speech weights directly so emotion blendshapes cannot feed back into speech.
         
         //TODO
         // Jaw positions
@@ -868,15 +884,15 @@ float GetSuppression(int auInd, string visemeName)
            _visemeWeight[kghngInd] * 0.2f, _visemeWeight[rInd] * 0.2f);
 
 
-        if (jawOpen > 0.05)
-        { //it means visemes are working, so they take over other blendshapes
-            // Get jaw rotation from the blendshape weight
-            float jawAngleInc = Mathf.Lerp(0, 7, jawOpen);
+        // AU26 and AU27 share Jaw_Open; use the stronger request, independent of coroutine order.
+        float emotionWeight = AUsOn ? Mathf.Max(_jawAU26Weight, _jawAU27Weight) : 0f;
+        emotionWeight *= 1f - GetJawSuppression();
+        float speechAngle = IsSpeechEnabled ? Mathf.Clamp01(jawOpen) * SpeechJawAngle : 0f;
+        float finalAngle = Mathf.Clamp(speechAngle + emotionWeight * 0.1f, 0f, MaxJawAngle);
 
-            _jawRot = _jawRotInit * Quaternion.Euler(0, 0, -jawAngleInc);
-        }
-
-  
+        _meshRendererBody.SetBlendShapeWeight(_shapeKeyDict["JAW_OPEN"], emotionWeight);
+        _jawRot = _jawRotInit * Quaternion.Euler(0f, 0f, -finalAngle);
+        Jaw.localRotation = _jawRot;
 
     }
 
@@ -1021,6 +1037,8 @@ private IEnumerator GenerateAndPlaySpeech(string text)
     }
     
     public void ResetShapeKeys() {
+        Array.Clear(_visemeWeight, 0, _visemeWeight.Length);
+        _jawAU26Weight = _jawAU27Weight = 0f;
         for(int i = 0; i < ShapeKeyCntBody + ShapeKeyCntTongue; i++) { 
             ResetShapeKey(i);
             
@@ -1048,6 +1066,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
             Parsers.WriteAUs(Path.Combine(Application.dataPath,"Resources/Speech-Gradual/" + EmotionName), AUList);
             _audioSource.Play();
             StartCoroutine(PlayVisemeSequence()); // Starts in the same frame as animating AUs
+                    Debug.Log(SuppressionOff);
             
         }
         
@@ -1102,7 +1121,7 @@ private IEnumerator GenerateAndPlaySpeech(string text)
             Parsers.ParseVisemes(rawVisemeData);
 
         
-        int frameIndex = 0;
+        int frameIndex = -1;
         while (_audioSource.isPlaying) {
             float currentTime = _audioSource.time;
             
@@ -1111,8 +1130,15 @@ private IEnumerator GenerateAndPlaySpeech(string text)
                 frameIndex++;
             }
 
-            ActiveVisemeName = _visemeFrames[frameIndex].viseme.ToUpper();
-            int activeVisemeInd = VisemeDict.FirstOrDefault(x => x.Value == ActiveVisemeName).Key;
+            ActiveVisemeName = frameIndex < 0
+                ? "SIL"
+                : _visemeFrames[frameIndex].viseme?.Trim().ToUpperInvariant() ?? "SIL";
+            // Silence and unrecognized labels leave every speech blendshape at zero.
+            int activeVisemeInd = VisemeDict
+                .Where(x => x.Value == ActiveVisemeName)
+                .Select(x => x.Key)
+                .DefaultIfEmpty(-1)
+                .First();
 
                         // Smoothly transition ALL viseme weights
             for (int i = 0; i < _visemeWeight.Length; i++) {

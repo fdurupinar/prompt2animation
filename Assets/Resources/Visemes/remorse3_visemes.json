@@ -4,123 +4,135 @@
     "viseme": "sil"
   },
   {
-    "time": 0.15,
+    "time": 0.02,
     "viseme": "AH"
   },
   {
-    "time": 0.35,
+    "time": 0.046,
+    "viseme": "IH"
+  },
+  {
+    "time": 0.06,
     "viseme": "K_G_H_NG"
   },
   {
-    "time": 0.44,
+    "time": 0.23,
     "viseme": "AE"
   },
   {
-    "time": 0.61,
+    "time": 0.33,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 0.74,
+    "time": 0.39,
     "viseme": "B_M_P"
   },
   {
-    "time": 0.84,
+    "time": 0.42,
     "viseme": "IH"
   },
   {
-    "time": 0.92,
+    "time": 0.45,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 1.02,
+    "time": 0.53,
     "viseme": "EE"
   },
   {
-    "time": 1.17,
+    "time": 0.65,
     "viseme": "F_V"
   },
   {
-    "time": 1.33,
+    "time": 0.71,
     "viseme": "AH"
   },
   {
-    "time": 1.47,
-    "viseme": "B_M_P"
-  },
-  {
-    "time": 1.56,
+    "time": 0.762,
     "viseme": "IH"
   },
   {
-    "time": 1.65,
+    "time": 0.79,
+    "viseme": "B_M_P"
+  },
+  {
+    "time": 0.89,
+    "viseme": "IH"
+  },
+  {
+    "time": 0.96,
     "viseme": "S_Z"
   },
   {
-    "time": 1.76,
+    "time": 1.04,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 1.85,
+    "time": 1.08,
     "viseme": "TH"
   },
   {
-    "time": 2.02,
+    "time": 1.14,
     "viseme": "AE"
   },
   {
-    "time": 2.17,
+    "time": 1.35,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 2.33,
+    "time": 1.39,
     "viseme": "sil"
   },
   {
-    "time": 2.47,
+    "time": 1.53,
     "viseme": "AH"
   },
   {
-    "time": 2.62,
+    "time": 1.582,
+    "viseme": "IH"
+  },
+  {
+    "time": 1.61,
     "viseme": "R"
   },
   {
-    "time": 2.75,
-    "viseme": "EE"
+    "time": 1.75,
+    "viseme": "IH"
   },
   {
-    "time": 2.86,
+    "time": 1.8,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 2.97,
+    "time": 1.86,
     "viseme": "EE"
   },
   {
-    "time": 3.13,
+    "time": 1.93,
     "viseme": "B_M_P"
   },
   {
-    "time": 3.26,
+    "time": 2.01,
     "viseme": "AE"
   },
   {
-    "time": 3.39,
+    "time": 2.09,
     "viseme": "S_Z"
   },
   {
-    "time": 3.52,
+    "time": 2.21,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 3.64,
+    "time": 2.25,
     "viseme": "AH"
   },
   {
-    "time": 3.77,
+    "time": 2.37,
     "viseme": "B_M_P"
   },
   {
-    "time": 3.92,
+    "time": 2.5,
     "viseme": "sil"
   }
 ]

@@ -4,27 +4,27 @@
     "viseme": "sil"
   },
   {
-    "time": 0.500,
+    "time": 0.07,
     "viseme": "K_G_H_NG"
   },
   {
-    "time": 0.900,
+    "time": 0.1,
     "viseme": "AH"
   },
   {
-    "time": 1.400,
+    "time": 0.16,
     "viseme": "R"
   },
   {
-    "time": 1.900,
+    "time": 0.23,
     "viseme": "B_M_P"
   },
   {
-    "time": 2.300,
+    "time": 0.3,
     "viseme": "AH"
   },
   {
-    "time": 3.0,
+    "time": 0.44,
     "viseme": "sil"
   }
 ]

@@ -30,12 +30,12 @@
       ],
       "Intensities": [
         0.0,
-        50.0,
+        15.000001,
         90.0
       ],
       "InitialIntensities": [
         0.0,
-        100.0,
+        50.0,
         90.0
       ],
       "currInd": 0,
@@ -50,12 +50,12 @@
       ],
       "Intensities": [
         0.0,
-        80.0,
+        0.0,
         70.0
       ],
       "InitialIntensities": [
         0.0,
-        80.0,
+        0.0,
         70.0
       ],
       "currInd": 0,

@@ -4,91 +4,111 @@
     "viseme": "sil"
   },
   {
-    "time": 0.21,
+    "time": 0.11,
     "viseme": "EE"
   },
   {
-    "time": 0.42,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 0.58,
-    "viseme": "EE"
-  },
-  {
-    "time": 0.77,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 0.88,
-    "viseme": "IH"
-  },
-  {
-    "time": 0.95,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 1.13,
-    "viseme": "sil"
-  },
-  {
-    "time": 1.71,
-    "viseme": "AE"
-  },
-  {
-    "time": 1.89,
-    "viseme": "B_M_P"
-  },
-  {
-    "time": 1.98,
-    "viseme": "S_Z"
-  },
-  {
-    "time": 2.16,
+    "time": 0.24,
     "viseme": "W_OO"
   },
   {
-    "time": 2.39,
+    "time": 0.3,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 2.66,
-    "viseme": "EE"
+    "time": 0.4,
+    "viseme": "AE"
   },
   {
-    "time": 2.88,
-    "viseme": "sil"
-  },
-  {
-    "time": 3.11,
-    "viseme": "B_M_P"
-  },
-  {
-    "time": 3.2,
-    "viseme": "R"
-  },
-  {
-    "time": 3.29,
+    "time": 0.485,
     "viseme": "IH"
   },
   {
-    "time": 3.42,
+    "time": 0.53,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 3.65,
+    "time": 0.69,
+    "viseme": "IH"
+  },
+  {
+    "time": 0.81,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 0.97,
+    "viseme": "AE"
+  },
+  {
+    "time": 1.16,
+    "viseme": "B_M_P"
+  },
+  {
+    "time": 1.23,
+    "viseme": "S_Z"
+  },
+  {
+    "time": 1.32,
     "viseme": "AH"
   },
   {
-    "time": 3.83,
+    "time": 1.36,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 4.01,
+    "time": 1.47,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 1.57,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 4.5,
+    "time": 1.63,
+    "viseme": "EE"
+  },
+  {
+    "time": 1.71,
+    "viseme": "B_M_P"
+  },
+  {
+    "time": 1.77,
+    "viseme": "R"
+  },
+  {
+    "time": 1.81,
+    "viseme": "IH"
+  },
+  {
+    "time": 1.84,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 1.88,
+    "viseme": "EE"
+  },
+  {
+    "time": 1.99,
+    "viseme": "AH"
+  },
+  {
+    "time": 2.02,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 2.1,
+    "viseme": "CH_J"
+  },
+  {
+    "time": 2.18,
+    "viseme": "AH"
+  },
+  {
+    "time": 2.4,
+    "viseme": "B_M_P"
+  },
+  {
+    "time": 2.49,
     "viseme": "sil"
   }
 ]

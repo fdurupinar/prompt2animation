@@ -4,111 +4,123 @@
     "viseme": "sil"
   },
   {
-    "time": 0.167,
+    "time": 0.02,
     "viseme": "TH"
   },
   {
-    "time": 0.3,
+    "time": 0.03,
     "viseme": "IH"
   },
   {
-    "time": 0.417,
+    "time": 0.07,
     "viseme": "S_Z"
   },
   {
-    "time": 0.583,
+    "time": 0.18,
+    "viseme": "IH"
+  },
+  {
+    "time": 0.22,
+    "viseme": "S_Z"
+  },
+  {
+    "time": 0.39,
     "viseme": "OH"
   },
   {
-    "time": 1.0,
+    "time": 0.52,
     "viseme": "S_Z"
   },
   {
-    "time": 1.167,
+    "time": 0.67,
     "viseme": "AH"
   },
   {
-    "time": 1.417,
+    "time": 0.88,
     "viseme": "F_V"
   },
   {
-    "time": 1.584,
+    "time": 1.0,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 1.75,
+    "time": 1.11,
     "viseme": "sil"
   },
   {
-    "time": 2.0,
+    "time": 1.25,
     "viseme": "AH"
   },
   {
-    "time": 2.167,
-    "viseme": "EE"
-  },
-  {
-    "time": 2.334,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 2.467,
-    "viseme": "AE"
-  },
-  {
-    "time": 2.634,
-    "viseme": "F_V"
-  },
-  {
-    "time": 2.751,
-    "viseme": "R"
-  },
-  {
-    "time": 2.917,
-    "viseme": "W_OO"
-  },
-  {
-    "time": 3.051,
-    "viseme": "AH"
-  },
-  {
-    "time": 3.201,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 3.417,
-    "viseme": "W_OO"
-  },
-  {
-    "time": 3.534,
-    "viseme": "T_L_D_N"
-  },
-  {
-    "time": 3.667,
-    "viseme": "AE"
-  },
-  {
-    "time": 3.834,
-    "viseme": "K_G_H_NG"
-  },
-  {
-    "time": 3.917,
+    "time": 1.302,
     "viseme": "IH"
   },
   {
-    "time": 4.034,
+    "time": 1.33,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 4.168,
-    "viseme": "AH"
+    "time": 1.44,
+    "viseme": "AE"
   },
   {
-    "time": 4.334,
+    "time": 1.5,
     "viseme": "F_V"
   },
   {
-    "time": 4.5,
+    "time": 1.56,
+    "viseme": "R"
+  },
+  {
+    "time": 1.64,
+    "viseme": "W_OO"
+  },
+  {
+    "time": 1.71,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.74,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 1.84,
+    "viseme": "AH"
+  },
+  {
+    "time": 1.88,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 1.98,
+    "viseme": "AE"
+  },
+  {
+    "time": 2.032,
+    "viseme": "IH"
+  },
+  {
+    "time": 2.06,
+    "viseme": "K_G_H_NG"
+  },
+  {
+    "time": 2.12,
+    "viseme": "IH"
+  },
+  {
+    "time": 2.16,
+    "viseme": "T_L_D_N"
+  },
+  {
+    "time": 2.2,
+    "viseme": "OH"
+  },
+  {
+    "time": 2.39,
+    "viseme": "F_V"
+  },
+  {
+    "time": 2.56,
     "viseme": "sil"
   }
 ]

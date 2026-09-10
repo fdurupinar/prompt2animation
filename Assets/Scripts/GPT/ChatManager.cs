@@ -188,8 +188,8 @@ public class ChatManager : MonoBehaviour
     }
 
     private IEnumerator SynthesizeAndExtractVisemes(string animationJson) {
-        // 1. Parse utterance and duration from the animation JSON
-        var (_, utterance, duration) = Parsers.ParseJson(animationJson);
+        // 1. Parse the utterance from the animation JSON
+        var (_, utterance, _) = Parsers.ParseJson(animationJson);
         if (string.IsNullOrEmpty(utterance)) yield break;
 
         ShowProgress("Synthesizing speech...");
@@ -214,14 +214,33 @@ public class ChatManager : MonoBehaviour
             yield break;
         }
 
+        // Load the same audio used for playback before requesting its timestamps.
+        using UnityWebRequest audioRequest = UnityWebRequestMultimedia.GetAudioClip(
+            "file://" + wavPath, AudioType.WAV);
+        yield return audioRequest.SendWebRequest();
+
+        if (audioRequest.result != UnityWebRequest.Result.Success) {
+            Debug.LogError("Failed to load synthesized WAV: " + audioRequest.error);
+            yield break;
+        }
+
+        AudioClip clip = DownloadHandlerAudioClip.GetContent(audioRequest);
+        if (clip == null) {
+            Debug.LogError("Synthesized WAV did not produce an audio clip.");
+            yield break;
+        }
+
         // 3. Base64-encode the WAV
         string base64Audio = Convert.ToBase64String(File.ReadAllBytes(wavPath));
 
         ShowProgress("Extracting visemes...");
 
         // 5. Build multimodal Gemini request
-        string durationInstruction = $"The total animation duration is {duration:F3} seconds. " +
-            $"Scale all viseme timestamps so the sequence spans exactly {duration:F3} seconds.";
+        string audioDuration = clip.length.ToString("F3", System.Globalization.CultureInfo.InvariantCulture);
+        string durationInstruction = $"The supplied audio is {audioDuration} seconds long. " +
+            "Return viseme onset timestamps in seconds from the start of this audio, matching the sounds as heard. " +
+            "Do not stretch or rescale timestamps to an animation duration. Preserve pauses as sil cues, " +
+            "order timestamps chronologically, and keep them within the audio duration.";
 
         var payload = new GeminiPayload {
             contents = new List<Content> {
@@ -277,17 +296,7 @@ public class ChatManager : MonoBehaviour
         if (OCCController.Instance != null)
             OCCController.Instance.SetVisemeData(visemeText);
 
-        // 10. Load out.wav and set as the speech clip on all agents
-        using UnityWebRequest audioRequest = UnityWebRequestMultimedia.GetAudioClip(
-            "file://" + wavPath, AudioType.WAV);
-        yield return audioRequest.SendWebRequest();
-
-        if (audioRequest.result != UnityWebRequest.Result.Success) {
-            Debug.LogError("Failed to load synthesized WAV: " + audioRequest.error);
-            yield break;
-        }
-
-        AudioClip clip = DownloadHandlerAudioClip.GetContent(audioRequest);
+        // 10. Use the audio clip whose timing was supplied to Gemini.
         if (OCCController.Instance != null)
             OCCController.Instance.SetSpeechClip(clip);
 

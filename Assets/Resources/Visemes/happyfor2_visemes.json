@@ -4,51 +4,51 @@
     "viseme": "sil"
   },
   {
-    "time": 0.233,
+    "time": 0.07,
     "viseme": "EE"
   },
   {
-    "time": 0.419,
+    "time": 0.1,
     "viseme": "AE"
   },
   {
-    "time": 0.699,
+    "time": 0.29,
     "viseme": "S_Z"
   },
   {
-    "time": 1.165,
+    "time": 0.55,
     "viseme": "sil"
   },
   {
-    "time": 1.398,
+    "time": 1.04,
     "viseme": "EE"
   },
   {
-    "time": 1.631,
+    "time": 1.14,
     "viseme": "W_OO"
   },
   {
-    "time": 1.981,
+    "time": 1.18,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 2.167,
+    "time": 1.27,
     "viseme": "IH"
   },
   {
-    "time": 2.33,
+    "time": 1.37,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 2.447,
+    "time": 1.4,
     "viseme": "IH"
   },
   {
-    "time": 2.61,
+    "time": 1.56,
     "viseme": "T_L_D_N"
   },
   {
-    "time": 2.796,
+    "time": 1.59,
     "viseme": "sil"
   }
 ]
