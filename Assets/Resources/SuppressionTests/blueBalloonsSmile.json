@@ -1,0 +1,29 @@
+{
+  "duration": 3.872018,
+  "emotion": "Amusement",
+  "utterance": "Keep a straight face. Blue balloons. Purple bubbles.",
+  "facial_actions": [
+    {
+      "AU": 6,
+      "Times": [
+        0.0,
+        3.872018
+      ],
+      "Intensities": [
+        45,
+        45
+      ]
+    },
+    {
+      "AU": 12,
+      "Times": [
+        0.0,
+        3.872018
+      ],
+      "Intensities": [
+        90,
+        90
+      ]
+    }
+  ]
+}

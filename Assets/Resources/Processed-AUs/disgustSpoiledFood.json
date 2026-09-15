@@ -1,0 +1,40 @@
+{
+  "utterance": null,
+  "facial_actions": [
+    {
+      "AU": 9,
+      "Times": [
+        0.0,
+        2.96
+      ],
+      "Intensities": [
+        65.0,
+        65.0
+      ],
+      "InitialIntensities": [
+        65.0,
+        65.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    },
+    {
+      "AU": 10,
+      "Times": [
+        0.0,
+        2.96
+      ],
+      "Intensities": [
+        60.0,
+        60.0
+      ],
+      "InitialIntensities": [
+        60.0,
+        60.0
+      ],
+      "currInd": 0,
+      "Semantics": null
+    }
+  ],
+  "duration": 0.0
+}

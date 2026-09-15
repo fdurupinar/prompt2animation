@@ -1,0 +1,29 @@
+{
+  "duration": 2.96,
+  "emotion": "Disgust",
+  "utterance": "Ew! Move that moldy food away from me, please.",
+  "facial_actions": [
+    {
+      "AU": 9,
+      "Times": [
+        0.0,
+        2.96
+      ],
+      "Intensities": [
+        65,
+        65
+      ]
+    },
+    {
+      "AU": 10,
+      "Times": [
+        0.0,
+        2.96
+      ],
+      "Intensities": [
+        60,
+        60
+      ]
+    }
+  ]
+}

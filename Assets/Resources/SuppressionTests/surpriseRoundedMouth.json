@@ -1,0 +1,61 @@
+{
+  "duration": 1.932766,
+  "utterance": "You picked me? That's amazing!",
+  "facial_actions": [
+    {
+      "AU": 1,
+      "Times": [
+        0.0,
+        1.932766
+      ],
+      "Intensities": [
+        50,
+        50
+      ]
+    },
+    {
+      "AU": 2,
+      "Times": [
+        0.0,
+        1.932766
+      ],
+      "Intensities": [
+        50,
+        50
+      ]
+    },
+    {
+      "AU": 5,
+      "Times": [
+        0.0,
+        1.932766
+      ],
+      "Intensities": [
+        40,
+        40
+      ]
+    },
+    {
+      "AU": 22,
+      "Times": [
+        0.0,
+        1.932766
+      ],
+      "Intensities": [
+        60,
+        60
+      ]
+    },
+    {
+      "AU": 26,
+      "Times": [
+        0.0,
+        1.932766
+      ],
+      "Intensities": [
+        50,
+        50
+      ]
+    }
+  ]
+}

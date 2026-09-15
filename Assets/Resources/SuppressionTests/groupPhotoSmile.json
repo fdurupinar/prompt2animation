@@ -1,0 +1,17 @@
+{
+  "duration": 1.712018,
+  "utterance": "Move a little closer—perfect!",
+  "facial_actions": [
+    {
+      "AU": 12,
+      "Times": [
+        0.0,
+        1.712018
+      ],
+      "Intensities": [
+        100,
+        100
+      ]
+    }
+  ]
+}

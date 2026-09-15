@@ -1,0 +1,42 @@
+{
+  "duration": 6.0,
+  "emotion": "Distress",
+  "utterance": "I have been sitting here for hours, and absolutely nothing interesting has happened. This is incredibly tedious.",
+  "facial_actions": [
+    {
+      "AU": 4,
+      "Times": [0.0, 1.0, 2.5, 4.0, 5.5, 6.0],
+      "Intensities": [0, 20, 30, 25, 20, 20]
+    },
+    {
+      "AU": 15,
+      "Times": [0.0, 1.0, 2.5, 4.0, 5.5, 6.0],
+      "Intensities": [0, 15, 20, 25, 20, 20]
+    },
+    {
+      "AU": 45,
+      "Times": [0.0, 1.2, 1.4, 1.7, 3.5, 3.7, 4.0, 6.0],
+      "Intensities": [0, 0, 100, 0, 0, 100, 0, 0]
+    },
+    {
+      "AU": 54,
+      "Times": [0.0, 2.0, 4.0, 6.0],
+      "Intensities": [0, 20, 35, 40]
+    },
+    {
+      "AU": 61,
+      "Times": [0.0, 1.0, 2.0, 3.0, 4.0, 6.0],
+      "Intensities": [0, 40, 0, 0, 0, 0]
+    },
+    {
+      "AU": 62,
+      "Times": [0.0, 2.0, 3.0, 4.0, 6.0],
+      "Intensities": [0, 0, 30, 0, 0]
+    },
+    {
+      "AU": 64,
+      "Times": [0.0, 1.5, 3.0, 5.0, 6.0],
+      "Intensities": [0, 30, 40, 50, 50]
+    }
+  ]
+}

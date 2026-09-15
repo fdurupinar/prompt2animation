@@ -118,6 +118,9 @@ public class FACS : MonoBehaviour
     private Quaternion _jawRot; //We need this because animation overwrites the updates
     private float _jawAU26Weight;
     private float _jawAU27Weight;
+    // Original interpolated mouth-AU contributions; suppression is applied once in LateUpdate.
+    private readonly Dictionary<int, Vector2> _auFrameContributions = new Dictionary<int, Vector2>();
+    private readonly Dictionary<int, float> _mouthAUWeights = new Dictionary<int, float>();
 
     [Header("Jaw blending")]
     [Min(0f)] public float MaxJawAngle = 9f;
@@ -160,7 +163,8 @@ public class FACS : MonoBehaviour
     public AudioClip SpeechClip {
         
         set {
-            _audioSource.clip = value;
+            if (_audioSource == null) _audioSource = GetComponent<AudioSource>();
+            if (_audioSource != null) _audioSource.clip = value;
         }
     }
     AudioSource _audioSource;
@@ -176,6 +180,7 @@ public class FACS : MonoBehaviour
 
     public event System.Action OnAnimationComplete;
     private int _activeAUCoroutines = 0;
+    public bool IsAUAnimationPlaying => _activeAUCoroutines > 0;
 
 
     //RHUBARB
@@ -222,7 +227,7 @@ public class FACS : MonoBehaviour
         ShapeKeyTargets = new float[ShapeKeyCntBody + ShapeKeyCntTongue];
 
 
-        AUList = new List<ActionUnit>();
+        if (AUList == null) AUList = new List<ActionUnit>();
 
         
         _audioSource = gameObject.GetComponent<AudioSource>();
@@ -597,65 +602,6 @@ float GetSuppression(int auInd, string visemeName)
     
     
     
-    void UpdateAUIntensitiesBySpeech()
-    {
-    
-        foreach (ActionUnit au in AUList)
-        {
-            // Jaw AUs are suppressed once, using current speech weights in LateUpdate.
-            if (au.AU == 26 || au.AU == 27)
-                continue;
-    
-        
-                
-
-            // We iterate through segments: [i] to [i+1]
-            for (int i = 0; i < au.Times.Count-1; i++)
-            {
-            
-
-           
-                float auStart = au.Times[i];
-                float auEnd = au.Times[i + 1];
-                //  float t = au.Times[i];
-                float maxSuppression = 0f;
-
-                // Find all visemes that overlap with this AU interval
-                for (int v = 0; v < _visemeFrames.Count; v++)
-                {
-                    float vStart = _visemeFrames[v].time;
-                    // If it's the last frame, assume it lasts indefinitely or to a set duration
-                    float vEnd = (v < _visemeFrames.Count - 1) ? _visemeFrames[v + 1].time : float.MaxValue;
-
-                    // Check for interval overlap
-                    if (Mathf.Max(auStart, vStart) < Mathf.Min(auEnd, vEnd))
-                    //   if (t >= vStart && t < vEnd)
-                    {
-                    
-          
-                        float factor = GetSuppression(au.AU, _visemeFrames[v].viseme);
-                        
-                        // Debug.Log(ga)
-                        // If multiple visemes overlap one AU segment, 
-                        // we usually take the strongest suppression
-                        if (factor > maxSuppression) maxSuppression = factor;
-                    }
-                }
-
-                
-                // Apply suppression to the segment start point
-            //    au.Intensities[i] = au.InitialIntensities[i] * (1 - maxSuppression);
-            au.Intensities[i] = au.InitialIntensities[i] * (1 - maxSuppression);
-               // Apply suppression to the segment end  point if it is the last segment
-               //if(i == au.Times.Count-2) //does not make sense because then the last au time is later than the speech end. we don't need to suppress it.
-               //au.Intensities[i+1] = au.InitialIntensities[i+1] * (1 - maxSuppression);
-               
-//                if(maxSuppression > 0)
-               Debug.Log(au.InitialIntensities[i]+ " " + au.Intensities[i]);
-            }
-        }
-}
-
     IEnumerator AnimateAllAUShapeKeys(ActionUnit au) {
         int i = au.currInd;
         int last = au.Intensities.Count - 1;
@@ -686,6 +632,9 @@ float GetSuppression(int auInd, string visemeName)
             float t = Mathf.Clamp01(timeElapsed / duration);
             float percent = CatmullRom(v0, v1, v2, v3, t);
             float wPct = percent / 100f;
+            var original = au.InitialIntensities;
+            _auFrameContributions[au.AU] = new Vector2(
+                CatmullRom(original[i0], original[i1], original[i2], original[i3], t), percent);
 
         
             //if(au.AU==12)
@@ -700,7 +649,8 @@ float GetSuppression(int auInd, string visemeName)
 
 
 
-                _meshRendererBody.SetBlendShapeWeight(sk.Ind, blendW);
+                if (IsSuppressedMouthAU(au.AU)) _mouthAUWeights[au.AU] = wPct;
+                else _meshRendererBody.SetBlendShapeWeight(sk.Ind, blendW);
 
 
                 //Rotation
@@ -825,8 +775,10 @@ float GetSuppression(int auInd, string visemeName)
         // final snap to exact v2
         
         float finalPct = au.Intensities[i2] / 100f;
+        _auFrameContributions[au.AU] = new Vector2(au.InitialIntensities[i2], au.Intensities[i2]);
         foreach(ShapeKey sk in AUShapeKeys[au.AU]) {
-            _meshRendererBody.SetBlendShapeWeight(sk.Ind, sk.MaxValue * finalPct);
+            if (IsSuppressedMouthAU(au.AU)) _mouthAUWeights[au.AU] = finalPct;
+            else _meshRendererBody.SetBlendShapeWeight(sk.Ind, sk.MaxValue * finalPct);
             if (sk.Ind == _shapeKeyDict["JAW_OPEN"])
                 SetEmotionJawWeight(au.AU, sk.MaxValue * finalPct);
         }
@@ -840,25 +792,76 @@ float GetSuppression(int auInd, string visemeName)
         if (au == 27) _jawAU27Weight = Mathf.Max(0f, weight);
     }
 
-    float GetJawSuppression() {
-        if (SuppressionOff || !IsSpeechEnabled)
-            return 0f;
-
-        float suppression = 0f;
-        foreach (var viseme in VisemeDict) {
-            if (viseme.Key < 0) continue;
-            float factor = GetSuppression(26, viseme.Value);
-            // Preserve the closed-jaw constraints, including the correct F_V label.
-            if (viseme.Value == "B_M_P" || viseme.Value == "F_V" ||
-                viseme.Value == "CH_J" || viseme.Value == "S_Z")
-                factor = 1f;
-            suppression += _visemeWeight[viseme.Key] * factor;
+    // Applied percentages describe emotional AU contributions before rig composition and jaw capping.
+    public string GetSuppressionOverlayText() {
+        var text = new System.Text.StringBuilder();
+        var source = GetComponent<AudioSource>();
+        string viseme = source != null && source.isPlaying
+            ? (ActiveVisemeName ?? "SIL").Trim().ToUpperInvariant() : "SIL";
+        text.AppendLine("Viseme: " + viseme.Replace("_", "/"));
+        if (SuppressionOff) return text.Append("Suppression off").ToString();
+        text.AppendLine("AU suppression (% removed)");
+        if (AUList != null) {
+            foreach (int au in AUList.Select(a => a.AU).Distinct().OrderBy(a => a)) {
+                if (!VisemeDict.Values.Any(v => GetConfiguredSuppression(au, v) > 0f)) continue;
+                float configured = IsSpeechEnabled ? GetConfiguredSuppression(au, viseme) : 0f;
+                string applied = "—";
+                if (AUsOn && _auFrameContributions.TryGetValue(au, out var contribution)) {
+                    float multiplier = 1f;
+                    if (au == 26 || au == 27) multiplier -= GetJawSuppression();
+                    else multiplier -= GetFrameSuppression(au);
+                    float baseline = Mathf.Max(0f, contribution.x);
+                    if (baseline > 0.01f)
+                        applied = (100f * (1f - Mathf.Max(0f, contribution.y) * multiplier / baseline)).ToString("F0") + "%";
+                }
+                text.AppendLine(au == 12 ? "AU12 (smile)" : "AU" + au);
+                text.AppendLine("Configured: " + (100f * configured).ToString("F0") + "% | Applied: " + applied);
+            }
         }
+        return text.ToString().TrimEnd();
+    }
+
+    float GetConfiguredSuppression(int au, string viseme) {
+        if (SuppressionOff) return 0f;
+        // Match the jaw's stronger constraints for these speech shapes.
+        if ((au == 26 || au == 27) &&
+            (viseme == "B_M_P" || viseme == "F_V" || viseme == "CH_J" || viseme == "S_Z"))
+            return 1f;
+        return GetSuppression(au, viseme);
+    }
+
+    // Jaw AUs use the same rule but have their own combined jaw output below.
+    static bool IsSuppressedMouthAU(int au) {
+        return au == 10 || au == 12 || au == 15 || au == 16 || au == 17 ||
+            au == 18 || au == 20 || au == 22 || au == 23 || au == 24 || au == 25 || au == 28;
+    }
+
+    float GetFrameSuppression(int au) {
+        if (!IsSpeechEnabled || SuppressionOff) return 0f;
+        float suppression = 0f;
+        foreach (var viseme in VisemeDict)
+            if (viseme.Key >= 0)
+                suppression += _visemeWeight[viseme.Key] * GetConfiguredSuppression(au, viseme.Value);
         return Mathf.Clamp01(suppression);
+    }
+
+    float GetJawSuppression() {
+        return GetFrameSuppression(26);
     }
 
     public void LateUpdate()
     {
+        foreach (var mouth in _mouthAUWeights) {
+            float intensity = AUsOn ? mouth.Value * (1f - GetFrameSuppression(mouth.Key)) : 0f;
+            foreach (var shape in AUShapeKeys[mouth.Key]) {
+                float weight = shape.MaxValue * intensity;
+                // AU25 shares the IH blendshape with speech. Preserve the speech contribution,
+                // including when suppression fully removes the emotional contribution.
+                if (shape.Ind >= 0 && shape.Ind < _visemeWeight.Length)
+                    weight = Mathf.Max(weight, IsSpeechEnabled ? _visemeWeight[shape.Ind] * 100f : 0f);
+                _meshRendererBody.SetBlendShapeWeight(shape.Ind, weight);
+            }
+        }
         //Jaw and head must be updated here
         Head.localRotation = _headRot;
         Neck.localRotation = _neckRot;
@@ -888,7 +891,8 @@ float GetSuppression(int auInd, string visemeName)
         float emotionWeight = AUsOn ? Mathf.Max(_jawAU26Weight, _jawAU27Weight) : 0f;
         emotionWeight *= 1f - GetJawSuppression();
         float speechAngle = IsSpeechEnabled ? Mathf.Clamp01(jawOpen) * SpeechJawAngle : 0f;
-        float finalAngle = Mathf.Clamp(speechAngle + emotionWeight * 0.1f, 0f, MaxJawAngle);
+        // float finalAngle = Mathf.Clamp(speechAngle + emotionWeight * 0.1f, 0f, MaxJawAngle);
+        float finalAngle = Mathf.Clamp(speechAngle + emotionWeight, 0f, MaxJawAngle);
 
         _meshRendererBody.SetBlendShapeWeight(_shapeKeyDict["JAW_OPEN"], emotionWeight);
         _jawRot = _jawRotInit * Quaternion.Euler(0f, 0f, -finalAngle);
@@ -1037,6 +1041,8 @@ private IEnumerator GenerateAndPlaySpeech(string text)
     }
     
     public void ResetShapeKeys() {
+        _auFrameContributions.Clear();
+        _mouthAUWeights.Clear();
         Array.Clear(_visemeWeight, 0, _visemeWeight.Length);
         _jawAU26Weight = _jawAU27Weight = 0f;
         for(int i = 0; i < ShapeKeyCntBody + ShapeKeyCntTongue; i++) { 
@@ -1055,6 +1061,8 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         
         StopAllCoroutines();
 
+        _activeAUCoroutines = 0;
+
 
         
 
@@ -1062,11 +1070,10 @@ private IEnumerator GenerateAndPlaySpeech(string text)
         {
             
             
-            UpdateAUIntensitiesBySpeech();
-            Parsers.WriteAUs(Path.Combine(Application.dataPath,"Resources/Speech-Gradual/" + EmotionName), AUList);
+            // AU keyframes stay original; all suppression is evaluated during playback.
             _audioSource.Play();
             StartCoroutine(PlayVisemeSequence()); // Starts in the same frame as animating AUs
-                    Debug.Log(SuppressionOff);
+                    
             
         }
         

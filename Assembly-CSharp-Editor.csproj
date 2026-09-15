@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Reallusion/CCiC Unity Tools/Editor/WrinkleManagerEditor.cs" />
+    <Compile Include="Assets/Editor/OCCControllerEditor.cs" />
     <Compile Include="Assets/Editor/BatchRecorderSpeechEditor.cs" />
     <Compile Include="Assets/Editor/CC4SkinnedMeshRendererEditor.cs" />
     <Compile Include="Assets/Editor/BatchRecorderEditor.cs" />

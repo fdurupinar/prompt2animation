@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public class BatchRecorderSpeech : MonoBehaviour {
     [Header("Asset References")]
-    [Tooltip("The TextAsset that will be updated with each file from the folder. A script in your scene can read this asset to configure itself based on the file content.")]
+    [Tooltip("Any scenario JSON, including custom tests. Its basename selects Audio/<name> and Visemes/<name>_visemes under Resources.")]
     public TextAsset Scenario;
 
 #if UNITY_EDITOR
@@ -23,6 +23,52 @@ public class BatchRecorderSpeech : MonoBehaviour {
 
     [Tooltip("The duration (in seconds) to record for each scenario file. Use this for procedural animations that don't have a fixed AnimationClip length.")]
     public float recordingDuration = 10.0f;
+
+    [Min(0f)]
+    [Tooltip("Extra time recorded after the audio/animation duration to capture the final mouth transition. Applied equally to both suppression versions.")]
+    public float recordingTailSeconds = 0.5f;
+
+    [Header("Viseme subtitles")]
+    public bool showSuppressionOverlay = true;
+    [Tooltip("Also show subtitles in Play mode outside batch recording.")]
+    public bool previewOverlay;
+    [Tooltip("Show the viseme on suppression-off recordings too.")]
+    public bool showOverlayWithoutSuppression;
+    [Tooltip("Fixed top-center position in 1920x1080 reference pixels.")]
+    public Vector2 overlayPosition = new Vector2(960f, 620f);
+    [Min(250f)] public float overlayPanelWidth = 520f;
+    [System.NonSerialized] public bool IsRecording;
+    private GUIStyle overlayStyle;
+
+    private void OnGUI() {
+        if (!Application.isPlaying || !showSuppressionOverlay || (!IsRecording && !previewOverlay)) return;
+        var controller = GetComponent<OCCController>();
+        if (controller == null || controller.Agents == null) return;
+        if (overlayStyle == null) {
+            overlayStyle = new GUIStyle(GUI.skin.box) {
+                alignment = TextAnchor.UpperLeft, fontSize = 24,
+                padding = new RectOffset(18, 18, 14, 14), wordWrap = true
+            };
+            overlayStyle.normal.textColor = Color.white;
+        }
+        Matrix4x4 previous = GUI.matrix;
+        GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity,
+            new Vector3(Screen.width / 1920f, Screen.height / 1080f, 1f));
+        try {
+            float y = overlayPosition.y;
+            foreach (var agent in controller.Agents) {
+                var face = agent != null ? agent.GetComponent<FACS>() : null;
+                if (face == null || !face.IsSpeechEnabled ||
+                    (face.SuppressionOff && !showOverlayWithoutSuppression)) continue;
+                string text = face.GetSuppressionOverlayText();
+                float width = Mathf.Clamp(overlayPanelWidth, 250f, 1920f);
+                float height = overlayStyle.CalcHeight(new GUIContent(text), width);
+                float x = Mathf.Clamp(overlayPosition.x - width / 2f, 0f, 1920f - width);
+                GUI.Box(new Rect(x, y, width, height), text, overlayStyle);
+                y += height + 12f;
+            }
+        } finally { GUI.matrix = previous; }
+    }
 
     // Retain immediate playback for callers outside the recording editor.
     public void SetCurrentlyProcessingFile() {

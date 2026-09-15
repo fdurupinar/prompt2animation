@@ -53,6 +53,8 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.6.0f1/Unity.app/Contents/Resources/Scripting/BCLExtensions/TargetingPacks/netstandard2.1/analyzers/dotnet/roslyn4.0/cs/System.Text.Json.SourceGeneration.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/Face/PhonemeToVisemeConverter.cs" />
+    <Compile Include="Assets/Scripts/Face/PocketSphinxAligner.cs" />
     <Compile Include="Assets/Scripts/GPT/ChatManager.cs" />
     <Compile Include="Assets/Scripts/CameraControl3dsMaxStyle.cs" />
     <Compile Include="Assets/Scripts/Face/FACS_Visualizer_2D.cs" />

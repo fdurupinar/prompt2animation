@@ -1,0 +1,4 @@
+# Pinned source revision: the 5.1.1 release can fail during state alignment.
+pocketsphinx @ https://github.com/cmusphinx/pocketsphinx/archive/f20ff1b7a5db64c5e892a798479e20df86e79a35.zip
+numpy>=1.26,<3
+scipy>=1.11,<2

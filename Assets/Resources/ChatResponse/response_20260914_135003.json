@@ -1,0 +1,37 @@
+{
+  "duration": 5.5,
+  "emotion": "Distress",
+  "utterance": "I've been staring at this same spreadsheet for three hours... and the clock hasn't even moved.",
+  "facial_actions": [
+    {
+      "AU": 4,
+      "Times": [0.0, 1.0, 2.5, 4.0, 5.5],
+      "Intensities": [0, 20, 25, 25, 30]
+    },
+    {
+      "AU": 15,
+      "Times": [0.0, 1.0, 2.5, 4.0, 5.5],
+      "Intensities": [0, 15, 20, 20, 25]
+    },
+    {
+      "AU": 17,
+      "Times": [0.0, 1.0, 2.5, 4.0, 5.5],
+      "Intensities": [0, 10, 15, 15, 20]
+    },
+    {
+      "AU": 43,
+      "Times": [0.0, 1.0, 2.5, 4.0, 5.5],
+      "Intensities": [0, 35, 40, 45, 55]
+    },
+    {
+      "AU": 54,
+      "Times": [0.0, 1.0, 2.5, 4.0, 5.5],
+      "Intensities": [0, 15, 30, 45, 50]
+    },
+    {
+      "AU": 64,
+      "Times": [0.0, 1.0, 2.5, 4.0, 5.5],
+      "Intensities": [0, 20, 40, 50, 60]
+    }
+  ]
+}

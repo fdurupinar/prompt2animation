@@ -1,15 +1,38 @@
-Task: Output a JSON array mapping the provided audio to visemes. Use
+Task: Analyze the provided audio and output a timed viseme sequence.
 
-ONLY the viseme following visemes: [EE, ER, IH, AH, OH, AE, W_OO, S_Z,
+Audio duration: <measured duration in seconds>
+Expected transcript: <transcript>
 
-CH_J, F_V, TH, T_L_D_N, B_M_P, K_G_H_NG, R, sil]
+Use ONLY these viseme labels:
+[EE, ER, IH, AH, OH, AE, W_OO, S_Z, CH_J, F_V, TH,
+T_L_D_N, B_M_P, K_G_H_NG, R, sil]
 
-Format: [{"time": 0.000, "viseme": "sil"}, ...]
+Output format:
+[{"time": 0.000, "viseme": "sil"}, ...]
 
-Rules:
+Timing rules:
+- Use seconds measured from the beginning of the audio file.
+- Each timestamp marks the onset of a viseme. That viseme remains
+  active until the next timestamp.
+- Determine timing from the audio, not from word count, character
+  count, or evenly spaced intervals.
+- Preserve the audio's original timing. Do not stretch or compress
+  timestamps to match an emotional animation duration.
+- Use the transcript to identify words, but use the audio to locate
+  their boundaries. Do not assign sounds to words absent from the audio.
+- Represent leading silence and audible pauses with "sil".
+- Place B_M_P at the lip-closure interval for /b/, /m/, or /p/,
+  rather than only at the consonant's release.
+- Include the final spoken sounds without truncation.
+- If trailing silence exists, place "sil" where speech ends, not
+  merely at the audio file's endpoint.
+- All timestamps must be nonnegative, strictly increasing, and
+  no greater than the supplied audio duration.
+- Merge consecutive entries with the same viseme.
+- Do not add a final entry solely to make the last timestamp equal
+  the audio duration.
 
+Output rules:
+- Each object must contain exactly "time" and "viseme".
 - Do not invent or substitute labels.
-
-- Start with "sil" if speech does not begin immediately.
-
-- Output ONLY raw JSON. No preamble or markdown
+- Output ONLY valid JSON. No preamble or markdown.

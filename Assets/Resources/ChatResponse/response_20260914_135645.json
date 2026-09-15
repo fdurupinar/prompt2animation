@@ -1,0 +1,42 @@
+{
+  "duration": 5.5,
+  "emotion": "Anger",
+  "utterance": "I cannot believe you lost my luggage! This is completely unacceptable!",
+  "facial_actions": [
+    {
+      "AU": 4,
+      "Times": [0.0, 0.8, 2.5, 4.2, 5.5],
+      "Intensities": [0, 70, 90, 100, 85]
+    },
+    {
+      "AU": 5,
+      "Times": [0.0, 0.8, 2.5, 4.2, 5.5],
+      "Intensities": [0, 60, 50, 75, 60]
+    },
+    {
+      "AU": 7,
+      "Times": [0.0, 0.8, 2.5, 4.2, 5.5],
+      "Intensities": [0, 50, 80, 85, 75]
+    },
+    {
+      "AU": 10,
+      "Times": [0.0, 0.8, 2.5, 4.2, 5.5],
+      "Intensities": [0, 40, 50, 70, 30]
+    },
+    {
+      "AU": 23,
+      "Times": [0.0, 0.8, 2.5, 4.2, 5.5],
+      "Intensities": [0, 10, 60, 20, 50]
+    },
+    {
+      "AU": 53,
+      "Times": [0.0, 0.8, 2.5, 4.2, 5.5],
+      "Intensities": [0, 20, 30, 40, 30]
+    },
+    {
+      "AU": 57,
+      "Times": [0.0, 0.8, 2.5, 4.2, 5.5],
+      "Intensities": [0, 40, 60, 80, 70]
+    }
+  ]
+}

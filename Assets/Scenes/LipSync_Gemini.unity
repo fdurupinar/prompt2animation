@@ -6867,7 +6867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OCCController
   Scenarios:
-  - {fileID: 4900000, guid: d8a0159b56835487c8d8c5270ae84e1e, type: 3}
+  - {fileID: 4900000, guid: 43dd0bbc8026f4ac69c433aba1d11635, type: 3}
   heatmapAnalyzer: {fileID: 543450652274150221}
   Agents:
   - {fileID: 1296814085}
@@ -6885,11 +6885,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf99d569065648ddaea80e5f1d4916f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BatchRecorderSpeech
-  Scenario: {fileID: 4900000, guid: d8a0159b56835487c8d8c5270ae84e1e, type: 3}
+  Scenario: {fileID: 4900000, guid: ed7b6469b5a5c4ebeb71fd35b01b2cde, type: 3}
   sourceFolder: {fileID: 102900000, guid: 8cd0631cb76b64a709787f0ed7088cde, type: 3}
   videoResolution: {x: 1920, y: 1080}
-  outputFolder: RecordingsSpeechNoExpression
+  outputFolder: LipSyncComparison
   recordingDuration: 10
+  recordingTailSeconds: 0.5
+  showSuppressionOverlay: 1
+  previewOverlay: 0
+  showOverlayWithoutSuppression: 0
+  overlayPosition: {x: 960, y: 620}
+  overlayPanelWidth: 520
 --- !u!1 &778301581
 GameObject:
   m_ObjectHideFlags: 0
@@ -19065,7 +19071,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f84d09c03c4a84b0ea96d693c3265f3b, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8e71018716c8841c98b98cf923630754, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -19281,7 +19287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5, type: 3}
       propertyPath: AUsOn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5, type: 3}
       propertyPath: VisemesOn
@@ -19308,13 +19314,17 @@ PrefabInstance:
       value: "[\n  { \"time\": 0.000, \"viseme\": \"sil\" },\n  { \"time\": 0.080, \"viseme\": \"TH\" },\n  { \"time\": 0.140, \"viseme\": \"AH\" },\n  { \"time\": 0.240, \"viseme\": \"K_G_H_NG\" },\n  { \"time\": 0.320, \"viseme\": \"W_OO\" },\n  { \"time\": 0.380, \"viseme\": \"IH\" },\n  { \"time\": 0.440, \"viseme\": \"K_G_H_NG\" },\n  { \"time\": 0.540, \"viseme\": \"B_M_P\" },\n  { \"time\": 0.600, \"viseme\": \"R\" },\n  { \"time\": 0.660, \"viseme\": \"AH\" },\n  { \"time\": 0.720, \"viseme\": \"W_OO\" },\n  { \"time\": 0.800, \"viseme\": \"T_L_D_N\" },\n  { \"time\": 0.900, \"viseme\": \"F_V\" },\n  { \"time\": 0.980, \"viseme\": \"OH\" },\n  { \"time\": 1.080, \"viseme\": \"K_G_H_NG\" },\n  { \"time\": 1.160, \"viseme\": \"S_Z\" },\n  { \"time\": 1.260, \"viseme\": \"CH_J\" },\n  { \"time\": 1.340, \"viseme\": \"AH\" },\n  { \"time\": 1.420, \"viseme\": \"B_M_P\" },\n  { \"time\": 1.520, \"viseme\": \"S_Z\" },\n  { \"time\": 1.620, \"viseme\": \"OH\" },\n  { \"time\": 1.700, \"viseme\": \"W_OO\" },\n  { \"time\": 1.780, \"viseme\": \"F_V\" },\n  { \"time\": 1.880, \"viseme\": \"ER\" },\n  { \"time\": 1.980, \"viseme\": \"TH\" },\n  { \"time\": 2.060, \"viseme\": \"AH\" },\n  { \"time\": 2.160, \"viseme\": \"T_L_D_N\" },\n  { \"time\": 2.240, \"viseme\": \"AE\" },\n  { \"time\": 2.340, \"viseme\": \"S_Z\" },\n  { \"time\": 2.440, \"viseme\": \"EE\" },\n  { \"time\": 2.540, \"viseme\": \"T_L_D_N\" },\n  { \"time\": 2.620, \"viseme\": \"OH\" },\n  { \"time\": 2.720, \"viseme\": \"K_G_H_NG\" },\n  { \"time\": 2.790, \"viseme\": \"sil\" }\n]"
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5, type: 3}
+      propertyPath: SuppressionOff
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5, type: 3}
       propertyPath: rawRhubarbData
       value: "0.000\tsil\n0.100\t\tTH\n0.180\t\tAH\n0.300\tK_G_H_NG\n0.350\tW_OO\n0.400\tIH\n0.480\tK_G_H_NG\n0.600\tB_M_P\n0.650\tR\n0.700\tAH\n0.800\tW_OO\n0.850\tT_L_D_N\n1.000\tF_V\n1.100\tOH\n1.200\tK_G_H_NG\n1.280\tS_Z\n1.400\tCH_J\n1.480\tAH\n1.550\t\tB_M_P\n1.650\t\tS_Z\n1.800\tOH\n1.880\tW_OO\n1.950\tF_V\n2.050\tER\n2.200\tTH\n2.280\tAH\n2.400\tT_L_D_N\n2.500\tAE\n2.600\tS_Z\n2.700\tEE\n2.850\tT_L_D_N\n2.950\tOH\n3.100\t\tK_G_H_NG\n3.300\tsil"
       objectReference: {fileID: 0}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5, type: 3}
       propertyPath: visemeJsonFile
       value: 
-      objectReference: {fileID: 4900000, guid: d8a0159b56835487c8d8c5270ae84e1e, type: 3}
+      objectReference: {fileID: 4900000, guid: c9d7a4d94987f4b49bd0e06fd8a79aca, type: 3}
     - target: {fileID: 6536768322747864032, guid: f23ce52813c714b5aa34e1bc7a5fe4b5, type: 3}
       propertyPath: IsSpeechEnabled
       value: 1

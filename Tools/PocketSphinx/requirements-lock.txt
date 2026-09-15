@@ -1,0 +1,6 @@
+cffi==2.1.1
+numpy==2.5.3
+pocketsphinx @ https://github.com/cmusphinx/pocketsphinx/archive/f20ff1b7a5db64c5e892a798479e20df86e79a35.zip#sha256=0151df65203566c8bf5682630f09e666cad268a7756ada47872fc8347f6636bb
+pycparser==3.0
+scipy==1.18.1
+sounddevice==0.5.6

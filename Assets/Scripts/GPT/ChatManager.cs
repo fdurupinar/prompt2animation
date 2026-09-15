@@ -47,6 +47,12 @@ public class ChatManager : MonoBehaviour
 
 
     
+    [Header("Speech timing")]
+    [Tooltip("Use local PocketSphinx alignment of the spoken transcript instead of requesting visemes from Gemini.")]
+    public bool usePocketSphinxAlignment;
+    [Tooltip("Optional aligner with custom Python path/pronunciations. If empty, a default component is added when needed.")]
+    public PocketSphinxAligner pocketSphinxAligner;
+
     private string _savePath;
     private string _chatResponsePath;
     private GameObject _progressObject;
@@ -183,11 +189,24 @@ public class ChatManager : MonoBehaviour
         string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
         string filePath = Path.Combine(_chatResponsePath, $"response_{timestamp}.json");
         File.WriteAllText(filePath, trimmed);
-        if (OCCController.Instance != null) OCCController.Instance.SetLatestChatResponse(trimmed);
         StartCoroutine(SynthesizeAndExtractVisemes(trimmed));
     }
 
     private IEnumerator SynthesizeAndExtractVisemes(string animationJson) {
+        var controller = OCCController.Instance;
+        if (controller != null && controller.IsPreparingSpeech) {
+            Debug.LogWarning("Wait for the current speech preparation to finish.");
+            yield break;
+        }
+        if (controller != null) controller.IsPreparingSpeech = true;
+        try { yield return PrepareSpeech(animationJson); }
+        finally {
+            if (controller != null) controller.IsPreparingSpeech = false;
+            HideProgress();
+        }
+    }
+
+    private IEnumerator PrepareSpeech(string animationJson) {
         // 1. Parse the utterance from the animation JSON
         var (_, utterance, _) = Parsers.ParseJson(animationJson);
         if (string.IsNullOrEmpty(utterance)) yield break;
@@ -227,6 +246,25 @@ public class ChatManager : MonoBehaviour
         AudioClip clip = DownloadHandlerAudioClip.GetContent(audioRequest);
         if (clip == null) {
             Debug.LogError("Synthesized WAV did not produce an audio clip.");
+            yield break;
+        }
+
+        if (usePocketSphinxAlignment) {
+            ShowProgress("Aligning speech with PocketSphinx...");
+            if (pocketSphinxAligner == null)
+                pocketSphinxAligner = GetComponent<PocketSphinxAligner>() ?? gameObject.AddComponent<PocketSphinxAligner>();
+            PocketSphinxAligner.Result aligned = null;
+            string alignmentError = null;
+            yield return pocketSphinxAligner.Align(wavPath, utterance,
+                result => aligned = result, error => alignmentError = error);
+            if (aligned == null || alignmentError != null || Mathf.Abs(aligned.duration - clip.length) > 0.02f) {
+                string message = alignmentError ?? "Aligned audio duration does not match the loaded clip.";
+                Debug.LogError("Speech alignment failed: " + message);
+                AddMessageToUI("Speech alignment failed: " + message + " Previous playback data was not replaced.", llmMessagePrefab);
+                Destroy(clip);
+                yield break;
+            }
+            CompleteSpeechPreparation(animationJson, wavPath, aligned.VisemeJson, clip);
             yield break;
         }
 
@@ -286,20 +324,18 @@ public class ChatManager : MonoBehaviour
             if (visemeText.EndsWith("```")) visemeText = visemeText[..visemeText.LastIndexOf("```")].TrimEnd();
         }
 
-        // 8. Save viseme JSON to Resources/Speech/
+        CompleteSpeechPreparation(animationJson, wavPath, visemeText, clip);
+    }
+
+    private void CompleteSpeechPreparation(string animationJson, string wavPath, string visemeText, AudioClip clip) {
         string speechDir = Path.Combine(Application.dataPath, "Resources", "Visemes");
-        if (!Directory.Exists(speechDir)) Directory.CreateDirectory(speechDir);
-        string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-        File.WriteAllText(Path.Combine(speechDir, $"visemes_{timestamp}.json"), visemeText);
-
-        // 9. Push viseme data to all agents
-        if (OCCController.Instance != null)
+        Directory.CreateDirectory(speechDir);
+        File.WriteAllText(Path.Combine(speechDir, Path.GetFileNameWithoutExtension(wavPath) + "_visemes.json"), visemeText);
+        if (OCCController.Instance != null) {
             OCCController.Instance.SetVisemeData(visemeText);
-
-        // 10. Use the audio clip whose timing was supplied to Gemini.
-        if (OCCController.Instance != null)
             OCCController.Instance.SetSpeechClip(clip);
-
+            OCCController.Instance.SetLatestChatResponse(animationJson);
+        }
         HideProgress();
         AddMessageToUI("Animation and visemes are ready. You can now play the animation.", llmMessagePrefab);
         ScrollToBottom();
