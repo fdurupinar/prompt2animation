@@ -21,9 +21,9 @@ If upgrading an environment that already has the 5.1.1 release, force replacemen
 Tools/PocketSphinx/.venv/bin/python3 -m pip install --force-reinstall --no-deps "pocketsphinx @ https://github.com/cmusphinx/pocketsphinx/archive/f20ff1b7a5db64c5e892a798479e20df86e79a35.zip"
 ```
 
-A local environment has been installed for this workspace. The environment is not committed or bundled into a player build.
+Create this environment on each machine using the commands above. It is not committed or bundled into a player build. The local integration has been tested with Python 3.13.
 
-The default Python path is this project's `.venv/bin/python3`. For another interpreter, add a **Pocket Sphinx Aligner** component, set **Python Executable** to its absolute path, and assign that component to Chat Manager's **Pocket Sphinx Aligner** slot. Desktop builds require an explicitly configured Python runtime. This integration does not support WebGL or mobile sandbox execution. The existing speech synthesis path uses macOS `/usr/bin/say`.
+The default Python path is `Tools/PocketSphinx/.venv/bin/python3` relative to the project root. For another interpreter, add a **Pocket Sphinx Aligner** component, set **Python Executable** to its absolute path, and assign that component to Chat Manager's **Pocket Sphinx Aligner** slot. Desktop builds require an explicitly configured Python runtime. This integration does not support WebGL or mobile sandbox execution. The existing speech synthesis path uses macOS `/usr/bin/say`.
 
 **Pronunciation Overrides** optionally accepts a TextAsset containing an English-word-to-ARPAbet dictionary, for example:
 

@@ -58,12 +58,7 @@ public class ChatManager : MonoBehaviour
     private GameObject _progressObject;
     
     
-    public class ChatHistoryWrapper
-    {
-        public string timestamp;
-        public List<Content> messages;
-}
-
+    
 
     // List to maintain the conversation history for the API
     private List<Content> chatHistory;
