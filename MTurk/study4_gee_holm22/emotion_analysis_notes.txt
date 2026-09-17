@@ -1,0 +1,12 @@
+Exploratory emotion-level comparisons: 88/88 estimable; 31 significant after Holm correction across emotions separately within each outcome.
+Expression > midpoint 4: 36 significant of 88 planned tests; 88 estimable.
+Midpoint tests are one-sided expression > 4, averaging fixed scenario means equally. Holm correction is applied across 22 emotions separately within each outcome and test type (condition contrast or midpoint), giving eight separate families. Overall analyses are unchanged.
+Models: Gaussian exchangeable GEE, clustered by worker, with fixed scenario-variant effects.
+Effects are expression minus no-expression, assumed constant across variants within each emotion.
+GEE Wald tests are asymptotic. With few workers, p-values and CIs may be unreliable; the CSV flags models with fewer than 30 workers (a diagnostic, not a validity cutoff).
+Inference is conditional on the five observed variants, not a random sample of new scenarios.
+Bars show equally weighted scenario means, which may differ from pooled rating means or GEE-adjusted estimates under imbalance.
+Error bars are pointwise percentile worker-cluster bootstrap 95% CIs, not multiplicity-adjusted; their overlap is not a test of condition differences.
+Bootstrap: 2000 replicates, seed 20260916. CIs withheld when fewer than 95% of replicates cover all five variants.
+These comparisons do not test whether one emotion has higher ratings than another emotion.
+No statistical significance conclusion follows from unavailable contrasts.
